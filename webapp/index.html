@@ -24,7 +24,13 @@
       <span class="brand-title">TOEIC 770 Planner</span>
       <span class="brand-sub">510 → 770 · 30 min/day</span>
     </div>
-    <div id="score-badge" class="score-badge"></div>
+    <div class="header-right">
+      <div id="score-badge" class="score-badge"></div>
+      <div class="sync-box">
+        <button id="sync-btn" class="btn small" type="button" style="display:none">☁︎ ล็อกอินซิงก์</button>
+        <span id="sync-status" class="tiny-muted"></span>
+      </div>
+    </div>
   </header>
 
   <nav class="tabs" id="tabs">
@@ -56,5 +62,13 @@
 <script src="data/mock.js"></script>
 <script src="data/plan.js"></script>
 <script src="app.js"></script>
+
+<!-- Optional cloud sync (Firebase). Loads only on a real host; harmless if
+     the config is left with placeholders. See firebase-config.js. -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="sync.js"></script>
 </body>
 </html>

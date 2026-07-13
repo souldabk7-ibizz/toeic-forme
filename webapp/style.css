@@ -76,6 +76,20 @@ body {
 .brand-title { display: block; font-size: 1.15rem; font-weight: 700; }
 .brand-sub { display: block; font-size: 0.8rem; color: var(--text-secondary); }
 
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.sync-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+#sync-status { max-width: 200px; text-align: right; }
+
 .score-badge {
   font-size: 0.8rem;
   color: var(--text-secondary);
