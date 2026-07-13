@@ -77,14 +77,32 @@
 
   /* ---------- speech ---------- */
   var speechRate = 1;
+  var enVoice = null;
   function canSpeak() { return "speechSynthesis" in window; }
+  function pickVoice() {
+    if (!canSpeak()) return;
+    var voices = window.speechSynthesis.getVoices() || [];
+    // Prefer a US English voice, then any English voice.
+    enVoice = voices.filter(function (v) { return /^en[-_]US/i.test(v.lang); })[0] ||
+              voices.filter(function (v) { return /^en/i.test(v.lang); })[0] || null;
+  }
+  if (canSpeak()) {
+    pickVoice();
+    // iOS/Safari load voices asynchronously.
+    window.speechSynthesis.onvoiceschanged = pickVoice;
+  }
   function speak(text) {
     if (!canSpeak()) return;
-    window.speechSynthesis.cancel();
+    var synth = window.speechSynthesis;
+    synth.cancel();
+    if (!enVoice) pickVoice();
     var u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US";
+    if (enVoice) u.voice = enVoice;
+    u.lang = enVoice ? enVoice.lang : "en-US";
     u.rate = speechRate;
-    window.speechSynthesis.speak(u);
+    synth.speak(u);
+    // iOS sometimes leaves the queue paused after cancel(); nudge it.
+    if (synth.paused) synth.resume();
   }
 
   /* ---------- tabs ---------- */
