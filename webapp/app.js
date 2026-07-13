@@ -515,6 +515,120 @@
     });
   }
 
+  /* ================= MOCK (full practice sets) ================= */
+  var mockState = { set: 1 };
+  var mockGroups = [];
+
+  function mockQBlocks(key, items, mode) {
+    mockGroups.push({ key: key, data: items });
+    var h = "";
+    items.forEach(function (item, qi) {
+      h += '<div class="q-block" data-section="' + key + '" data-qi="' + qi + '"><div class="q-text">';
+      if (mode === "play") h += "Q" + (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(item.q) + '">▶ ฟัง</button>';
+      else if (mode === "blank") h += "ช่องที่ " + (qi + 1);
+      else if (mode === "sentence") h += (qi + 1) + ". " + item.sentence;
+      else h += (qi + 1) + ". " + item.q;
+      h += "</div>";
+      item.choices.forEach(function (c, ci) {
+        h += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="' + key + "-" + qi + '" value="' + ci + '"> ' + c + "</label>";
+      });
+      h += "</div>";
+    });
+    return h;
+  }
+
+  function renderMock() {
+    var root = $("#tab-mock");
+    var data = MOCK.sets[mockState.set - 1];
+    mockGroups = [];
+    var speechNote = canSpeak() ? "" : '<div class="tiny-muted">เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง ลองใช้ Chrome, Edge หรือ Safari</div>';
+
+    var html = "";
+    html += '<div class="card"><h2>ข้อสอบชุด (Mock Test)</h2>';
+    html += '<div class="muted">ทำทั้งชุด (Listening + Reading) แล้วกด “ตรวจคำตอบทั้งชุด” ด้านล่างเพื่อดูคะแนน</div>';
+    html += '<div class="btn-row"><select id="mock-set">' + MOCK.sets.map(function (s) {
+      return '<option value="' + s.set + '"' + (s.set === mockState.set ? " selected" : "") + ">" + s.title + "</option>";
+    }).join("") + "</select>";
+    html += '<button class="btn small" id="m-rate-normal">ความเร็วปกติ</button>';
+    html += '<button class="btn small" id="m-rate-slow">ความเร็วช้า</button></div>' + speechNote + "</div>";
+
+    html += '<div class="card"><h3>Part 2 · ถาม-ตอบสั้น</h3><div class="tiny-muted">กด “▶ ฟัง” เพื่อฟังคำถาม แล้วเลือกคำตอบที่เหมาะสมที่สุด</div>';
+    html += mockQBlocks("m-p2", data.listening.part2, "play");
+    html += "</div>";
+
+    html += '<div class="card"><h3>Part 3 · บทสนทนา</h3>';
+    data.listening.part3.forEach(function (conv, ci) {
+      html += '<div class="script-box">' + conv.lines.join("<br>") + "</div>";
+      html += '<button class="btn small play-all-btn" data-lines="' + escapeAttr(JSON.stringify(conv.lines)) + '">▶ ฟังบทสนทนา ' + (ci + 1) + "</button>";
+      html += mockQBlocks("m-p3-" + ci, conv.questions, "text");
+    });
+    html += "</div>";
+
+    html += '<div class="card"><h3>Part 4 · พูดคนเดียว/ประกาศ</h3>';
+    data.listening.part4.forEach(function (talk, ti) {
+      html += '<div class="script-box">' + talk.script + "</div>";
+      html += '<button class="btn small play-btn" data-text="' + escapeAttr(talk.script) + '">▶ ฟัง</button>';
+      html += mockQBlocks("m-p4-" + ti, talk.questions, "text");
+    });
+    html += "</div>";
+
+    html += '<div class="card"><h3>Part 5 · เติมคำในประโยค</h3>';
+    html += mockQBlocks("m-p5", data.reading.part5, "sentence");
+    html += "</div>";
+
+    html += '<div class="card"><h3>Part 6 · เติมคำในบทความ</h3>';
+    html += '<div class="script-box">' + data.reading.part6.passage + "</div>";
+    html += mockQBlocks("m-p6b", data.reading.part6.blanks, "blank");
+    html += mockQBlocks("m-p6q", data.reading.part6.questions, "text");
+    html += "</div>";
+
+    html += '<div class="card"><h3>Part 7 · อ่านจับใจความ</h3>';
+    data.reading.part7.forEach(function (psg, pi) {
+      html += '<div class="script-box">' + psg.passage + "</div>";
+      html += mockQBlocks("m-p7-" + pi, psg.questions, "text");
+    });
+    html += "</div>";
+
+    html += '<div class="card"><div class="btn-row"><button class="btn primary" id="mock-grade">ตรวจคำตอบทั้งชุด</button></div><div id="mock-result" class="muted" style="margin-top:8px"></div></div>';
+
+    root.innerHTML = html;
+
+    $("#mock-set").addEventListener("change", function (e) { mockState.set = Number(e.target.value); renderMock(); });
+    $("#m-rate-normal").addEventListener("click", function () { speechRate = 1; });
+    $("#m-rate-slow").addEventListener("click", function () { speechRate = 0.75; });
+    $$(".play-btn", root).forEach(function (b) { b.addEventListener("click", function () { speak(b.dataset.text); }); });
+    $$(".play-all-btn", root).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var lines = JSON.parse(b.dataset.lines);
+        var text = lines.map(function (l) { return l.replace(/^[MW]:\s*/, ""); }).join(". ");
+        speak(text);
+      });
+    });
+    $("#mock-grade").addEventListener("click", function () {
+      var total = 0, correct = 0;
+      mockGroups.forEach(function (g) {
+        g.data.forEach(function (item, qi) {
+          total++;
+          var block = $('.q-block[data-section="' + g.key + '"][data-qi="' + qi + '"]', root);
+          var picked = null;
+          $$(".choice-row", block).forEach(function (row) {
+            if (row.querySelector("input").checked) picked = Number(row.dataset.c);
+          });
+          $$(".choice-row", block).forEach(function (row) {
+            var cc = Number(row.dataset.c);
+            row.classList.remove("correct", "incorrect");
+            if (cc === item.answer) row.classList.add("correct");
+            else if (cc === picked) row.classList.add("incorrect");
+          });
+          if (picked === item.answer) correct++;
+        });
+      });
+      var pct = Math.round((correct / total) * 100);
+      var res = $("#mock-result");
+      res.innerHTML = "คะแนนรวมทั้งชุด: <b>" + correct + " / " + total + "</b> (" + pct + "%) — เฉลยขึ้นสีเขียว (ถูก) / สีแดง (ที่เลือกผิด) ในแต่ละข้อแล้ว";
+    });
+  }
+
   /* ================= PLAN ================= */
   function renderPlan() {
     var root = $("#tab-plan");
@@ -655,6 +769,7 @@
     vocab: renderVocab,
     listening: renderListening,
     reading: renderReading,
+    mock: renderMock,
     plan: renderPlan,
     progress: renderProgress
   };
