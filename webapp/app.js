@@ -714,13 +714,17 @@
     var h = "";
     items.forEach(function (item, qi) {
       h += '<div class="q-block" data-section="' + key + '" data-qi="' + qi + '"><div class="q-text">';
-      if (mode === "play") h += "Q" + (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(item.q) + '">▶ ฟัง</button>';
+      if (mode === "photo") {
+        var spoken = item.scene + " Option A. " + item.choices[0] + " Option B. " + item.choices[1] + " Option C. " + item.choices[2] + " Option D. " + item.choices[3];
+        h += (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(spoken) + '">▶ ฟัง</button><div class="tiny-muted">ภาพ: ' + item.scene + "</div>";
+      } else if (mode === "play") h += "Q" + (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(item.q) + '">▶ ฟัง</button>';
       else if (mode === "blank") h += "ช่องที่ " + (qi + 1);
       else if (mode === "sentence") h += (qi + 1) + ". " + item.sentence;
       else h += (qi + 1) + ". " + item.q;
       h += "</div>";
       item.choices.forEach(function (c, ci) {
-        h += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="' + key + "-" + qi + '" value="' + ci + '"> ' + c + "</label>";
+        var label = mode === "photo" ? String.fromCharCode(65 + ci) + ". " + c : c;
+        h += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="' + key + "-" + qi + '" value="' + ci + '"> ' + label + "</label>";
       });
       h += "</div>";
     });
@@ -735,18 +739,22 @@
 
     var html = "";
     html += '<div class="card"><h2>ข้อสอบชุด (Mock Test)</h2>';
-    html += '<div class="muted">ทำทั้งชุด (Listening + Reading) แล้วกด “ตรวจคำตอบทั้งชุด” ด้านล่างเพื่อดูคะแนน</div>';
+    html += '<div class="muted">ข้อสอบเสมือนจริงเต็มรูปแบบ 200 ข้อ (Listening 100 + Reading 100) ตามสัดส่วนจริงของ TOEIC — ทำทั้งชุดแล้วกด “ตรวจคำตอบทั้งชุด” ด้านล่างเพื่อดูคะแนน</div>';
     html += '<div class="btn-row"><select id="mock-set">' + MOCK.sets.map(function (s) {
       return '<option value="' + s.set + '"' + (s.set === mockState.set ? " selected" : "") + ">" + s.title + "</option>";
     }).join("") + "</select>";
     html += '<button class="btn small" id="m-rate-normal">ความเร็วปกติ</button>';
     html += '<button class="btn small" id="m-rate-slow">ความเร็วช้า</button></div>' + speechNote + "</div>";
 
-    html += '<div class="card"><h3>Part 2 · ถาม-ตอบสั้น</h3><div class="tiny-muted">กด “▶ ฟัง” เพื่อฟังคำถาม แล้วเลือกคำตอบที่เหมาะสมที่สุด</div>';
+    html += '<div class="card"><h3>Part 1 · บรรยายภาพ (6 ข้อ)</h3><div class="tiny-muted">อ่านคำบรรยายภาพ แล้วกด “▶ ฟัง” เพื่อฟังตัวเลือก A-D เลือกประโยคที่ตรงกับภาพที่สุด</div>';
+    html += mockQBlocks("m-p1", data.listening.part1, "photo");
+    html += "</div>";
+
+    html += '<div class="card"><h3>Part 2 · ถาม-ตอบสั้น (25 ข้อ)</h3><div class="tiny-muted">กด “▶ ฟัง” เพื่อฟังคำถาม แล้วเลือกคำตอบที่เหมาะสมที่สุด</div>';
     html += mockQBlocks("m-p2", data.listening.part2, "play");
     html += "</div>";
 
-    html += '<div class="card"><h3>Part 3 · บทสนทนา</h3>';
+    html += '<div class="card"><h3>Part 3 · บทสนทนา (13 บท x 3 ข้อ = 39 ข้อ)</h3>';
     data.listening.part3.forEach(function (conv, ci) {
       html += '<div class="script-box">' + conv.lines.join("<br>") + "</div>";
       html += '<button class="btn small play-all-btn" data-lines="' + escapeAttr(JSON.stringify(conv.lines)) + '">▶ ฟังบทสนทนา ' + (ci + 1) + "</button>";
@@ -754,7 +762,7 @@
     });
     html += "</div>";
 
-    html += '<div class="card"><h3>Part 4 · พูดคนเดียว/ประกาศ</h3>';
+    html += '<div class="card"><h3>Part 4 · พูดคนเดียว/ประกาศ (10 บท x 3 ข้อ = 30 ข้อ)</h3>';
     data.listening.part4.forEach(function (talk, ti) {
       html += '<div class="script-box">' + talk.script + "</div>";
       html += '<button class="btn small play-btn" data-text="' + escapeAttr(talk.script) + '">▶ ฟัง</button>';
@@ -762,24 +770,40 @@
     });
     html += "</div>";
 
-    html += '<div class="card"><h3>Part 5 · เติมคำในประโยค</h3>';
+    html += '<div class="card"><h3>Part 5 · เติมคำในประโยค (30 ข้อ)</h3>';
     html += mockQBlocks("m-p5", data.reading.part5, "sentence");
     html += "</div>";
 
-    html += '<div class="card"><h3>Part 6 · เติมคำในบทความ</h3>';
-    html += '<div class="script-box">' + data.reading.part6.passage + "</div>";
-    html += mockQBlocks("m-p6b", data.reading.part6.blanks, "blank");
-    html += mockQBlocks("m-p6q", data.reading.part6.questions, "text");
-    html += "</div>";
-
-    html += '<div class="card"><h3>Part 7 · อ่านจับใจความ</h3>';
-    data.reading.part7.forEach(function (psg, pi) {
+    html += '<div class="card"><h3>Part 6 · เติมคำในบทความ (4 บทความ x 4 ข้อ = 16 ข้อ)</h3>';
+    data.reading.part6.forEach(function (psg, pi) {
       html += '<div class="script-box">' + psg.passage + "</div>";
-      html += mockQBlocks("m-p7-" + pi, psg.questions, "text");
+      html += mockQBlocks("m-p6-" + pi, psg.blanks, "blank");
     });
     html += "</div>";
 
-    html += '<div class="card"><div class="btn-row"><button class="btn primary" id="mock-grade">ตรวจคำตอบทั้งชุด</button></div><div id="mock-result" class="muted" style="margin-top:8px"></div></div>';
+    html += '<div class="card"><h3>Part 7 · อ่านจับใจความ เดี่ยว (29 ข้อ)</h3>';
+    data.reading.part7.single.forEach(function (psg, pi) {
+      html += '<div class="script-box">' + psg.passage + "</div>";
+      html += mockQBlocks("m-p7s-" + pi, psg.questions, "text");
+    });
+    html += "</div>";
+
+    html += '<div class="card"><h3>Part 7 · อ่านจับใจความ คู่ (2 ชุด x 5 ข้อ = 10 ข้อ)</h3>';
+    data.reading.part7.double.forEach(function (set, si) {
+      html += set.passages.map(function (p) { return '<div class="script-box">' + p + "</div>"; }).join("");
+      html += mockQBlocks("m-p7d-" + si, set.questions, "text");
+    });
+    html += "</div>";
+
+    html += '<div class="card"><h3>Part 7 · อ่านจับใจความ สาม (3 ชุด x 5 ข้อ = 15 ข้อ)</h3>';
+    data.reading.part7.triple.forEach(function (set, si) {
+      html += set.passages.map(function (p) { return '<div class="script-box">' + p + "</div>"; }).join("");
+      html += mockQBlocks("m-p7t-" + si, set.questions, "text");
+    });
+    html += "</div>";
+
+    var totalQ = mockGroups.reduce(function (s, g) { return s + g.data.length; }, 0);
+    html += '<div class="card"><div class="muted">รวมทั้งชุด: <b>' + totalQ + ' ข้อ</b></div><div class="btn-row"><button class="btn primary" id="mock-grade">ตรวจคำตอบทั้งชุด</button></div><div id="mock-result" class="muted" style="margin-top:8px"></div></div>';
 
     var history = loadMockHistory();
     if (history.length) {
