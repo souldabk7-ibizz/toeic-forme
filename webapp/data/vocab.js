@@ -1,10 +1,11 @@
-/* TOEIC vocabulary bank — 24 days x 10 words (240 words), grouped by common
+/* TOEIC vocabulary bank — 27 days x 10 words (270 words), grouped by common
    TOEIC business themes. Word selection is informed by the TOEIC Service
-   List (TSL, Browne & Culligan) and standard TOEIC-prep topic areas
-   (office, meetings, travel, marketing, finance, HR, contracts, IT,
-   shipping, health & safety, customer service, purchasing, real estate,
-   manufacturing, media, insurance). All Thai translations and example
-   sentences are original. */
+   List (TSL, Browne & Culligan) and by ETS's own published TOEIC content
+   areas (Corporate development, Dining out, Entertainment, Finance and
+   budgeting, General business, Health, Housing/corporate property,
+   Manufacturing, Offices, Personnel, Purchasing, Technical areas, Travel
+   — see https://www.ets.org/toeic/test-takers/listening-reading/about/content.html).
+   All Thai translations and example sentences are original. */
 window.VOCAB = {
   days: [
     {
@@ -389,6 +390,54 @@ window.VOCAB = {
         { word: "essential", pos: "adj.", thai: "จำเป็นอย่างยิ่ง", example: "Good communication is essential for teamwork.", exampleThai: "การสื่อสารที่ดีเป็นสิ่งจำเป็นอย่างยิ่งสำหรับการทำงานเป็นทีม" },
         { word: "potential", pos: "adj./n.", thai: "ที่มีศักยภาพ/ศักยภาพ", example: "The manager sees great potential in the new hire.", exampleThai: "ผู้จัดการเห็นศักยภาพที่ยอดเยี่ยมในพนักงานใหม่" },
         { word: "appropriate", pos: "adj.", thai: "เหมาะสม", example: "Please wear appropriate clothing for the interview.", exampleThai: "กรุณาแต่งกายให้เหมาะสมสำหรับการสัมภาษณ์" }
+      ]
+    },
+    {
+      day: 25,
+      theme: "Dining Out & Hospitality",
+      words: [
+        { word: "banquet", pos: "n.", thai: "งานเลี้ยงใหญ่", example: "The company held a banquet to celebrate its anniversary.", exampleThai: "บริษัทจัดงานเลี้ยงใหญ่เพื่อฉลองครบรอบก่อตั้งบริษัท" },
+        { word: "venue", pos: "n.", thai: "สถานที่จัดงาน", example: "We are still deciding on a venue for the annual dinner.", exampleThai: "เรายังตัดสินใจไม่ได้ว่าจะจัดงานเลี้ยงประจำปีที่ไหน" },
+        { word: "cuisine", pos: "n.", thai: "รูปแบบอาหาร (ประจำชาติ/ภูมิภาค)", example: "The restaurant specializes in traditional Italian cuisine.", exampleThai: "ร้านอาหารนี้เชี่ยวชาญด้านอาหารอิตาเลียนแบบดั้งเดิม" },
+        { word: "appetizer", pos: "n.", thai: "อาหารเรียกน้ำย่อย", example: "We ordered a few appetizers to share before the main course.", exampleThai: "เราสั่งอาหารเรียกน้ำย่อยมาแบ่งกันก่อนอาหารจานหลัก" },
+        { word: "host", pos: "n./v.", thai: "เจ้าภาพ / เป็นเจ้าภาพ", example: "Our company will host a dinner for the visiting clients.", exampleThai: "บริษัทของเราจะเป็นเจ้าภาพเลี้ยงอาหารค่ำให้ลูกค้าที่มาเยือน" },
+        { word: "cater", pos: "v.", thai: "จัดเลี้ยงอาหาร", example: "A local restaurant will cater the retirement party.", exampleThai: "ร้านอาหารท้องถิ่นจะจัดเลี้ยงอาหารในงานเลี้ยงเกษียณ" },
+        { word: "tip", pos: "n./v.", thai: "เงินทิป / ให้ทิป", example: "It is common to leave a tip of about fifteen percent.", exampleThai: "โดยทั่วไปมักให้ทิปประมาณสิบห้าเปอร์เซ็นต์" },
+        { word: "complimentary", pos: "adj.", thai: "ที่ให้ฟรี (เพื่อการต้อนรับ)", example: "Guests receive a complimentary drink upon arrival.", exampleThai: "แขกจะได้รับเครื่องดื่มฟรีเมื่อมาถึง" },
+        { word: "refreshments", pos: "n.", thai: "เครื่องดื่มและของว่าง", example: "Light refreshments will be served during the break.", exampleThai: "จะมีการเสิร์ฟเครื่องดื่มและของว่างเบาๆ ช่วงพัก" },
+        { word: "reserve", pos: "v.", thai: "จอง (โต๊ะ/ที่นั่ง)", example: "Please reserve a table for six at seven o'clock.", exampleThai: "กรุณาจองโต๊ะสำหรับหกคนเวลาหนึ่งทุ่ม" }
+      ]
+    },
+    {
+      day: 26,
+      theme: "Entertainment & Culture",
+      words: [
+        { word: "exhibition", pos: "n.", thai: "นิทรรศการ", example: "The museum's new exhibition features modern sculpture.", exampleThai: "นิทรรศการใหม่ของพิพิธภัณฑ์นำเสนอประติมากรรมสมัยใหม่" },
+        { word: "performance", pos: "n.", thai: "การแสดง", example: "Tickets for tonight's performance are almost sold out.", exampleThai: "ตั๋วสำหรับการแสดงคืนนี้เกือบขายหมดแล้ว" },
+        { word: "admission", pos: "n.", thai: "ค่าเข้าชม/การเข้าชม", example: "Admission to the gallery is free on Sundays.", exampleThai: "การเข้าชมแกลเลอรีฟรีในวันอาทิตย์" },
+        { word: "box office", pos: "n.", thai: "ห้องจำหน่ายตั๋ว", example: "You can buy tickets at the box office before the show.", exampleThai: "คุณสามารถซื้อตั๋วได้ที่ห้องจำหน่ายตั๋วก่อนการแสดง" },
+        { word: "matinee", pos: "n.", thai: "การแสดงรอบบ่าย", example: "The matinee showing starts at two in the afternoon.", exampleThai: "การแสดงรอบบ่ายเริ่มเวลาบ่ายสองโมง" },
+        { word: "critic", pos: "n.", thai: "นักวิจารณ์", example: "The film received positive reviews from critics.", exampleThai: "ภาพยนตร์เรื่องนี้ได้รับคำวิจารณ์ในทางบวกจากนักวิจารณ์" },
+        { word: "curator", pos: "n.", thai: "ภัณฑารักษ์/ผู้ดูแลนิทรรศการ", example: "The curator selected works from local artists for the show.", exampleThai: "ภัณฑารักษ์คัดเลือกผลงานจากศิลปินท้องถิ่นมาจัดแสดง" },
+        { word: "auditorium", pos: "n.", thai: "หอประชุม/โรงละคร", example: "The concert will be held in the university auditorium.", exampleThai: "คอนเสิร์ตจะจัดขึ้นที่หอประชุมของมหาวิทยาลัย" },
+        { word: "intermission", pos: "n.", thai: "ช่วงพักครึ่งการแสดง", example: "There will be a fifteen-minute intermission during the play.", exampleThai: "จะมีช่วงพักครึ่งสิบห้านาทีระหว่างการแสดงละคร" },
+        { word: "rehearsal", pos: "n.", thai: "การซ้อม (ก่อนแสดงจริง)", example: "The final rehearsal takes place the day before opening night.", exampleThai: "การซ้อมใหญ่ครั้งสุดท้ายจะมีขึ้นหนึ่งวันก่อนคืนเปิดการแสดง" }
+      ]
+    },
+    {
+      day: 27,
+      theme: "Corporate Development (R&D)",
+      words: [
+        { word: "research and development", pos: "n.", thai: "การวิจัยและพัฒนา", example: "The company invests heavily in research and development.", exampleThai: "บริษัทลงทุนอย่างมากด้านการวิจัยและพัฒนา" },
+        { word: "prototype", pos: "n.", thai: "ต้นแบบผลิตภัณฑ์", example: "Engineers built a prototype to test the new design.", exampleThai: "วิศวกรสร้างต้นแบบเพื่อทดสอบการออกแบบใหม่" },
+        { word: "feasibility", pos: "n.", thai: "ความเป็นไปได้ (ของโครงการ)", example: "A feasibility study will determine if the project moves forward.", exampleThai: "การศึกษาความเป็นไปได้จะกำหนดว่าจะดำเนินโครงการต่อหรือไม่" },
+        { word: "innovate", pos: "v.", thai: "สร้างนวัตกรรม/คิดค้นสิ่งใหม่", example: "The team is under pressure to innovate quickly.", exampleThai: "ทีมงานถูกกดดันให้คิดค้นสิ่งใหม่อย่างรวดเร็ว" },
+        { word: "patent", pos: "n./v.", thai: "สิทธิบัตร / จดสิทธิบัตร", example: "The company filed a patent for its new invention.", exampleThai: "บริษัทยื่นจดสิทธิบัตรสำหรับสิ่งประดิษฐ์ใหม่" },
+        { word: "breakthrough", pos: "n.", thai: "ความก้าวหน้าครั้งสำคัญ", example: "Researchers announced a major breakthrough in battery technology.", exampleThai: "นักวิจัยประกาศความก้าวหน้าครั้งสำคัญด้านเทคโนโลยีแบตเตอรี่" },
+        { word: "testing", pos: "n.", thai: "การทดสอบ", example: "The product is currently in the testing phase.", exampleThai: "สินค้ากำลังอยู่ในขั้นตอนการทดสอบ" },
+        { word: "roll out", pos: "v.", thai: "เปิดตัว/ทยอยนำออกใช้", example: "The company plans to roll out the update next quarter.", exampleThai: "บริษัทวางแผนทยอยเปิดตัวอัปเดตในไตรมาสหน้า" },
+        { word: "funding", pos: "n.", thai: "เงินทุน (สนับสนุนโครงการ)", example: "The project received additional funding from investors.", exampleThai: "โครงการได้รับเงินทุนเพิ่มเติมจากนักลงทุน" },
+        { word: "collaborate", pos: "v.", thai: "ร่วมมือกัน", example: "Our team will collaborate with a university lab on this research.", exampleThai: "ทีมของเราจะร่วมมือกับห้องแล็บของมหาวิทยาลัยในงานวิจัยนี้" }
       ]
     }
   ]
