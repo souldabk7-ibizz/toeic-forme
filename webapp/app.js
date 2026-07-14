@@ -63,7 +63,14 @@
     srs[text] = { box: box, due: addDays(todayKey(), INTERVALS[box]) };
     saveSRS();
   }
-  function dueCount() { return allWords().filter(function (w) { return isDue(w.word.word); }).length; }
+  function dueWordsToday() {
+    return allWords().filter(function (w) { return isDue(w.word.word); }).sort(function (a, b) {
+      var sa = wordState(a.word.word), sb = wordState(b.word.word);
+      var da = sa ? sa.due : "0000-00-00", db = sb ? sb.due : "0000-00-00";
+      return da < db ? -1 : da > db ? 1 : 0;
+    });
+  }
+  function dueCount() { return dueWordsToday().length; }
 
   /* ---------- session step checkboxes ---------- */
   function stepsKey(dateKey) { return "toeic_steps_" + dateKey; }
@@ -74,6 +81,40 @@
   var SCORES_KEY = "toeic_scores_v1";
   function loadScores() { return getJSON(SCORES_KEY, []); }
   function saveScores(arr) { setJSON(SCORES_KEY, arr); }
+
+  /* ---------- daily test (vocab + grammar mix) ---------- */
+  var DAILY_TEST_KEY = "toeic_dailytest_v1";
+  function loadDailyTests() { return getJSON(DAILY_TEST_KEY, {}); }
+  function saveDailyTests(obj) { setJSON(DAILY_TEST_KEY, obj); }
+  var dashboardQuiz = null;
+
+  function buildDailyTest() {
+    var due = dueWordsToday().map(function (d) { return d.word; });
+    var vocabPool = due.length ? due : shuffle(allWords().map(function (w) { return w.word; })).slice(0, 10);
+    var vocabItems = buildQuizFromWords(vocabPool).slice(0, 5).map(function (it) {
+      return { text: it.word, kind: "vocab", choices: it.choices, answer: it.answer, picked: null };
+    });
+    var dayCount = Math.max(0, daysBetween(profile.startDate, todayKey()));
+    var lesson = GRAMMAR.lessons[dayCount % GRAMMAR.lessons.length];
+    var grammarItems = shuffle(lesson.practice).slice(0, 3).map(function (p) {
+      return { text: p.sentence, kind: "grammar", choices: p.choices, answer: p.answer, picked: null };
+    });
+    return shuffle(vocabItems.concat(grammarItems));
+  }
+
+  function renderDailyTestBlock(items) {
+    var html = '<div class="card" id="daily-quiz-block"><h3>ทำแบบทดสอบวันนี้</h3>';
+    items.forEach(function (item, qi) {
+      var tag = item.kind === "vocab" ? '<span class="pill blue">ศัพท์</span>' : '<span class="pill aqua">แกรมมาร์</span>';
+      html += '<div class="q-block"><div class="q-text">' + (qi + 1) + ". " + item.text + " " + tag + "</div>";
+      item.choices.forEach(function (c, ci) {
+        html += '<label class="choice-row" data-q="' + qi + '" data-c="' + ci + '"><input type="radio" name="daily-' + qi + '" value="' + ci + '"> ' + c + "</label>";
+      });
+      html += "</div>";
+    });
+    html += '<div class="btn-row"><button class="btn primary" id="daily-check">ตรวจคำตอบ</button></div><div id="daily-result" class="muted"></div></div>';
+    return html;
+  }
 
   /* ---------- speech ---------- */
   var speechRate = 1;
@@ -181,6 +222,17 @@
     html += '<div class="btn-row"><button class="btn" data-tab-link="vocab">ไปทวนศัพท์</button></div>';
     html += "</div>";
 
+    var dailyTests = loadDailyTests();
+    var todayResult = dailyTests[dateKey];
+    html += '<div class="card">';
+    html += "<h2>แบบทดสอบวันนี้</h2>";
+    html += todayResult
+      ? '<div class="muted">ทำแล้ววันนี้: <b>' + todayResult.score + " / " + todayResult.total + "</b> ข้อ &mdash; ทำซ้ำได้ถ้าอยากฝึกเพิ่ม</div>"
+      : '<div class="muted">รวมศัพท์ที่ต้องทบทวน + ไวยากรณ์ประจำวัน 8 ข้อ ใช้เวลาไม่ถึง 5 นาที</div>';
+    html += '<div class="btn-row"><button class="btn primary" id="daily-test-btn">' + (todayResult ? "ทำแบบทดสอบซ้ำ" : "เริ่มทำแบบทดสอบวันนี้") + "</button></div>";
+    if (dashboardQuiz) html += renderDailyTestBlock(dashboardQuiz);
+    html += "</div>";
+
     root.innerHTML = html;
 
     $("#start-date-input").addEventListener("change", function (e) {
@@ -199,6 +251,33 @@
       });
     });
     setupTimer();
+
+    var dtBtn = $("#daily-test-btn");
+    if (dtBtn) dtBtn.addEventListener("click", function () { dashboardQuiz = buildDailyTest(); renderDashboard(); });
+    if (dashboardQuiz) {
+      $$('input[type="radio"]', $("#daily-quiz-block")).forEach(function (r) {
+        r.addEventListener("change", function () {
+          var row = r.closest(".choice-row");
+          dashboardQuiz[Number(row.dataset.q)].picked = Number(row.dataset.c);
+        });
+      });
+      $("#daily-check").addEventListener("click", function () {
+        var correct = 0;
+        dashboardQuiz.forEach(function (item, qi) {
+          $$('.choice-row[data-q="' + qi + '"]', root).forEach(function (row) {
+            var ci = Number(row.dataset.c);
+            row.classList.remove("correct", "incorrect");
+            if (ci === item.answer) row.classList.add("correct");
+            else if (ci === item.picked) row.classList.add("incorrect");
+          });
+          if (item.picked === item.answer) correct++;
+        });
+        var tests = loadDailyTests();
+        tests[dateKey] = { score: correct, total: dashboardQuiz.length };
+        saveDailyTests(tests);
+        $("#daily-result").innerHTML = "ได้ " + correct + " / " + dashboardQuiz.length + " ข้อ — บันทึกผลวันนี้แล้ว";
+      });
+    }
   }
 
   var timerSeconds = 30 * 60;
@@ -227,69 +306,100 @@
   }
 
   /* ================= VOCAB ================= */
-  var vocabState = { week: currentWeek(), quiz: null };
+  var vocabState = { week: currentWeek(), mode: "today", quiz: null };
+
+  function flashCardHTML(w) {
+    var st = wordState(w.word);
+    var box = st ? st.box : 0;
+    var due = st ? st.due : "ยังไม่เคยเรียน";
+    return '<div class="flash-card">' +
+      '<div class="front-only"><div class="word">' + w.word + ' <button class="btn small no-flip speak-word" data-text="' + escapeAttr(w.word) + '" aria-label="ฟังคำอ่าน">🔊</button></div><div class="pos">' + w.pos + '</div></div>' +
+      '<div class="back">' +
+      '<div><b>' + w.thai + '</b></div>' +
+      '<div class="tiny-muted">' + w.example + ' <button class="btn small no-flip speak-ex" data-text="' + escapeAttr(w.example) + '" aria-label="ฟังตัวอย่างประโยค">🔊</button></div>' +
+      '<div class="tiny-muted">' + w.exampleThai + '</div>' +
+      '<div class="box-tag">Box ' + box + ' &middot; ทวนครั้งถัดไป: ' + due + '</div>' +
+      '<div class="know-row">' +
+      '<button class="btn small know-yes">รู้แล้ว</button>' +
+      '<button class="btn small know-no">ยังไม่รู้</button>' +
+      '</div></div></div>';
+  }
+
+  function wireFlashCard(card, w, afterUpdate) {
+    card.addEventListener("click", function (e) {
+      if (e.target.closest(".no-flip") || e.target.closest(".know-row")) return;
+      card.classList.toggle("flipped");
+    });
+    card.querySelector(".speak-word").addEventListener("click", function (e) { e.stopPropagation(); speak(w.word); });
+    card.querySelector(".speak-ex").addEventListener("click", function (e) { e.stopPropagation(); speak(w.example); });
+    card.querySelector(".know-yes").addEventListener("click", function (e) { e.stopPropagation(); markWord(w.word, true); afterUpdate(); });
+    card.querySelector(".know-no").addEventListener("click", function (e) { e.stopPropagation(); markWord(w.word, false); afterUpdate(); });
+  }
 
   function renderVocab() {
     var root = $("#tab-vocab");
-    var weekData = VOCAB.weeks[vocabState.week - 1];
+    var due = dueWordsToday();
+    var todayWords = due.map(function (d) { return d.word; });
 
     var html = "";
     html += '<div class="card">';
-    html += '<h2>ศัพท์ TOEIC</h2>';
-    html += '<div class="muted">มี <b>' + dueCount() + '</b> คำครบกำหนดทวนทั้งหมด (ทุกสัปดาห์)</div>';
+    html += "<h2>ศัพท์ TOEIC</h2>";
+    html += '<div class="muted">ระบบ Leitner: กด &ldquo;รู้แล้ว&rdquo; คำนั้นจะเว้นระยะทวนนานขึ้นอัตโนมัติ กด &ldquo;ยังไม่รู้&rdquo; จะกลับมาทวนพรุ่งนี้</div>';
     html += '<div class="btn-row">';
-    html += '<select id="vocab-week">' + VOCAB.weeks.map(function (w) {
-      return '<option value="' + w.week + '"' + (w.week === vocabState.week ? " selected" : "") + '>สัปดาห์ ' + w.week + ' — ' + w.theme + '</option>';
-    }).join("") + '</select>';
-    html += '<button class="btn primary" id="vocab-quiz-btn">ทำแบบทดสอบสัปดาห์นี้ (Quiz)</button>';
-    html += '</div></div>';
+    html += '<button class="btn small' + (vocabState.mode === "today" ? " primary" : "") + '" data-mode="today">ทบทวนวันนี้ (' + due.length + ")</button>";
+    html += '<button class="btn small' + (vocabState.mode === "week" ? " primary" : "") + '" data-mode="week">เรียนคำใหม่ตามสัปดาห์</button>';
+    html += "</div></div>";
 
-    html += '<div class="card"><h3>' + weekData.theme + '</h3><div class="flash-grid" id="flash-grid"></div></div>';
+    if (vocabState.mode === "today") {
+      if (!due.length) {
+        html += '<div class="card"><div class="muted">ไม่มีคำที่ครบกำหนดทบทวนวันนี้ 🎉 ไปเรียนคำใหม่ที่โหมด &ldquo;เรียนคำใหม่ตามสัปดาห์&rdquo; ได้เลย</div></div>';
+      } else {
+        html += '<div class="card"><h3>คำที่ต้องทบทวนวันนี้ (' + due.length + " คำ)</h3>";
+        html += '<div class="flash-grid" id="flash-grid">' + todayWords.map(flashCardHTML).join("") + "</div>";
+        html += '<div class="btn-row"><button class="btn primary" id="today-quiz-btn">ทำแบบทดสอบทบทวนวันนี้</button></div></div>';
+      }
+    } else {
+      var weekData = VOCAB.weeks[vocabState.week - 1];
+      html += '<div class="card"><div class="btn-row">';
+      html += '<select id="vocab-week">' + VOCAB.weeks.map(function (w) {
+        return '<option value="' + w.week + '"' + (w.week === vocabState.week ? " selected" : "") + '>สัปดาห์ ' + w.week + ' — ' + w.theme + '</option>';
+      }).join("") + "</select>";
+      html += '<button class="btn primary" id="vocab-quiz-btn">ทำแบบทดสอบสัปดาห์นี้ (Quiz)</button>';
+      html += "</div></div>";
+      html += '<div class="card"><h3>' + weekData.theme + '</h3><div class="flash-grid" id="flash-grid">' + weekData.words.map(flashCardHTML).join("") + "</div></div>";
+    }
 
     if (vocabState.quiz) html += renderQuizBlock(vocabState.quiz);
 
     root.innerHTML = html;
 
-    $("#vocab-week").addEventListener("change", function (e) {
-      vocabState.week = Number(e.target.value);
-      vocabState.quiz = null;
-      renderVocab();
-    });
-    $("#vocab-quiz-btn").addEventListener("click", function () {
-      vocabState.quiz = buildVocabQuiz(vocabState.week);
-      renderVocab();
+    $$("button[data-mode]", root).forEach(function (b) {
+      b.addEventListener("click", function () { vocabState.mode = b.dataset.mode; vocabState.quiz = null; renderVocab(); });
     });
 
     var grid = $("#flash-grid");
-    weekData.words.forEach(function (w) {
-      var st = wordState(w.word);
-      var box = st ? st.box : 0;
-      var due = st ? st.due : "ยังไม่เคยเรียน";
-      var card = document.createElement("div");
-      card.className = "flash-card";
-      card.innerHTML =
-        '<div class="front-only"><div class="word">' + w.word + '</div><div class="pos">' + w.pos + '</div></div>' +
-        '<div class="back">' +
-        '<div><b>' + w.thai + '</b></div>' +
-        '<div class="tiny-muted">' + w.example + '</div>' +
-        '<div class="tiny-muted">' + w.exampleThai + '</div>' +
-        '<div class="box-tag">Box ' + box + ' &middot; ทวนครั้งถัดไป: ' + due + '</div>' +
-        '<div class="know-row">' +
-        '<button class="btn small know-yes">รู้แล้ว</button>' +
-        '<button class="btn small know-no">ยังไม่รู้</button>' +
-        '</div></div>';
-      card.addEventListener("click", function (e) {
-        if (e.target.closest(".know-row")) return;
-        card.classList.toggle("flipped");
+    if (grid) {
+      var words = vocabState.mode === "today" ? todayWords : VOCAB.weeks[vocabState.week - 1].words;
+      $$(".flash-card", grid).forEach(function (card, i) { wireFlashCard(card, words[i], renderVocab); });
+    }
+
+    if (vocabState.mode === "today") {
+      var tqBtn = $("#today-quiz-btn");
+      if (tqBtn) tqBtn.addEventListener("click", function () {
+        vocabState.quiz = buildQuizFromWords(todayWords);
+        renderVocab();
       });
-      card.querySelector(".know-yes").addEventListener("click", function (e) {
-        e.stopPropagation(); markWord(w.word, true); renderVocab();
+    } else {
+      $("#vocab-week").addEventListener("change", function (e) {
+        vocabState.week = Number(e.target.value);
+        vocabState.quiz = null;
+        renderVocab();
       });
-      card.querySelector(".know-no").addEventListener("click", function (e) {
-        e.stopPropagation(); markWord(w.word, false); renderVocab();
+      $("#vocab-quiz-btn").addEventListener("click", function () {
+        vocabState.quiz = buildVocabQuiz(vocabState.week);
+        renderVocab();
       });
-      grid.appendChild(card);
-    });
+    }
 
     if (vocabState.quiz) wireQuizBlock();
   }
@@ -303,14 +413,86 @@
     return a;
   }
 
-  function buildVocabQuiz(weekNum) {
-    var weekData = VOCAB.weeks[weekNum - 1];
-    var pool = weekData.words;
-    var picks = shuffle(pool).slice(0, Math.min(5, pool.length));
+  function buildQuizFromWords(pool) {
+    var allW = allWords().map(function (x) { return x.word; });
+    var picks = shuffle(pool).slice(0, Math.min(8, pool.length));
     return picks.map(function (correct) {
-      var distractors = shuffle(pool.filter(function (w) { return w.word !== correct.word; })).slice(0, 2);
+      var distractors = shuffle(allW.filter(function (w) { return w.word !== correct.word; })).slice(0, 2);
       var choices = shuffle([correct.thai].concat(distractors.map(function (d) { return d.thai; })));
       return { word: correct.word, choices: choices, answer: choices.indexOf(correct.thai), picked: null };
+    });
+  }
+
+  function buildVocabQuiz(weekNum) {
+    return buildQuizFromWords(VOCAB.weeks[weekNum - 1].words);
+  }
+
+  /* ================= GRAMMAR ================= */
+  var grammarState = { lesson: 1 };
+  var GRAMMAR_KEY = "toeic_grammar_v1";
+  function loadGrammarProgress() { return getJSON(GRAMMAR_KEY, {}); }
+  function saveGrammarProgress(obj) { setJSON(GRAMMAR_KEY, obj); }
+
+  function renderGrammar() {
+    var root = $("#tab-grammar");
+    var progress = loadGrammarProgress();
+    var doneCount = GRAMMAR.lessons.filter(function (l) { return progress[l.id]; }).length;
+    var lesson = GRAMMAR.lessons[grammarState.lesson - 1];
+
+    var html = "";
+    html += '<div class="card">';
+    html += "<h2>ไวยากรณ์ &amp; ศัพท์ (Part 5/6)</h2>";
+    html += '<div class="muted">เรียนทีละบทตามลำดับ แต่ละบทมีคำอธิบาย ตัวอย่าง (ฟังเสียงได้) และแบบฝึกหัดท้ายบท เรียนแล้ว <b>' + doneCount + " / " + GRAMMAR.lessons.length + "</b> บท</div>";
+    html += '<div class="progress-track"><div class="progress-fill" style="width:' + Math.round((doneCount / GRAMMAR.lessons.length) * 100) + '%"></div></div>';
+    html += '<div class="btn-row"><select id="grammar-lesson">' + GRAMMAR.lessons.map(function (l) {
+      return '<option value="' + l.id + '"' + (l.id === grammarState.lesson ? " selected" : "") + ">บทที่ " + l.id + " — " + l.title + (progress[l.id] ? " ✓" : "") + "</option>";
+    }).join("") + "</select></div></div>";
+
+    html += '<div class="card lesson-block"><h3>บทที่ ' + lesson.id + " — " + lesson.title + "</h3>";
+    lesson.explain.forEach(function (block) {
+      html += "<h4>" + block.heading + "</h4>";
+      html += '<div class="muted" style="white-space:pre-line">' + block.body + "</div>";
+      (block.examples || []).forEach(function (ex) {
+        html += '<div class="script-box"><button class="btn small play-btn" data-text="' + escapeAttr(ex.en) + '">▶</button> ' + ex.en + '<div class="tiny-muted">' + ex.th + "</div></div>";
+      });
+    });
+    html += "</div>";
+
+    html += '<div class="card"><h3>แบบฝึกหัดท้ายบท</h3>';
+    lesson.practice.forEach(function (item, qi) {
+      html += '<div class="q-block" data-qi="' + qi + '"><div class="q-text">' + (qi + 1) + ". " + item.sentence + "</div>";
+      item.choices.forEach(function (c, ci) {
+        html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="gp-' + qi + '" value="' + ci + '"> ' + c + "</label>";
+      });
+      html += "</div>";
+    });
+    html += '<div class="btn-row"><button class="btn primary" id="grammar-check">ตรวจคำตอบ</button></div><div id="grammar-result" class="muted"></div></div>';
+
+    root.innerHTML = html;
+
+    $("#grammar-lesson").addEventListener("change", function (e) {
+      grammarState.lesson = Number(e.target.value);
+      renderGrammar();
+    });
+    $$(".play-btn", root).forEach(function (b) { b.addEventListener("click", function () { speak(b.dataset.text); }); });
+    $("#grammar-check").addEventListener("click", function () {
+      var correct = 0;
+      lesson.practice.forEach(function (item, qi) {
+        var block = $('.q-block[data-qi="' + qi + '"]', root);
+        var picked = null;
+        $$(".choice-row", block).forEach(function (row) { if (row.querySelector("input").checked) picked = Number(row.dataset.c); });
+        $$(".choice-row", block).forEach(function (row) {
+          var ci = Number(row.dataset.c);
+          row.classList.remove("correct", "incorrect");
+          if (ci === item.answer) row.classList.add("correct");
+          else if (ci === picked) row.classList.add("incorrect");
+        });
+        if (picked === item.answer) correct++;
+      });
+      var p2 = loadGrammarProgress();
+      p2[lesson.id] = true;
+      saveGrammarProgress(p2);
+      $("#grammar-result").innerHTML = "ได้ " + correct + " / " + lesson.practice.length + " ข้อ — บันทึกว่าเรียนบทนี้แล้ว ✓";
     });
   }
 
@@ -767,6 +949,7 @@
   var render = {
     dashboard: renderDashboard,
     vocab: renderVocab,
+    grammar: renderGrammar,
     listening: renderListening,
     reading: renderReading,
     mock: renderMock,
