@@ -35,7 +35,12 @@
   function currentWeek() {
     var diff = daysBetween(profile.startDate, todayKey());
     var wk = Math.floor(Math.max(diff, 0) / 7) + 1;
-    return Math.min(Math.max(wk, 1), VOCAB.weeks.length);
+    return Math.min(Math.max(wk, 1), PLAN.weeks.length);
+  }
+
+  function currentVocabDay() {
+    var diff = daysBetween(profile.startDate, todayKey());
+    return Math.min(Math.max(diff + 1, 1), VOCAB.days.length);
   }
 
   /* ---------- SRS (Leitner boxes) ---------- */
@@ -47,8 +52,8 @@
 
   function allWords() {
     var list = [];
-    VOCAB.weeks.forEach(function (w) {
-      w.words.forEach(function (word) { list.push({ week: w.week, theme: w.theme, word: word }); });
+    VOCAB.days.forEach(function (d) {
+      d.words.forEach(function (word) { list.push({ day: d.day, theme: d.theme, word: word }); });
     });
     return list;
   }
@@ -306,7 +311,7 @@
   }
 
   /* ================= VOCAB ================= */
-  var vocabState = { week: currentWeek(), mode: "today", quiz: null };
+  var vocabState = { day: currentVocabDay(), mode: "today", quiz: null };
 
   function flashCardHTML(w) {
     var st = wordState(w.word);
@@ -347,26 +352,26 @@
     html += '<div class="muted">ระบบ Leitner: กด &ldquo;รู้แล้ว&rdquo; คำนั้นจะเว้นระยะทวนนานขึ้นอัตโนมัติ กด &ldquo;ยังไม่รู้&rdquo; จะกลับมาทวนพรุ่งนี้</div>';
     html += '<div class="btn-row">';
     html += '<button class="btn small' + (vocabState.mode === "today" ? " primary" : "") + '" data-mode="today">ทบทวนวันนี้ (' + due.length + ")</button>";
-    html += '<button class="btn small' + (vocabState.mode === "week" ? " primary" : "") + '" data-mode="week">เรียนคำใหม่ตามสัปดาห์</button>';
+    html += '<button class="btn small' + (vocabState.mode === "day" ? " primary" : "") + '" data-mode="day">เรียนคำใหม่ตามวัน</button>';
     html += "</div></div>";
 
     if (vocabState.mode === "today") {
       if (!due.length) {
-        html += '<div class="card"><div class="muted">ไม่มีคำที่ครบกำหนดทบทวนวันนี้ 🎉 ไปเรียนคำใหม่ที่โหมด &ldquo;เรียนคำใหม่ตามสัปดาห์&rdquo; ได้เลย</div></div>';
+        html += '<div class="card"><div class="muted">ไม่มีคำที่ครบกำหนดทบทวนวันนี้ 🎉 ไปเรียนคำใหม่ที่โหมด &ldquo;เรียนคำใหม่ตามวัน&rdquo; ได้เลย</div></div>';
       } else {
         html += '<div class="card"><h3>คำที่ต้องทบทวนวันนี้ (' + due.length + " คำ)</h3>";
         html += '<div class="flash-grid" id="flash-grid">' + todayWords.map(flashCardHTML).join("") + "</div>";
         html += '<div class="btn-row"><button class="btn primary" id="today-quiz-btn">ทำแบบทดสอบทบทวนวันนี้</button></div></div>';
       }
     } else {
-      var weekData = VOCAB.weeks[vocabState.week - 1];
-      html += '<div class="card"><div class="btn-row">';
-      html += '<select id="vocab-week">' + VOCAB.weeks.map(function (w) {
-        return '<option value="' + w.week + '"' + (w.week === vocabState.week ? " selected" : "") + '>สัปดาห์ ' + w.week + ' — ' + w.theme + '</option>';
+      var dayData = VOCAB.days[vocabState.day - 1];
+      html += '<div class="card"><div class="muted">' + VOCAB.days.length + ' วัน x 10 คำ &mdash; เรียนวันละชุด แล้วคำจะเข้าระบบทบทวนอัตโนมัติที่โหมด &ldquo;ทบทวนวันนี้&rdquo;</div><div class="btn-row">';
+      html += '<select id="vocab-day">' + VOCAB.days.map(function (d) {
+        return '<option value="' + d.day + '"' + (d.day === vocabState.day ? " selected" : "") + '>วันที่ ' + d.day + ' — ' + d.theme + '</option>';
       }).join("") + "</select>";
-      html += '<button class="btn primary" id="vocab-quiz-btn">ทำแบบทดสอบสัปดาห์นี้ (Quiz)</button>';
+      html += '<button class="btn primary" id="vocab-quiz-btn">ทำแบบทดสอบวันนี้ (Quiz)</button>';
       html += "</div></div>";
-      html += '<div class="card"><h3>' + weekData.theme + '</h3><div class="flash-grid" id="flash-grid">' + weekData.words.map(flashCardHTML).join("") + "</div></div>";
+      html += '<div class="card"><h3>วันที่ ' + dayData.day + ' — ' + dayData.theme + '</h3><div class="flash-grid" id="flash-grid">' + dayData.words.map(flashCardHTML).join("") + "</div></div>";
     }
 
     if (vocabState.quiz) html += renderQuizBlock(vocabState.quiz);
@@ -379,7 +384,7 @@
 
     var grid = $("#flash-grid");
     if (grid) {
-      var words = vocabState.mode === "today" ? todayWords : VOCAB.weeks[vocabState.week - 1].words;
+      var words = vocabState.mode === "today" ? todayWords : VOCAB.days[vocabState.day - 1].words;
       $$(".flash-card", grid).forEach(function (card, i) { wireFlashCard(card, words[i], renderVocab); });
     }
 
@@ -390,13 +395,13 @@
         renderVocab();
       });
     } else {
-      $("#vocab-week").addEventListener("change", function (e) {
-        vocabState.week = Number(e.target.value);
+      $("#vocab-day").addEventListener("change", function (e) {
+        vocabState.day = Number(e.target.value);
         vocabState.quiz = null;
         renderVocab();
       });
       $("#vocab-quiz-btn").addEventListener("click", function () {
-        vocabState.quiz = buildVocabQuiz(vocabState.week);
+        vocabState.quiz = buildVocabQuiz(vocabState.day);
         renderVocab();
       });
     }
@@ -423,8 +428,8 @@
     });
   }
 
-  function buildVocabQuiz(weekNum) {
-    return buildQuizFromWords(VOCAB.weeks[weekNum - 1].words);
+  function buildVocabQuiz(dayNum) {
+    return buildQuizFromWords(VOCAB.days[dayNum - 1].words);
   }
 
   /* ================= GRAMMAR ================= */

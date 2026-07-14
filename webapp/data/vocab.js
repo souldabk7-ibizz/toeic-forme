@@ -1,8 +1,14 @@
-/* TOEIC vocabulary bank — 12 weeks x 10 words, grouped by common TOEIC business themes. */
+/* TOEIC vocabulary bank — 24 days x 10 words (240 words), grouped by common
+   TOEIC business themes. Word selection is informed by the TOEIC Service
+   List (TSL, Browne & Culligan) and standard TOEIC-prep topic areas
+   (office, meetings, travel, marketing, finance, HR, contracts, IT,
+   shipping, health & safety, customer service, purchasing, real estate,
+   manufacturing, media, insurance). All Thai translations and example
+   sentences are original. */
 window.VOCAB = {
-  weeks: [
+  days: [
     {
-      week: 1,
+      day: 1,
       theme: "Office & Workplace",
       words: [
         { word: "agenda", pos: "n.", thai: "ระเบียบวาระการประชุม", example: "Please check today's agenda before the meeting.", exampleThai: "กรุณาตรวจสอบวาระการประชุมของวันนี้ก่อนเริ่มประชุม" },
@@ -18,7 +24,23 @@ window.VOCAB = {
       ]
     },
     {
-      week: 2,
+      day: 2,
+      theme: "Office & Workplace",
+      words: [
+        { word: "correspondence", pos: "n.", thai: "จดหมายโต้ตอบ/การติดต่อทางจดหมาย", example: "Please keep a copy of all business correspondence.", exampleThai: "กรุณาเก็บสำเนาจดหมายโต้ตอบทางธุรกิจทั้งหมดไว้" },
+        { word: "appointment", pos: "n.", thai: "การนัดหมาย", example: "I have an appointment with the director at three o'clock.", exampleThai: "ฉันมีนัดกับผู้อำนวยการตอนบ่ายสามโมง" },
+        { word: "extension", pos: "n.", thai: "เบอร์ต่อโทรศัพท์", example: "You can reach me at extension four-five-two.", exampleThai: "คุณติดต่อฉันได้ที่เบอร์ต่อสี่ห้าสอง" },
+        { word: "reception", pos: "n.", thai: "แผนกต้อนรับ", example: "Please leave your bag at reception.", exampleThai: "กรุณาฝากกระเป๋าไว้ที่แผนกต้อนรับ" },
+        { word: "headquarters", pos: "n.", thai: "สำนักงานใหญ่", example: "The company's headquarters is located in Bangkok.", exampleThai: "สำนักงานใหญ่ของบริษัทตั้งอยู่ที่กรุงเทพฯ" },
+        { word: "workspace", pos: "n.", thai: "พื้นที่ทำงาน", example: "Employees are encouraged to keep their workspace tidy.", exampleThai: "พนักงานควรรักษาพื้นที่ทำงานให้เป็นระเบียบ" },
+        { word: "photocopier", pos: "n.", thai: "เครื่องถ่ายเอกสาร", example: "The photocopier on the third floor is out of order.", exampleThai: "เครื่องถ่ายเอกสารชั้นสามเสีย" },
+        { word: "briefing", pos: "n.", thai: "การประชุมชี้แจง", example: "A short briefing will be held before the trip.", exampleThai: "จะมีการประชุมชี้แจงสั้นๆ ก่อนออกเดินทาง" },
+        { word: "cubicle", pos: "n.", thai: "คอกทำงาน (ที่นั่งทำงานแบบมีฉากกั้น)", example: "Her cubicle is next to the window.", exampleThai: "คอกทำงานของเธออยู่ติดหน้าต่าง" },
+        { word: "notice", pos: "n.", thai: "ประกาศ/หนังสือแจ้ง", example: "A notice was posted about the office closure.", exampleThai: "มีการติดประกาศเรื่องการปิดสำนักงาน" }
+      ]
+    },
+    {
+      day: 3,
       theme: "Meetings & Communication",
       words: [
         { word: "attend", pos: "v.", thai: "เข้าร่วม", example: "All managers must attend the training session.", exampleThai: "ผู้จัดการทุกคนต้องเข้าร่วมการฝึกอบรม" },
@@ -34,7 +56,23 @@ window.VOCAB = {
       ]
     },
     {
-      week: 3,
+      day: 4,
+      theme: "Meetings & Communication",
+      words: [
+        { word: "teleconference", pos: "n.", thai: "การประชุมทางไกล", example: "We will hold a teleconference with the overseas office.", exampleThai: "เราจะจัดประชุมทางไกลกับสำนักงานต่างประเทศ" },
+        { word: "presentation", pos: "n.", thai: "การนำเสนอ", example: "She gave a presentation on the new marketing plan.", exampleThai: "เธอนำเสนอแผนการตลาดใหม่" },
+        { word: "discussion", pos: "n.", thai: "การพูดคุย/อภิปราย", example: "The budget was the main topic of discussion.", exampleThai: "งบประมาณเป็นหัวข้อหลักของการพูดคุย" },
+        { word: "consensus", pos: "n.", thai: "ความเห็นพ้องต้องกัน", example: "The team reached a consensus on the new schedule.", exampleThai: "ทีมงานมีความเห็นพ้องต้องกันเรื่องตารางเวลาใหม่" },
+        { word: "proposal", pos: "n.", thai: "ข้อเสนอ", example: "The client approved our proposal yesterday.", exampleThai: "ลูกค้าอนุมัติข้อเสนอของเราเมื่อวาน" },
+        { word: "remark", pos: "n./v.", thai: "ความเห็น / กล่าวความเห็น", example: "The manager made a positive remark about the project.", exampleThai: "ผู้จัดการแสดงความเห็นในทางบวกเกี่ยวกับโครงการ" },
+        { word: "interrupt", pos: "v.", thai: "ขัดจังหวะ", example: "Please do not interrupt the speaker during the presentation.", exampleThai: "กรุณาอย่าขัดจังหวะผู้พูดระหว่างการนำเสนอ" },
+        { word: "summarize", pos: "v.", thai: "สรุปความ", example: "Could you summarize the main points for those who missed the meeting?", exampleThai: "คุณช่วยสรุปประเด็นหลักให้คนที่พลาดการประชุมได้ไหม" },
+        { word: "attendee", pos: "n.", thai: "ผู้เข้าร่วมประชุม", example: "Each attendee received a copy of the agenda.", exampleThai: "ผู้เข้าร่วมแต่ละคนได้รับสำเนาระเบียบวาระ" },
+        { word: "follow-up", pos: "n./adj.", thai: "การติดตามผล", example: "We scheduled a follow-up meeting for next Tuesday.", exampleThai: "เรานัดประชุมติดตามผลในวันอังคารหน้า" }
+      ]
+    },
+    {
+      day: 5,
       theme: "Travel & Transportation",
       words: [
         { word: "itinerary", pos: "n.", thai: "กำหนดการเดินทาง", example: "Please send me the travel itinerary for next week.", exampleThai: "กรุณาส่งกำหนดการเดินทางของสัปดาห์หน้าให้ฉัน" },
@@ -50,7 +88,7 @@ window.VOCAB = {
       ]
     },
     {
-      week: 4,
+      day: 6,
       theme: "Marketing & Sales",
       words: [
         { word: "campaign", pos: "n.", thai: "แคมเปญ/การรณรงค์", example: "The company launched a new advertising campaign.", exampleThai: "บริษัทเปิดตัวแคมเปญโฆษณาใหม่" },
@@ -66,7 +104,23 @@ window.VOCAB = {
       ]
     },
     {
-      week: 5,
+      day: 7,
+      theme: "Marketing & Sales",
+      words: [
+        { word: "advertisement", pos: "n.", thai: "โฆษณา", example: "The advertisement will run on television and social media.", exampleThai: "โฆษณาจะออกอากาศทางโทรทัศน์และโซเชียลมีเดีย" },
+        { word: "consumer", pos: "n.", thai: "ผู้บริโภค", example: "Consumer demand for the product has grown steadily.", exampleThai: "ความต้องการของผู้บริโภคที่มีต่อสินค้าเพิ่มขึ้นอย่างต่อเนื่อง" },
+        { word: "loyalty", pos: "n.", thai: "ความภักดี (ต่อแบรนด์)", example: "The loyalty program rewards frequent shoppers.", exampleThai: "โปรแกรมสะสมแต้มให้รางวัลลูกค้าประจำ" },
+        { word: "endorsement", pos: "n.", thai: "การรับรอง/สนับสนุนสินค้า", example: "The brand secured a celebrity endorsement.", exampleThai: "แบรนด์ได้รับการรับรองจากคนดัง" },
+        { word: "market share", pos: "n.", thai: "ส่วนแบ่งตลาด", example: "The company increased its market share this year.", exampleThai: "บริษัทเพิ่มส่วนแบ่งตลาดในปีนี้" },
+        { word: "retail", pos: "n./adj.", thai: "การขายปลีก", example: "The item is sold at a retail price of twenty dollars.", exampleThai: "สินค้าชิ้นนี้ขายปลีกในราคายี่สิบดอลลาร์" },
+        { word: "wholesale", pos: "n./adj.", thai: "การขายส่ง", example: "We offer a discount for wholesale orders.", exampleThai: "เรามีส่วนลดสำหรับคำสั่งซื้อแบบขายส่ง" },
+        { word: "billboard", pos: "n.", thai: "ป้ายโฆษณาขนาดใหญ่", example: "A new billboard was installed near the highway.", exampleThai: "มีการติดตั้งป้ายโฆษณาใหม่ใกล้ทางหลวง" },
+        { word: "sponsor", pos: "n./v.", thai: "ผู้สนับสนุน / สนับสนุน", example: "The company agreed to sponsor the sports event.", exampleThai: "บริษัทตกลงสนับสนุนงานกีฬา" },
+        { word: "outlet", pos: "n.", thai: "ร้านค้า/ช่องทางจำหน่าย", example: "The brand opened a new outlet at the mall.", exampleThai: "แบรนด์เปิดร้านใหม่ที่ห้างสรรพสินค้า" }
+      ]
+    },
+    {
+      day: 8,
       theme: "Finance & Banking",
       words: [
         { word: "invoice", pos: "n.", thai: "ใบแจ้งหนี้", example: "Please pay the invoice within fourteen days.", exampleThai: "กรุณาชำระใบแจ้งหนี้ภายในสิบสี่วัน" },
@@ -82,7 +136,23 @@ window.VOCAB = {
       ]
     },
     {
-      week: 6,
+      day: 9,
+      theme: "Finance & Banking",
+      words: [
+        { word: "reimbursement", pos: "n.", thai: "การคืนเงิน (ค่าใช้จ่าย)", example: "Travel expenses are eligible for reimbursement.", exampleThai: "ค่าใช้จ่ายในการเดินทางสามารถขอคืนเงินได้" },
+        { word: "fiscal", pos: "adj.", thai: "เกี่ยวกับการคลัง/งบประมาณ", example: "The new fiscal year begins in January.", exampleThai: "ปีงบประมาณใหม่เริ่มต้นในเดือนมกราคม" },
+        { word: "quarterly", pos: "adj./adv.", thai: "รายไตรมาส", example: "The finance team submits a quarterly report.", exampleThai: "ทีมการเงินส่งรายงานรายไตรมาส" },
+        { word: "surplus", pos: "n.", thai: "ส่วนเกิน/เงินเหลือ", example: "The department had a small budget surplus this year.", exampleThai: "แผนกมีงบประมาณเหลือเล็กน้อยในปีนี้" },
+        { word: "deficit", pos: "n.", thai: "การขาดดุล", example: "The company reported a budget deficit last quarter.", exampleThai: "บริษัทรายงานว่างบประมาณขาดดุลในไตรมาสที่แล้ว" },
+        { word: "installment", pos: "n.", thai: "งวดผ่อนชำระ", example: "Customers can pay in monthly installments.", exampleThai: "ลูกค้าสามารถผ่อนชำระเป็นรายเดือนได้" },
+        { word: "currency", pos: "n.", thai: "สกุลเงิน", example: "Please check the currency exchange rate before you travel.", exampleThai: "กรุณาตรวจสอบอัตราแลกเปลี่ยนก่อนเดินทาง" },
+        { word: "shareholder", pos: "n.", thai: "ผู้ถือหุ้น", example: "Shareholders will vote on the proposal next month.", exampleThai: "ผู้ถือหุ้นจะลงคะแนนเรื่องข้อเสนอในเดือนหน้า" },
+        { word: "dividend", pos: "n.", thai: "เงินปันผล", example: "The company will pay a dividend to investors in March.", exampleThai: "บริษัทจะจ่ายเงินปันผลให้นักลงทุนในเดือนมีนาคม" },
+        { word: "overdue", pos: "adj.", thai: "เลยกำหนดชำระ", example: "Your account balance is overdue by ten days.", exampleThai: "ยอดค้างชำระในบัญชีของคุณเลยกำหนดมาสิบวันแล้ว" }
+      ]
+    },
+    {
+      day: 10,
       theme: "Human Resources & Recruitment",
       words: [
         { word: "applicant", pos: "n.", thai: "ผู้สมัครงาน", example: "Over two hundred applicants applied for the position.", exampleThai: "มีผู้สมัครงานมากกว่าสองร้อยคนสมัครตำแหน่งนี้" },
@@ -98,7 +168,23 @@ window.VOCAB = {
       ]
     },
     {
-      week: 7,
+      day: 11,
+      theme: "Human Resources & Recruitment",
+      words: [
+        { word: "probation", pos: "n.", thai: "ช่วงทดลองงาน", example: "New hires complete a three-month probation period.", exampleThai: "พนักงานใหม่ต้องผ่านช่วงทดลองงานสามเดือน" },
+        { word: "onboarding", pos: "n.", thai: "การปฐมนิเทศพนักงานใหม่", example: "The onboarding process includes a tour of the office.", exampleThai: "กระบวนการปฐมนิเทศรวมถึงการพาชมสำนักงาน" },
+        { word: "termination", pos: "n.", thai: "การเลิกจ้าง/สิ้นสุดสัญญา", example: "The contract allows termination with 30 days' notice.", exampleThai: "สัญญาอนุญาตให้เลิกจ้างได้โดยแจ้งล่วงหน้า 30 วัน" },
+        { word: "workforce", pos: "n.", thai: "กำลังแรงงาน", example: "The company plans to expand its workforce next year.", exampleThai: "บริษัทวางแผนขยายกำลังแรงงานในปีหน้า" },
+        { word: "seniority", pos: "n.", thai: "อาวุโส (ตามอายุงาน)", example: "Vacation days increase based on seniority.", exampleThai: "วันลาพักร้อนจะเพิ่มขึ้นตามอาวุโสของพนักงาน" },
+        { word: "incentive", pos: "n.", thai: "สิ่งจูงใจ", example: "The company offers a financial incentive for good performance.", exampleThai: "บริษัทมอบสิ่งจูงใจทางการเงินสำหรับผลงานที่ดี" },
+        { word: "personnel", pos: "n.", thai: "บุคลากร", example: "All personnel must complete the safety training.", exampleThai: "บุคลากรทุกคนต้องผ่านการฝึกอบรมด้านความปลอดภัย" },
+        { word: "candidate", pos: "n.", thai: "ผู้สมัคร/ผู้เข้าชิงตำแหน่ง", example: "Three candidates were shortlisted for the position.", exampleThai: "มีผู้สมัครสามคนผ่านเข้ารอบสำหรับตำแหน่งนี้" },
+        { word: "retirement", pos: "n.", thai: "การเกษียณอายุ", example: "She plans to travel after her retirement.", exampleThai: "เธอวางแผนจะเดินทางท่องเที่ยวหลังเกษียณ" },
+        { word: "leave", pos: "n.", thai: "การลางาน", example: "He requested two days of leave next week.", exampleThai: "เขาขอลาสองวันในสัปดาห์หน้า" }
+      ]
+    },
+    {
+      day: 12,
       theme: "Contracts & Legal",
       words: [
         { word: "agreement", pos: "n.", thai: "ข้อตกลง", example: "Both companies signed the agreement yesterday.", exampleThai: "ทั้งสองบริษัทลงนามในข้อตกลงเมื่อวานนี้" },
@@ -114,7 +200,7 @@ window.VOCAB = {
       ]
     },
     {
-      week: 8,
+      day: 13,
       theme: "Technology & IT",
       words: [
         { word: "software", pos: "n.", thai: "โปรแกรม/ซอฟต์แวร์", example: "The company installed new accounting software.", exampleThai: "บริษัทติดตั้งซอฟต์แวร์บัญชีตัวใหม่" },
@@ -130,7 +216,23 @@ window.VOCAB = {
       ]
     },
     {
-      week: 9,
+      day: 14,
+      theme: "Technology & IT",
+      words: [
+        { word: "firewall", pos: "n.", thai: "ระบบป้องกันเครือข่าย", example: "The firewall blocked several suspicious login attempts.", exampleThai: "ไฟร์วอลล์ปิดกั้นความพยายามล็อกอินที่น่าสงสัยหลายครั้ง" },
+        { word: "bandwidth", pos: "n.", thai: "แบนด์วิดท์/ความจุสัญญาณ", example: "The office needs more bandwidth for video calls.", exampleThai: "สำนักงานต้องการแบนด์วิดท์เพิ่มสำหรับการประชุมทางวิดีโอ" },
+        { word: "encryption", pos: "n.", thai: "การเข้ารหัสข้อมูล", example: "All customer data is protected by encryption.", exampleThai: "ข้อมูลลูกค้าทั้งหมดได้รับการปกป้องด้วยการเข้ารหัส" },
+        { word: "server", pos: "n.", thai: "เซิร์ฟเวอร์", example: "The server will be down for maintenance tonight.", exampleThai: "เซิร์ฟเวอร์จะปิดปรับปรุงคืนนี้" },
+        { word: "glitch", pos: "n.", thai: "ข้อผิดพลาดเล็กน้อยของระบบ", example: "A software glitch caused the page to load slowly.", exampleThai: "ข้อผิดพลาดเล็กน้อยของซอฟต์แวร์ทำให้หน้าเว็บโหลดช้า" },
+        { word: "subscription", pos: "n.", thai: "การสมัครสมาชิก (บริการ)", example: "Your subscription will renew automatically next month.", exampleThai: "การสมัครสมาชิกของคุณจะต่ออายุอัตโนมัติในเดือนหน้า" },
+        { word: "log in", pos: "v.", thai: "เข้าสู่ระบบ", example: "Employees must log in with their company ID.", exampleThai: "พนักงานต้องเข้าสู่ระบบด้วยรหัสประจำตัวบริษัท" },
+        { word: "compatible", pos: "adj.", thai: "ใช้งานร่วมกันได้", example: "The new printer is compatible with all office computers.", exampleThai: "เครื่องพิมพ์ใหม่ใช้งานร่วมกับคอมพิวเตอร์ในออฟฟิศได้ทุกเครื่อง" },
+        { word: "outdated", pos: "adj.", thai: "ล้าสมัย", example: "The company replaced its outdated computer systems.", exampleThai: "บริษัทเปลี่ยนระบบคอมพิวเตอร์ที่ล้าสมัยแล้ว" },
+        { word: "cybersecurity", pos: "n.", thai: "ความปลอดภัยทางไซเบอร์", example: "The firm invested heavily in cybersecurity this year.", exampleThai: "บริษัทลงทุนด้านความปลอดภัยทางไซเบอร์อย่างมากในปีนี้" }
+      ]
+    },
+    {
+      day: 15,
       theme: "Shipping & Logistics",
       words: [
         { word: "shipment", pos: "n.", thai: "การขนส่งสินค้า/สินค้าที่ส่ง", example: "The shipment is expected to arrive on Monday.", exampleThai: "สินค้าที่จัดส่งคาดว่าจะมาถึงในวันจันทร์" },
@@ -146,7 +248,7 @@ window.VOCAB = {
       ]
     },
     {
-      week: 10,
+      day: 16,
       theme: "Health, Safety & Environment",
       words: [
         { word: "hazard", pos: "n.", thai: "อันตราย/สิ่งที่เป็นอันตราย", example: "Wet floors are a common hazard in restaurants.", exampleThai: "พื้นเปียกเป็นอันตรายที่พบได้บ่อยในร้านอาหาร" },
@@ -162,7 +264,7 @@ window.VOCAB = {
       ]
     },
     {
-      week: 11,
+      day: 17,
       theme: "Customer Service & Complaints",
       words: [
         { word: "complaint", pos: "n.", thai: "การร้องเรียน/คำร้องเรียน", example: "The manager received a complaint about the delivery.", exampleThai: "ผู้จัดการได้รับคำร้องเรียนเกี่ยวกับการจัดส่ง" },
@@ -178,7 +280,103 @@ window.VOCAB = {
       ]
     },
     {
-      week: 12,
+      day: 18,
+      theme: "Customer Service & Complaints",
+      words: [
+        { word: "compensation", pos: "n.", thai: "ค่าชดเชย", example: "The airline offered compensation for the delayed flight.", exampleThai: "สายการบินเสนอค่าชดเชยสำหรับเที่ยวบินที่ล่าช้า" },
+        { word: "defective", pos: "adj.", thai: "มีตำหนิ/บกพร่อง", example: "Customers can return any defective item for a refund.", exampleThai: "ลูกค้าสามารถคืนสินค้าที่มีตำหนิเพื่อขอเงินคืนได้" },
+        { word: "exchange", pos: "n./v.", thai: "การแลกเปลี่ยน/เปลี่ยนสินค้า", example: "You may exchange the shirt for a different size.", exampleThai: "คุณสามารถเปลี่ยนเสื้อเป็นขนาดอื่นได้" },
+        { word: "hotline", pos: "n.", thai: "สายด่วน", example: "Call our customer hotline for immediate help.", exampleThai: "โทรสายด่วนลูกค้าสัมพันธ์เพื่อขอความช่วยเหลือทันที" },
+        { word: "representative", pos: "n.", thai: "ตัวแทน (ฝ่ายบริการลูกค้า)", example: "A representative will contact you within 24 hours.", exampleThai: "ตัวแทนจะติดต่อกลับภายใน 24 ชั่วโมง" },
+        { word: "escalate", pos: "v.", thai: "ยกระดับ/ส่งต่อปัญหาขึ้นไป", example: "If the issue is not resolved, please escalate it to a supervisor.", exampleThai: "หากปัญหายังไม่ได้รับการแก้ไข กรุณาส่งต่อให้หัวหน้างาน" },
+        { word: "courteous", pos: "adj.", thai: "สุภาพ มีมารยาท", example: "The staff was courteous and helpful throughout the visit.", exampleThai: "พนักงานสุภาพและช่วยเหลือดีตลอดการเข้าใช้บริการ" },
+        { word: "dissatisfied", pos: "adj.", thai: "ไม่พึงพอใจ", example: "A few customers were dissatisfied with the delivery time.", exampleThai: "ลูกค้าบางส่วนไม่พึงพอใจกับระยะเวลาจัดส่ง" },
+        { word: "refundable", pos: "adj.", thai: "สามารถคืนเงินได้", example: "This ticket is fully refundable within 24 hours of purchase.", exampleThai: "ตั๋วนี้สามารถคืนเงินได้เต็มจำนวนภายใน 24 ชั่วโมงหลังซื้อ" },
+        { word: "loyal", pos: "adj.", thai: "ภักดี (ลูกค้าประจำ)", example: "We offer special discounts to loyal customers.", exampleThai: "เรามอบส่วนลดพิเศษให้ลูกค้าประจำ" }
+      ]
+    },
+    {
+      day: 19,
+      theme: "Purchasing & Inventory",
+      words: [
+        { word: "procurement", pos: "n.", thai: "การจัดซื้อจัดจ้าง", example: "The procurement department handles all supplier contracts.", exampleThai: "ฝ่ายจัดซื้อดูแลสัญญากับผู้จัดหาสินค้าทั้งหมด" },
+        { word: "purchase order", pos: "n.", thai: "ใบสั่งซื้อ", example: "Please send a purchase order before we ship the goods.", exampleThai: "กรุณาส่งใบสั่งซื้อก่อนที่เราจะจัดส่งสินค้า" },
+        { word: "quotation", pos: "n.", thai: "ใบเสนอราคา", example: "We requested a quotation from three different suppliers.", exampleThai: "เราขอใบเสนอราคาจากผู้จัดหาสามรายที่แตกต่างกัน" },
+        { word: "bulk", pos: "n./adj.", thai: "จำนวนมาก", example: "Buying in bulk reduces the cost per unit.", exampleThai: "การซื้อจำนวนมากช่วยลดต้นทุนต่อหน่วย" },
+        { word: "stock", pos: "n./v.", thai: "สต๊อกสินค้า", example: "The store is out of stock on that item.", exampleThai: "ร้านนี้สินค้าชิ้นนั้นหมดสต๊อก" },
+        { word: "restock", pos: "v.", thai: "เติมสินค้าใหม่", example: "We will restock the shelves every Monday.", exampleThai: "เราจะเติมสินค้าบนชั้นวางทุกวันจันทร์" },
+        { word: "vendor", pos: "n.", thai: "ผู้ขาย/ผู้จัดจำหน่าย", example: "We are looking for a new vendor for office supplies.", exampleThai: "เรากำลังมองหาผู้ขายรายใหม่สำหรับอุปกรณ์สำนักงาน" },
+        { word: "backorder", pos: "n.", thai: "คำสั่งซื้อที่รอสินค้า", example: "The item is on backorder and will ship in two weeks.", exampleThai: "สินค้ารายการนี้กำลังรอสต๊อกและจะจัดส่งภายในสองสัปดาห์" },
+        { word: "specification", pos: "n.", thai: "ข้อกำหนดเฉพาะ (ของสินค้า)", example: "The product must meet the client's specifications.", exampleThai: "สินค้าต้องตรงตามข้อกำหนดเฉพาะของลูกค้า" },
+        { word: "estimate", pos: "n./v.", thai: "การประมาณการ / ประมาณการ", example: "Please provide a cost estimate before we approve the order.", exampleThai: "กรุณาแจ้งประมาณการค่าใช้จ่ายก่อนที่เราจะอนุมัติคำสั่งซื้อ" }
+      ]
+    },
+    {
+      day: 20,
+      theme: "Real Estate & Office Facilities",
+      words: [
+        { word: "lease", pos: "n./v.", thai: "สัญญาเช่า / เช่า (ระยะยาว)", example: "The company signed a five-year lease on the new office.", exampleThai: "บริษัทเซ็นสัญญาเช่าสำนักงานใหม่ระยะเวลาห้าปี" },
+        { word: "tenant", pos: "n.", thai: "ผู้เช่า", example: "The tenant must pay rent by the fifth of each month.", exampleThai: "ผู้เช่าต้องจ่ายค่าเช่าภายในวันที่ห้าของทุกเดือน" },
+        { word: "landlord", pos: "n.", thai: "เจ้าของที่ให้เช่า", example: "The landlord agreed to repair the air conditioner.", exampleThai: "เจ้าของที่ตกลงจะซ่อมเครื่องปรับอากาศ" },
+        { word: "premises", pos: "n.", thai: "สถานที่/อาคารและบริเวณ", example: "Visitors must sign in before entering the premises.", exampleThai: "ผู้มาเยือนต้องลงทะเบียนก่อนเข้าพื้นที่อาคาร" },
+        { word: "renovation", pos: "n.", thai: "การปรับปรุง/ต่อเติมอาคาร", example: "The lobby will be closed during the renovation.", exampleThai: "ล็อบบี้จะปิดในช่วงปรับปรุงอาคาร" },
+        { word: "facility", pos: "n.", thai: "สิ่งอำนวยความสะดวก/สถานที่", example: "The new facility includes a gym and a cafeteria.", exampleThai: "สถานที่แห่งใหม่มีทั้งฟิตเนสและโรงอาหาร" },
+        { word: "utility", pos: "n.", thai: "สาธารณูปโภค (น้ำ ไฟ)", example: "Utility costs are included in the monthly rent.", exampleThai: "ค่าสาธารณูปโภครวมอยู่ในค่าเช่ารายเดือนแล้ว" },
+        { word: "maintenance", pos: "n.", thai: "การบำรุงรักษา", example: "Regular maintenance keeps the equipment running smoothly.", exampleThai: "การบำรุงรักษาอย่างสม่ำเสมอช่วยให้อุปกรณ์ทำงานได้ราบรื่น" },
+        { word: "relocate", pos: "v.", thai: "ย้ายที่ตั้ง (สำนักงาน)", example: "The department will relocate to the fifth floor next month.", exampleThai: "แผนกนี้จะย้ายไปชั้นห้าในเดือนหน้า" },
+        { word: "spacious", pos: "adj.", thai: "กว้างขวาง", example: "The new meeting room is bright and spacious.", exampleThai: "ห้องประชุมใหม่สว่างและกว้างขวาง" }
+      ]
+    },
+    {
+      day: 21,
+      theme: "Manufacturing & Quality",
+      words: [
+        { word: "assembly line", pos: "n.", thai: "สายการประกอบ", example: "Workers on the assembly line inspect each unit closely.", exampleThai: "คนงานบนสายการประกอบตรวจสอบสินค้าแต่ละชิ้นอย่างละเอียด" },
+        { word: "defect", pos: "n.", thai: "ข้อบกพร่อง", example: "Any defect found during inspection will be reported.", exampleThai: "ข้อบกพร่องใดๆ ที่พบระหว่างตรวจสอบจะถูกรายงาน" },
+        { word: "output", pos: "n.", thai: "ผลผลิต", example: "The new machine increased daily output by twenty percent.", exampleThai: "เครื่องจักรใหม่เพิ่มผลผลิตรายวันขึ้นยี่สิบเปอร์เซ็นต์" },
+        { word: "raw material", pos: "n.", thai: "วัตถุดิบ", example: "The price of raw materials rose sharply this year.", exampleThai: "ราคาวัตถุดิบพุ่งสูงขึ้นมากในปีนี้" },
+        { word: "durable", pos: "adj.", thai: "ทนทาน", example: "The packaging is designed to be lightweight yet durable.", exampleThai: "บรรจุภัณฑ์ออกแบบให้เบาแต่ทนทาน" },
+        { word: "inspection", pos: "n.", thai: "การตรวจสอบ (คุณภาพ)", example: "Every batch undergoes a quality inspection before shipping.", exampleThai: "สินค้าทุกล็อตต้องผ่านการตรวจสอบคุณภาพก่อนจัดส่ง" },
+        { word: "standard", pos: "n./adj.", thai: "มาตรฐาน", example: "The factory follows strict international standards.", exampleThai: "โรงงานปฏิบัติตามมาตรฐานสากลอย่างเคร่งครัด" },
+        { word: "batch", pos: "n.", thai: "ชุดการผลิต (ล็อต)", example: "This batch of products failed the final inspection.", exampleThai: "สินค้าล็อตนี้ไม่ผ่านการตรวจสอบขั้นสุดท้าย" },
+        { word: "efficiency", pos: "n.", thai: "ประสิทธิภาพ", example: "The new process improved efficiency on the production floor.", exampleThai: "กระบวนการใหม่ช่วยเพิ่มประสิทธิภาพในสายการผลิต" },
+        { word: "flaw", pos: "n.", thai: "ตำหนิ/จุดบกพร่อง", example: "A small flaw in the design caused the delay.", exampleThai: "จุดบกพร่องเล็กน้อยในการออกแบบทำให้เกิดความล่าช้า" }
+      ]
+    },
+    {
+      day: 22,
+      theme: "Media & Advertising",
+      words: [
+        { word: "broadcast", pos: "n./v.", thai: "การออกอากาศ / ออกอากาศ", example: "The interview will be broadcast live tomorrow morning.", exampleThai: "การสัมภาษณ์จะออกอากาศสดพรุ่งนี้เช้า" },
+        { word: "publicity", pos: "n.", thai: "การประชาสัมพันธ์", example: "The product launch received a lot of publicity.", exampleThai: "การเปิดตัวสินค้าได้รับการประชาสัมพันธ์อย่างมาก" },
+        { word: "press release", pos: "n.", thai: "แถลงข่าว", example: "The company issued a press release about the merger.", exampleThai: "บริษัทออกแถลงข่าวเกี่ยวกับการควบรวมกิจการ" },
+        { word: "audience", pos: "n.", thai: "ผู้ชม/กลุ่มผู้รับสาร", example: "The campaign targets a younger audience.", exampleThai: "แคมเปญนี้มุ่งเป้าไปที่กลุ่มผู้ชมที่อายุน้อยกว่า" },
+        { word: "circulation", pos: "n.", thai: "ยอดจำหน่าย (สื่อสิ่งพิมพ์)", example: "The magazine's circulation has grown steadily this year.", exampleThai: "ยอดจำหน่ายนิตยสารเพิ่มขึ้นอย่างต่อเนื่องในปีนี้" },
+        { word: "commercial", pos: "n./adj.", thai: "โฆษณา (ทางทีวี)", example: "The commercial will air during the evening news.", exampleThai: "โฆษณาจะออกอากาศช่วงข่าวภาคค่ำ" },
+        { word: "slogan", pos: "n.", thai: "คำขวัญ/สโลแกน", example: "The new slogan reflects the brand's commitment to quality.", exampleThai: "สโลแกนใหม่สะท้อนความมุ่งมั่นด้านคุณภาพของแบรนด์" },
+        { word: "influencer", pos: "n.", thai: "ผู้มีอิทธิพลทางความคิด (บนโซเชียล)", example: "The brand partnered with an influencer to promote the launch.", exampleThai: "แบรนด์ร่วมมือกับอินฟลูเอนเซอร์เพื่อโปรโมทการเปิดตัวสินค้า" },
+        { word: "subscriber", pos: "n.", thai: "ผู้ติดตาม/สมาชิก (สื่อ)", example: "The channel now has over one million subscribers.", exampleThai: "ช่องนี้มีผู้ติดตามมากกว่าหนึ่งล้านคนแล้ว" },
+        { word: "viral", pos: "adj.", thai: "แพร่กระจายอย่างรวดเร็ว (บนโซเชียล)", example: "The video went viral within a few hours.", exampleThai: "วิดีโอนี้แพร่กระจายอย่างรวดเร็วภายในไม่กี่ชั่วโมง" }
+      ]
+    },
+    {
+      day: 23,
+      theme: "Insurance & Risk",
+      words: [
+        { word: "premium", pos: "n.", thai: "เบี้ยประกัน", example: "Your monthly premium will increase slightly next year.", exampleThai: "เบี้ยประกันรายเดือนของคุณจะเพิ่มขึ้นเล็กน้อยในปีหน้า" },
+        { word: "policy", pos: "n.", thai: "กรมธรรม์/นโยบาย", example: "Please read your insurance policy carefully.", exampleThai: "กรุณาอ่านกรมธรรม์ประกันภัยของคุณอย่างละเอียด" },
+        { word: "claim", pos: "n./v.", thai: "การเรียกร้องค่าสินไหม / เรียกร้อง", example: "She filed a claim after the accident.", exampleThai: "เธอยื่นเรื่องเรียกร้องค่าสินไหมหลังเกิดอุบัติเหตุ" },
+        { word: "coverage", pos: "n.", thai: "ความคุ้มครอง (ประกัน)", example: "This plan offers coverage for medical expenses abroad.", exampleThai: "แผนนี้ให้ความคุ้มครองค่ารักษาพยาบาลในต่างประเทศ" },
+        { word: "beneficiary", pos: "n.", thai: "ผู้รับผลประโยชน์", example: "You can name a family member as the beneficiary.", exampleThai: "คุณสามารถระบุสมาชิกในครอบครัวเป็นผู้รับผลประโยชน์ได้" },
+        { word: "risk", pos: "n.", thai: "ความเสี่ยง", example: "The company assessed the risk before signing the contract.", exampleThai: "บริษัทประเมินความเสี่ยงก่อนเซ็นสัญญา" },
+        { word: "deductible", pos: "n.", thai: "ค่าเสียหายส่วนแรก", example: "You must pay the deductible before the insurance covers the rest.", exampleThai: "คุณต้องจ่ายค่าเสียหายส่วนแรกก่อนที่ประกันจะคุ้มครองส่วนที่เหลือ" },
+        { word: "underwriter", pos: "n.", thai: "ผู้รับประกันภัย/ผู้พิจารณาความเสี่ยง", example: "The underwriter reviewed the application for approval.", exampleThai: "ผู้รับประกันภัยตรวจสอบใบสมัครเพื่อพิจารณาอนุมัติ" },
+        { word: "hazardous", pos: "adj.", thai: "เป็นอันตราย", example: "Hazardous materials must be labeled clearly.", exampleThai: "วัสดุอันตรายต้องติดฉลากให้ชัดเจน" },
+        { word: "mitigate", pos: "v.", thai: "บรรเทา/ลดความเสี่ยง", example: "The plan is designed to mitigate financial risk.", exampleThai: "แผนนี้ออกแบบมาเพื่อลดความเสี่ยงทางการเงิน" }
+      ]
+    },
+    {
+      day: 24,
       theme: "General Business Adjectives (Review)",
       words: [
         { word: "efficient", pos: "adj.", thai: "มีประสิทธิภาพ", example: "The new system is more efficient than the old one.", exampleThai: "ระบบใหม่มีประสิทธิภาพมากกว่าระบบเก่า" },
