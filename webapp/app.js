@@ -705,6 +705,9 @@
   /* ================= MOCK (full practice sets) ================= */
   var mockState = { set: 1 };
   var mockGroups = [];
+  var MOCK_HISTORY_KEY = "toeic_mocktest_v1";
+  function loadMockHistory() { return getJSON(MOCK_HISTORY_KEY, []); }
+  function saveMockHistory(arr) { setJSON(MOCK_HISTORY_KEY, arr); }
 
   function mockQBlocks(key, items, mode) {
     mockGroups.push({ key: key, data: items });
@@ -778,6 +781,16 @@
 
     html += '<div class="card"><div class="btn-row"><button class="btn primary" id="mock-grade">ตรวจคำตอบทั้งชุด</button></div><div id="mock-result" class="muted" style="margin-top:8px"></div></div>';
 
+    var history = loadMockHistory();
+    if (history.length) {
+      html += '<div class="card"><h3>ประวัติการทำข้อสอบชุด</h3><table class="data-table"><tr><th>วันที่</th><th>ชุด</th><th>คะแนน</th><th>%</th></tr>';
+      history.slice().reverse().slice(0, 15).forEach(function (h) {
+        var setTitle = MOCK.sets[h.set - 1] ? MOCK.sets[h.set - 1].title : "ชุดที่ " + h.set;
+        html += "<tr><td>" + h.date + "</td><td>" + setTitle + "</td><td>" + h.correct + " / " + h.total + "</td><td>" + Math.round((h.correct / h.total) * 100) + "%</td></tr>";
+      });
+      html += "</table></div>";
+    }
+
     root.innerHTML = html;
 
     $("#mock-set").addEventListener("change", function (e) { mockState.set = Number(e.target.value); renderMock(); });
@@ -812,7 +825,10 @@
       });
       var pct = Math.round((correct / total) * 100);
       var res = $("#mock-result");
-      res.innerHTML = "คะแนนรวมทั้งชุด: <b>" + correct + " / " + total + "</b> (" + pct + "%) — เฉลยขึ้นสีเขียว (ถูก) / สีแดง (ที่เลือกผิด) ในแต่ละข้อแล้ว";
+      res.innerHTML = "คะแนนรวมทั้งชุด: <b>" + correct + " / " + total + "</b> (" + pct + "%) — เฉลยขึ้นสีเขียว (ถูก) / สีแดง (ที่เลือกผิด) ในแต่ละข้อแล้ว บันทึกผลแล้ว";
+      var history = loadMockHistory();
+      history.push({ date: todayKey(), set: mockState.set, correct: correct, total: total });
+      saveMockHistory(history);
     });
   }
 
