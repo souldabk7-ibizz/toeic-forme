@@ -13,9 +13,9 @@
   var KEY_PREFIX = "toeic_";
   var META_KEY = "toeic_sync_updatedAt";
   var cfg = window.FIREBASE_CONFIG || {};
-  var configured = !!(window.firebase && cfg.apiKey &&
-    cfg.apiKey.indexOf("PASTE") === -1 && cfg.projectId &&
-    cfg.projectId.indexOf("PASTE") === -1);
+  var cfgLooksReal = !!(cfg.apiKey && cfg.apiKey.indexOf("PASTE") === -1 &&
+    cfg.projectId && cfg.projectId.indexOf("PASTE") === -1);
+  var configured = !!(window.firebase && cfgLooksReal);
 
   var statusEl = null, btnEl = null;
 
@@ -31,10 +31,14 @@
   }
 
   if (!configured) {
-    // Not set up yet: show a hint but don't touch anything.
+    // Either the config still has placeholders, or the Firebase SDK
+    // failed to load (e.g. no internet) — tell them apart so the message
+    // isn't misleading.
     function hint() {
       statusEl = document.getElementById("sync-status");
-      if (statusEl && window.FIREBASE_CONFIG) setStatus("ซิงก์ยังไม่เปิด (กรอก firebase-config.js)");
+      if (!statusEl) return;
+      if (!cfgLooksReal) setStatus("ซิงก์ยังไม่เปิด (กรอก firebase-config.js)");
+      else setStatus("โหลด Firebase ไม่สำเร็จ — ตรวจสอบอินเทอร์เน็ตแล้วรีเฟรช");
     }
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", hint);
     else hint();

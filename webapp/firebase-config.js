@@ -10,10 +10,10 @@
  * placeholders in place simply keeps cloud sync turned off.
  */
 window.FIREBASE_CONFIG = {
-  apiKey: "PASTE_API_KEY",
-  authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_PROJECT_ID",
-  storageBucket: "PASTE_PROJECT_ID.appspot.com",
-  messagingSenderId: "PASTE_SENDER_ID",
-  appId: "PASTE_APP_ID"
+  apiKey: "AIzaSyComokYU3jg-_gCVau5AKPCLwK2PLtNsAc",
+  authDomain: "toeic-idipp-75122.firebaseapp.com",
+  projectId: "toeic-idipp-75122",
+  storageBucket: "toeic-idipp-75122.firebasestorage.app",
+  messagingSenderId: "99877087048",
+  appId: "1:99877087048:web:d3a38eabfd310dca9f357d"
 };
