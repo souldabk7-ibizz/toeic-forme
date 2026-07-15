@@ -96,21 +96,36 @@
   function buildDailyTest() {
     var due = dueWordsToday().map(function (d) { return d.word; });
     var vocabPool = due.length ? due : shuffle(allWords().map(function (w) { return w.word; })).slice(0, 10);
-    var vocabItems = buildQuizFromWords(vocabPool).slice(0, 5).map(function (it) {
+    var vocabItems = buildQuizFromWords(vocabPool).slice(0, 8).map(function (it) {
       return { text: it.word, kind: "vocab", choices: it.choices, answer: it.answer, picked: null };
     });
     var dayCount = Math.max(0, daysBetween(profile.startDate, todayKey()));
     var lesson = GRAMMAR.lessons[dayCount % GRAMMAR.lessons.length];
-    var grammarItems = shuffle(lesson.practice).slice(0, 3).map(function (p) {
+    var grammarItems = shuffle(lesson.practice).map(function (p) {
       return { text: p.sentence, kind: "grammar", choices: p.choices, answer: p.answer, picked: null };
     });
-    return shuffle(vocabItems.concat(grammarItems));
+    var lwk = LISTENING.weeks[Math.min(currentWeek(), LISTENING.weeks.length) - 1];
+    var listeningItems = shuffle(lwk.part2).slice(0, 3).map(function (p) {
+      return { text: p.q, kind: "listening", choices: p.choices, answer: p.answer, picked: null };
+    });
+    var rwk = READING.weeks[Math.min(currentWeek(), READING.weeks.length) - 1];
+    var readingItems = shuffle(rwk.part5).slice(0, 3).map(function (p) {
+      return { text: p.sentence, kind: "reading", choices: p.choices, answer: p.answer, picked: null };
+    });
+    return shuffle(vocabItems.concat(grammarItems, listeningItems, readingItems));
   }
 
+  var DAILY_TEST_TAGS = {
+    vocab: '<span class="pill blue">ศัพท์</span>',
+    grammar: '<span class="pill aqua">แกรมมาร์</span>',
+    listening: '<span class="pill yellow">Listening</span>',
+    reading: '<span class="pill">Reading</span>'
+  };
+
   function renderDailyTestBlock(items) {
-    var html = '<div class="card" id="daily-quiz-block"><h3>ทำแบบทดสอบวันนี้</h3>';
+    var html = '<div class="card" id="daily-quiz-block"><h3>ทำแบบทดสอบวันนี้ (' + items.length + ' ข้อ)</h3>';
     items.forEach(function (item, qi) {
-      var tag = item.kind === "vocab" ? '<span class="pill blue">ศัพท์</span>' : '<span class="pill aqua">แกรมมาร์</span>';
+      var tag = DAILY_TEST_TAGS[item.kind] || "";
       html += '<div class="q-block"><div class="q-text">' + (qi + 1) + ". " + item.text + " " + tag + "</div>";
       item.choices.forEach(function (c, ci) {
         html += '<label class="choice-row" data-q="' + qi + '" data-c="' + ci + '"><input type="radio" name="daily-' + qi + '" value="' + ci + '"> ' + c + "</label>";
@@ -233,7 +248,7 @@
     html += "<h2>แบบทดสอบวันนี้</h2>";
     html += todayResult
       ? '<div class="muted">ทำแล้ววันนี้: <b>' + todayResult.score + " / " + todayResult.total + "</b> ข้อ &mdash; ทำซ้ำได้ถ้าอยากฝึกเพิ่ม</div>"
-      : '<div class="muted">รวมศัพท์ที่ต้องทบทวน + ไวยากรณ์ประจำวัน 8 ข้อ ใช้เวลาไม่ถึง 5 นาที</div>';
+      : '<div class="muted">รวมศัพท์ที่ต้องทบทวน + ไวยากรณ์ประจำวัน + Listening/Reading ของสัปดาห์นี้ ~19 ข้อ ใช้เวลาประมาณ 10-15 นาที</div>';
     html += '<div class="btn-row"><button class="btn primary" id="daily-test-btn">' + (todayResult ? "ทำแบบทดสอบซ้ำ" : "เริ่มทำแบบทดสอบวันนี้") + "</button></div>";
     if (dashboardQuiz) html += renderDailyTestBlock(dashboardQuiz);
     html += "</div>";

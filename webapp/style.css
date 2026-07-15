@@ -149,6 +149,7 @@ main { flex: 1; padding: 16px; }
 }
 .pill.blue { background: color-mix(in srgb, var(--series-1) 16%, transparent); color: var(--series-1); }
 .pill.aqua { background: color-mix(in srgb, var(--series-2) 16%, transparent); color: var(--series-2); }
+.pill.yellow { background: color-mix(in srgb, var(--series-3) 20%, transparent); color: var(--series-3); }
 
 .progress-track {
   height: 10px;
