@@ -18,7 +18,7 @@ python3 -m http.server 8080
 ## มีอะไรอยู่ในนี้
 
 - **หน้า "วันนี้" (Dashboard)** — สรุปเป้าหมาย, เซสชันของวันนี้ตามสัปดาห์ที่อยู่ในแผน, ตัวจับเวลา 30 นาที, จำนวนคำศัพท์ที่ครบกำหนดทวน
-- **หน้า "ศัพท์" (Vocabulary)** — คำศัพท์ TOEIC 270 คำ แบ่งเป็น 27 วันตามหมวดหมู่ที่ ETS ระบุไว้เป็นบริบทข้อสอบจริง (Corporate development, Dining out, Entertainment, Finance & budgeting, General business, Health, Housing/corporate property, Manufacturing, Offices, Personnel, Purchasing, Technical areas, Travel — [อ้างอิง](https://www.ets.org/toeic/test-takers/listening-reading/about/content.html)) และคัดกรองด้วย TOEIC Service List (TSL) โหมด "ทบทวนวันนี้" ดึงเฉพาะคำที่ครบกำหนดทวนจากทุกวันมาให้ทวนอัตโนมัติ พร้อม flashcard ระบบ Leitner spaced-repetition และปุ่มฟังเสียง 🔊 ทั้งคำและประโยคตัวอย่าง (กด "รู้แล้ว/ยังไม่รู้" ระบบจะเลื่อนคำนั้นไปทวนห่างขึ้นหรือถี่ขึ้นอัตโนมัติ) และแบบทดสอบ (Quiz) ท้ายวัน
+- **หน้า "ศัพท์" (Vocabulary)** — คำศัพท์ TOEIC 630 คำ แบ่งเป็น 63 วัน: วันที่ 1-27 คัดจากหมวดหมู่ที่ ETS ระบุไว้เป็นบริบทข้อสอบจริง (Corporate development, Dining out, Entertainment, Finance & budgeting, General business, Health, Housing/corporate property, Manufacturing, Offices, Personnel, Purchasing, Technical areas, Travel — [อ้างอิง](https://www.ets.org/toeic/test-takers/listening-reading/about/content.html)) และคัดกรองด้วย TOEIC Service List (TSL); วันที่ 28-63 เป็นชุด "Personal Review List" รวมคำศัพท์ส่วนตัวที่ผู้ใช้เคยท่องมาก่อนหน้านี้ โหมด "ทบทวนวันนี้" ดึงเฉพาะคำที่ครบกำหนดทวนจากทุกวันมาให้ทวนอัตโนมัติ พร้อม flashcard ระบบ Leitner spaced-repetition และปุ่มฟังเสียง 🔊 ทั้งคำและประโยคตัวอย่าง (กด "รู้แล้ว/ยังไม่รู้" ระบบจะเลื่อนคำนั้นไปทวนห่างขึ้นหรือถี่ขึ้นอัตโนมัติ) และแบบทดสอบ (Quiz) ท้ายวัน
 - **หน้า "ไวยากรณ์" (Grammar)** — 10 บทเรียนไวยากรณ์ TOEIC Part 5/6 เรียงลำดับ ค่อยๆ เรียนทีละบท พร้อมคำอธิบาย ตัวอย่างประโยค (ฟังเสียงได้) และแบบฝึกหัดท้ายบท
 - **หน้า Listening** — โจทย์ Part 2 (ถาม-ตอบสั้น), Part 3 (บทสนทนา), Part 4 (พูดคนเดียว/ประกาศ) 12 สัปดาห์ พร้อมปุ่มอ่านออกเสียงให้ฟัง (ปรับความเร็วปกติ/ช้าได้) — ใช้แทนไฟล์เสียงจริงเพื่อฝึกฟังได้ทุกที่
 - **หน้า Reading** — โจทย์ Part 5 (เติมคำในประโยค), Part 6 (เติมคำในบทความ), Part 7 (อ่านจับใจความ) 12 สัปดาห์
@@ -42,7 +42,7 @@ webapp/
   index.html        โครงหน้าเว็บ
   style.css         ธีมสี (รองรับ light/dark ตามเบราว์เซอร์)
   app.js            ตรรกะทั้งหมด: SRS, ตัวจับเวลา, quiz, กราฟ, บันทึกคะแนน
-  data/vocab.js      คำศัพท์ 27 วัน x 10 คำ (270 คำ)
+  data/vocab.js      คำศัพท์ 63 วัน x 10 คำ (630 คำ)
   data/grammar.js    บทเรียนไวยากรณ์ 10 บท พร้อมแบบฝึกหัด
   data/mock.js       ข้อสอบชุดเสมือนจริง 5 ชุด (ชุดละ 200 ข้อ)
   data/listening.js  โจทย์ Listening 12 สัปดาห์
