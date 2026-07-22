@@ -88,6 +88,10 @@
     if (idx === -1) arr.push(day); else arr.splice(idx, 1);
     saveStudiedDays(arr);
   }
+  function markDayStudied(day) {
+    var arr = loadStudiedDays();
+    if (arr.indexOf(day) === -1) { arr.push(day); saveStudiedDays(arr); }
+  }
   function markStudiedThrough(day) {
     var arr = loadStudiedDays();
     for (var i = 1; i <= day; i++) { if (arr.indexOf(i) === -1) arr.push(i); }
@@ -389,24 +393,31 @@
     card.querySelector(".know-no").addEventListener("click", function (e) { e.stopPropagation(); markWord(w.word, false); afterUpdate(); });
   }
 
-  function renderVocab() {
-    var root = $("#tab-vocab");
-    var due = dueWordsToday();
-    var todayWords = due.map(function (d) { return d.word; });
-
+  function vocabStampHTML() {
     var studiedDays = loadStudiedDays();
     var highestDay = highestStudiedDay();
     var studiedWords = studiedWordCount();
     var totalWords = totalVocabWordCount();
     var stampPct = totalWords ? Math.round((studiedWords / totalWords) * 100) : 0;
-
     var html = "";
-    html += '<div class="card">';
     html += "<h2>ความคืบหน้าการท่องศัพท์</h2>";
     html += '<div class="muted">ท่องแล้วถึง <b>วันที่ ' + highestDay + ' / ' + VOCAB.days.length + '</b> &middot; รวม <b>' + studiedWords + ' / ' + totalWords + ' คำ</b></div>';
     html += '<div class="progress-track"><div class="progress-fill" style="width:' + stampPct + '%"></div></div>';
     html += '<div class="tiny-muted">ติ๊กว่าท่องแล้วไปทั้งหมด ' + studiedDays.length + ' วัน (' + stampPct + '%)</div>';
-    html += "</div>";
+    return html;
+  }
+  function refreshVocabStamp() {
+    var el = $("#vocab-stamp");
+    if (el) el.innerHTML = vocabStampHTML();
+  }
+
+  function renderVocab() {
+    var root = $("#tab-vocab");
+    var due = dueWordsToday();
+    var todayWords = due.map(function (d) { return d.word; });
+
+    var html = "";
+    html += '<div class="card" id="vocab-stamp">' + vocabStampHTML() + "</div>";
 
     html += '<div class="card">';
     html += "<h2>ศัพท์ TOEIC</h2>";
@@ -609,6 +620,13 @@
         if (item.picked === item.answer) correct++;
       });
       $("#quiz-result").textContent = "ได้ " + correct + " / " + vocabState.quiz.length + " ข้อ";
+
+      if (vocabState.mode === "day") {
+        markDayStudied(vocabState.day);
+        refreshVocabStamp();
+        var toggle = $("#day-studied-toggle");
+        if (toggle) toggle.checked = true;
+      }
     });
   }
 
