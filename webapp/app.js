@@ -77,6 +77,38 @@
   }
   function dueCount() { return dueWordsToday().length; }
 
+  /* ---------- vocab study-progress stamp ---------- */
+  var VOCAB_STUDIED_KEY = "toeic_vocab_studied_v1";
+  function loadStudiedDays() { return getJSON(VOCAB_STUDIED_KEY, []); }
+  function saveStudiedDays(arr) { setJSON(VOCAB_STUDIED_KEY, arr); }
+  function isDayStudied(day) { return loadStudiedDays().indexOf(day) !== -1; }
+  function toggleDayStudied(day) {
+    var arr = loadStudiedDays();
+    var idx = arr.indexOf(day);
+    if (idx === -1) arr.push(day); else arr.splice(idx, 1);
+    saveStudiedDays(arr);
+  }
+  function markStudiedThrough(day) {
+    var arr = loadStudiedDays();
+    for (var i = 1; i <= day; i++) { if (arr.indexOf(i) === -1) arr.push(i); }
+    saveStudiedDays(arr);
+  }
+  function highestStudiedDay() {
+    var arr = loadStudiedDays();
+    return arr.length ? Math.max.apply(null, arr) : 0;
+  }
+  function studiedWordCount() {
+    var arr = loadStudiedDays();
+    var count = 0;
+    VOCAB.days.forEach(function (d) { if (arr.indexOf(d.day) !== -1) count += d.words.length; });
+    return count;
+  }
+  function totalVocabWordCount() {
+    var count = 0;
+    VOCAB.days.forEach(function (d) { count += d.words.length; });
+    return count;
+  }
+
   /* ---------- session step checkboxes ---------- */
   function stepsKey(dateKey) { return "toeic_steps_" + dateKey; }
   function loadSteps(dateKey) { return getJSON(stepsKey(dateKey), []); }
@@ -239,6 +271,7 @@
     html += '<div class="card">';
     html += "<h2>คำศัพท์ที่ต้องทวนวันนี้</h2>";
     html += '<div class="muted">มี <b>' + dueCount() + "</b> คำที่ครบกำหนดทวนแล้ว</div>";
+    html += '<div class="tiny-muted">ท่องแล้วถึงวันที่ ' + highestStudiedDay() + ' / ' + VOCAB.days.length + ' วัน (' + studiedWordCount() + ' / ' + totalVocabWordCount() + ' คำ)</div>';
     html += '<div class="btn-row"><button class="btn" data-tab-link="vocab">ไปทวนศัพท์</button></div>';
     html += "</div>";
 
@@ -361,7 +394,20 @@
     var due = dueWordsToday();
     var todayWords = due.map(function (d) { return d.word; });
 
+    var studiedDays = loadStudiedDays();
+    var highestDay = highestStudiedDay();
+    var studiedWords = studiedWordCount();
+    var totalWords = totalVocabWordCount();
+    var stampPct = totalWords ? Math.round((studiedWords / totalWords) * 100) : 0;
+
     var html = "";
+    html += '<div class="card">';
+    html += "<h2>ความคืบหน้าการท่องศัพท์</h2>";
+    html += '<div class="muted">ท่องแล้วถึง <b>วันที่ ' + highestDay + ' / ' + VOCAB.days.length + '</b> &middot; รวม <b>' + studiedWords + ' / ' + totalWords + ' คำ</b></div>';
+    html += '<div class="progress-track"><div class="progress-fill" style="width:' + stampPct + '%"></div></div>';
+    html += '<div class="tiny-muted">ติ๊กว่าท่องแล้วไปทั้งหมด ' + studiedDays.length + ' วัน (' + stampPct + '%)</div>';
+    html += "</div>";
+
     html += '<div class="card">';
     html += "<h2>ศัพท์ TOEIC</h2>";
     html += '<div class="muted">ระบบ Leitner: กด &ldquo;รู้แล้ว&rdquo; คำนั้นจะเว้นระยะทวนนานขึ้นอัตโนมัติ กด &ldquo;ยังไม่รู้&rdquo; จะกลับมาทวนพรุ่งนี้</div>';
@@ -380,11 +426,17 @@
       }
     } else {
       var dayData = VOCAB.days[vocabState.day - 1];
+      var dayStudied = isDayStudied(vocabState.day);
       html += '<div class="card"><div class="muted">' + VOCAB.days.length + ' วัน x 10 คำ &mdash; เรียนวันละชุด แล้วคำจะเข้าระบบทบทวนอัตโนมัติที่โหมด &ldquo;ทบทวนวันนี้&rdquo;</div><div class="btn-row">';
       html += '<select id="vocab-day">' + VOCAB.days.map(function (d) {
         return '<option value="' + d.day + '"' + (d.day === vocabState.day ? " selected" : "") + '>วันที่ ' + d.day + ' — ' + d.theme + '</option>';
       }).join("") + "</select>";
       html += '<button class="btn primary" id="vocab-quiz-btn">ทำแบบทดสอบวันนี้ (Quiz)</button>';
+      html += "</div>";
+      html += '<div class="toggle-row">';
+      html += '<label class="ios-toggle"><input type="checkbox" id="day-studied-toggle"' + (dayStudied ? " checked" : "") + '><span class="slider"></span></label>';
+      html += '<span class="toggle-label">ติ๊กว่าท่องวันที่ ' + dayData.day + ' แล้ว</span>';
+      html += '<button class="btn small" id="mark-through-btn">ทำเครื่องหมายว่าท่องถึงวันนี้ (วันที่ 1&ndash;' + dayData.day + ')</button>';
       html += "</div></div>";
       html += '<div class="card"><h3>วันที่ ' + dayData.day + ' — ' + dayData.theme + '</h3><div class="flash-grid" id="flash-grid">' + dayData.words.map(flashCardHTML).join("") + "</div></div>";
     }
@@ -417,6 +469,14 @@
       });
       $("#vocab-quiz-btn").addEventListener("click", function () {
         vocabState.quiz = buildVocabQuiz(vocabState.day);
+        renderVocab();
+      });
+      $("#day-studied-toggle").addEventListener("change", function () {
+        toggleDayStudied(vocabState.day);
+        renderVocab();
+      });
+      $("#mark-through-btn").addEventListener("click", function () {
+        markStudiedThrough(vocabState.day);
         renderVocab();
       });
     }

@@ -260,6 +260,35 @@ table.data-table th { color: var(--text-muted); font-weight: 600; }
 
 .timer-display { font-size: 2rem; font-weight: 700; font-variant-numeric: tabular-nums; text-align: center; margin: 8px 0; }
 
+.toggle-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.toggle-row .toggle-label { font-size: 0.85rem; color: var(--text-secondary); }
+
+.ios-toggle { position: relative; display: inline-block; width: 46px; height: 26px; flex-shrink: 0; }
+.ios-toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.ios-toggle .slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background: var(--gridline);
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+.ios-toggle .slider::before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 2px;
+  top: 2px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+.ios-toggle input:checked + .slider { background: var(--good); }
+.ios-toggle input:checked + .slider::before { transform: translateX(20px); }
+.ios-toggle input:focus-visible + .slider { outline: 2px solid var(--series-1); outline-offset: 2px; }
+
 .app-footer { text-align: center; color: var(--text-muted); font-size: 0.72rem; padding: 14px; }
 
 svg.chart text { fill: var(--text-secondary); font-size: 10px; font-family: system-ui, sans-serif; }
