@@ -373,6 +373,8 @@
       '<div class="front-only"><div class="word">' + w.word + ' <button class="btn small no-flip speak-word" data-text="' + escapeAttr(w.word) + '" aria-label="ฟังคำอ่าน">🔊</button></div><div class="pos">' + w.pos + '</div></div>' +
       '<div class="back">' +
       '<div><b>' + w.thai + '</b></div>' +
+      (w.general ? '<div class="tiny-muted">ความหมายทั่วไป: ' + w.general + '</div>' : '') +
+      (w.meaningEn ? '<div class="tiny-muted meaning-en"><i>' + w.meaningEn + '</i> <button class="btn small no-flip speak-meaning" data-text="' + escapeAttr(w.meaningEn) + '" aria-label="ฟังคำจำกัดความภาษาอังกฤษ">🔊</button></div>' : '') +
       '<div class="tiny-muted">' + w.example + ' <button class="btn small no-flip speak-ex" data-text="' + escapeAttr(w.example) + '" aria-label="ฟังตัวอย่างประโยค">🔊</button></div>' +
       '<div class="tiny-muted">' + w.exampleThai + '</div>' +
       '<div class="box-tag">Box ' + box + ' &middot; ทวนครั้งถัดไป: ' + due + '</div>' +
@@ -388,6 +390,8 @@
       card.classList.toggle("flipped");
     });
     card.querySelector(".speak-word").addEventListener("click", function (e) { e.stopPropagation(); speak(w.word); });
+    var speakMeaning = card.querySelector(".speak-meaning");
+    if (speakMeaning) speakMeaning.addEventListener("click", function (e) { e.stopPropagation(); speak(w.meaningEn); });
     card.querySelector(".speak-ex").addEventListener("click", function (e) { e.stopPropagation(); speak(w.example); });
     card.querySelector(".know-yes").addEventListener("click", function (e) { e.stopPropagation(); markWord(w.word, true); afterUpdate(); });
     card.querySelector(".know-no").addEventListener("click", function (e) { e.stopPropagation(); markWord(w.word, false); afterUpdate(); });
