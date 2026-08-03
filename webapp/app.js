@@ -101,6 +101,14 @@
     var arr = loadStudiedDays();
     return arr.length ? Math.max.apply(null, arr) : 0;
   }
+  /* first day not yet marked studied — where the user should pick up next */
+  function nextUnstudiedDay() {
+    var arr = loadStudiedDays();
+    for (var i = 1; i <= VOCAB.days.length; i++) {
+      if (arr.indexOf(i) === -1) return i;
+    }
+    return VOCAB.days.length;
+  }
   function studiedWordCount() {
     var arr = loadStudiedDays();
     var count = 0;
@@ -275,7 +283,7 @@
     html += '<div class="card">';
     html += "<h2>คำศัพท์ที่ต้องทวนวันนี้</h2>";
     html += '<div class="muted">มี <b>' + dueCount() + "</b> คำที่ครบกำหนดทวนแล้ว</div>";
-    html += '<div class="tiny-muted">ท่องแล้วถึงวันที่ ' + highestStudiedDay() + ' / ' + VOCAB.days.length + ' วัน (' + studiedWordCount() + ' / ' + totalVocabWordCount() + ' คำ)</div>';
+    html += '<div class="tiny-muted">ท่องศัพท์ต่อเนื่องถึงวันที่ ' + (nextUnstudiedDay() - 1) + ' / ' + VOCAB.days.length + ' วัน (' + studiedWordCount() + ' / ' + totalVocabWordCount() + ' คำ) &middot; วันถัดไป: วันที่ ' + nextUnstudiedDay() + "</div>";
     html += '<div class="btn-row"><button class="btn" data-tab-link="vocab">ไปทวนศัพท์</button></div>';
     html += "</div>";
 
@@ -363,7 +371,7 @@
   }
 
   /* ================= VOCAB ================= */
-  var vocabState = { day: currentVocabDay(), mode: "today", quiz: null };
+  var vocabState = { day: currentVocabDay(), mode: "today", quiz: null, moreOpen: false };
 
   function flashCardHTML(w) {
     var st = wordState(w.word);
@@ -400,14 +408,21 @@
   function vocabStampHTML() {
     var studiedDays = loadStudiedDays();
     var highestDay = highestStudiedDay();
+    var streakDay = nextUnstudiedDay() - 1; /* last day before the first gap */
+    var nextDay = nextUnstudiedDay();
     var studiedWords = studiedWordCount();
     var totalWords = totalVocabWordCount();
     var stampPct = totalWords ? Math.round((studiedWords / totalWords) * 100) : 0;
+    var allDone = studiedDays.length >= VOCAB.days.length;
+
     var html = "";
     html += "<h2>ความคืบหน้าการท่องศัพท์</h2>";
-    html += '<div class="muted">ท่องแล้วถึง <b>วันที่ ' + highestDay + ' / ' + VOCAB.days.length + '</b> &middot; รวม <b>' + studiedWords + ' / ' + totalWords + ' คำ</b></div>';
+    html += '<div class="muted">ท่องต่อเนื่องถึง <b>วันที่ ' + streakDay + ' / ' + VOCAB.days.length + '</b> &middot; รวม <b>' + studiedWords + ' / ' + totalWords + ' คำ</b></div>';
     html += '<div class="progress-track"><div class="progress-fill" style="width:' + stampPct + '%"></div></div>';
-    html += '<div class="tiny-muted">ติ๊กว่าท่องแล้วไปทั้งหมด ' + studiedDays.length + ' วัน (' + stampPct + '%)</div>';
+    html += '<div class="tiny-muted">ติ๊กว่าท่องแล้วไปทั้งหมด ' + studiedDays.length + ' วัน (' + stampPct + "%)";
+    if (highestDay > streakDay) html += " &middot; ท่องข้ามไปถึงวันที่ " + highestDay + " แล้วบางวัน";
+    html += "</div>";
+    html += '<div class="tiny-muted">' + (allDone ? "ท่องครบทุกวันแล้ว 🎉" : "วันถัดไปที่ต้องท่อง: <b>วันที่ " + nextDay + "</b>") + "</div>";
     return html;
   }
   function refreshVocabStamp() {
@@ -442,17 +457,42 @@
     } else {
       var dayData = VOCAB.days[vocabState.day - 1];
       var dayStudied = isDayStudied(vocabState.day);
-      html += '<div class="card"><div class="muted">' + VOCAB.days.length + ' วัน x 10 คำ &mdash; เรียนวันละชุด แล้วคำจะเข้าระบบทบทวนอัตโนมัติที่โหมด &ldquo;ทบทวนวันนี้&rdquo;</div><div class="btn-row">';
-      html += '<select id="vocab-day">' + VOCAB.days.map(function (d) {
-        return '<option value="' + d.day + '"' + (d.day === vocabState.day ? " selected" : "") + '>วันที่ ' + d.day + ' — ' + d.theme + '</option>';
-      }).join("") + "</select>";
-      html += '<button class="btn primary" id="vocab-quiz-btn">ทำแบบทดสอบวันนี้ (Quiz)</button>';
+      var nextDay = nextUnstudiedDay();
+
+      html += '<div class="card">';
+      html += '<div class="day-nav">';
+      html += '<button class="btn day-arrow" id="day-prev"' + (vocabState.day <= 1 ? " disabled" : "") + ' aria-label="วันก่อนหน้า">&#9664;</button>';
+      html += '<div class="day-nav-center">';
+      html += '<div class="day-nav-title">วันที่ ' + dayData.day + ' <span class="day-nav-total">/ ' + VOCAB.days.length + '</span></div>';
+      html += '<div class="day-nav-theme">' + dayData.theme + '</div>';
+      html += '<div class="day-nav-status' + (dayStudied ? " done" : "") + '">' + (dayStudied ? "&#10003; ท่องแล้ว" : "ยังไม่ได้ท่อง") + "</div>";
       html += "</div>";
+      html += '<button class="btn day-arrow" id="day-next"' + (vocabState.day >= VOCAB.days.length ? " disabled" : "") + ' aria-label="วันถัดไป">&#9654;</button>';
+      html += "</div>";
+
+      html += '<div class="btn-row">';
+      html += '<button class="btn primary" id="vocab-quiz-btn">ทำแบบทดสอบวันนี้ (Quiz)</button>';
+      if (nextDay !== vocabState.day) {
+        html += '<button class="btn" id="jump-next-btn">ไปวันที่ต้องท่องต่อ (วันที่ ' + nextDay + ")</button>";
+      }
+      html += "</div>";
+
       html += '<div class="toggle-row">';
       html += '<label class="ios-toggle"><input type="checkbox" id="day-studied-toggle"' + (dayStudied ? " checked" : "") + '><span class="slider"></span></label>';
       html += '<span class="toggle-label">ติ๊กว่าท่องวันที่ ' + dayData.day + ' แล้ว</span>';
+      html += "</div>";
+
+      html += '<details class="day-more" id="day-more"' + (vocabState.moreOpen ? " open" : "") + "><summary>เลือกวันอื่น / ตัวเลือกเพิ่มเติม</summary>";
+      html += '<div class="btn-row">';
+      html += '<select id="vocab-day">' + VOCAB.days.map(function (d) {
+        return '<option value="' + d.day + '"' + (d.day === vocabState.day ? " selected" : "") + '>' + (isDayStudied(d.day) ? "✓ " : "") + "วันที่ " + d.day + " — " + d.theme + "</option>";
+      }).join("") + "</select>";
       html += '<button class="btn small" id="mark-through-btn">ทำเครื่องหมายว่าท่องถึงวันนี้ (วันที่ 1&ndash;' + dayData.day + ')</button>';
-      html += "</div></div>";
+      html += "</div>";
+      html += '<div class="tiny-muted">' + VOCAB.days.length + " วัน x 10 คำ — เรียนวันละชุด แล้วคำจะเข้าระบบทบทวนอัตโนมัติที่โหมด &ldquo;ทบทวนวันนี้&rdquo;</div>";
+      html += "</details>";
+      html += "</div>";
+
       html += '<div class="card"><h3>วันที่ ' + dayData.day + ' — ' + dayData.theme + '</h3><div class="flash-grid" id="flash-grid">' + dayData.words.map(flashCardHTML).join("") + "</div></div>";
     }
 
@@ -477,10 +517,18 @@
         renderVocab();
       });
     } else {
-      $("#vocab-day").addEventListener("change", function (e) {
-        vocabState.day = Number(e.target.value);
+      function gotoDay(n) {
+        vocabState.day = Math.min(Math.max(n, 1), VOCAB.days.length);
         vocabState.quiz = null;
         renderVocab();
+      }
+      $("#day-more").addEventListener("toggle", function (e) { vocabState.moreOpen = e.target.open; });
+      $("#day-prev").addEventListener("click", function () { gotoDay(vocabState.day - 1); });
+      $("#day-next").addEventListener("click", function () { gotoDay(vocabState.day + 1); });
+      var jumpBtn = $("#jump-next-btn");
+      if (jumpBtn) jumpBtn.addEventListener("click", function () { gotoDay(nextUnstudiedDay()); });
+      $("#vocab-day").addEventListener("change", function (e) {
+        gotoDay(Number(e.target.value));
       });
       $("#vocab-quiz-btn").addEventListener("click", function () {
         vocabState.quiz = buildVocabQuiz(vocabState.day);

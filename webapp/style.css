@@ -260,6 +260,56 @@ table.data-table th { color: var(--text-muted); font-weight: 600; }
 
 .timer-display { font-size: 2rem; font-weight: 700; font-variant-numeric: tabular-nums; text-align: center; margin: 8px 0; }
 
+/* ---- vocab day navigator (prev / current day / next) ---- */
+.day-nav {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.day-nav-center {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+.day-nav-title { font-size: 1.35rem; font-weight: 700; line-height: 1.15; }
+.day-nav-total { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+.day-nav-theme {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  overflow-wrap: anywhere;
+}
+.day-nav-status { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); }
+.day-nav-status.done { color: var(--good); }
+
+.day-arrow {
+  flex-shrink: 0;
+  min-width: 52px;
+  font-size: 1.1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+}
+.day-arrow:disabled { opacity: 0.35; cursor: default; }
+.day-arrow:disabled:hover { border-color: var(--border); }
+
+.day-more { margin-top: 10px; }
+.day-more > summary {
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 4px 0;
+  list-style: revert;
+}
+.day-more > summary:hover { color: var(--series-1); }
+.day-more .tiny-muted { margin-top: 6px; }
+
 .toggle-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
 .toggle-row .toggle-label { font-size: 0.85rem; color: var(--text-secondary); }
 
