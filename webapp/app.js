@@ -140,8 +140,8 @@
   function buildDailyTest() {
     var due = dueWordsToday().map(function (d) { return d.word; });
     var vocabPool = due.length ? due : shuffle(allWords().map(function (w) { return w.word; })).slice(0, 10);
-    var vocabItems = buildQuizFromWords(vocabPool).slice(0, 8).map(function (it) {
-      return { text: it.word, kind: "vocab", choices: it.choices, answer: it.answer, picked: null };
+    var vocabItems = buildQuizFromWords(vocabPool, 8).map(function (it) {
+      return { text: it.prompt, kind: "vocab", choices: it.choices, answer: it.answer, picked: null };
     });
     var dayCount = Math.max(0, daysBetween(profile.startDate, todayKey()));
     var lesson = GRAMMAR.lessons[dayCount % GRAMMAR.lessons.length];
@@ -513,7 +513,7 @@
     if (vocabState.mode === "today") {
       var tqBtn = $("#today-quiz-btn");
       if (tqBtn) tqBtn.addEventListener("click", function () {
-        vocabState.quiz = buildQuizFromWords(todayWords);
+        vocabState.quiz = buildQuizFromWords(todayWords, 10);
         renderVocab();
       });
     } else {
@@ -556,18 +556,123 @@
     return a;
   }
 
-  function buildQuizFromWords(pool) {
-    var allW = allWords().map(function (x) { return x.word; });
-    var picks = shuffle(pool).slice(0, Math.min(8, pool.length));
-    return picks.map(function (correct) {
-      var distractors = shuffle(allW.filter(function (w) { return w.word !== correct.word; })).slice(0, 2);
-      var choices = shuffle([correct.thai].concat(distractors.map(function (d) { return d.thai; })));
-      return { word: correct.word, choices: choices, answer: choices.indexOf(correct.thai), picked: null };
+  /* ---- quiz construction ----
+     Questions rotate through four formats and draw distractors from words
+     that share the prompt word's part of speech (and theme where possible),
+     so wrong choices cannot be eliminated on shape alone. */
+  var QUIZ_FORMATS = ["th", "en", "def", "cloze"];
+  var CHOICE_COUNT = 4;
+
+  /* Pick distractor words, closest-matching first: same theme + pos, then
+     same pos, then anything.
+     `labelOf` keeps the displayed choices distinct. `conflictOf` rules out
+     words that would also correctly answer the prompt — necessary because
+     several words share a Thai meaning (deny/refuse, evaluate/assess), so a
+     "pick the English word for ปฏิเสธ" question must not offer both. */
+  function pickDistractors(correct, entries, labelOf, conflictOf, count) {
+    var correctLabel = labelOf(correct);
+    var correctConflict = conflictOf(correct);
+    var taken = {};
+    taken[correctLabel] = true;
+
+    var eligible = entries.filter(function (e) {
+      if (e.word.word === correct.word) return false;
+      var label = labelOf(e.word);
+      if (!label || label === correctLabel) return false;
+      return conflictOf(e.word) !== correctConflict;
+    });
+
+    var correctEntry = null;
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].word.word === correct.word) { correctEntry = entries[i]; break; }
+    }
+    var theme = correctEntry ? correctEntry.theme : null;
+
+    var tiers = [
+      eligible.filter(function (e) { return e.theme === theme && e.word.pos === correct.pos; }),
+      eligible.filter(function (e) { return e.word.pos === correct.pos; }),
+      eligible
+    ];
+
+    var out = [];
+    for (var t = 0; t < tiers.length && out.length < count; t++) {
+      var tier = shuffle(tiers[t]);
+      for (var j = 0; j < tier.length && out.length < count; j++) {
+        var label = labelOf(tier[j].word);
+        if (taken[label]) continue;
+        taken[label] = true;
+        out.push(tier[j].word);
+      }
+    }
+    return out;
+  }
+
+  /* Blank out the target word in its own example sentence. Returns null when
+     the word does not appear (some examples use a different form), so the
+     caller can fall back to another question format. */
+  function clozeSentence(w) {
+    if (!w.example) return null;
+    var escaped = w.word.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    var patterns = [
+      new RegExp("\\b" + escaped + "\\b", "i"),
+      new RegExp("\\b" + escaped + "(?:s|es|ed|d|ing|ly|ment)\\b", "i")
+    ];
+    for (var i = 0; i < patterns.length; i++) {
+      if (patterns[i].test(w.example)) return w.example.replace(patterns[i], "______");
+    }
+    return null;
+  }
+
+  function buildQuizFromWords(pool, limit) {
+    var entries = allWords();
+    var picks = shuffle(pool).slice(0, Math.min(limit || 10, pool.length));
+
+    return picks.map(function (correct, i) {
+      var format = QUIZ_FORMATS[i % QUIZ_FORMATS.length];
+      var sentence = null;
+
+      if (format === "cloze") {
+        sentence = clozeSentence(correct);
+        if (!sentence) format = "def";
+      }
+      if (format === "def" && !correct.meaningEn) format = "th";
+
+      /* "th" asks for the Thai meaning; every other format asks for the
+         English word, so choices are Thai labels only in the "th" case.
+         conflictOf marks what would make a distractor a second valid answer:
+         for "def" that is an identical English definition, otherwise an
+         identical Thai meaning. */
+      var wantsThai = format === "th";
+      var labelOf = wantsThai
+        ? function (w) { return w.thai; }
+        : function (w) { return w.word; };
+      var conflictOf = format === "def"
+        ? function (w) { return w.meaningEn; }
+        : function (w) { return w.thai; };
+
+      var prompt;
+      if (format === "cloze") prompt = sentence + ' <span class="tiny-muted">(เติมคำที่หายไป)</span>';
+      else if (format === "def") prompt = "<i>" + correct.meaningEn + "</i>";
+      else if (format === "en") prompt = correct.thai;
+      else prompt = correct.word;
+
+      var correctLabel = labelOf(correct);
+      var distractors = pickDistractors(correct, entries, labelOf, conflictOf, CHOICE_COUNT - 1);
+      var choices = shuffle([correctLabel].concat(distractors.map(labelOf)));
+
+      return {
+        prompt: prompt,
+        word: correct.word,
+        format: format,
+        choices: choices,
+        answer: choices.indexOf(correctLabel),
+        picked: null
+      };
     });
   }
 
   function buildVocabQuiz(dayNum) {
-    return buildQuizFromWords(VOCAB.days[dayNum - 1].words);
+    return buildQuizFromWords(VOCAB.days[dayNum - 1].words, 10);
   }
 
   /* ================= GRAMMAR ================= */
@@ -639,10 +744,18 @@
     });
   }
 
+  var QUIZ_FORMAT_TAGS = {
+    th: '<span class="pill blue">ความหมายไทย</span>',
+    en: '<span class="pill aqua">เลือกคำอังกฤษ</span>',
+    def: '<span class="pill">นิยามอังกฤษ</span>',
+    cloze: '<span class="pill yellow">เติมคำในประโยค</span>'
+  };
+
   function renderQuizBlock(quiz) {
-    var html = '<div class="card" id="quiz-block"><h3>Quiz: เลือกความหมายที่ถูกต้อง</h3>';
+    var html = '<div class="card" id="quiz-block"><h3>Quiz (' + quiz.length + ' ข้อ)</h3>';
+    html += '<div class="tiny-muted">สลับ 4 รูปแบบคำถาม ตัวเลือกลวงเป็นคำชนิดเดียวกันและหมวดเดียวกัน</div>';
     quiz.forEach(function (item, qi) {
-      html += '<div class="q-block"><div class="q-text">' + (qi + 1) + '. ' + item.word + '</div>';
+      html += '<div class="q-block"><div class="q-text">' + (qi + 1) + ". " + item.prompt + " " + (QUIZ_FORMAT_TAGS[item.format] || "") + "</div>";
       item.choices.forEach(function (c, ci) {
         html += '<label class="choice-row" data-q="' + qi + '" data-c="' + ci + '"><input type="radio" name="quiz-' + qi + '" value="' + ci + '"> ' + c + '</label>';
       });
