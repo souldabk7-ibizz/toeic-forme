@@ -260,6 +260,27 @@ table.data-table th { color: var(--text-muted); font-weight: 600; }
 
 .timer-display { font-size: 2rem; font-weight: 700; font-variant-numeric: tabular-nums; text-align: center; margin: 8px 0; }
 
+/* synonym / antonym lines on the back of a flashcard */
+.word-rel { margin-top: 3px; line-height: 1.45; }
+.rel-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0 5px;
+  margin-right: 5px;
+  border-radius: 4px;
+  vertical-align: 1px;
+}
+.rel-tag.syn { background: color-mix(in srgb, var(--series-2) 18%, transparent); color: var(--series-2); }
+.rel-tag.ant { background: color-mix(in srgb, var(--critical) 16%, transparent); color: var(--critical); }
+
+/* separates the reference block (meaning / synonyms) from the usage example */
+.flash-card .back .example-line {
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px solid var(--gridline);
+}
+
 /* ---- vocab day navigator (prev / current day / next) ---- */
 .day-nav {
   display: flex;

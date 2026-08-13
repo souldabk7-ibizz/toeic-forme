@@ -383,7 +383,9 @@
       '<div><b>' + w.thai + '</b></div>' +
       (w.general ? '<div class="tiny-muted">ความหมายทั่วไป: ' + w.general + '</div>' : '') +
       (w.meaningEn ? '<div class="tiny-muted meaning-en"><i>' + w.meaningEn + '</i> <button class="btn small no-flip speak-meaning" data-text="' + escapeAttr(w.meaningEn) + '" aria-label="ฟังคำจำกัดความภาษาอังกฤษ">🔊</button></div>' : '') +
-      '<div class="tiny-muted">' + w.example + ' <button class="btn small no-flip speak-ex" data-text="' + escapeAttr(w.example) + '" aria-label="ฟังตัวอย่างประโยค">🔊</button></div>' +
+      (w.syn ? '<div class="tiny-muted word-rel"><span class="rel-tag syn">คล้าย</span>' + w.syn + '</div>' : '') +
+      (w.ant ? '<div class="tiny-muted word-rel"><span class="rel-tag ant">ตรงข้าม</span>' + w.ant + '</div>' : '') +
+      '<div class="tiny-muted example-line">' + w.example + ' <button class="btn small no-flip speak-ex" data-text="' + escapeAttr(w.example) + '" aria-label="ฟังตัวอย่างประโยค">🔊</button></div>' +
       '<div class="tiny-muted">' + w.exampleThai + '</div>' +
       '<div class="box-tag">Box ' + box + ' &middot; ทวนครั้งถัดไป: ' + due + '</div>' +
       '<div class="know-row">' +
