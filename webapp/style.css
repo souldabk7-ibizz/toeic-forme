@@ -281,6 +281,28 @@ table.data-table th { color: var(--text-muted); font-weight: 600; }
   border-top: 1px solid var(--gridline);
 }
 
+/* ---- cumulative review: list of day blocks ---- */
+.review-list { margin-top: 8px; }
+.review-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gridline);
+}
+.review-row:last-child { border-bottom: none; }
+.review-row.active { background: color-mix(in srgb, var(--series-1) 8%, transparent); }
+.review-row-main { flex: 1; min-width: 0; }
+.review-row-title { font-weight: 700; font-size: 0.92rem; }
+.review-row-sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 3px;
+}
+.review-row .btn { flex-shrink: 0; }
+
 /* ---- vocab day navigator (prev / current day / next) ---- */
 .day-nav {
   display: flex;

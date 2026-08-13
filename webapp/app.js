@@ -677,6 +677,173 @@
     return buildQuizFromWords(VOCAB.days[dayNum - 1].words, 10);
   }
 
+  /* ================= CUMULATIVE REVIEW =================
+     Periodic tests over a block of days, to check that words learned a
+     while ago have actually stuck rather than only being recognised on the
+     day they were introduced. */
+  var REVIEW_KEY = "toeic_review_v1";
+  function loadReviewScores() { return getJSON(REVIEW_KEY, {}); }
+  function saveReviewScores(obj) { setJSON(REVIEW_KEY, obj); }
+
+  var REVIEW_SIZES = [5, 10];
+  var REVIEW_QUESTIONS = { 5: 20, 10: 30 };
+  var reviewState = { size: 5, block: null, quiz: null };
+
+  /* Split the whole vocabulary into consecutive blocks of `size` days. The
+     final block absorbs the remainder when the total is not a multiple. */
+  function reviewBlocks(size) {
+    var blocks = [];
+    for (var start = 1; start <= VOCAB.days.length; start += size) {
+      var end = Math.min(start + size - 1, VOCAB.days.length);
+      var words = [];
+      for (var d = start; d <= end; d++) words = words.concat(VOCAB.days[d - 1].words);
+      blocks.push({ start: start, end: end, words: words });
+    }
+    return blocks;
+  }
+  function reviewKey(size, start) { return size + "-" + start; }
+
+  function buildReviewQuiz(block, size) {
+    return buildQuizFromWords(block.words, Math.min(REVIEW_QUESTIONS[size] || 20, block.words.length));
+  }
+
+  function renderReview() {
+    var root = $("#tab-review");
+    var blocks = reviewBlocks(reviewState.size);
+    var scores = loadReviewScores();
+    var studiedThrough = nextUnstudiedDay() - 1;
+
+    var html = "";
+    html += '<div class="card">';
+    html += "<h2>ทบทวนรวม</h2>";
+    html += '<div class="muted">ทดสอบคำศัพท์ย้อนหลังเป็นช่วงๆ เพื่อเช็กว่ายังจำคำที่เรียนไปนานแล้วได้จริง สุ่มคำจากทั้งช่วง ไม่ใช่แค่วันเดียว</div>';
+    html += '<div class="btn-row">';
+    REVIEW_SIZES.forEach(function (s) {
+      html += '<button class="btn small' + (reviewState.size === s ? " primary" : "") + '" data-size="' + s + '">ชุดละ ' + s + " วัน (" + (REVIEW_QUESTIONS[s]) + " ข้อ)</button>";
+    });
+    html += "</div></div>";
+
+    html += '<div class="card"><h3>เลือกช่วงที่จะทดสอบ</h3>';
+    html += '<div class="tiny-muted">ท่องต่อเนื่องถึงวันที่ ' + studiedThrough + " แล้ว — ช่วงที่ท่องครบจะขึ้นว่า &ldquo;พร้อมทดสอบ&rdquo;</div>";
+    html += '<div class="review-list">';
+    blocks.forEach(function (b) {
+      var rec = scores[reviewKey(reviewState.size, b.start)];
+      var ready = studiedThrough >= b.end;
+      var partial = !ready && studiedThrough >= b.start;
+      var active = reviewState.block === b.start;
+
+      html += '<div class="review-row' + (active ? " active" : "") + '">';
+      html += '<div class="review-row-main">';
+      html += '<div class="review-row-title">วันที่ ' + b.start + "&ndash;" + b.end + ' <span class="tiny-muted">(' + b.words.length + " คำ)</span></div>";
+      html += '<div class="review-row-sub">';
+      if (rec) {
+        var pct = Math.round((rec.best / rec.total) * 100);
+        html += '<span class="pill ' + (pct >= 80 ? "aqua" : pct >= 60 ? "yellow" : "") + '">สูงสุด ' + rec.best + "/" + rec.total + " (" + pct + "%)</span>";
+        html += '<span class="tiny-muted">ทำไป ' + rec.attempts + " ครั้ง &middot; ล่าสุด " + rec.last + "</span>";
+      } else if (ready) {
+        html += '<span class="tiny-muted">พร้อมทดสอบ — ยังไม่เคยทำ</span>';
+      } else if (partial) {
+        html += '<span class="tiny-muted">ท่องถึงวันที่ ' + studiedThrough + " (ยังไม่ครบช่วง)</span>";
+      } else {
+        html += '<span class="tiny-muted">ยังไม่ได้ท่องช่วงนี้</span>';
+      }
+      html += "</div></div>";
+      html += '<button class="btn small' + (ready && !rec ? " primary" : "") + '" data-block="' + b.start + '">' + (rec ? "ทำอีกครั้ง" : "เริ่มทดสอบ") + "</button>";
+      html += "</div>";
+    });
+    html += "</div></div>";
+
+    if (reviewState.quiz) {
+      var cur = blocks.filter(function (b) { return b.start === reviewState.block; })[0];
+      html += '<div class="card"><h3>ชุดทดสอบ: วันที่ ' + cur.start + "&ndash;" + cur.end + " (" + reviewState.quiz.length + " ข้อ)</h3>";
+      html += '<div class="tiny-muted">สุ่มจาก ' + cur.words.length + " คำในช่วงนี้ สลับ 4 รูปแบบคำถามเหมือน Quiz รายวัน</div></div>";
+      html += renderReviewQuizBlock(reviewState.quiz);
+    }
+
+    root.innerHTML = html;
+
+    $$("button[data-size]", root).forEach(function (b) {
+      b.addEventListener("click", function () {
+        reviewState.size = Number(b.dataset.size);
+        reviewState.block = null;
+        reviewState.quiz = null;
+        renderReview();
+      });
+    });
+    $$("button[data-block]", root).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var start = Number(b.dataset.block);
+        var blk = reviewBlocks(reviewState.size).filter(function (x) { return x.start === start; })[0];
+        reviewState.block = start;
+        reviewState.quiz = buildReviewQuiz(blk, reviewState.size);
+        renderReview();
+        var el = $("#review-quiz-block");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    if (reviewState.quiz) wireReviewQuizBlock();
+  }
+
+  function renderReviewQuizBlock(quiz) {
+    var html = '<div class="card" id="review-quiz-block">';
+    quiz.forEach(function (item, qi) {
+      html += '<div class="q-block"><div class="q-text">' + (qi + 1) + ". " + item.prompt + " " + (QUIZ_FORMAT_TAGS[item.format] || "") + "</div>";
+      item.choices.forEach(function (c, ci) {
+        html += '<label class="choice-row" data-q="' + qi + '" data-c="' + ci + '"><input type="radio" name="rev-' + qi + '" value="' + ci + '"> ' + c + "</label>";
+      });
+      html += "</div>";
+    });
+    html += '<div class="btn-row"><button class="btn primary" id="review-check">ตรวจคำตอบ</button></div>';
+    html += '<div id="review-result" class="muted"></div></div>';
+    return html;
+  }
+
+  function wireReviewQuizBlock() {
+    var block = $("#review-quiz-block");
+    $$('input[type="radio"]', block).forEach(function (r) {
+      r.addEventListener("change", function () {
+        var row = r.closest(".choice-row");
+        reviewState.quiz[Number(row.dataset.q)].picked = Number(row.dataset.c);
+      });
+    });
+    $("#review-check").addEventListener("click", function () {
+      var correct = 0;
+      var wrong = [];
+      reviewState.quiz.forEach(function (item, qi) {
+        $$('.choice-row[data-q="' + qi + '"]', block).forEach(function (row) {
+          var ci = Number(row.dataset.c);
+          row.classList.remove("correct", "incorrect");
+          if (ci === item.answer) row.classList.add("correct");
+          else if (ci === item.picked) row.classList.add("incorrect");
+        });
+        if (item.picked === item.answer) correct++;
+        else wrong.push(item.word);
+      });
+
+      var total = reviewState.quiz.length;
+      var scores = loadReviewScores();
+      var key = reviewKey(reviewState.size, reviewState.block);
+      var rec = scores[key] || { best: 0, total: total, attempts: 0, last: "" };
+      rec.attempts += 1;
+      rec.total = total;
+      rec.best = Math.max(rec.best, correct);
+      rec.last = todayKey();
+      scores[key] = rec;
+      saveReviewScores(scores);
+
+      var pct = Math.round((correct / total) * 100);
+      var msg = "ได้ " + correct + " / " + total + " ข้อ (" + pct + "%)";
+      if (pct >= 80) msg += " — จำได้ดีมาก 🎉";
+      else if (pct >= 60) msg += " — พอใช้ ควรทวนคำที่ผิดอีกรอบ";
+      else msg += " — ควรกลับไปทบทวนช่วงนี้อีกครั้ง";
+      if (rec.best === correct && rec.attempts > 1) msg += " (คะแนนสูงสุดใหม่)";
+
+      var out = $("#review-result");
+      out.innerHTML = msg + (wrong.length ? '<div class="tiny-muted" style="margin-top:6px">คำที่ตอบผิด: <b>' + wrong.join(", ") + "</b></div>" : "");
+    });
+  }
+
   /* ================= GRAMMAR ================= */
   var grammarState = { lesson: 1 };
   var GRAMMAR_KEY = "toeic_grammar_v1";
@@ -1254,6 +1421,7 @@
   var render = {
     dashboard: renderDashboard,
     vocab: renderVocab,
+    review: renderReview,
     grammar: renderGrammar,
     listening: renderListening,
     reading: renderReading,
