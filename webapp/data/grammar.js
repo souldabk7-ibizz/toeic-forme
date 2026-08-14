@@ -7,22 +7,64 @@ window.GRAMMAR = {
       "title": "รูปแบบคำ (Word Forms): นาม กริยา คุณศัพท์ กริยาวิเศษณ์",
       "explain": [
         {
-          "heading": "หลักการ",
-          "body": "โจทย์ Part 5 ส่วนใหญ่ให้ดู “ตำแหน่ง” ของช่องว่างในประโยค ไม่ใช่ความหมายอย่างเดียว\n- หลัง a/an/the/this/my และหน้ากริยา → มักต้องเป็น คำนาม (Noun)\n- หน้าคำนามเปล่าๆ (ไม่มีคำนามอื่นคั่น) → มักต้องเป็น คุณศัพท์ (Adjective)\n- ตำแหน่งกริยาหลักของประโยค (หลังประธาน) → ต้องเป็น กริยา (Verb)\n- ขยายกริยา/คุณศัพท์/ทั้งประโยค (มักอยู่ท้ายประโยคหรือหน้ากริยา) → มักเป็น กริยาวิเศษณ์ (Adverb)",
+          "heading": "หลักการ: ดูตำแหน่ง ไม่ใช่ความหมาย",
+          "body": "โจทย์ Part 5 กลุ่มนี้จะให้ตัวเลือก 4 ตัวที่เป็นคำเดียวกันคนละรูป เช่น produce / production / productive / productively\nถ้าแปลอย่างเดียวจะตอบไม่ได้ เพราะทั้ง 4 ตัวความหมายใกล้กันหมด\nสิ่งที่ต้องทำคือ ดูว่า “ช่องว่างนี้ต้องการคำชนิดไหน” โดยดูคำที่อยู่หน้าและหลังช่องว่าง\n\nขั้นตอนในห้องสอบ (ใช้เวลาไม่เกิน 15 วินาที):\n1. ปิดตัวเลือกทั้ง 4 ไว้ก่อน อย่าเพิ่งอ่าน\n2. ดูคำหน้าช่องว่าง กับคำหลังช่องว่าง\n3. ตัดสินใจว่าต้องเป็น นาม / กริยา / คุณศัพท์ / กริยาวิเศษณ์\n4. ค่อยเปิดดูตัวเลือก แล้วเลือกตัวที่เป็นชนิดนั้น",
           "examples": [
             {
               "en": "The company's growth was impressive.",
-              "th": "การเติบโตของบริษัทน่าประทับใจ (growth = คำนาม อยู่หลัง the...'s)"
+              "th": "หลัง the...'s → ต้องเป็นคำนาม = growth"
             },
             {
               "en": "She performed the task efficiently.",
-              "th": "เธอทำงานอย่างมีประสิทธิภาพ (efficiently = กริยาวิเศษณ์ ขยายกริยา performed)"
+              "th": "หลังกรรมที่ครบประโยคแล้ว → เป็นกริยาวิเศษณ์ = efficiently"
             }
           ]
         },
         {
-          "heading": "คำลงท้ายที่พบบ่อย",
-          "body": "คำนาม: -tion/-sion (production), -ment (agreement), -ness (happiness), -ity (ability), -ance/-ence (performance)\nคำกริยา: -ize/-ise (organize), -ify (clarify), -en (strengthen), -ate (create)\nคุณศัพท์: -ive (active), -ous (dangerous), -al (national), -ful (helpful), -able/-ible (reliable), -ic (economic)\nกริยาวิเศษณ์: ส่วนใหญ่ลงท้าย -ly (quickly) — แต่ระวัง friendly, lovely เป็นคุณศัพท์ ไม่ใช่กริยาวิเศษณ์"
+          "heading": "ตำแหน่งที่ต้องเป็นคำนาม (Noun)",
+          "body": "คำนามคือ “สิ่ง/คน/เรื่อง” ทำหน้าที่เป็นประธานหรือกรรมของประโยค\n\nสัญญาณว่าต้องเติมคำนาม:\n• หลัง a / an / the → the decision, an application\n• หลังคำแสดงความเป็นเจ้าของ my / our / its / the company's → our decision\n• หลังคุณศัพท์ → a final decision, significant improvement\n• หลังบุพบท (in / on / for / of / with / to) → for approval, in production\n• ตำแหน่งประธานหน้ากริยา → The application was rejected.\n• หลังกริยาเป็นกรรม → We received the shipment.\n\nสูตรที่เจอบ่อยที่สุด: บุพบท + (คุณศัพท์) + ______ → ต้องเป็นคำนามแน่นอน",
+          "examples": [
+            {
+              "en": "Please submit the form for approval.",
+              "th": "หลังบุพบท for → คำนาม = approval (ไม่ใช่ approve)"
+            },
+            {
+              "en": "There has been a significant improvement in sales.",
+              "th": "หลัง a + significant (คุณศัพท์) → คำนาม = improvement"
+            }
+          ]
+        },
+        {
+          "heading": "ตำแหน่งที่ต้องเป็นคุณศัพท์ (Adjective) และกริยาวิเศษณ์ (Adverb)",
+          "body": "คุณศัพท์ = ขยายคำนาม ตอบคำถามว่า “แบบไหน”\nสัญญาณ:\n• หน้าคำนามโดยตรง → a reliable supplier, competitive prices\n• หลัง verb to be และกริยาแสดงสภาพ (seem, become, remain, appear) → The report is accurate. / The market remains competitive.\n\nกริยาวิเศษณ์ = ขยายกริยา คุณศัพท์ หรือทั้งประโยค ตอบคำถามว่า “อย่างไร”\nสัญญาณ:\n• หลังกริยา หรือหลังกรรมที่ประโยคครบแล้ว → works efficiently / completed the task quickly\n• ระหว่างกริยาช่วยกับกริยาหลัก → has recently announced, will carefully review\n• หน้าคุณศัพท์ตัวอื่น → highly competitive, extremely useful\n• หน้าประโยคทั้งประโยค → Unfortunately, the flight was cancelled.\n\nจุดตัดสินที่ง่ายที่สุด: ถ้าเอาคำนั้นออกแล้วประโยคยังสมบูรณ์ → มักเป็นกริยาวิเศษณ์",
+          "examples": [
+            {
+              "en": "The supplier offers competitive prices.",
+              "th": "หน้าคำนาม prices → คุณศัพท์ = competitive"
+            },
+            {
+              "en": "The board has recently approved the budget.",
+              "th": "ระหว่าง has กับ approved → กริยาวิเศษณ์ = recently"
+            },
+            {
+              "en": "The new machine is highly efficient.",
+              "th": "highly (adv) ขยาย efficient (adj) ที่ตามหลัง is"
+            }
+          ]
+        },
+        {
+          "heading": "คำลงท้ายที่ช่วยบอกชนิดคำ",
+          "body": "คำนาม (สิ่ง/เรื่อง): -tion / -sion (production, decision), -ment (agreement), -ness (effectiveness), -ity (ability), -ance / -ence (performance, difference), -ship (relationship), -al (approval, proposal)\nคำนาม (คน): -er / -or (manager, supervisor), -ee (employee, attendee), -ant / -ent (applicant, consultant), -ist (specialist)\nกริยา: -ize / -ise (organize), -ify (clarify), -en (strengthen), -ate (originate)\nคุณศัพท์: -ive (effective), -ous (previous), -al (financial), -ful (successful), -less (careless), -able / -ible (reliable, responsible), -ic (economic), -ary (temporary), -ant / -ent (significant, different)\nกริยาวิเศษณ์: -ly (quickly, carefully)",
+          "examples": [
+            {
+              "en": "The attendee received a badge; the presenter received a microphone.",
+              "th": "-ee = ผู้ถูกกระทำ (ผู้เข้าร่วม) / -er = ผู้กระทำ (ผู้นำเสนอ)"
+            }
+          ]
+        },
+        {
+          "heading": "กับดักที่ข้อสอบชอบวาง",
+          "body": "1) คำลงท้าย -ly ที่เป็นคุณศัพท์ ไม่ใช่กริยาวิเศษณ์\n   friendly, costly, timely, likely, lovely, weekly, monthly → เป็นคุณศัพท์\n   a friendly reminder (ถูก) / He spoke friendly (ผิด)\n\n2) คำนามสองแบบในครอบครัวเดียวกัน ต้องเลือกให้ตรงความหมาย\n   employ → employer (นายจ้าง) / employee (ลูกจ้าง) / employment (การจ้างงาน)\n   apply → applicant (คนสมัคร) / application (ใบสมัคร)\n   ถ้าประโยคพูดถึง “คน” ต้องเลือกคำที่แปลว่าคน\n\n3) คำที่รูปเดียวใช้ได้หลายหน้าที่ ต้องดูตำแหน่งอย่างเดียว\n   increase, decrease, report, research, review, order, request, change, use\n   The report is ready. (นาม) / Please report the issue. (กริยา)\n\n4) คุณศัพท์ที่ลงท้าย -ing กับ -ed ต่างกัน\n   The meeting was boring. (การประชุมน่าเบื่อ) / The staff were bored. (พนักงานรู้สึกเบื่อ)"
         }
       ],
       "practice": [
@@ -83,18 +125,50 @@ window.GRAMMAR = {
       "title": "ประธาน-กริยาสอดคล้องกัน (Subject-Verb Agreement)",
       "explain": [
         {
-          "heading": "หลักการ",
-          "body": "กริยาต้องสอดคล้องกับประธานว่าเป็นเอกพจน์หรือพหูพจน์\n- Every / Each / Everyone + คำนามเอกพจน์ → กริยาเอกพจน์ (เติม s/es หรือใช้ is/was)\n- “The number of + คำนามพหูพจน์” → ถือเป็นเอกพจน์ (the number ตัวมันเองคือประธาน)\n- “A number of + คำนามพหูพจน์” → ถือเป็นพหูพจน์ (แปลว่า “หลาย ๆ ...”)\n- Neither...nor / Either...or → กริยาสอดคล้องกับประธานตัวที่อยู่ใกล้กริยาที่สุด (ตัวหลัง)",
+          "heading": "หลักการพื้นฐาน",
+          "body": "กริยาต้องสอดคล้องกับ “ประธานจริง” ของประโยค ว่าเป็นเอกพจน์หรือพหูพจน์\n\nประธานเอกพจน์ (1 หน่วย) → กริยาเติม s/es, ใช้ is / was / has\nประธานพหูพจน์ (มากกว่า 1) → กริยาไม่เติม s, ใช้ are / were / have\n\nข้อควรจำที่คนไทยมักสลับ: “s” ที่คำนามกับที่กริยา ใส่สลับกัน\n   The manager approves. (นามเอกพจน์ + กริยามี s)\n   The managers approve. (นามพหูพจน์ + กริยาไม่มี s)\nถ้าเห็น s ทั้งสองที่ หรือไม่มีเลยทั้งสองที่ มักผิด",
           "examples": [
             {
-              "en": "Each employee is required to attend.",
-              "th": "พนักงานแต่ละคนต้องเข้าร่วม (Each + เอกพจน์ + is)"
+              "en": "The supervisor reviews all timesheets.",
+              "th": "ประธานเอกพจน์ → กริยาเติม s"
             },
             {
-              "en": "The number of applicants is increasing.",
-              "th": "จำนวนผู้สมัครกำลังเพิ่มขึ้น (the number of ถือเป็นเอกพจน์)"
+              "en": "The supervisors review all timesheets.",
+              "th": "ประธานพหูพจน์ → กริยาไม่เติม s"
             }
           ]
+        },
+        {
+          "heading": "กับดักหลัก: วลีที่มาคั่นระหว่างประธานกับกริยา",
+          "body": "ข้อสอบชอบวางวลียาวๆ คั่นกลาง เพื่อให้เราหลงไปดูคำนามที่อยู่ใกล้กริยาแทนประธานจริง\n\nวิธีแก้: ใช้นิ้วปิดวลีที่คั่นกลางออก แล้วอ่านประธานกับกริยาติดกัน\n\n• of + คำนาม → ประธานจริงคือคำหน้า of\n   The list of items is on the desk. (ประธาน = the list ไม่ใช่ items)\n• along with / together with / as well as / in addition to / including → ไม่เปลี่ยนความเป็นเอกพจน์ของประธาน\n   The manager, along with two assistants, is attending.\n• relative clause คั่นกลาง\n   The employee who received the awards is retiring.",
+          "examples": [
+            {
+              "en": "The box of samples was delivered this morning.",
+              "th": "ประธาน = the box (เอกพจน์) → was ไม่ใช่ were"
+            },
+            {
+              "en": "The director, as well as the managers, has approved the plan.",
+              "th": "as well as ไม่ทำให้ประธานเป็นพหูพจน์ → has"
+            }
+          ]
+        },
+        {
+          "heading": "กลุ่มคำเฉพาะที่ต้องจำ",
+          "body": "ถือเป็นเอกพจน์เสมอ (กริยาเอกพจน์):\n• Each / Every / Either / Neither + คำนามเอกพจน์ → Each employee is…\n• Everyone / Everybody / Someone / Anyone / Nobody → Everyone is…\n• The number of + นามพหูพจน์ → The number of applicants is increasing.\n• จำนวนเงิน/เวลา/ระยะทางที่มองเป็นก้อนเดียว → Two weeks is enough.\n• Each of / One of / Either of + นามพหูพจน์ → Each of the reports was reviewed.\n\nถือเป็นพหูพจน์:\n• A number of + นามพหูพจน์ → A number of clients have complained.\n• Both / Several / Many / Few + นามพหูพจน์\n• คำนามที่เป็นพหูพจน์เสมอ: goods, belongings, savings\n\nขึ้นกับคำที่อยู่ใกล้กริยาที่สุด:\n• Neither A nor B / Either A or B / Not only A but also B\n   Neither the manager nor the employees are available. (ดู employees)\n   Neither the employees nor the manager is available. (ดู manager)",
+          "examples": [
+            {
+              "en": "The number of complaints has decreased.",
+              "th": "the number of = เอกพจน์ → has"
+            },
+            {
+              "en": "A number of complaints have been filed.",
+              "th": "a number of = พหูพจน์ → have"
+            }
+          ]
+        },
+        {
+          "heading": "นามนับไม่ได้และคำนามรวมหมู่",
+          "body": "คำนามนับไม่ได้ถือเป็นเอกพจน์เสมอ ห้ามเติม s\n   information, equipment, furniture, luggage, advice, research, machinery, feedback, access, merchandise\n   The equipment is being repaired. (ไม่ใช่ equipments are)\n\nคำนามรวมหมู่ (staff, team, committee, management, board) ในข้อสอบ TOEIC มักใช้เป็นเอกพจน์\n   The committee has reached a decision.\n\nเทคนิคในห้องสอบ: ถ้าเห็นตัวเลือกเป็น is/are หรือ has/have หรือกริยาที่มี s กับไม่มี s\n→ นี่คือข้อวัดเรื่องนี้แน่นอน ให้หาประธานจริงก่อนเป็นอันดับแรก"
         }
       ],
       "practice": [
@@ -155,18 +229,50 @@ window.GRAMMAR = {
       "title": "Tense พื้นฐาน: Present Simple / Present Continuous / Past Simple",
       "explain": [
         {
-          "heading": "หลักการ",
-          "body": "ดู “คำสัญญาณเวลา” ในประโยคเพื่อเลือก tense ที่ถูกต้อง\n- Present Simple: ความเป็นจริง/นิสัย/ตารางเวลาประจำ — มักมี usually, every day, on Mondays\n- Present Continuous: กำลังเกิดขึ้นตอนนี้ หรือช่วงนี้ — มักมี now, right now, currently, at the moment\n- Past Simple: เหตุการณ์จบแล้วในอดีต ระบุเวลาชัดเจน — มักมี yesterday, last week, in 2020",
+          "heading": "Present Simple — ความจริง นิสัย ตารางประจำ",
+          "body": "ใช้เมื่อ:\n• เป็นความจริงทั่วไป หรือสิ่งที่เป็นอยู่ประจำ → The office opens at 9 a.m.\n• เป็นนิสัยหรือทำซ้ำๆ → She travels to Osaka every month.\n• เป็นตารางเวลาที่กำหนดไว้ แม้จะพูดถึงอนาคต → The train leaves at 6:30 tomorrow.\n\nรูปแบบ: ประธานเอกพจน์บุรุษที่ 3 (he/she/it) เติม s/es — นอกนั้นไม่เติม\n\nคำสัญญาณ: always, usually, often, sometimes, never, every day/week/month, on Mondays, generally, regularly, typically",
           "examples": [
             {
-              "en": "The store usually opens at nine.",
-              "th": "ร้านมักเปิดตอนเก้าโมง (นิสัย/ตารางประจำ)"
+              "en": "Our store usually closes at eight on weekdays.",
+              "th": "usually + ทำประจำ → Present Simple"
             },
             {
-              "en": "We are currently reviewing your application.",
-              "th": "เรากำลังพิจารณาใบสมัครของคุณอยู่ (กำลังเกิดขึ้นตอนนี้)"
+              "en": "The shuttle bus departs every thirty minutes.",
+              "th": "ตารางเวลาประจำ → Present Simple"
             }
           ]
+        },
+        {
+          "heading": "Present Continuous — กำลังเกิดขึ้น หรือชั่วคราว",
+          "body": "รูปแบบ: is / am / are + V-ing\n\nใช้เมื่อ:\n• กำลังทำอยู่ตอนนี้ → The technicians are repairing the printer.\n• เป็นสถานการณ์ชั่วคราวช่วงนี้ (ไม่ใช่ปกติ) → We are working from the branch office this month.\n• เป็นแผนในอนาคตที่นัดไว้แน่นอนแล้ว → I am meeting the client on Friday.\n\nคำสัญญาณ: now, right now, currently, at the moment, at present, today, this week, these days\n\nกริยาที่ห้ามใช้รูป continuous (กริยาบอกสภาพ ไม่ใช่การกระทำ):\n   know, believe, understand, want, need, prefer, own, belong, contain, seem, consist\n   The package contains three items. (ไม่ใช่ is containing)",
+          "examples": [
+            {
+              "en": "We are currently reviewing your application.",
+              "th": "currently → กำลังทำอยู่"
+            },
+            {
+              "en": "The company is hiring additional staff this quarter.",
+              "th": "ชั่วคราวเฉพาะไตรมาสนี้"
+            }
+          ]
+        },
+        {
+          "heading": "Past Simple — จบแล้วในอดีต ระบุเวลาชัด",
+          "body": "รูปแบบ: กริยาช่องที่ 2 (V2)\n\nใช้เมื่อเหตุการณ์เกิดและจบแล้วในอดีต โดยมีเวลาในอดีตระบุหรือเข้าใจตรงกัน\n\nคำสัญญาณ: yesterday, last week/month/year, ago (two days ago), in 2020, previously, recently (ใช้ได้ทั้งสอง), when + อดีต\n\nจุดที่ต้องระวัง: หลัง did ต้องใช้กริยาช่องที่ 1 เสมอ\n   Did you submit the report? (ไม่ใช่ submitted)\n   The client did not attend the meeting. (ไม่ใช่ did not attended)",
+          "examples": [
+            {
+              "en": "We signed the contract last Friday.",
+              "th": "last Friday → Past Simple"
+            },
+            {
+              "en": "The store opened three years ago.",
+              "th": "ago → Past Simple"
+            }
+          ]
+        },
+        {
+          "heading": "วิธีเลือก tense ในห้องสอบ",
+          "body": "ขั้นตอน:\n1. หา “คำบอกเวลา” ในประโยคก่อนเสมอ — มักเป็นตัวชี้ขาด\n2. ถ้าไม่มีคำบอกเวลาในประโยคนั้น (เจอบ่อยใน Part 6) ให้ดูประโยคข้างเคียง\n3. ถ้ายังไม่ชัด ให้ดูว่าเนื้อความพูดถึงสิ่งที่ทำประจำ (Simple) หรือกำลังทำ (Continuous)\n\nตารางสรุปคำสัญญาณ:\n• every / usually / always / on Mondays → Present Simple\n• now / currently / at the moment / this week → Present Continuous\n• yesterday / last / ago / in + ปีอดีต → Past Simple\n• since / for / already / yet / so far → Present Perfect (บทถัดไป)\n• tomorrow / next / soon / by + อนาคต → Future\n\nกับดัก: ประโยคที่มี when + อดีต ต้องใช้อดีตทั้งประโยค\n   When the manager arrived, the meeting had already started."
         }
       ],
       "practice": [
@@ -227,18 +333,50 @@ window.GRAMMAR = {
       "title": "Present Perfect vs Past Simple",
       "explain": [
         {
-          "heading": "หลักการ",
-          "body": "Present Perfect (have/has + V3): เหตุการณ์ที่เชื่อมโยงถึงปัจจุบัน หรือไม่ระบุเวลาชัดเจน — มักมี already, yet, since, for, ever, never, just\nPast Simple: เหตุการณ์จบแล้วในอดีต ระบุเวลาที่แน่นอน — มักมี yesterday, last year, in 2020, two days ago",
+          "heading": "ความต่างหลัก: เน้นเวลา หรือเน้นผลถึงปัจจุบัน",
+          "body": "Past Simple = เหตุการณ์จบแล้ว และ “เวลานั้นก็จบแล้ว” ผู้พูดสนใจว่าเกิดเมื่อไหร่\n   I sent the invoice yesterday.\n\nPresent Perfect (have/has + V3) = เกิดในอดีต แต่ “ยังเกี่ยวข้องกับปัจจุบัน” ผู้พูดไม่สนใจว่าเกิดเมื่อไหร่ สนใจแค่ว่ามันเกิดแล้ว\n   I have sent the invoice. (ตอนนี้ใบแจ้งหนี้ส่งไปแล้ว พร้อมให้ตรวจ)\n\nกฎเหล็กที่ใช้ตัดสินได้เกือบทุกข้อ:\nถ้าประโยคมีเวลาในอดีตที่ระบุชัด (yesterday, last week, in 2020, ago) → ต้องใช้ Past Simple ห้ามใช้ Present Perfect\n   I have sent it yesterday. (ผิด)\n   I sent it yesterday. (ถูก)",
           "examples": [
             {
-              "en": "The company has moved its headquarters twice since 2010.",
-              "th": "บริษัทย้ายสำนักงานใหญ่ไปแล้วสองครั้งตั้งแต่ปี 2010 (since = present perfect)"
+              "en": "The company launched the product in 2022.",
+              "th": "มีปีอดีตระบุ → Past Simple"
             },
             {
-              "en": "We installed the new system last month.",
-              "th": "เราติดตั้งระบบใหม่เมื่อเดือนที่แล้ว (ระบุเวลาชัดเจน = past simple)"
+              "en": "The company has launched three new products.",
+              "th": "ไม่ระบุเวลา สนใจผลลัพธ์ถึงตอนนี้ → Present Perfect"
             }
           ]
+        },
+        {
+          "heading": "Present Perfect ใช้ใน 4 กรณีนี้",
+          "body": "1) เริ่มในอดีตและยังดำเนินอยู่ถึงตอนนี้ (มักมี since / for)\n   She has worked here for five years. (ยังทำงานอยู่)\n\n2) เพิ่งเกิดขึ้นและมีผลถึงตอนนี้ (มักมี just / already / recently)\n   The shipment has just arrived.\n\n3) ประสบการณ์ ไม่ระบุเวลา (มักมี ever / never / before)\n   Have you ever visited our factory?\n\n4) เกิดซ้ำหลายครั้งจนถึงตอนนี้ (มักมี so far / up to now / this + ช่วงเวลาที่ยังไม่จบ)\n   We have received twenty applications this week. (สัปดาห์นี้ยังไม่จบ)",
+          "examples": [
+            {
+              "en": "He has been with the firm since 2019.",
+              "th": "since + จุดเริ่มต้น → ยังอยู่ถึงตอนนี้"
+            },
+            {
+              "en": "Sales have increased by ten percent so far this year.",
+              "th": "so far + ปีนี้ยังไม่จบ"
+            }
+          ]
+        },
+        {
+          "heading": "since กับ for และคำสัญญาณอื่น",
+          "body": "since + จุดเวลาที่เริ่ม → since 2020, since Monday, since he joined\nfor + ความยาวของช่วงเวลา → for five years, for two weeks, for a long time\n\nคำที่ไปกับ Present Perfect: already, yet, just, ever, never, so far, up to now, recently, lately, over the past few years, this week/month/year (ที่ยังไม่จบ)\nคำที่ไปกับ Past Simple: yesterday, last night, ago, in 2020, then, when I was…\n\nตำแหน่งคำ:\n   already / just → วางระหว่าง have กับ V3 → has already approved\n   yet → วางท้ายประโยคปฏิเสธหรือคำถาม → has not arrived yet",
+          "examples": [
+            {
+              "en": "The manager has already signed the document.",
+              "th": "already อยู่ระหว่าง has กับ signed"
+            },
+            {
+              "en": "The parts have not arrived yet.",
+              "th": "yet อยู่ท้ายประโยคปฏิเสธ"
+            }
+          ]
+        },
+        {
+          "heading": "Past Perfect และกับดักที่ออกสอบ",
+          "body": "Past Perfect (had + V3) = อดีตที่เกิด “ก่อน” อีกเหตุการณ์ในอดีต ใช้เมื่อมีสองเหตุการณ์ในอดีตและต้องบอกลำดับ\n   By the time we arrived, the meeting had already started.\n   (had started เกิดก่อน arrived)\n\nคำสัญญาณ: by the time, before, after, already + อดีต, previously\n\nกับดักที่พบบ่อย:\n1) เห็น since หรือ for แล้วรีบตอบ Present Perfect — ต้องเช็กก่อนว่าประโยคพูดถึงปัจจุบันจริงไหม\n2) this year / this month นับเป็น Present Perfect เพราะยังไม่จบ แต่ last year เป็น Past Simple\n3) Present Perfect Continuous (have been + V-ing) ใช้เน้นว่าทำต่อเนื่องมานาน\n   They have been waiting for two hours.\n4) หลัง This is the first time… ใช้ Present Perfect\n   This is the first time I have visited this branch."
         }
       ],
       "practice": [
@@ -299,18 +437,50 @@ window.GRAMMAR = {
       "title": "บุพบทบอกเวลาและสถานที่ (Prepositions)",
       "explain": [
         {
-          "heading": "หลักการ",
-          "body": "at: จุดเวลาชัดเจน (at 9 a.m.) / จุดสถานที่เล็ก (at the front desk)\non: วันที่/วัน (on Monday, on July 5th) / พื้นผิว (on the table)\nin: เดือน/ปี/ฤดู/ช่วงเวลายาว (in July, in 2024, in the morning) / พื้นที่ใหญ่ (in Bangkok)\nby: ภายในกำหนดเวลานั้น (ไม่เกิน) · during: ตลอดช่วงเวลานั้น (+ นาม) · for: ระยะเวลา (+ จำนวน) · between: ระหว่างสองสิ่ง · among: ท่ามกลางมากกว่าสองสิ่ง",
+          "heading": "บุพบทบอกเวลา: in / on / at",
+          "body": "at = จุดเวลาที่เจาะจง (แคบที่สุด)\n   at 3 p.m., at noon, at midnight, at the moment, at present\n\non = วัน หรือวันที่ (กลาง)\n   on Monday, on July 5, on weekdays, on the morning of July 5\n\nin = ช่วงเวลากว้าง (กว้างที่สุด)\n   in July, in 2025, in the morning, in the afternoon, in the evening, in two weeks (อีกสองสัปดาห์)\n\nจำง่าย: at เล็ก → on กลาง → in ใหญ่\nข้อยกเว้นที่ต้องจำ: at night (ไม่ใช่ in night)",
           "examples": [
             {
-              "en": "The meeting will begin at 9 a.m. sharp.",
-              "th": "การประชุมจะเริ่มตรงเก้าโมงเช้า"
+              "en": "The meeting will begin at 10 a.m. on Tuesday in October.",
+              "th": "เห็นทั้งสามตัวเรียงจากแคบไปกว้าง"
             },
             {
-              "en": "Please submit your application by the end of the month.",
-              "th": "กรุณาส่งใบสมัครภายในสิ้นเดือน"
+              "en": "Please submit the report in the morning.",
+              "th": "ช่วงเวลากว้าง → in"
             }
           ]
+        },
+        {
+          "heading": "บุพบทบอกสถานที่: in / on / at",
+          "body": "at = จุด หรือสถานที่ที่มองเป็นจุดหนึ่ง\n   at the reception desk, at the airport, at 25 Main Street, at the conference\n\non = อยู่บนพื้นผิว หรือชั้นของอาคาร หรือถนน\n   on the table, on the third floor, on Main Street, on the wall\n\nin = อยู่ข้างในพื้นที่ปิด หรือในเมือง/ประเทศ\n   in the office, in the building, in Bangkok, in Japan, in the drawer\n\nคู่ที่ข้อสอบชอบวัด:\n   in the office (อยู่ในสำนักงาน) / at the office (อยู่ที่ที่ทำงาน เน้นว่ามาทำงาน)\n   on the floor (บนพื้น) / on the fifth floor (ที่ชั้นห้า)",
+          "examples": [
+            {
+              "en": "The printer is on the second floor, in the copy room.",
+              "th": "ชั้น → on / ห้อง → in"
+            },
+            {
+              "en": "Please wait at the reception desk.",
+              "th": "มองเป็นจุด → at"
+            }
+          ]
+        },
+        {
+          "heading": "บุพบทอื่นที่ออกสอบบ่อยใน Part 5",
+          "body": "by = ภายในไม่เกิน (เส้นตาย) → Submit the form by Friday. (ศุกร์ก็ได้ แต่ห้ามเลย)\nuntil / till = ต่อเนื่องไปจนถึง → The office is open until 6 p.m.\nfrom … to / through = ตั้งแต่ ถึง → from Monday to Friday\nwithin = ภายในระยะเวลา → within 30 days\nduring = ระหว่างช่วงเวลา (ตามด้วยคำนาม) → during the meeting\nfor = เป็นระยะเวลานาน (ตามด้วยความยาวเวลา) → for three hours\nsince = ตั้งแต่ (ตามด้วยจุดเริ่ม) → since January\nbefore / after / prior to / following = ก่อน / หลัง\nthroughout = ตลอดทั้ง → throughout the year\ndespite / in spite of = แม้ว่า (ตามด้วยคำนาม)\nbecause of / due to / owing to = เพราะ (ตามด้วยคำนาม)",
+          "examples": [
+            {
+              "en": "All applications must be received by March 31.",
+              "th": "by = ภายในไม่เกินวันนั้น"
+            },
+            {
+              "en": "The store will remain closed until further notice.",
+              "th": "until = ต่อเนื่องจนถึง"
+            }
+          ]
+        },
+        {
+          "heading": "คู่ที่สับสนบ่อยที่สุด",
+          "body": "1) by vs until\n   by = เส้นตาย ทำเสร็จก่อนหรือตรงเวลานั้น → Finish it by 5 p.m.\n   until = ต่อเนื่องไปจนถึงเวลานั้น → Wait until 5 p.m.\n\n2) during vs while\n   during + คำนาม → during the presentation\n   while + ประโยค (มีประธาน+กริยา) → while the manager was speaking\n\n3) because of vs because\n   because of + คำนาม → because of the delay\n   because + ประโยค → because the shipment was delayed\n\n4) despite / in spite of vs although\n   despite + คำนาม → despite the rain\n   although + ประโยค → although it rained\n\n5) for vs since (กับ Present Perfect)\n   for + ความยาวเวลา → for two years\n   since + จุดเริ่ม → since 2023\n\nเทคนิค: ดูว่าหลังช่องว่างเป็น “คำนามเดี่ยว” หรือ “ประโยคเต็ม” แล้วเลือกให้ตรงประเภท"
         }
       ],
       "practice": [
@@ -372,15 +542,57 @@ window.GRAMMAR = {
       "explain": [
         {
           "heading": "หลักการ",
-          "body": "กริยาบางกลุ่มตามด้วย V-ing (Gerund): enjoy, avoid, consider, finish, suggest, recommend, keep, mind, admit, deny\nกริยาบางกลุ่มตามด้วย to + V (Infinitive): want, decide, plan, need, agree, promise, hope, offer, expect\nกฎเหล็ก: หลัง “บุพบท” (preposition) ต้องตามด้วย V-ing เสมอ เช่น for, about, of, in, by, without",
+          "body": "เมื่อมีกริยาสองตัวติดกัน กริยาตัวที่สองต้องเปลี่ยนรูปเป็น gerund (V-ing) หรือ infinitive (to + V) ขึ้นกับกริยาตัวแรก\n\nไม่มีกฎที่ใช้เดาได้ทั้งหมด ต้องจำเป็นกลุ่ม แต่มีแนวโน้มช่วยจำ:\n• กริยาที่สื่อถึง “แผน ความตั้งใจ อนาคต” มักตามด้วย to + V\n   plan, decide, hope, expect, want, agree, promise\n• กริยาที่สื่อถึง “สิ่งที่ทำไปแล้ว หรือเลี่ยง/หยุด” มักตามด้วย V-ing\n   finish, avoid, enjoy, suggest, consider, mind",
           "examples": [
             {
-              "en": "The manager suggested postponing the meeting.",
-              "th": "ผู้จัดการเสนอให้เลื่อนการประชุม (suggest + V-ing)"
+              "en": "We plan to expand into three new markets.",
+              "th": "plan + to V"
             },
             {
-              "en": "We have decided to hire a new supplier.",
-              "th": "เราตัดสินใจจ้างซัพพลายเออร์ใหม่ (decide + to V)"
+              "en": "Please avoid parking in the loading zone.",
+              "th": "avoid + V-ing"
+            }
+          ]
+        },
+        {
+          "heading": "กริยาที่ตามด้วย to + V (Infinitive)",
+          "body": "agree, decide, plan, hope, expect, want, need, offer, promise, refuse, fail, manage, afford, arrange, intend, learn, choose, prepare, seem, appear, tend, wish, would like\n\nตัวอย่างที่ออกสอบบ่อย:\n   The client agreed to extend the deadline.\n   We failed to meet the quarterly target.\n   The company intends to hire more staff.\n\nกลุ่มพิเศษ: กริยา + กรรม + to V\n   ask / tell / advise / allow / encourage / expect / remind / require / invite / permit / persuade / warn + someone + to V\n   The manager asked the team to submit reports early.\n   All employees are required to wear ID badges.",
+          "examples": [
+            {
+              "en": "The supervisor reminded us to sign the attendance sheet.",
+              "th": "remind + กรรม + to V"
+            },
+            {
+              "en": "Visitors are not permitted to enter without a pass.",
+              "th": "permit + กรรม + to V (รูป passive)"
+            }
+          ]
+        },
+        {
+          "heading": "กริยาที่ตามด้วย V-ing (Gerund)",
+          "body": "avoid, finish, enjoy, suggest, recommend, consider, mind, keep, practice, delay, postpone, quit, deny, admit, involve, risk, miss, appreciate, discuss, report\n\nตัวอย่างที่ออกสอบบ่อย:\n   We recommend booking your ticket in advance.\n   The board is considering relocating the head office.\n   The renovation involves replacing all the windows.\n\nสำนวนที่ต้องตามด้วย V-ing เสมอ:\n   look forward to + V-ing (to ตัวนี้เป็นบุพบท ไม่ใช่ infinitive)\n   be used to / get used to + V-ing (คุ้นเคยกับ)\n   spend time + V-ing\n   have difficulty / trouble + V-ing\n   It's worth + V-ing\n   can't help + V-ing",
+          "examples": [
+            {
+              "en": "We look forward to hearing from you soon.",
+              "th": "look forward to + V-ing (ไม่ใช่ to hear)"
+            },
+            {
+              "en": "The team spent three weeks preparing the proposal.",
+              "th": "spend + เวลา + V-ing"
+            }
+          ]
+        },
+        {
+          "heading": "หลังบุพบท และกริยาที่ใช้ได้ทั้งสองแบบ",
+          "body": "กฎสำคัญ: หลังบุพบททุกตัว (in, on, for, of, about, before, after, without, by, instead of) ต้องเป็น V-ing เสมอ\n   Thank you for responding so quickly.\n   Before submitting the form, please review it.\n   The machine saves time by automating the process.\n\nกริยาที่ตามได้ทั้งสองแบบ แต่ความหมายเปลี่ยน:\n• stop\n   stop to smoke = หยุด(สิ่งที่ทำอยู่)เพื่อจะไปสูบบุหรี่\n   stop smoking = เลิกสูบบุหรี่\n• remember / forget\n   remember to call = อย่าลืมโทร (ยังไม่ได้ทำ)\n   remember calling = จำได้ว่าเคยโทร (ทำไปแล้ว)\n• try\n   try to open = พยายามเปิด (ยาก)\n   try opening = ลองเปิดดู (เป็นวิธีหนึ่ง)\n\nกริยาที่ตามได้ทั้งสองแบบโดยความหมายไม่ต่าง: begin, start, continue, like, love, prefer, hate",
+          "examples": [
+            {
+              "en": "Please remember to attach the invoice.",
+              "th": "อย่าลืมแนบ (ยังไม่ได้ทำ)"
+            },
+            {
+              "en": "She remembers sending the invoice last week.",
+              "th": "จำได้ว่าส่งไปแล้ว"
             }
           ]
         }
@@ -443,18 +655,50 @@ window.GRAMMAR = {
       "title": "Relative Pronouns: who / which / that / whose",
       "explain": [
         {
-          "heading": "หลักการ",
-          "body": "who: แทนคน ทำหน้าที่ประธาน\nwhich: แทนสิ่งของ/สัตว์\nthat: แทนได้ทั้งคนและสิ่งของ (ในประโยคขยายความแบบจำกัดความ)\nwhose: แสดงความเป็นเจ้าของ ตามด้วยคำนามเสมอ",
+          "heading": "หลักการ: relative pronoun แทนคำนามที่อยู่ข้างหน้า",
+          "body": "relative clause คือประโยคย่อยที่ขยายคำนาม เพื่อบอกว่า “คนไหน / อันไหน”\n\nเลือกตัวไหน ดูจากสองอย่าง:\n1. คำนามที่ขยายเป็น “คน” หรือ “สิ่งของ”\n2. ในประโยคย่อยนั้น คำที่หายไปทำหน้าที่ ประธาน กรรม หรือเจ้าของ\n\nตารางหลัก:\n• คน + ทำหน้าที่ประธาน → who (หรือ that)\n   The employee who submitted the report is on leave.\n• คน + ทำหน้าที่กรรม → whom (หรือ who / that)\n   The client whom we met yesterday sent an email.\n• สิ่งของ + ประธานหรือกรรม → which (หรือ that)\n   The report which arrived today is incomplete.\n• เจ้าของ (ทั้งคนและสิ่งของ) → whose\n   The company whose products we distribute is expanding.",
           "examples": [
             {
-              "en": "The employee who submitted the report on time received a bonus.",
-              "th": "พนักงานที่ส่งรายงานตรงเวลาได้รับโบนัส (who = แทนคน)"
+              "en": "The technician who repaired the machine will return tomorrow.",
+              "th": "คน + เป็นผู้ทำ (ประธาน) → who"
             },
             {
-              "en": "This is the client whose contract we renewed last month.",
-              "th": "นี่คือลูกค้าที่เราต่อสัญญาให้เมื่อเดือนที่แล้ว (whose = แสดงความเป็นเจ้าของ)"
+              "en": "The equipment which we ordered has not arrived.",
+              "th": "สิ่งของ + เป็นกรรมของ ordered → which"
             }
           ]
+        },
+        {
+          "heading": "whose / where / when และการเลือกให้ถูก",
+          "body": "whose = ของ… (แสดงความเป็นเจ้าของ) ตามด้วยคำนามเสมอ\n   We hired a consultant whose experience is in logistics.\n   (whose + experience — ต้องมีคำนามตามหลังทันที)\n\nwhere = ขยายสถานที่ ตามด้วยประโยคที่สมบูรณ์แล้ว\n   This is the warehouse where we store seasonal items.\n\nwhen = ขยายเวลา ตามด้วยประโยคที่สมบูรณ์แล้ว\n   July is the month when we run the biggest sale.\n\nจุดตัดสินที่ใช้ได้เสมอ:\n• ถ้าหลังช่องว่างเป็น “คำนามเปล่า” → whose\n• ถ้าหลังช่องว่างเป็น “กริยา” → who / which / that (ตัวที่หายไปคือประธาน)\n• ถ้าหลังช่องว่างเป็น “ประธาน + กริยา” ครบแล้ว → whom / which / that (ตัวที่หายไปคือกรรม) หรือ where / when ถ้าขยายสถานที่/เวลา",
+          "examples": [
+            {
+              "en": "The supplier whose prices are lowest won the contract.",
+              "th": "whose + prices (คำนาม) ตามทันที"
+            },
+            {
+              "en": "The conference room where we meet has been renovated.",
+              "th": "where + ประโยคสมบูรณ์ (we meet)"
+            }
+          ]
+        },
+        {
+          "heading": "เมื่อไหร่ละ relative pronoun ได้",
+          "body": "ละได้เมื่อ relative pronoun ทำหน้าที่ “กรรม” เท่านั้น\n   The report (which) we submitted was approved. → ละได้\n   The report which arrived today is incomplete. → ละไม่ได้ (which เป็นประธานของ arrived)\n\nวิธีเช็ก: ถ้าหลัง relative pronoun มีประธานตัวใหม่ทันที → เป็นกรรม → ละได้\n\nการลดรูปเป็น participle (ออกสอบบ่อยมาก):\n• ประธาน + กริยา active → ลดเหลือ V-ing\n   The team which is leading the project → The team leading the project\n• ประธาน + กริยา passive → ลดเหลือ V-ed\n   The report which was written by Anna → The report written by Anna\n\nเจอใน Part 5 บ่อยในรูปนี้: คำนาม + ______ + ส่วนขยาย โดยตัวเลือกมี V-ing กับ V-ed ให้เลือก\n→ ถามตัวเองว่าคำนามนั้น “เป็นผู้ทำ” (V-ing) หรือ “ถูกกระทำ” (V-ed)",
+          "examples": [
+            {
+              "en": "The candidates selected for the interview will be notified.",
+              "th": "candidates ถูกเลือก → V-ed (ลดจาก who were selected)"
+            },
+            {
+              "en": "The department handling customer complaints is on the third floor.",
+              "th": "department เป็นผู้จัดการ → V-ing (ลดจาก which handles)"
+            }
+          ]
+        },
+        {
+          "heading": "คอมมามีผลต่อความหมาย และกับดักอื่น",
+          "body": "ไม่มีคอมมา (defining) = ข้อมูลจำเป็น บอกว่า “อันไหน”\n   The employees who work overtime receive extra pay.\n   (เฉพาะคนที่ทำโอทีเท่านั้นที่ได้เงินเพิ่ม)\n\nมีคอมมา (non-defining) = ข้อมูลเสริม ตัดออกได้ ความหมายหลักไม่เปลี่ยน\n   Our employees, who work overtime, receive extra pay.\n   (พนักงานทุกคนทำโอที และทุกคนได้เงินเพิ่ม)\n\nกฎที่ออกสอบ: หลังคอมมา ห้ามใช้ that\n   The new policy, which takes effect in June, applies to all staff. (ถูก)\n   The new policy, that takes effect in June… (ผิด)\n\nกับดักอื่น:\n1) หลัง relative pronoun ที่เป็นประธาน กริยาต้องสอดคล้องกับคำนามที่ขยาย\n   the employee who works… / the employees who work…\n2) บุพบท + which/whom ใช้ในภาษาทางการ\n   the client to whom we sent the quote\n   the room in which the meeting is held\n3) that ใช้แทน who/which ได้ในกรณีไม่มีคอมมา แต่ใช้แทน whose ไม่ได้"
         }
       ],
       "practice": [
@@ -515,18 +759,40 @@ window.GRAMMAR = {
       "title": "คำเชื่อมประโยค (Conjunctions & Connectors)",
       "explain": [
         {
-          "heading": "หลักการ",
-          "body": "Conjunction: เชื่อมสองอนุประโยคในประโยคเดียวกัน (because, although, since, if, while, so)\nTransition word: เชื่อมสองประโยคที่แยกกัน มักตามหลัง semicolon (;) หรือขึ้นต้นประโยคใหม่ (however, therefore, in addition, as a result)\nกับดักที่พบบ่อยใน Part 6: เลือกผิดระหว่างสองกลุ่มนี้ เพราะแปลคล้ายกันแต่ใช้โครงสร้างต่างกัน",
+          "heading": "คำเชื่อมมี 3 ประเภท ใช้ต่างกัน",
+          "body": "1) Coordinating conjunction — เชื่อมสิ่งที่เท่ากัน (and, but, or, so, yet, for, nor)\n   วางระหว่างสองส่วน → We ordered the parts, but they have not arrived.\n\n2) Subordinating conjunction — นำหน้าประโยคย่อย (because, although, if, when, while, since, unless, after, before, until)\n   วางหน้าประโยคย่อยได้ทั้งต้นประโยคและกลางประโยค\n   Although the price increased, demand remained strong.\n   Demand remained strong although the price increased.\n\n3) Transition / conjunctive adverb — เชื่อมความหมายระหว่างสองประโยคที่แยกกัน (however, therefore, moreover, nevertheless, in addition, as a result, consequently)\n   ต้องมีจุดหรือเซมิโคลอนคั่น แล้วตามด้วยคอมมา\n   The price increased. However, demand remained strong.\n\nข้อสอบวัดตรงที่ว่า “คำนั้นวางตำแหน่งไหนได้” ไม่ใช่แค่ความหมาย",
           "examples": [
             {
-              "en": "The store closed early because the manager was ill.",
-              "th": "ร้านปิดเร็วเพราะผู้จัดการป่วย (because + ประธาน+กริยา)"
+              "en": "The shipment was delayed, so we notified the client.",
+              "th": "so = coordinating วางกลางระหว่างสองประโยค"
             },
             {
-              "en": "The product is expensive; however, it is very reliable.",
-              "th": "สินค้าราคาแพง แต่ก็เชื่อถือได้มาก (however ตามหลัง ;)"
+              "en": "The shipment was delayed. Therefore, we notified the client.",
+              "th": "therefore = transition ขึ้นประโยคใหม่ + คอมมา"
             }
           ]
+        },
+        {
+          "heading": "จัดกลุ่มตามความหมาย",
+          "body": "ขัดแย้ง / ตรงข้าม:\n   but, although, though, even though, while, whereas, however, nevertheless, nonetheless, on the other hand, in contrast, despite, in spite of\n\nเหตุ-ผล:\n   because, since, as, so, therefore, thus, consequently, as a result, hence, due to, because of, owing to\n\nเพิ่มเติม:\n   and, also, in addition, additionally, moreover, furthermore, besides, as well as\n\nเงื่อนไข:\n   if, unless, provided that, as long as, in case, otherwise\n\nเวลา / ลำดับ:\n   when, while, before, after, until, as soon as, once, meanwhile, subsequently, then\n\nยกตัวอย่าง / อธิบายเพิ่ม:\n   for example, for instance, such as, that is, in other words, namely\n\nสรุป:\n   in conclusion, overall, in short, to summarize"
+        },
+        {
+          "heading": "คู่ที่ต่างกันทางไวยากรณ์ — จุดที่ข้อสอบวัดที่สุด",
+          "body": "หลักตัดสิน: ดูว่าหลังช่องว่างเป็น “คำนาม/วลี” หรือ “ประโยคเต็ม (ประธาน + กริยา)”\n\nตามด้วยคำนาม (บุพบท)  |  ตามด้วยประโยค (คำเชื่อม)\ndespite / in spite of   |  although / even though / though\nbecause of / due to / owing to  |  because / since / as\nduring                  |  while\nin case of              |  in case\n\nตัวอย่างเปรียบเทียบ:\n   Despite the delay, we finished on time. (delay = คำนาม)\n   Although the shipment was delayed, we finished on time. (ประโยคเต็ม)\n\n   The event was cancelled because of the storm. (คำนาม)\n   The event was cancelled because a storm was approaching. (ประโยคเต็ม)\n\nระวัง: despite of เป็นรูปที่ผิด ต้องเป็น despite หรือ in spite of เท่านั้น",
+          "examples": [
+            {
+              "en": "Due to heavy traffic, the delivery arrived late.",
+              "th": "due to + คำนาม (heavy traffic)"
+            },
+            {
+              "en": "Because the traffic was heavy, the delivery arrived late.",
+              "th": "because + ประโยคเต็ม"
+            }
+          ]
+        },
+        {
+          "heading": "คำเชื่อมเป็นคู่ และกับดักอื่น",
+          "body": "คำเชื่อมที่ต้องมาเป็นคู่ (correlative) — ข้อสอบชอบให้เติมอีกครึ่ง\n   both A and B\n   either A or B\n   neither A nor B\n   not only A but also B\n   whether A or B\n\nกฎ: สิ่งที่อยู่สองข้างต้องเป็นชนิดเดียวกัน (ทั้งคู่เป็นคำนาม หรือทั้งคู่เป็นกริยา)\n   The role requires both technical skill and business knowledge. (นาม + นาม)\n\nกับดักที่พบบ่อย:\n1) although กับ but ใช้ซ้อนกันในประโยคเดียวไม่ได้\n   Although it rained, but we continued. (ผิด)\n   Although it rained, we continued. (ถูก)\n2) however ไม่ใช่คำเชื่อมประโยค ใช้แทน but ตรงกลางไม่ได้ถ้าไม่มีเซมิโคลอน\n   It rained, however we continued. (ผิด)\n   It rained; however, we continued. (ถูก)\n3) unless = if…not อยู่แล้ว ห้ามใส่ not ซ้ำ\n   Unless you confirm, the booking will be cancelled.\n4) so / because ใช้คนละทาง\n   It rained, so we cancelled. (so นำผลลัพธ์)\n   We cancelled because it rained. (because นำสาเหตุ)"
         }
       ],
       "practice": [
@@ -587,16 +853,54 @@ window.GRAMMAR = {
       "title": "การเปรียบเทียบ (Comparatives & Superlatives)",
       "explain": [
         {
-          "heading": "หลักการ",
-          "body": "คุณศัพท์สั้น (1 พยางค์ และบางคำ 2 พยางค์): เติม -er / -est เช่น cheap → cheaper → cheapest\nคุณศัพท์ยาว (2 พยางค์ขึ้นไปส่วนใหญ่): ใช้ more / most เช่น expensive → more expensive → most expensive\nคำผิดปกติ: good → better → best, bad → worse → worst\nการเปรียบเทียบเท่ากัน: as + คุณศัพท์ + as",
+          "heading": "การสร้างรูปเปรียบเทียบ",
+          "body": "คำสั้น (1 พยางค์ และ 2 พยางค์ที่ลงท้าย -y):\n   เติม -er / -est → cheap → cheaper → the cheapest\n   easy → easier → the easiest (เปลี่ยน y เป็น i)\n   big → bigger → the biggest (ซ้ำตัวสะกด)\n\nคำยาว (2 พยางค์ขึ้นไป):\n   ใช้ more / most → expensive → more expensive → the most expensive\n   efficient → more efficient → the most efficient\n\nรูปพิเศษที่ต้องจำ:\n   good / well → better → the best\n   bad / badly → worse → the worst\n   many / much → more → the most\n   little → less → the least\n   far → farther / further → the farthest / the furthest\n\nกฎเหล็ก: ห้ามใช้ซ้อนกัน\n   more cheaper (ผิด) / more expensive (ถูก) / cheaper (ถูก)",
           "examples": [
             {
-              "en": "This model is more efficient than the previous version.",
-              "th": "รุ่นนี้มีประสิทธิภาพมากกว่ารุ่นก่อนหน้า (คุณศัพท์ยาว + more)"
+              "en": "This supplier offers more competitive rates than the others.",
+              "th": "คำยาว → more + adj"
             },
             {
-              "en": "Of all the branches, the downtown store is the busiest.",
-              "th": "ในบรรดาทุกสาขา ร้านใจกลางเมืองคือร้านที่คนพลุกพล่านที่สุด (busy → busiest)"
+              "en": "The new model is lighter than the previous one.",
+              "th": "คำสั้น → เติม -er"
+            }
+          ]
+        },
+        {
+          "heading": "โครงสร้างที่ต้องจำ",
+          "body": "1) เปรียบเทียบสองสิ่ง (comparative) ใช้กับ than\n   A is + adj-er / more adj + than + B\n   Our delivery is faster than theirs.\n\n2) เปรียบเทียบตั้งแต่สามสิ่งขึ้นไป (superlative) ใช้กับ the และมักตามด้วย in / of\n   the + adj-est / most adj + in/of…\n   This is the largest branch in the region.\n\n3) เท่ากัน ใช้ as … as\n   as + adj/adv รูปปกติ + as\n   This model is as reliable as the previous one.\n   ปฏิเสธ: not as/so … as → not as expensive as\n\n4) ยิ่ง…ยิ่ง…\n   The + comparative…, the + comparative…\n   The sooner you order, the lower the price.\n\n5) เพิ่มขึ้นเรื่อยๆ\n   comparative + and + comparative → more and more customers / cheaper and cheaper",
+          "examples": [
+            {
+              "en": "The revised process is as effective as the original one.",
+              "th": "as + adj รูปปกติ + as"
+            },
+            {
+              "en": "The more staff we hire, the faster the project moves.",
+              "th": "the + comparative, the + comparative"
+            }
+          ]
+        },
+        {
+          "heading": "คำที่ใช้ขยายการเปรียบเทียบ",
+          "body": "ขยาย comparative (วางหน้า):\n   much, far, a lot, significantly, considerably, substantially = มากกว่ามาก\n   slightly, a little, somewhat, marginally = มากกว่านิดหน่อย\n   even = ยิ่งกว่าเดิม\n   → The new system is significantly faster than the old one.\n   ห้ามใช้ very กับ comparative: very faster (ผิด) / much faster (ถูก)\n\nขยาย superlative:\n   by far, easily → by far the most popular option\n   second / third + superlative → the second largest market\n\nขยาย as…as:\n   just, almost, nearly, exactly → almost as expensive as",
+          "examples": [
+            {
+              "en": "The upgrade made the process considerably more efficient.",
+              "th": "considerably ขยาย more efficient"
+            },
+            {
+              "en": "This is by far the most reliable supplier we have used.",
+              "th": "by far ขยาย superlative"
+            }
+          ]
+        },
+        {
+          "heading": "กับดักที่ออกสอบ",
+          "body": "1) เห็น than → ต้องเป็น comparative เสมอ\n   เห็น the …est หรือ in/of the… → ต้องเป็น superlative\n   นี่คือสัญญาณที่ตัดสินข้อได้เร็วที่สุด\n\n2) เปรียบเทียบต้องเทียบของชนิดเดียวกัน\n   Our prices are lower than our competitors. (ผิดความหมาย — เทียบราคากับบริษัท)\n   Our prices are lower than those of our competitors. (ถูก)\n   Our prices are lower than our competitors'. (ถูก)\n\n3) fewer กับ less\n   fewer + นามนับได้พหูพจน์ → fewer employees, fewer errors\n   less + นามนับไม่ได้ → less time, less information\n\n4) later / latter / latest\n   later = ทีหลัง / latter = อันหลังในสองอัน / latest = ล่าสุด\n\n5) เมื่อเปรียบเทียบแค่สองสิ่ง ใช้ comparative ไม่ใช่ superlative\n   Of the two proposals, this one is better. (ไม่ใช่ the best)",
+          "examples": [
+            {
+              "en": "We received fewer complaints and spent less time on repairs.",
+              "th": "complaints นับได้ → fewer / time นับไม่ได้ → less"
             }
           ]
         }
@@ -659,16 +963,48 @@ window.GRAMMAR = {
       "title": "Passive Voice (ประโยคถูกกระทำ)",
       "explain": [
         {
-          "heading": "หลักการ",
-          "body": "โครงสร้าง: be + กริยาช่องที่ 3 (V3)\nใช้เมื่อไม่รู้ว่าใครเป็นผู้กระทำ, ผู้กระทำไม่สำคัญ, หรือต้องการเน้นผู้ถูกกระทำ — พบบ่อยมากในประกาศ/ข้อความทางการของ TOEIC",
+          "heading": "โครงสร้างและวิธีเปลี่ยนรูป",
+          "body": "Passive = be + กริยาช่องที่ 3 (V3)\n\nActive: The manager approved the budget.\n   (ประธาน = ผู้ทำ)\nPassive: The budget was approved by the manager.\n   (ประธาน = ผู้ถูกกระทำ)\n\nขั้นตอนเปลี่ยน:\n1. เอากรรมของประโยค active มาเป็นประธาน\n2. เปลี่ยนกริยาเป็น be + V3 โดย be ต้องอยู่ใน tense เดิม\n3. ผู้ทำเดิมใส่ by … (จะละไว้ก็ได้ถ้าไม่สำคัญ)\n\nสำคัญ: กริยาที่ตามหลัง be ต้องเป็นช่องที่ 3 เสมอ ไม่ใช่ช่องที่ 2\n   The report was write (ผิด) / was written (ถูก)",
           "examples": [
             {
-              "en": "The meeting has been rescheduled.",
-              "th": "การประชุมถูกเลื่อนแล้ว (ไม่ระบุว่าใครเลื่อน)"
+              "en": "All applications are reviewed by the HR team.",
+              "th": "are + reviewed (V3) — ผู้สมัครถูกตรวจ"
             },
             {
-              "en": "New employees are trained during their first week.",
-              "th": "พนักงานใหม่จะได้รับการฝึกอบรมในสัปดาห์แรก"
+              "en": "The building was designed by a local architect.",
+              "th": "was + designed (V3)"
+            }
+          ]
+        },
+        {
+          "heading": "Passive ในแต่ละ tense",
+          "body": "Present Simple: is / am / are + V3\n   The office is cleaned every evening.\nPast Simple: was / were + V3\n   The contract was signed last week.\nFuture: will be + V3\n   The results will be announced on Monday.\nPresent Perfect: has / have been + V3\n   The order has been shipped.\nPast Perfect: had been + V3\n   The room had been booked before we arrived.\nPresent Continuous: is / are being + V3\n   The system is being upgraded at the moment.\nModal: modal + be + V3\n   All forms must be submitted by Friday.\n   Visitors should be escorted at all times.\n\nรูป modal + be + V3 ออกสอบบ่อยมากใน Part 5 โดยเฉพาะ must be, should be, can be, will be",
+          "examples": [
+            {
+              "en": "All expense reports must be approved by a supervisor.",
+              "th": "must + be + approved"
+            },
+            {
+              "en": "The equipment is being inspected this week.",
+              "th": "is being + inspected (กำลังถูกตรวจ)"
+            }
+          ]
+        },
+        {
+          "heading": "ใช้ passive เมื่อไหร่",
+          "body": "1) ไม่รู้ว่าใครทำ หรือไม่สำคัญว่าใครทำ\n   The package was delivered this morning.\n2) ผู้ถูกกระทำสำคัญกว่าผู้ทำ\n   The new policy was announced yesterday.\n3) เขียนแบบทางการ ประกาศ กฎระเบียบ (เจอมากใน TOEIC เพราะเป็นภาษาธุรกิจ)\n   Employees are required to wear identification badges.\n   Smoking is not permitted in the building.\n\nสังเกต: ประกาศ กฎ คู่มือ อีเมลทางการใน Part 6/7 ใช้ passive เยอะมาก\nถ้าเห็นเนื้อหาแนวประกาศแล้วช่องว่างอยู่หลัง be → มีโอกาสสูงที่คำตอบคือ V3"
+        },
+        {
+          "heading": "วิธีตัดสินในห้องสอบ และกับดัก",
+          "body": "คำถามเดียวที่ต้องถาม: “ประธานของประโยคนี้เป็นผู้ทำ หรือถูกกระทำ”\n   ผู้ทำ → active\n   ถูกกระทำ → passive (be + V3)\n\nสัญญาณช่วยตัดสิน:\n• หลังช่องว่างมี by + คนหรือหน่วยงาน → passive แน่นอน\n• หลังช่องว่างไม่มีกรรม (ประโยคจบ หรือมีแค่บุพบท) → มักเป็น passive\n• หลังช่องว่างมีกรรมตามมาชัดเจน → ต้องเป็น active\n\nกับดัก:\n1) กริยาที่ไม่มีกรรม (intransitive) ทำเป็น passive ไม่ได้เลย\n   arrive, happen, occur, rise, appear, exist, remain, seem\n   The accident was happened. (ผิด) / The accident happened. (ถูก)\n2) rise (ขึ้นเอง ไม่มีกรรม) กับ raise (ยกขึ้น มีกรรม)\n   Prices rose. (ไม่มี passive) / Prices were raised by the company. (มี passive)\n3) อย่าสับสน V2 กับ V3 ในกริยาผิดปกติ\n   wrote (V2) / written (V3) — was written เท่านั้น\n4) ประโยค passive ที่มีสองกรรม\n   The staff were given new laptops. / New laptops were given to the staff.",
+          "examples": [
+            {
+              "en": "The proposal was submitted by the marketing team.",
+              "th": "มี by + หน่วยงาน → passive"
+            },
+            {
+              "en": "A problem occurred during the installation.",
+              "th": "occur ไม่มีกรรม → ห้ามใช้ passive"
             }
           ]
         }
@@ -731,22 +1067,42 @@ window.GRAMMAR = {
       "title": "คำสรรพนาม (Pronouns): ประธาน กรรม แสดงความเป็นเจ้าของ สะท้อนกลับ",
       "explain": [
         {
-          "heading": "หลักการ",
-          "body": "ตัวเลือกมักเป็นคำเดียวกันครบทุกรูป เช่น he / him / his / himself แล้ววัดว่าช่องว่างต้องการรูปไหน\nดูตำแหน่งเป็นหลัก:\n- หน้ากริยา (เป็นประธาน) → I, you, he, she, it, we, they\n- หลังกริยา หรือ หลังบุพบท (เป็นกรรม) → me, you, him, her, it, us, them\n- หน้าคำนาม → my, your, his, her, its, our, their\n- ไม่มีคำนามตามหลัง แต่แปลว่า “ของ...” → mine, yours, his, hers, ours, theirs\n- ประธานกับกรรมเป็นคนเดียวกัน → myself, yourself, himself, herself, itself, ourselves, themselves",
+          "heading": "ตารางสรรพนาม 5 รูป",
+          "body": "ตัวเลือกในข้อสอบมักเป็นคำเดียวกันครบทุกรูป เช่น they / them / their / theirs / themselves\nต้องดูตำแหน่งเพื่อเลือก\n\nประธาน | กรรม | เจ้าของ+นาม | เจ้าของเดี่ยว | สะท้อนกลับ\nI | me | my | mine | myself\nyou | you | your | yours | yourself / yourselves\nhe | him | his | his | himself\nshe | her | her | hers | herself\nit | it | its | — | itself\nwe | us | our | ours | ourselves\nthey | them | their | theirs | themselves\n\nจุดสังเกตแต่ละตำแหน่ง:\n• หน้ากริยา (เป็นประธาน) → I, he, they…\n• หลังกริยา หรือหลังบุพบท (เป็นกรรม) → me, him, them…\n• หน้าคำนาม → my, his, their…\n• ไม่มีคำนามตามหลัง แต่แปลว่า “ของ…” → mine, his, theirs…\n• ประธานกับกรรมเป็นคนเดียวกัน → myself, himself, themselves…",
           "examples": [
             {
               "en": "The director will meet the clients himself.",
-              "th": "ประธาน (director) ทำเอง → ใช้ himself"
+              "th": "ผู้ทำคือ director เอง → himself"
             },
             {
               "en": "Please send the report to her before noon.",
-              "th": "หลังบุพบท to → ต้องเป็นกรรม = her"
+              "th": "หลังบุพบท to → รูปกรรม = her"
             }
           ]
         },
         {
-          "heading": "จุดที่ผิดกันบ่อย",
-          "body": "1) its (ของมัน) ≠ it's (it is) — ข้อสอบชอบวางคู่กันมาก\n   The company increased its profits. (ถูก)\n2) their (ของพวกเขา) / there (ที่นั่น) / they're (they are)\n3) หลังบุพบททุกตัวต้องเป็นกรรมเสมอ: between you and me (ไม่ใช่ and I)\n4) those who = บรรดาผู้ที่ / anyone who = ใครก็ตามที่ ใช้กับกริยาเอกพจน์\n5) each other = ต่อกันและกัน (2 ฝ่าย) / one another (มากกว่า 2)"
+          "heading": "its / it's และคู่ที่สะกดคล้ายกัน",
+          "body": "นี่คือจุดที่ข้อสอบวางกับดักบ่อยที่สุดในเรื่องนี้\n\nits = ของมัน (แสดงความเป็นเจ้าของ ไม่มีเครื่องหมาย ')\n   The company increased its profits.\nit's = it is หรือ it has (ย่อ มีเครื่องหมาย ')\n   It's the largest branch in the country.\n\nคู่อื่นที่สะกดคล้าย:\n   their (ของพวกเขา) / there (ที่นั่น) / they're (they are)\n   your (ของคุณ) / you're (you are)\n   whose (ของใคร) / who's (who is)\n\nวิธีเช็กเร็ว: ลองแทน it's ด้วย “it is” ถ้าอ่านแล้วไม่ได้ความ ให้ใช้ its\n   The company increased it is profits. (ไม่ได้ความ → ต้องใช้ its)",
+          "examples": [
+            {
+              "en": "The department submitted its budget on time.",
+              "th": "ของแผนก → its (ไม่มี apostrophe)"
+            }
+          ]
+        },
+        {
+          "heading": "สรรพนามสะท้อนกลับ (-self) ใช้เมื่อไหร่",
+          "body": "ใช้ 2 กรณี:\n\n1) ประธานกับกรรมเป็นคนเดียวกัน\n   She taught herself to use the software.\n   (คนสอนกับคนถูกสอนคือคนเดียวกัน)\n\n2) เน้นย้ำว่า “ทำเอง ไม่ได้ให้ใครทำ” — วางท้ายประโยคหรือหลังประธาน\n   The manager reviewed the contract himself.\n   = ผู้จัดการตรวจเอง ไม่ได้ให้คนอื่นตรวจ\n\nสำนวนที่ต้องจำ: by + oneself = ด้วยตัวเอง / ตามลำพัง\n   She completed the project by herself.\n\nข้อผิดที่พบบ่อย: ใช้ -self ทั้งที่ประธานกับกรรมคนละคน\n   The manager asked myself to attend. (ผิด — ต้องเป็น me)\n   The manager asked me to attend. (ถูก)",
+          "examples": [
+            {
+              "en": "The technicians repaired the equipment themselves.",
+              "th": "เน้นว่าทำเอง ไม่ได้จ้างข้างนอก"
+            }
+          ]
+        },
+        {
+          "heading": "กับดักอื่นที่ออกสอบ",
+          "body": "1) หลังบุพบททุกตัวต้องเป็นรูปกรรมเสมอ\n   between you and me (ไม่ใช่ and I)\n   for him and her (ไม่ใช่ he and she)\n\n2) one / ones ใช้แทนคำนามที่พูดถึงไปแล้ว เพื่อไม่ให้ซ้ำ\n   This model is cheaper than the one we ordered last year.\n   We have several options; the blue ones are on sale.\n\n3) those who / anyone who / everyone who\n   those who = บรรดาผู้ที่ (ตามด้วยกริยาพหูพจน์)\n   Those who registered early will receive a discount.\n   anyone / everyone / someone → ใช้กริยาเอกพจน์\n   Everyone who attends receives a certificate.\n\n4) each other (สองฝ่าย) / one another (มากกว่าสอง)\n   The two departments support each other.\n\n5) ในภาษาธุรกิจสมัยใหม่ ใช้ they / their แทนคนคนเดียวที่ไม่ระบุเพศได้\n   Each employee should submit their timesheet."
         }
       ],
       "practice": [
@@ -808,21 +1164,41 @@ window.GRAMMAR = {
       "explain": [
         {
           "heading": "a / an / the / ไม่ใส่อะไรเลย",
-          "body": "a / an = นามเอกพจน์นับได้ ที่พูดถึงครั้งแรก หรือไม่เจาะจง\n   a report, an application (an ใช้กับ “เสียงสระ” ไม่ใช่ตัวอักษรสระ: an hour, a university)\nthe = สิ่งที่ผู้ฟังรู้แล้วว่าอันไหน หรือมีอยู่หนึ่งเดียว\n   the report you sent, the manager, the first quarter\nไม่ใส่อะไร = นามนับไม่ได้ หรือ นามพหูพจน์ที่พูดกว้างๆ\n   Information is important. / Employees must wear badges.",
+          "body": "a / an = คำนามเอกพจน์นับได้ ที่พูดถึงครั้งแรก หรือไม่เจาะจงว่าอันไหน\n   We received an application. (ใบหนึ่ง ยังไม่ระบุ)\n\nการเลือก a หรือ an ดูที่ “เสียง” ไม่ใช่ตัวอักษร\n   a university, a European client (ออกเสียง /ju/ เหมือนพยัญชนะ)\n   an hour, an honest answer (h ไม่ออกเสียง)\n   an MBA, an FAQ (ออกเสียงตัวอักษรขึ้นต้นด้วยสระ)\n\nthe = ผู้ฟังรู้แล้วว่าอันไหน หรือมีอยู่หนึ่งเดียว\n   • อ้างถึงสิ่งที่พูดไปแล้ว → The application was incomplete.\n   • มีส่วนขยายบอกชัดว่าอันไหน → the report that you sent\n   • มีอยู่หนึ่งเดียวในบริบท → the manager, the head office\n   • ลำดับที่และขั้นสูงสุด → the first quarter, the largest branch\n\nไม่ใส่อะไรเลย = นามนับไม่ได้ หรือนามพหูพจน์ที่พูดกว้างๆ\n   Information is important. / Employees must wear badges.",
           "examples": [
             {
               "en": "We received an application from a new candidate.",
-              "th": "ครั้งแรกที่พูดถึง → a/an"
+              "th": "ครั้งแรกที่พูดถึง → a / an"
             },
             {
-              "en": "The application was incomplete.",
-              "th": "อ้างถึงใบเดิมที่พูดไปแล้ว → the"
+              "en": "The application was reviewed the following day.",
+              "th": "อ้างถึงใบเดิม → the"
             }
           ]
         },
         {
-          "heading": "นับได้ vs นับไม่ได้ — จุดที่ข้อสอบวัด",
-          "body": "ใช้กับนามนับได้ (พหูพจน์): many, few, a few, several, a number of, fewer\nใช้กับนามนับไม่ได้: much, little, a little, a great deal of, less, amount of\nใช้ได้ทั้งสอง: some, any, a lot of, plenty of, most, all\nนามนับไม่ได้ที่ออกสอบบ่อย: information, equipment, furniture, luggage, advice, research, staff, machinery, feedback, access\n   → ห้ามเติม s และห้ามใช้ a/an: much information (ถูก) / many informations (ผิด)\nระวัง: few = แทบไม่มี (ความหมายลบ) / a few = มีอยู่บ้าง (ความหมายบวก)"
+          "heading": "นามนับไม่ได้ที่ออกสอบบ่อย",
+          "body": "คำเหล่านี้ห้ามเติม s และห้ามใช้ a / an — เป็นจุดที่ข้อสอบวัดตรงๆ\n\n   information, equipment, furniture, luggage / baggage, advice, research,\n   machinery, merchandise, feedback, access, permission, employment,\n   training, evidence, progress, staff (ในความหมายรวม), news, software\n\n   much information (ถูก) / many informations (ผิด)\n   a piece of equipment / two pieces of equipment (ถ้าต้องนับ ให้ใช้ a piece of)\n\nคำที่มีทั้งแบบนับได้และนับไม่ได้ ความหมายต่างกัน:\n   experience (ประสบการณ์ นับไม่ได้) / experiences (เหตุการณ์ที่ประสบ นับได้)\n   business (ธุรกิจโดยรวม) / businesses (บริษัทหลายแห่ง)\n   time (เวลา) / times (ครั้ง)",
+          "examples": [
+            {
+              "en": "The office manager ordered new furniture for the lobby.",
+              "th": "furniture นับไม่ได้ → ไม่เติม s ไม่ใช้ a"
+            }
+          ]
+        },
+        {
+          "heading": "คำบอกปริมาณ: เลือกตามชนิดของคำนาม",
+          "body": "ใช้กับนามนับได้ (พหูพจน์):\n   many, few, a few, several, a number of, fewer, both, each, every (+ เอกพจน์)\n   many employees, a few options, fewer complaints\n\nใช้กับนามนับไม่ได้:\n   much, little, a little, a great deal of, less, an amount of\n   much time, a little information, less paperwork\n\nใช้ได้ทั้งสองแบบ:\n   some, any, a lot of, lots of, plenty of, most, all, enough, no\n   a lot of staff / a lot of employees\n\nจุดที่วัดบ่อย: fewer กับ less\n   fewer + นับได้ → fewer errors\n   less + นับไม่ได้ → less time",
+          "examples": [
+            {
+              "en": "We received fewer applications but spent less time reviewing them.",
+              "th": "applications นับได้ → fewer / time นับไม่ได้ → less"
+            }
+          ]
+        },
+        {
+          "heading": "few / a few และกับดักอื่น",
+          "body": "ความหมายต่างกันชัดเจน แม้ต่างกันแค่ a\n\n   few = แทบไม่มีเลย (ความหมายเชิงลบ)\n      Few employees attended the optional session. (แทบไม่มีคนมา)\n   a few = มีอยู่บ้าง (ความหมายเชิงบวก)\n      A few employees attended the optional session. (มีมาบ้าง)\n\n   little = แทบไม่มีเลย → There is little time left.\n   a little = มีอยู่บ้าง → There is a little time left.\n\nกับดักอื่น:\n1) every / each + คำนามเอกพจน์เสมอ\n   every employee (ไม่ใช่ every employees)\n2) one of / each of / either of + นามพหูพจน์ แต่กริยาเอกพจน์\n   One of the reports is missing.\n3) ไม่ใช้ the กับชื่อเฉพาะทั่วไป แต่ใช้กับชื่อองค์กรบางประเภท\n   Bangkok (ไม่มี the) / the United States, the Ministry of Finance (มี the)\n4) ตำแหน่งงานหลัง as ไม่ใส่ a เมื่อพูดถึงบทบาท\n   She works as marketing director."
         }
       ],
       "practice": [
@@ -884,25 +1260,41 @@ window.GRAMMAR = {
       "explain": [
         {
           "heading": "V-ing หรือ V-ed ขยายคำนาม",
-          "body": "ใช้แทน relative clause เพื่อให้ประโยคสั้นลง — ออกสอบบ่อยมากใน Part 5/6\n- V-ing (present participle) = คำนามนั้น “เป็นผู้ทำ”\n   the employee working on the project = the employee who is working…\n- V-ed (past participle) = คำนามนั้น “ถูกกระทำ”\n   the report written by the team = the report which was written…",
+          "body": "ใช้แทน relative clause เพื่อให้ประโยคสั้นลง ออกสอบบ่อยมากใน Part 5/6\n\nคำถามเดียวที่ต้องถาม: คำนามนั้น “เป็นผู้ทำ” หรือ “ถูกกระทำ”\n\n• เป็นผู้ทำ → V-ing (present participle)\n   the employee working on the project\n   = the employee who is working on the project\n\n• ถูกกระทำ → V-ed / V3 (past participle)\n   the report written by the team\n   = the report which was written by the team\n\nตำแหน่งที่เจอ:\n1) หลังคำนามโดยตรง (ลดจาก relative clause)\n   The candidates selected for the interview will be notified.\n2) หน้าคำนาม (เมื่อเป็นคำเดียว)\n   a leading supplier / a damaged package",
           "examples": [
             {
-              "en": "The candidate selected for the role has ten years of experience.",
-              "th": "candidate ถูกเลือก → ใช้ selected (V-ed)"
+              "en": "The team leading the project will present tomorrow.",
+              "th": "team เป็นผู้นำ → V-ing"
             },
             {
-              "en": "The team leading the project will present tomorrow.",
-              "th": "team เป็นผู้นำ → ใช้ leading (V-ing)"
+              "en": "All items purchased online can be returned within 30 days.",
+              "th": "items ถูกซื้อ → V-ed"
             }
           ]
         },
         {
-          "heading": "คุณศัพท์ -ing vs -ed (จุดที่ผิดกันบ่อยที่สุด)",
-          "body": "-ing = ตัวมัน “ทำให้รู้สึก” (ใช้กับสิ่งของ/เรื่องราว)\n-ed = คน “รู้สึก” แบบนั้น\n   The presentation was interesting. / The audience was interested.\n   The delay was frustrating. / The customers were frustrated.\nคู่ที่ออกสอบ: exciting/excited, surprising/surprised, confusing/confused, disappointing/disappointed, satisfying/satisfied, tiring/tired"
+          "heading": "คุณศัพท์ -ing กับ -ed (จุดที่ผิดกันมากที่สุด)",
+          "body": "-ing = ตัวมัน “ทำให้รู้สึกแบบนั้น” มักใช้กับสิ่งของ เหตุการณ์ เรื่องราว\n-ed = คน “รู้สึกแบบนั้น” ใช้กับคนเท่านั้น\n\n   The presentation was interesting. (การนำเสนอน่าสนใจ)\n   The audience was interested. (ผู้ฟังรู้สึกสนใจ)\n\n   The delay was frustrating. / The customers were frustrated.\n   The results are surprising. / We were surprised by the results.\n\nคู่ที่ออกสอบบ่อย:\n   exciting / excited\n   confusing / confused\n   disappointing / disappointed\n   satisfying / satisfied\n   tiring / tired\n   boring / bored\n   challenging / challenged\n   overwhelming / overwhelmed\n\nเทคนิคเร็ว: ถ้าคำนามข้างหน้าเป็น “คน” → มักใช้ -ed\nถ้าเป็น “สิ่งของ/เรื่อง” → มักใช้ -ing",
+          "examples": [
+            {
+              "en": "Customers were satisfied with the satisfying result.",
+              "th": "คนรู้สึก → satisfied / ผลลัพธ์ทำให้รู้สึก → satisfying"
+            }
+          ]
         },
         {
-          "heading": "วลีขึ้นต้นประโยค",
-          "body": "เมื่อประโยคขึ้นต้นด้วยวลี V-ing / V-ed แล้วตามด้วยคอมมา ประธานของประโยคหลักต้องเป็นผู้ทำวลีนั้น\n   Having reviewed the budget, the manager approved the purchase. (ถูก — manager เป็นผู้ review)\nเจอบ่อย: After reviewing…, Before submitting…, When completed…, If approved…"
+          "heading": "วลีขึ้นต้นประโยค (Participial Phrase)",
+          "body": "เมื่อประโยคขึ้นต้นด้วยวลี V-ing / V-ed แล้วตามด้วยคอมมา\nประธานของประโยคหลักต้องเป็น “ผู้ทำ” วลีนั้น\n\n   Having reviewed the budget, the manager approved the purchase.\n   (manager เป็นผู้ review — ถูก)\n\n   Having reviewed the budget, the purchase was approved.\n   (purchase ไม่ได้ review — ผิด แม้ไวยากรณ์ดูโอเค)\n\nรูปที่เจอบ่อย:\n   After reviewing the contract, we signed it.\n   Before submitting the form, please check all fields.\n   When completed, the form should be returned to HR.\n   If approved, the request will be processed within 3 days.\n   Located in the city center, the hotel is popular with travelers.\n\nสังเกต: When / If + V-ed ใช้ได้เมื่อประธานถูกกระทำ",
+          "examples": [
+            {
+              "en": "Founded in 1998, the company now employs 500 people.",
+              "th": "company ถูกก่อตั้ง → V-ed ขึ้นต้น"
+            }
+          ]
+        },
+        {
+          "heading": "วิธีตัดสินใจในห้องสอบ",
+          "body": "เมื่อเห็นตัวเลือกเป็น V-ing / V-ed / to V / V ธรรมดา ให้เช็กตามลำดับนี้:\n\n1) ประโยคมีกริยาแท้แล้วหรือยัง\n   ถ้ามีแล้ว → ช่องว่างนี้ไม่ใช่กริยาแท้ ต้องเป็น participle หรือ to V\n   ถ้ายังไม่มี → ต้องเป็นกริยาแท้ (ผันตาม tense และประธาน)\n\n2) ถ้าเป็น participle → คำนามที่ขยายเป็นผู้ทำ (V-ing) หรือถูกกระทำ (V-ed)\n\n3) ถ้าขยายความรู้สึก → คนใช้ -ed / สิ่งของใช้ -ing\n\nตัวอย่างการวิเคราะห์:\n   The equipment ______ last month has already broken.\n   → ประโยคมีกริยาแท้แล้ว (has broken)\n   → equipment ถูกซื้อ ไม่ได้ซื้อเอง\n   → ตอบ purchased (V-ed)"
         }
       ],
       "practice": [
@@ -963,22 +1355,46 @@ window.GRAMMAR = {
       "title": "กริยาช่วยและประโยคเงื่อนไข (Modals & Conditionals)",
       "explain": [
         {
-          "heading": "กริยาช่วย (Modals)",
-          "body": "หลัง modal ทุกตัวต้องตามด้วยกริยาช่องที่ 1 เสมอ (ไม่เติม s / ไม่เติม ed)\nmust = ต้อง (บังคับ) / must not = ห้าม\nshould = ควร (แนะนำ)\ncan / be able to = สามารถ\nmay / might = อาจจะ (ไม่แน่ใจ) / may = ขออนุญาต\nwill = จะ\nwould like to = อยากจะ (สุภาพ)\nhave to = จำเป็นต้อง / don't have to = ไม่จำเป็นต้อง (≠ must not)\nระวัง: must not กับ don't have to ความหมายตรงข้ามกัน ข้อสอบชอบวัดตรงนี้",
+          "heading": "กริยาช่วย (Modals) และความหมาย",
+          "body": "กฎเหล็ก: หลัง modal ทุกตัวต้องเป็นกริยาช่องที่ 1 เสมอ ไม่เติม s ไม่เติม ed ไม่มี to\n   She must submits (ผิด) / She must submit (ถูก)\n\nความหมายแต่ละตัว:\n   must = ต้อง (บังคับ กฎระเบียบ)\n   have to = จำเป็นต้อง (สถานการณ์บังคับ)\n   should / ought to = ควร (แนะนำ)\n   can / be able to = สามารถ\n   may / might = อาจจะ (ไม่แน่ใจ)\n   may = ขออนุญาต (ทางการ)\n   will = จะ\n   would = จะ (สมมติ) / would like to = อยากจะ (สุภาพ)\n   could = สามารถ (อดีต) / ขอ (สุภาพ)\n\nระดับความมั่นใจ: must (แน่ใจมาก) > should > may / might / could (ไม่แน่ใจ)",
           "examples": [
             {
               "en": "All visitors must sign in at the reception desk.",
-              "th": "บังคับ → must + V1"
+              "th": "กฎบังคับ → must + V1"
             },
             {
-              "en": "You don't have to attend if you are on leave.",
+              "en": "The shipment may arrive later than expected.",
+              "th": "อาจจะ ไม่แน่ใจ → may"
+            }
+          ]
+        },
+        {
+          "heading": "must not กับ don't have to — ความหมายตรงข้ามกัน",
+          "body": "นี่คือกับดักที่ออกสอบบ่อยที่สุดในเรื่อง modal\n\n   must not = ห้าม (ทำไม่ได้เด็ดขาด)\n      Employees must not share their passwords.\n\n   don't have to / doesn't have to = ไม่จำเป็นต้อง (จะทำก็ได้ ไม่ทำก็ได้)\n      You don't have to attend if you are already certified.\n\nอย่าสับสนกับ:\n   cannot = ทำไม่ได้ (ไม่มีความสามารถ หรือไม่ได้รับอนุญาต)\n   should not = ไม่ควร (แนะนำ แต่ไม่ได้ห้ามเด็ดขาด)\n\nรูป passive ของ modal: modal + be + V3\n   All forms must be submitted by Friday.\n   Visitors should be escorted at all times.\n\nรูปอดีตของ modal: modal + have + V3\n   The order should have arrived yesterday. (ควรมาถึงแล้ว แต่ยังไม่มา)\n   We could have finished earlier. (ทำเสร็จเร็วกว่านี้ได้ แต่ไม่ได้ทำ)",
+          "examples": [
+            {
+              "en": "Staff members do not have to work on public holidays.",
               "th": "ไม่จำเป็นต้อง (ไม่ใช่ห้าม)"
             }
           ]
         },
         {
-          "heading": "ประโยคเงื่อนไข (If-clauses)",
-          "body": "แบบที่ 1 — เป็นไปได้จริงในอนาคต\n   If we receive the order today, we will ship it tomorrow.\n   (If + present simple, will + V1)  ← ห้ามใช้ will ในประโยค if\nแบบที่ 2 — สมมติที่ไม่จริงในปัจจุบัน\n   If we had more staff, we would finish sooner.\n   (If + past simple, would + V1)\nแบบที่ 3 — สมมติในอดีตที่ไม่เกิดขึ้น\n   If we had ordered earlier, we would have received it on time.\n   (If + had + V3, would have + V3)\nคำอื่นที่ใช้แทน if: unless (ถ้าไม่), provided that, as long as, in case"
+          "heading": "ประโยคเงื่อนไข 3 แบบ",
+          "body": "แบบที่ 1 — เป็นไปได้จริงในอนาคต\n   If + present simple, will + V1\n   If we receive the order today, we will ship it tomorrow.\n   กฎสำคัญ: ในประโยค if ห้ามใช้ will\n      If we will receive… (ผิด)\n\nแบบที่ 2 — สมมติที่ไม่จริงในปัจจุบัน\n   If + past simple, would + V1\n   If we had more staff, we would finish sooner.\n   (ความจริงคือตอนนี้คนไม่พอ)\n   หมายเหตุ: ใช้ were กับทุกประธานในภาษาทางการ → If I were you…\n\nแบบที่ 3 — สมมติในอดีตที่ไม่ได้เกิดขึ้น\n   If + had + V3, would have + V3\n   If we had ordered earlier, we would have received it on time.\n   (ความจริงคือไม่ได้สั่งเร็ว เลยไม่ได้ของทัน)\n\nวิธีจำ: ดูที่ประโยค if\n   present → แบบ 1 / past → แบบ 2 / had + V3 → แบบ 3",
+          "examples": [
+            {
+              "en": "If the parts arrive on Monday, production will resume immediately.",
+              "th": "แบบ 1 — เป็นไปได้จริง"
+            },
+            {
+              "en": "If the supplier had notified us, we would have adjusted the schedule.",
+              "th": "แบบ 3 — อดีตที่ไม่ได้เกิด"
+            }
+          ]
+        },
+        {
+          "heading": "คำอื่นที่ใช้แทน if และกับดัก",
+          "body": "unless = ถ้าไม่ (= if…not) ห้ามใส่ not ซ้ำ\n   Unless you confirm by Friday, the booking will be cancelled.\n   = If you do not confirm by Friday…\n\nprovided that / as long as = ตราบใดที่ / โดยมีเงื่อนไขว่า\n   You may use the facility as long as you register first.\n\nin case = เผื่อว่า (เตรียมไว้ล่วงหน้า)\n   Bring extra copies in case more people attend.\n\notherwise = มิฉะนั้น (ใช้เชื่อมประโยคที่แยกกัน)\n   Submit the form today; otherwise, your application will be rejected.\n\ngiven that / assuming that = เมื่อพิจารณาว่า / สมมติว่า\n\nกับดักที่ออกสอบ:\n1) เห็น unless แล้วใส่ not ตาม → ผิด\n2) ในประโยค if ของแบบ 1 ใช้ present แม้พูดถึงอนาคต\n3) Should you… = รูปทางการของ If you should…\n   Should you have any questions, please contact us.\n4) Had we known… = รูปทางการของ If we had known…"
         }
       ],
       "practice": [
@@ -1039,22 +1455,30 @@ window.GRAMMAR = {
       "title": "เลือกคำให้ตรงความหมาย (Word Choice ใน Part 5)",
       "explain": [
         {
-          "heading": "โจทย์อีกครึ่งหนึ่งของ Part 5",
-          "body": "Part 5 มีสองแบบ: แบบวัดไวยากรณ์ (ตัวเลือกเป็นคำเดียวกันคนละรูป) กับแบบวัดคำศัพท์ (ตัวเลือกเป็นคนละคำ ชนิดเดียวกันหมด)\nถ้าเห็นตัวเลือกเป็นคำนาม 4 คำที่ต่างกัน หรือกริยา 4 คำที่ต่างกัน = ข้อวัดคำศัพท์\nข้อแบบนี้ตัดสินที่ “คำไหนเข้ากับบริบทและคู่คำ” ไม่ใช่ตำแหน่งไวยากรณ์"
+          "heading": "แยกให้ออกว่าข้อนี้วัดอะไร",
+          "body": "Part 5 มีสองแบบ ดูที่ตัวเลือกก็รู้ทันทีว่าต้องใช้วิธีไหน\n\nแบบ A — วัดไวยากรณ์\n   ตัวเลือกเป็น “คำเดียวกันคนละรูป”\n   (A) produce (B) production (C) productive (D) productively\n   → ใช้วิธีดูตำแหน่ง ไม่ต้องแปลทั้งประโยคก็ตอบได้\n\nแบบ B — วัดคำศัพท์\n   ตัวเลือกเป็น “คนละคำ แต่ชนิดเดียวกันหมด”\n   (A) exceeded (B) excelled (C) expanded (D) expired\n   → ต้องอ่านทั้งประโยคและเข้าใจความหมาย ดูตำแหน่งอย่างเดียวไม่พอ\n\nประมาณครึ่งหนึ่งของ Part 5 เป็นแบบ B\nถ้าเห็นว่าเป็นแบบ B แล้วไม่รู้คำศัพท์เลย ให้เดาแล้วไปต่อทันที อย่าเสียเวลา"
         },
         {
-          "heading": "วิธีทำให้เร็ว",
-          "body": "1) อ่านทั้งประโยคให้จบก่อน อย่าดูแค่รอบช่องว่าง\n2) หาคำใบ้: คำที่มักมาคู่กัน (meet a deadline), บุพบทที่ตามหลัง (comply with), หรือคำบอกทิศทางความหมาย (however, because, despite)\n3) ตัดตัวเลือกที่คู่คำผิดออกก่อน\n4) ถ้าเหลือสองตัวที่ความหมายใกล้กัน ให้ดูว่าตัวไหนใช้กับบริบทธุรกิจแบบนี้จริง",
+          "heading": "วิธีทำข้อวัดคำศัพท์ให้เร็วและแม่น",
+          "body": "1) อ่านทั้งประโยคให้จบก่อน อย่าดูแค่รอบช่องว่าง\n   ความหมายที่ตัดสินคำตอบมักอยู่ท้ายประโยค\n\n2) หา “คำใบ้” 3 ประเภท\n   • คู่คำที่ต้องมาด้วยกัน → meet a deadline, take effect, place an order\n   • บุพบทที่ตามหลัง → comply with, result in, responsible for\n   • คำบอกทิศทางความหมาย → however (ขัดแย้ง), because (เหตุผล), despite (แม้ว่า)\n\n3) ตัดตัวเลือกที่คู่คำผิดออกก่อน\n\n4) ถ้าเหลือสองตัวที่ความหมายใกล้กัน ให้ถามว่าตัวไหนใช้ในบริบทธุรกิจแบบนี้จริง",
           "examples": [
             {
               "en": "The proposal was rejected because it exceeded the budget.",
-              "th": "exceed = เกิน (ใช้กับตัวเลข/งบ) — เลือกจากบริบท ไม่ใช่ไวยากรณ์"
+              "th": "exceed = เกิน ใช้กับตัวเลข/งบ — เลือกจากความหมาย ไม่ใช่ตำแหน่ง"
+            },
+            {
+              "en": "All contractors must comply with the safety guidelines.",
+              "th": "บุพบท with เป็นตัวชี้ว่าต้องเป็น comply"
             }
           ]
         },
         {
           "heading": "กลุ่มคำที่ข้อสอบชอบเอามาสับกัน",
-          "body": "แจ้ง/บอก: inform (inform someone), announce (announce something), notify (notify someone of), report\nเพิ่ม/ลด: increase, rise, grow, expand / decrease, decline, reduce, drop\nทำได้สำเร็จ: achieve, accomplish, complete, fulfill, meet\nเลื่อน/ยกเลิก: postpone, delay, reschedule / cancel, call off\nอนุญาต: allow, permit, authorize, approve\nต้องการ: require, request, demand, need\nคาด: expect, anticipate, predict, estimate"
+          "body": "แจ้ง / บอก:\n   inform + คน (inform the client)\n   notify + คน + of (notify us of any changes)\n   announce + สิ่ง (announce the results)\n   report + สิ่ง\n\nเพิ่ม / ลด:\n   increase, rise (ขึ้นเอง), grow, expand\n   decrease, decline, reduce, drop\n   ระวัง: raise ต้องมีกรรม / rise ไม่มีกรรม\n\nทำสำเร็จ:\n   achieve a goal, accomplish a task, complete a project,\n   fulfill a requirement, meet a deadline\n\nเลื่อน / ยกเลิก:\n   postpone, delay, reschedule (เลื่อน — ยังจัดอยู่)\n   cancel, call off (ยกเลิก — ไม่จัดแล้ว)\n\nอนุญาต:\n   allow / permit + คน + to V\n   authorize (อนุมัติอย่างเป็นทางการ)\n   approve (อนุมัติสิ่งที่เสนอมา)\n\nคาดการณ์:\n   expect (คาดว่าจะเกิด), anticipate (คาดและเตรียมรับมือ),\n   predict / forecast (ทำนายจากข้อมูล), estimate (ประมาณตัวเลข)"
+        },
+        {
+          "heading": "คำที่ความหมายคล้ายแต่ใช้ต่างกัน",
+          "body": "opportunity / chance / possibility\n   opportunity = โอกาสดีที่ควรคว้า → a career opportunity\n   chance = โอกาส/ความน่าจะเป็น → a chance of rain\n   possibility = ความเป็นไปได้\n\nprice / cost / fee / charge / rate / fare\n   price = ราคาสินค้า\n   cost = ต้นทุน ค่าใช้จ่ายรวม\n   fee = ค่าธรรมเนียม/ค่าบริการวิชาชีพ → a registration fee\n   charge = ค่าบริการที่เรียกเก็บ → a delivery charge\n   rate = อัตรา → the exchange rate, an hourly rate\n   fare = ค่าโดยสาร → a bus fare\n\nwork / job / occupation / position / career\n   work = งาน (นับไม่ได้) / job = ตำแหน่งงาน (นับได้)\n   position = ตำแหน่ง (ทางการ) / career = อาชีพระยะยาว\n\ncustomer / client / guest / patron\n   customer = ผู้ซื้อสินค้า / client = ผู้ใช้บริการวิชาชีพ\n   guest = แขกโรงแรม / patron = ลูกค้าประจำ"
         }
       ],
       "practice": [
@@ -1116,15 +1540,25 @@ window.GRAMMAR = {
       "explain": [
         {
           "heading": "Part 6 ต่างจาก Part 5 อย่างไร",
-          "body": "Part 6 เป็นบทความสั้น (อีเมล ประกาศ จดหมาย โฆษณา) เว้นช่อง 4 ช่องต่อบทความ\nต่างจาก Part 5 ตรงที่ “บางช่องต้องอ่านประโยคอื่นก่อนถึงจะตอบได้” โดยเฉพาะเรื่อง tense และคำเชื่อม\nและมี 1 ช่องในแต่ละบทความที่ให้เลือก “ประโยคทั้งประโยค” มาเติม"
+          "body": "Part 6 เป็นบทความสั้น (อีเมล ประกาศ จดหมาย โฆษณา บทความ) เว้นช่อง 4 ช่องต่อบทความ\nมี 4 บทความ รวม 16 ข้อ\n\nความต่างที่สำคัญ:\n• Part 5 ตอบได้จากประโยคเดียว\n• Part 6 มีบางช่องที่ “ต้องอ่านประโยคอื่นก่อน” ถึงจะตอบได้ โดยเฉพาะเรื่อง tense และคำเชื่อม\n• แต่ละบทความจะมี 1 ช่องที่ให้เลือก “ประโยคทั้งประโยค” มาเติม\n\nวิธีทำที่แนะนำ:\n1. อ่านหัวเรื่อง/ประโยคแรกให้รู้ว่าเรื่องอะไร ใครเขียนถึงใคร\n2. ทำช่องที่ตอบได้จากประโยคเดียวก่อน (คำศัพท์ รูปคำ)\n3. ค่อยกลับมาทำช่องที่ต้องดูบริบท (tense คำเชื่อม ประโยคเต็ม)"
         },
         {
           "heading": "ช่องที่ต้องดูบริบททั้งย่อหน้า",
-          "body": "1) Tense — ดูคำบอกเวลาในประโยคอื่น เช่น last month, next week, currently\n2) คำเชื่อม — ดูความสัมพันธ์ของสองประโยค\n   ขัดแย้ง: however, nevertheless, on the other hand\n   เป็นผล: therefore, as a result, consequently\n   เพิ่มเติม: in addition, furthermore, moreover\n   ยกตัวอย่าง: for example, for instance\n3) คำสรรพนาม/คำอ้างถึง — this, these, it ต้องอ้างถึงสิ่งที่กล่าวไปแล้ว"
+          "body": "1) Tense — ดูคำบอกเวลาในประโยคอื่นของย่อหน้าเดียวกัน\n   ถ้าย่อหน้าพูดถึงสิ่งที่เกิดไปแล้ว → อดีต\n   ถ้าพูดถึงแผนข้างหน้า → อนาคต\n   Thank you for your order last week. We are currently preparing…\n\n2) คำเชื่อม — ดูความสัมพันธ์ของประโยคหน้ากับประโยคหลัง\n   ขัดแย้ง: however, nevertheless, on the other hand, in contrast\n   เป็นผล: therefore, as a result, consequently, thus\n   เพิ่มเติม: in addition, furthermore, moreover, also\n   ยกตัวอย่าง: for example, for instance\n   ลำดับเวลา: meanwhile, subsequently, afterward\n\n3) คำสรรพนามและคำอ้างถึง\n   this, these, it, they ต้องมีสิ่งที่อ้างถึงอยู่ก่อนหน้าแล้ว\n   ถ้าเลือกคำที่ไม่มีสิ่งอ้างอิง จะผิดทันที",
+          "examples": [
+            {
+              "en": "Our office will be closed Monday. Therefore, all appointments have been moved.",
+              "th": "ประโยคหลังเป็นผลของประโยคหน้า → therefore"
+            }
+          ]
         },
         {
           "heading": "ข้อ “เลือกประโยคที่หายไป” ทำอย่างไร",
-          "body": "อ่านประโยคก่อนหน้าและถัดจากช่องว่างให้ครบ แล้วถามตัวเองว่า “ตรงนี้ควรพูดเรื่องอะไรต่อ”\nเช็ก 3 อย่าง:\n1) หัวข้อต่อเนื่องกันไหม — ประโยคที่เปลี่ยนเรื่องกะทันหันมักเป็นตัวลวง\n2) คำเชื่อมและคำอ้างถึงสอดคล้องไหม — ถ้าประโยคถัดไปขึ้นต้นด้วย “This means…” ประโยคที่เติมต้องมีสิ่งที่ this อ้างถึง\n3) น้ำเสียงและกาลตรงกับทั้งย่อหน้าไหม\nตัวลวงที่พบบ่อย: ประโยคที่ถูกไวยากรณ์และเกี่ยวกับหัวข้อกว้างๆ แต่ไม่เชื่อมกับประโยคหน้า-หลังจริง"
+          "body": "นี่เป็นข้อที่คนพลาดมากที่สุดใน Part 6 เพราะตัวลวงมักถูกไวยากรณ์และเกี่ยวกับหัวข้อกว้างๆ\n\nขั้นตอน:\n1. อ่านประโยคก่อนหน้าและประโยคถัดจากช่องว่างให้ครบ\n2. ถามว่า “ตรงนี้ควรพูดเรื่องอะไรต่อ” ก่อนดูตัวเลือก\n3. เช็ก 3 อย่างกับแต่ละตัวเลือก\n\n   • หัวข้อต่อเนื่องไหม — ตัวลวงมักเปลี่ยนเรื่องกะทันหัน\n   • คำเชื่อมและคำอ้างถึงสอดคล้องไหม\n     ถ้าประโยคถัดไปขึ้นต้นว่า “This means that…” ประโยคที่เติมต้องมีสิ่งที่ this อ้างถึง\n   • น้ำเสียงและกาลตรงกับย่อหน้าไหม\n     อีเมลทางการจะไม่มีประโยคกันเองแบบพูดเล่น\n\n4. ถ้าเหลือสองตัว ให้เลือกตัวที่ “เชื่อมกับประโยคถัดไป” ได้ดีกว่า เพราะประโยคที่เติมต้องพาไปสู่ประโยคหลังได้"
+        },
+        {
+          "heading": "ประเภทเอกสารที่เจอบ่อยและสิ่งที่ต้องสังเกต",
+          "body": "อีเมลธุรกิจ — ดูว่าใครเขียนถึงใคร และจุดประสงค์คืออะไร\n   มักเจอ: ขอข้อมูล ยืนยันนัดหมาย แจ้งความล่าช้า ตอบข้อร้องเรียน\n   คำที่เจอ: I am writing to…, Please find attached…, We apologize for…\n\nประกาศภายในบริษัท (memo / notice)\n   มักเจอ: แจ้งนโยบายใหม่ ปิดปรับปรุง เปลี่ยนเวลาทำการ\n   ใช้ passive เยอะ: Employees are required to… / will be conducted\n\nจดหมายถึงลูกค้า\n   มักเจอ: แจ้งเปลี่ยนราคา ตอบรับคำสั่งซื้อ ขอบคุณ เชิญร่วมงาน\n\nโฆษณา / ประกาศรับสมัครงาน\n   มักเจอ: คุณสมบัติที่ต้องการ วิธีสมัคร กำหนดปิดรับ\n\nเคล็ดลับ: รู้ประเภทเอกสารตั้งแต่บรรทัดแรก จะเดาโครงเรื่องได้\nและช่วยตัดตัวเลือกที่น้ำเสียงไม่เข้ากับเอกสารประเภทนั้นออกได้เร็ว"
         }
       ],
       "practice": [
