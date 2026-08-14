@@ -844,26 +844,62 @@
     });
   }
 
-  /* ================= GRAMMAR ================= */
-  var grammarState = { lesson: 1 };
+  /* ================= LESSONS (grammar + vocabulary) =================
+     Two lesson tracks sharing one renderer. Each keeps its own completion
+     progress so finishing a grammar lesson does not tick a vocab one. */
+  var LESSON_TRACKS = {
+    grammar: { label: "ไวยากรณ์", data: function () { return GRAMMAR.lessons; }, key: "toeic_grammar_v1" },
+    vocab: { label: "คำศัพท์", data: function () { return VOCABLESSONS.lessons; }, key: "toeic_vocablesson_v1" }
+  };
+  var grammarState = { track: "grammar", lesson: 1 };
+
   var GRAMMAR_KEY = "toeic_grammar_v1";
   function loadGrammarProgress() { return getJSON(GRAMMAR_KEY, {}); }
   function saveGrammarProgress(obj) { setJSON(GRAMMAR_KEY, obj); }
 
+  function trackLessons() { return LESSON_TRACKS[grammarState.track].data(); }
+  function loadTrackProgress() { return getJSON(LESSON_TRACKS[grammarState.track].key, {}); }
+  function saveTrackProgress(obj) { setJSON(LESSON_TRACKS[grammarState.track].key, obj); }
+
   function renderGrammar() {
     var root = $("#tab-grammar");
-    var progress = loadGrammarProgress();
-    var doneCount = GRAMMAR.lessons.filter(function (l) { return progress[l.id]; }).length;
-    var lesson = GRAMMAR.lessons[grammarState.lesson - 1];
+    var lessons = trackLessons();
+    var progress = loadTrackProgress();
+    var doneCount = lessons.filter(function (l) { return progress[l.id]; }).length;
+    if (grammarState.lesson > lessons.length) grammarState.lesson = 1;
+    var lesson = lessons[grammarState.lesson - 1];
+    var done = !!progress[lesson.id];
 
     var html = "";
     html += '<div class="card">';
-    html += "<h2>ไวยากรณ์ &amp; ศัพท์ (Part 5/6)</h2>";
-    html += '<div class="muted">เรียนทีละบทตามลำดับ แต่ละบทมีคำอธิบาย ตัวอย่าง (ฟังเสียงได้) และแบบฝึกหัดท้ายบท เรียนแล้ว <b>' + doneCount + " / " + GRAMMAR.lessons.length + "</b> บท</div>";
-    html += '<div class="progress-track"><div class="progress-fill" style="width:' + Math.round((doneCount / GRAMMAR.lessons.length) * 100) + '%"></div></div>';
-    html += '<div class="btn-row"><select id="grammar-lesson">' + GRAMMAR.lessons.map(function (l) {
-      return '<option value="' + l.id + '"' + (l.id === grammarState.lesson ? " selected" : "") + ">บทที่ " + l.id + " — " + l.title + (progress[l.id] ? " ✓" : "") + "</option>";
-    }).join("") + "</select></div></div>";
+    html += "<h2>บทเรียนเตรียมสอบ TOEIC</h2>";
+    html += '<div class="muted">เนื้อหาแบ่งตามจุดที่ข้อสอบ Part 5/6/7 วัดจริง เรียนทีละบท แต่ละบทมีคำอธิบาย ตัวอย่าง (ฟังเสียงได้) และแบบฝึกหัดท้ายบท</div>';
+    html += '<div class="btn-row">';
+    Object.keys(LESSON_TRACKS).forEach(function (t) {
+      var tl = LESSON_TRACKS[t].data();
+      var tp = getJSON(LESSON_TRACKS[t].key, {});
+      var tdone = tl.filter(function (l) { return tp[l.id]; }).length;
+      html += '<button class="btn small' + (grammarState.track === t ? " primary" : "") + '" data-track="' + t + '">' + LESSON_TRACKS[t].label + " (" + tdone + "/" + tl.length + ")</button>";
+    });
+    html += "</div></div>";
+
+    html += '<div class="card">';
+    html += '<div class="day-nav">';
+    html += '<button class="btn day-arrow" id="lesson-prev"' + (grammarState.lesson <= 1 ? " disabled" : "") + ' aria-label="บทก่อนหน้า">&#9664;</button>';
+    html += '<div class="day-nav-center">';
+    html += '<div class="day-nav-title">บทที่ ' + lesson.id + ' <span class="day-nav-total">/ ' + lessons.length + "</span></div>";
+    html += '<div class="day-nav-theme">' + lesson.title + "</div>";
+    html += '<div class="day-nav-status' + (done ? " done" : "") + '">' + (done ? "&#10003; เรียนแล้ว" : "ยังไม่ได้เรียน") + "</div>";
+    html += "</div>";
+    html += '<button class="btn day-arrow" id="lesson-next"' + (grammarState.lesson >= lessons.length ? " disabled" : "") + ' aria-label="บทถัดไป">&#9654;</button>';
+    html += "</div>";
+    html += '<div class="progress-track"><div class="progress-fill" style="width:' + Math.round((doneCount / lessons.length) * 100) + '%"></div></div>';
+    html += '<div class="tiny-muted">เรียนแล้ว ' + doneCount + " / " + lessons.length + " บทในหมวดนี้</div>";
+    html += '<details class="day-more" id="lesson-more"' + (grammarState.moreOpen ? " open" : "") + "><summary>เลือกบทอื่น</summary>";
+    html += '<div class="btn-row"><select id="grammar-lesson">' + lessons.map(function (l) {
+      return '<option value="' + l.id + '"' + (l.id === grammarState.lesson ? " selected" : "") + ">" + (progress[l.id] ? "✓ " : "") + "บทที่ " + l.id + " — " + l.title + "</option>";
+    }).join("") + "</select></div></details>";
+    html += "</div>";
 
     html += '<div class="card lesson-block"><h3>บทที่ ' + lesson.id + " — " + lesson.title + "</h3>";
     lesson.explain.forEach(function (block) {
@@ -875,7 +911,7 @@
     });
     html += "</div>";
 
-    html += '<div class="card"><h3>แบบฝึกหัดท้ายบท</h3>';
+    html += '<div class="card"><h3>แบบฝึกหัดท้ายบท (' + lesson.practice.length + " ข้อ)</h3>";
     lesson.practice.forEach(function (item, qi) {
       html += '<div class="q-block" data-qi="' + qi + '"><div class="q-text">' + (qi + 1) + ". " + item.sentence + "</div>";
       item.choices.forEach(function (c, ci) {
@@ -887,10 +923,21 @@
 
     root.innerHTML = html;
 
-    $("#grammar-lesson").addEventListener("change", function (e) {
-      grammarState.lesson = Number(e.target.value);
+    function gotoLesson(n) {
+      grammarState.lesson = Math.min(Math.max(n, 1), lessons.length);
       renderGrammar();
+    }
+    $$("button[data-track]", root).forEach(function (b) {
+      b.addEventListener("click", function () {
+        grammarState.track = b.dataset.track;
+        grammarState.lesson = 1;
+        renderGrammar();
+      });
     });
+    $("#lesson-more").addEventListener("toggle", function (e) { grammarState.moreOpen = e.target.open; });
+    $("#lesson-prev").addEventListener("click", function () { gotoLesson(grammarState.lesson - 1); });
+    $("#lesson-next").addEventListener("click", function () { gotoLesson(grammarState.lesson + 1); });
+    $("#grammar-lesson").addEventListener("change", function (e) { gotoLesson(Number(e.target.value)); });
     $$(".play-btn", root).forEach(function (b) { b.addEventListener("click", function () { speak(b.dataset.text); }); });
     $("#grammar-check").addEventListener("click", function () {
       var correct = 0;
@@ -906,9 +953,9 @@
         });
         if (picked === item.answer) correct++;
       });
-      var p2 = loadGrammarProgress();
+      var p2 = loadTrackProgress();
       p2[lesson.id] = true;
-      saveGrammarProgress(p2);
+      saveTrackProgress(p2);
       $("#grammar-result").innerHTML = "ได้ " + correct + " / " + lesson.practice.length + " ข้อ — บันทึกว่าเรียนบทนี้แล้ว ✓";
     });
   }
