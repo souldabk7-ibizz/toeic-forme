@@ -8,39 +8,73 @@
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
   function toKey(d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
   function todayKey() { return toKey(new Date()); }
-  function fromKey(key) { var p = key.split("-").map(Number); return new Date(p[0], p[1] - 1, p[2]); }
-  function addDays(key, n) { var d = fromKey(key); d.setDate(d.getDate() + n); return toKey(d); }
-  function daysBetween(a, b) { return Math.round((fromKey(b) - fromKey(a)) / 86400000); }
+  /* returns null rather than an Invalid Date, so callers can fall back */
+  function fromKey(key) {
+    var p = String(key).split("-").map(Number);
+    if (p.length !== 3 || p.some(function (n) { return !isFinite(n); })) return null;
+    var d = new Date(p[0], p[1] - 1, p[2]);
+    return isNaN(d.getTime()) ? null : d;
+  }
+  function addDays(key, n) { var d = fromKey(key) || new Date(); d.setDate(d.getDate() + n); return toKey(d); }
+  function daysBetween(a, b) {
+    var da = fromKey(a), db = fromKey(b);
+    if (!da || !db) return 0;
+    return Math.round((db - da) / 86400000);
+  }
+  /* keeps a day/week index inside 1..max even if the input is NaN */
+  function clampIndex(n, max) {
+    n = Math.round(Number(n));
+    if (!isFinite(n)) return 1;
+    return Math.min(Math.max(n, 1), max);
+  }
 
+  /* Stored values are only trusted when they still have the shape the caller
+     expects. A stored "null", or a value of the wrong type (which sync or a
+     partial write can leave behind), falls back instead of flowing into code
+     that expects an array or object. */
   function getJSON(key, fallback) {
-    try { var raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : fallback; }
-    catch (e) { return fallback; }
+    try {
+      var raw = localStorage.getItem(key);
+      if (raw === null) return fallback;
+      var val = JSON.parse(raw);
+      if (val === null || typeof val !== typeof fallback) return fallback;
+      if (Array.isArray(fallback) !== Array.isArray(val)) return fallback;
+      return val;
+    } catch (e) { return fallback; }
   }
   function setJSON(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
 
   /* ---------- profile / schedule state ---------- */
   var PROFILE_KEY = "toeic_profile_v1";
   function loadProfile() {
-    return getJSON(PROFILE_KEY, {
+    var defaults = {
       startDate: todayKey(),
       baselineReading: 350,
       baselineListening: 160,
       targetReading: 420,
       targetListening: 350
+    };
+    var p = getJSON(PROFILE_KEY, defaults);
+    /* fill in anything missing or unusable rather than letting it reach the
+       date maths, where a bad startDate would produce a NaN day index */
+    Object.keys(defaults).forEach(function (k) {
+      if (k === "startDate") { if (!fromKey(p[k])) p[k] = defaults[k]; }
+      else if (!isFinite(Number(p[k]))) p[k] = defaults[k];
+      else p[k] = Number(p[k]);
     });
+    return p;
   }
   var profile = loadProfile();
   function saveProfile() { setJSON(PROFILE_KEY, profile); }
 
   function currentWeek() {
     var diff = daysBetween(profile.startDate, todayKey());
-    var wk = Math.floor(Math.max(diff, 0) / 7) + 1;
-    return Math.min(Math.max(wk, 1), PLAN.weeks.length);
+    return clampIndex(Math.floor(Math.max(diff, 0) / 7) + 1, PLAN.weeks.length);
   }
 
   function currentVocabDay() {
     var diff = daysBetween(profile.startDate, todayKey());
-    return Math.min(Math.max(diff + 1, 1), VOCAB.days.length);
+    return clampIndex(diff + 1, VOCAB.days.length);
   }
 
   /* ---------- SRS (Leitner boxes) ---------- */
