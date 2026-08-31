@@ -1,12 +1,21 @@
-/* TOEIC vocabulary bank — 63 days x 10 words (630 words), grouped by common
-   TOEIC business themes. Days 1-27: word selection is informed by the TOEIC
-   Service List (TSL, Browne & Culligan) and by ETS's own published TOEIC
-   content areas (Corporate development, Dining out, Entertainment, Finance
-   and budgeting, General business, Health, Housing/corporate property,
-   Manufacturing, Offices, Personnel, Purchasing, Technical areas, Travel
-   — see https://www.ets.org/toeic/test-takers/listening-reading/about/content.html).
-   Days 28-63 ("Personal Review List"): the user's own personal vocabulary
-   study list, added by request.
+/* TOEIC vocabulary bank — 100 days x 10 words (1000 words), grouped by common
+   TOEIC business themes.
+
+   Days 1-27:   word selection informed by the TOEIC Service List (TSL,
+                Browne & Culligan) and ETS's published TOEIC content areas.
+   Days 28-63:  "Personal Review List" — the user's own study list.
+   Days 64-100: added to close gaps found by auditing days 1-63 against
+                ETS's content areas. Health had almost no coverage despite
+                being a published area, several very common words were
+                missing while their derivatives were present (schedule vs
+                reschedule, purchase vs purchase order), and the Part 5
+                function-word groups were thin.
+
+   ETS content areas: Corporate development, Dining out, Entertainment,
+   Finance and budgeting, General business, Health, Housing/corporate
+   property, Manufacturing, Offices, Personnel, Purchasing, Technical areas,
+   Travel — see
+   https://www.ets.org/toeic/test-takers/listening-reading/about/content.html
 
    Fields per word: word, pos, thai (the TOEIC/business-context sense),
    general (optional — a broader everyday Thai sense, present only where a
@@ -1030,6 +1039,598 @@ window.VOCAB = {
         { word: "sharp", pos: "adj.", thai: "คม/ฉลาด/ตรงเวลา", general: "คมตัดได้ดี หรือ ฉลาดหัวไว / ตรงเวลาเป๊ะ / เปลี่ยนแปลงอย่างฉับพลัน", meaningEn: "having an edge that cuts easily, quick to notice and understand, or exactly at a stated time", syn: "keen, pointed / clever, quick / precisely", ant: "blunt, dull", example: "The meeting will start sharp at nine o'clock.", exampleThai: "การประชุมจะเริ่มตรงเวลาเก้าโมงพอดี" },
         { word: "courier", pos: "n.", thai: "ผู้ส่งสาร/บริการจัดส่งด่วน", meaningEn: "a person or company that delivers packages and documents quickly", syn: "messenger, delivery service, carrier", example: "The documents were sent by courier for next-day delivery.", exampleThai: "เอกสารถูกส่งทางบริการจัดส่งด่วนเพื่อให้ถึงในวันถัดไป" },
         { word: "fold", pos: "v.", thai: "พับ", meaningEn: "to bend something so that one part lies flat on another part", syn: "bend, crease, double over", ant: "unfold, spread out", example: "Employees are asked to fold the brochures before mailing.", exampleThai: "พนักงานได้รับการขอให้พับโบรชัวร์ก่อนส่งทางไปรษณีย์" }
+      ]
+    },
+    {
+      day: 64,
+      theme: "Health & Medical (1)",
+      words: [
+        { word: "clinic", pos: "n.", thai: "คลินิก", meaningEn: "a place where people go to receive medical treatment or advice", syn: "medical centre, surgery, practice", example: "The company clinic offers free checkups to all employees.", exampleThai: "คลินิกของบริษัทให้บริการตรวจสุขภาพฟรีแก่พนักงานทุกคน" },
+        { word: "prescription", pos: "n.", thai: "ใบสั่งยา", meaningEn: "a written instruction from a doctor allowing you to obtain medicine", syn: "doctor's order, script", example: "You will need a prescription to collect this medication.", exampleThai: "คุณต้องมีใบสั่งยาเพื่อรับยาชนิดนี้" },
+        { word: "physician", pos: "n.", thai: "แพทย์", meaningEn: "a medical doctor, especially one who treats illness rather than performing surgery", syn: "doctor, medical practitioner", example: "Please consult your physician before starting the program.", exampleThai: "กรุณาปรึกษาแพทย์ของคุณก่อนเริ่มโปรแกรม" },
+        { word: "pharmacy", pos: "n.", thai: "ร้านขายยา", meaningEn: "a shop or part of a shop where medicines are prepared and sold", syn: "drugstore, chemist, dispensary", example: "The pharmacy on the ground floor is open until nine.", exampleThai: "ร้านขายยาที่ชั้นล่างเปิดถึงสามทุ่ม" },
+        { word: "symptom", pos: "n.", thai: "อาการ", meaningEn: "a sign of an illness that you notice in your body", syn: "sign, indication, warning sign", example: "Employees with flu symptoms should stay at home.", exampleThai: "พนักงานที่มีอาการไข้หวัดใหญ่ควรอยู่บ้าน" },
+        { word: "dental", pos: "adj.", thai: "เกี่ยวกับฟัน", meaningEn: "relating to the teeth", syn: "tooth-related, oral", example: "The benefits package includes dental coverage.", exampleThai: "ชุดสวัสดิการรวมความคุ้มครองด้านทันตกรรมด้วย" },
+        { word: "therapy", pos: "n.", thai: "การบำบัด", meaningEn: "treatment intended to relieve or heal a physical or mental problem", syn: "treatment, rehabilitation, healing", example: "He attended physical therapy twice a week after the injury.", exampleThai: "เขาเข้ารับการทำกายภาพบำบัดสัปดาห์ละสองครั้งหลังได้รับบาดเจ็บ" },
+        { word: "checkup", pos: "n.", thai: "การตรวจสุขภาพ", meaningEn: "a medical examination to check that you are healthy", syn: "examination, physical, health screening", example: "All staff receive an annual checkup at no cost.", exampleThai: "พนักงานทุกคนได้รับการตรวจสุขภาพประจำปีโดยไม่มีค่าใช้จ่าย" },
+        { word: "medication", pos: "n.", thai: "ยา/การใช้ยารักษา", meaningEn: "medicine used to treat an illness", syn: "medicine, drug, remedy", example: "Take the medication with food twice a day.", exampleThai: "รับประทานยาพร้อมอาหารวันละสองครั้ง" },
+        { word: "diagnosis", pos: "n.", thai: "การวินิจฉัยโรค", meaningEn: "a doctor's judgment about what illness a person has", syn: "identification, assessment, verdict", example: "The specialist confirmed the diagnosis after further tests.", exampleThai: "แพทย์ผู้เชี่ยวชาญยืนยันผลวินิจฉัยหลังการตรวจเพิ่มเติม" }
+      ]
+    },
+    {
+      day: 65,
+      theme: "Health & Medical (2)",
+      words: [
+        { word: "surgery", pos: "n.", thai: "การผ่าตัด", general: "การผ่าตัด หรือ ห้องตรวจของแพทย์ (อังกฤษแบบบริติช)", meaningEn: "a medical operation, or a place where a doctor sees patients", syn: "operation, procedure", example: "She will be away for two weeks following surgery.", exampleThai: "เธอจะลาหยุดสองสัปดาห์หลังการผ่าตัด" },
+        { word: "nurse", pos: "n.", thai: "พยาบาล", meaningEn: "a person trained to care for sick people, usually in a hospital", syn: "caregiver, medic", example: "The company nurse is on duty from eight to five.", exampleThai: "พยาบาลประจำบริษัทปฏิบัติงานตั้งแต่แปดโมงถึงห้าโมงเย็น" },
+        { word: "hospital", pos: "n.", thai: "โรงพยาบาล", meaningEn: "a large building where sick or injured people receive medical treatment", syn: "medical centre, infirmary", example: "The nearest hospital is a ten-minute drive from the plant.", exampleThai: "โรงพยาบาลที่ใกล้ที่สุดอยู่ห่างจากโรงงานสิบนาทีโดยรถยนต์" },
+        { word: "ward", pos: "n.", thai: "หอผู้ป่วย", meaningEn: "a room or section in a hospital for patients with similar needs", syn: "unit, section, room", example: "Visitors are not permitted in the ward after eight.", exampleThai: "ไม่อนุญาตให้ผู้เยี่ยมเข้าหอผู้ป่วยหลังสองทุ่ม" },
+        { word: "vaccination", pos: "n.", thai: "การฉีดวัคซีน", meaningEn: "the act of giving someone a substance that protects them from a disease", syn: "immunization, inoculation, jab", example: "The clinic offers free flu vaccination every October.", exampleThai: "คลินิกให้บริการฉีดวัคซีนไข้หวัดใหญ่ฟรีทุกเดือนตุลาคม" },
+        { word: "allergy", pos: "n.", thai: "อาการแพ้", meaningEn: "a condition that makes you become ill after eating or touching something", syn: "sensitivity, intolerance, reaction", example: "Please inform the caterer of any food allergies.", exampleThai: "กรุณาแจ้งผู้จัดเลี้ยงหากมีอาการแพ้อาหารใดๆ" },
+        { word: "recovery", pos: "n.", thai: "การฟื้นตัว", general: "การฟื้นตัวจากอาการป่วย หรือ การกลับมาดีขึ้นของเศรษฐกิจ/ธุรกิจ", meaningEn: "the process of becoming well again, or of returning to a normal state", syn: "healing, rehabilitation, rebound", ant: "relapse, decline", example: "A full recovery is expected within six weeks.", exampleThai: "คาดว่าจะฟื้นตัวเต็มที่ภายในหกสัปดาห์" },
+        { word: "treatment", pos: "n.", thai: "การรักษา", general: "การรักษาทางการแพทย์ หรือ วิธีปฏิบัติต่อคนหรือสิ่งใดสิ่งหนึ่ง", meaningEn: "medical care given to a patient, or the way someone or something is dealt with", syn: "care, therapy, handling", example: "The insurance plan covers treatment at any approved hospital.", exampleThai: "แผนประกันครอบคลุมการรักษาที่โรงพยาบาลที่ได้รับอนุมัติทุกแห่ง" },
+        { word: "referral", pos: "n.", thai: "การส่งตัว/การแนะนำต่อ", meaningEn: "the act of sending someone to a specialist or another service for help", syn: "recommendation, transfer", example: "You will need a referral from your doctor to see the specialist.", exampleThai: "คุณต้องมีใบส่งตัวจากแพทย์เพื่อพบผู้เชี่ยวชาญ" },
+        { word: "ambulance", pos: "n.", thai: "รถพยาบาล", meaningEn: "a vehicle for taking sick or injured people to hospital", syn: "emergency vehicle", example: "An ambulance arrived at the factory within ten minutes.", exampleThai: "รถพยาบาลมาถึงโรงงานภายในสิบนาที" }
+      ]
+    },
+    {
+      day: 66,
+      theme: "Health & Medical (3)",
+      words: [
+        { word: "emergency", pos: "n.", thai: "เหตุฉุกเฉิน", meaningEn: "a serious situation that needs immediate action", syn: "crisis, urgent situation", example: "In an emergency, use the stairs rather than the elevator.", exampleThai: "ในกรณีฉุกเฉิน ให้ใช้บันไดแทนลิฟต์" },
+        { word: "hygiene", pos: "n.", thai: "สุขอนามัย", meaningEn: "the practice of keeping yourself and your surroundings clean to stay healthy", syn: "cleanliness, sanitation", example: "Food hygiene standards are inspected every quarter.", exampleThai: "มาตรฐานสุขอนามัยอาหารได้รับการตรวจสอบทุกไตรมาส" },
+        { word: "nutrition", pos: "n.", thai: "โภชนาการ", meaningEn: "the process of getting the food needed for health and growth", syn: "nourishment, diet", example: "The cafeteria posts nutrition information for every dish.", exampleThai: "โรงอาหารติดข้อมูลโภชนาการของอาหารทุกจาน" },
+        { word: "fatigue", pos: "n.", thai: "ความเหนื่อยล้า", meaningEn: "extreme tiredness from work or lack of rest", syn: "exhaustion, weariness, tiredness", ant: "energy, vigour", example: "Long shifts can lead to fatigue and more accidents.", exampleThai: "การทำงานกะยาวอาจนำไปสู่ความเหนื่อยล้าและอุบัติเหตุที่มากขึ้น" },
+        { word: "chronic", pos: "adj.", thai: "เรื้อรัง", meaningEn: "continuing for a long time or happening repeatedly", syn: "persistent, long-term, recurring", ant: "acute, temporary", example: "Employees with chronic conditions may request flexible hours.", exampleThai: "พนักงานที่มีโรคเรื้อรังสามารถขอเวลาทำงานที่ยืดหยุ่นได้" },
+        { word: "physical", pos: "adj.", thai: "ทางร่างกาย/ที่จับต้องได้", general: "เกี่ยวกับร่างกาย หรือ ที่มีตัวตนจับต้องได้ (ตรงข้ามกับดิจิทัล)", meaningEn: "relating to the body, or existing as a real object rather than in digital form", syn: "bodily, material, tangible", ant: "mental / digital", example: "Please keep a physical copy of the signed agreement.", exampleThai: "กรุณาเก็บสำเนาฉบับจริงของข้อตกลงที่ลงนามแล้วไว้" },
+        { word: "practitioner", pos: "n.", thai: "ผู้ประกอบวิชาชีพ", meaningEn: "someone who works in a profession, especially medicine or law", syn: "professional, specialist", example: "A general practitioner will see you before the specialist.", exampleThai: "แพทย์ทั่วไปจะตรวจคุณก่อนพบแพทย์เฉพาะทาง" },
+        { word: "consultation", pos: "n.", thai: "การปรึกษา", general: "การพบแพทย์เพื่อขอคำปรึกษา หรือ การหารือรับฟังความเห็นก่อนตัดสินใจ", meaningEn: "a meeting to get professional advice, or the process of discussing something before deciding", syn: "appointment, discussion, advice session", example: "The policy was revised after consultation with the staff.", exampleThai: "นโยบายถูกแก้ไขหลังจากการหารือกับพนักงาน" },
+        { word: "dosage", pos: "n.", thai: "ขนาดยาที่ใช้", meaningEn: "the amount of a medicine that should be taken at one time", syn: "dose, amount, quantity", example: "Do not exceed the recommended dosage.", exampleThai: "ห้ามใช้ยาเกินขนาดที่แนะนำ" },
+        { word: "ailment", pos: "n.", thai: "อาการเจ็บป่วยเล็กน้อย", meaningEn: "an illness, especially one that is not serious", syn: "illness, complaint, disorder", example: "The clinic treats minor ailments such as colds and headaches.", exampleThai: "คลินิกรักษาอาการเจ็บป่วยเล็กน้อย เช่น หวัดและปวดศีรษะ" }
+      ]
+    },
+    {
+      day: 67,
+      theme: "Corporate Development (1)",
+      words: [
+        { word: "merger", pos: "n.", thai: "การควบรวมกิจการ", meaningEn: "the joining of two companies into a single larger one", syn: "amalgamation, combination, union", ant: "split, breakup", example: "The merger will create the largest firm in the industry.", exampleThai: "การควบรวมกิจการจะสร้างบริษัทที่ใหญ่ที่สุดในอุตสาหกรรม" },
+        { word: "acquisition", pos: "n.", thai: "การเข้าซื้อกิจการ", general: "การซื้อกิจการอื่น หรือ สิ่งที่ได้มาใหม่", meaningEn: "the act of buying another company, or something newly obtained", syn: "purchase, takeover, buyout", ant: "disposal, sale", example: "The acquisition of the smaller firm was completed in June.", exampleThai: "การเข้าซื้อบริษัทขนาดเล็กเสร็จสมบูรณ์ในเดือนมิถุนายน" },
+        { word: "subsidiary", pos: "n.", thai: "บริษัทลูก", meaningEn: "a company that is owned or controlled by a larger company", syn: "affiliate, branch company", ant: "parent company", example: "The Asian subsidiary reports directly to headquarters.", exampleThai: "บริษัทลูกในเอเชียรายงานตรงต่อสำนักงานใหญ่" },
+        { word: "stakeholder", pos: "n.", thai: "ผู้มีส่วนได้ส่วนเสีย", meaningEn: "a person or group with an interest in how a business performs", syn: "interested party, investor, participant", example: "All stakeholders were invited to the strategy briefing.", exampleThai: "ผู้มีส่วนได้ส่วนเสียทุกฝ่ายได้รับเชิญเข้าร่วมการชี้แจงกลยุทธ์" },
+        { word: "restructure", pos: "v.", thai: "ปรับโครงสร้างองค์กร", meaningEn: "to organize a company or system in a new way", syn: "reorganize, overhaul, reshape", example: "The board voted to restructure the sales division.", exampleThai: "คณะกรรมการลงมติปรับโครงสร้างฝ่ายขาย" },
+        { word: "affiliate", pos: "n.", thai: "บริษัทในเครือ", meaningEn: "a company officially connected to a larger organization", syn: "associate company, partner, branch", example: "Our affiliate in Singapore handles regional distribution.", exampleThai: "บริษัทในเครือของเราที่สิงคโปร์ดูแลการกระจายสินค้าในภูมิภาค" },
+        { word: "venture", pos: "n.", thai: "กิจการใหม่ที่มีความเสี่ยง", meaningEn: "a new business activity that involves risk", syn: "enterprise, undertaking, project", example: "The joint venture will develop properties in three cities.", exampleThai: "กิจการร่วมค้าจะพัฒนาอสังหาริมทรัพย์ในสามเมือง" },
+        { word: "conglomerate", pos: "n.", thai: "กลุ่มบริษัทขนาดใหญ่", meaningEn: "a large corporation made up of several different businesses", syn: "corporation, group, empire", example: "The conglomerate owns hotels, airlines, and retail chains.", exampleThai: "กลุ่มบริษัทนี้เป็นเจ้าของโรงแรม สายการบิน และเครือร้านค้าปลีก" },
+        { word: "divestment", pos: "n.", thai: "การขายกิจการทิ้ง", meaningEn: "the act of selling off part of a business or its investments", syn: "sell-off, disposal", ant: "investment, acquisition", example: "The divestment of the packaging unit raised forty million.", exampleThai: "การขายหน่วยธุรกิจบรรจุภัณฑ์ทำให้ได้เงินสี่สิบล้าน" },
+        { word: "synergy", pos: "n.", thai: "การเสริมพลังกัน", meaningEn: "the extra benefit gained when two groups work together", syn: "combined effect, cooperation benefit", example: "The two teams created real synergy on the project.", exampleThai: "ทั้งสองทีมสร้างการเสริมพลังกันได้จริงในโครงการนี้" }
+      ]
+    },
+    {
+      day: 68,
+      theme: "Corporate Development (2)",
+      words: [
+        { word: "governance", pos: "n.", thai: "ธรรมาภิบาล/การกำกับดูแล", meaningEn: "the way an organization is controlled and the rules it follows", syn: "management, oversight, administration", example: "Strong corporate governance reassures investors.", exampleThai: "การกำกับดูแลกิจการที่เข้มแข็งสร้างความมั่นใจให้นักลงทุน" },
+        { word: "boardroom", pos: "n.", thai: "ห้องประชุมคณะกรรมการ", meaningEn: "the room where a company's directors meet", syn: "meeting room, conference room", example: "The results will be announced in the boardroom at noon.", exampleThai: "ผลลัพธ์จะถูกประกาศในห้องประชุมคณะกรรมการตอนเที่ยง" },
+        { word: "takeover", pos: "n.", thai: "การเข้าครอบครองกิจการ", meaningEn: "the act of gaining control of a company by buying most of its shares", syn: "acquisition, buyout", example: "The takeover bid was rejected by the board.", exampleThai: "ข้อเสนอเข้าครอบครองกิจการถูกคณะกรรมการปฏิเสธ" },
+        { word: "consolidation", pos: "n.", thai: "การรวมกิจการ/การรวมให้แข็งแกร่งขึ้น", meaningEn: "the process of combining things into one, or of making a position stronger", syn: "merging, unification, strengthening", example: "Consolidation of the three warehouses cut costs sharply.", exampleThai: "การรวมคลังสินค้าสามแห่งช่วยลดต้นทุนได้อย่างมาก" },
+        { word: "incorporation", pos: "n.", thai: "การจดทะเบียนจัดตั้งบริษัท", meaningEn: "the act of legally forming a company", syn: "registration, formation, establishment", example: "The certificate of incorporation is kept in the safe.", exampleThai: "หนังสือรับรองการจดทะเบียนบริษัทเก็บไว้ในตู้นิรภัย" },
+        { word: "charter", pos: "n.", thai: "กฎบัตร/สัญญาเช่าเหมาลำ", general: "เอกสารกำหนดสิทธิและหน้าที่ขององค์กร หรือ การเช่าเหมาลำเรือหรือเครื่องบิน", meaningEn: "an official document setting out an organization's rights and purpose, or the hire of a whole plane or ship", syn: "constitution, mandate / hire", example: "The company charter defines the role of each director.", exampleThai: "กฎบัตรของบริษัทกำหนดบทบาทของกรรมการแต่ละคน" },
+        { word: "portfolio", pos: "n.", thai: "กลุ่มการลงทุน/แฟ้มผลงาน", general: "กลุ่มสินทรัพย์ที่ลงทุนไว้ หรือ แฟ้มรวมผลงานที่ใช้สมัครงาน", meaningEn: "a set of investments held by a person or company, or a collection of work samples", syn: "holdings, collection", example: "The firm is expanding its portfolio of rental properties.", exampleThai: "บริษัทกำลังขยายกลุ่มอสังหาริมทรัพย์ให้เช่าของตน" },
+        { word: "diversification", pos: "n.", thai: "การกระจายความเสี่ยง", meaningEn: "the practice of expanding into different products or markets to reduce risk", syn: "expansion, broadening, variation", ant: "specialization", example: "Diversification into services protected the firm during the downturn.", exampleThai: "การกระจายไปสู่ธุรกิจบริการช่วยปกป้องบริษัทในช่วงเศรษฐกิจตกต่ำ" },
+        { word: "alliance", pos: "n.", thai: "พันธมิตรทางธุรกิจ", meaningEn: "an agreement between organizations to work together for a shared benefit", syn: "partnership, coalition, association", ant: "rivalry", example: "The airline formed an alliance with two regional carriers.", exampleThai: "สายการบินจับมือเป็นพันธมิตรกับผู้ให้บริการระดับภูมิภาคสองราย" },
+        { word: "franchise", pos: "n.", thai: "แฟรนไชส์/สิทธิ์ดำเนินกิจการ", meaningEn: "the right to run a business using another company's name and system", syn: "licence, dealership, concession", example: "She purchased a franchise of a well-known coffee chain.", exampleThai: "เธอซื้อแฟรนไชส์ของเครือร้านกาแฟที่มีชื่อเสียง" }
+      ]
+    },
+    {
+      day: 69,
+      theme: "Finance & Accounting (1)",
+      words: [
+        { word: "expenditure", pos: "n.", thai: "รายจ่าย", meaningEn: "the total amount of money that is spent", syn: "spending, outlay, outgoings", ant: "income, revenue", example: "Capital expenditure was reduced by fifteen percent.", exampleThai: "รายจ่ายลงทุนถูกลดลงร้อยละสิบห้า" },
+        { word: "asset", pos: "n.", thai: "สินทรัพย์", general: "ทรัพย์สินที่บริษัทเป็นเจ้าของ หรือ คนหรือสิ่งที่มีคุณค่ามาก", meaningEn: "something valuable that a company owns, or a useful person or quality", syn: "property, holding, resource", ant: "liability", example: "The building is the company's largest asset.", exampleThai: "อาคารนี้เป็นสินทรัพย์ที่ใหญ่ที่สุดของบริษัท" },
+        { word: "reimburse", pos: "v.", thai: "จ่ายคืนเงินที่ออกไปก่อน", meaningEn: "to pay someone back money they have spent on your behalf", syn: "repay, refund, compensate", example: "The company will reimburse you for all travel costs.", exampleThai: "บริษัทจะจ่ายคืนค่าเดินทางทั้งหมดให้คุณ" },
+        { word: "earnings", pos: "n.", thai: "กำไร/รายได้", meaningEn: "the money a company or person makes, especially profit", syn: "profits, income, returns", ant: "losses", example: "Quarterly earnings exceeded analysts' expectations.", exampleThai: "ผลกำไรรายไตรมาสสูงกว่าที่นักวิเคราะห์คาดการณ์" },
+        { word: "overhead", pos: "n.", thai: "ค่าใช้จ่ายคงที่ในการดำเนินงาน", meaningEn: "the regular costs of running a business, such as rent and electricity", syn: "running costs, fixed costs, expenses", example: "Moving to a smaller office cut our overhead considerably.", exampleThai: "การย้ายไปสำนักงานที่เล็กลงช่วยลดค่าใช้จ่ายคงที่ได้มาก" },
+        { word: "balance", pos: "n.", thai: "ยอดคงเหลือ", general: "ยอดเงินคงเหลือในบัญชี หรือ ความสมดุลระหว่างสองสิ่ง", meaningEn: "the amount of money left in an account, or an even distribution between things", syn: "remainder, equilibrium", example: "Please check the outstanding balance before making a payment.", exampleThai: "กรุณาตรวจสอบยอดค้างชำระก่อนทำการชำระเงิน" },
+        { word: "statement", pos: "n.", thai: "ใบแจ้งยอด/คำแถลง", general: "เอกสารสรุปรายการทางการเงิน หรือ ถ้อยแถลงอย่างเป็นทางการ", meaningEn: "a printed record of financial transactions, or something said officially", syn: "account summary, declaration", example: "Your monthly statement will be emailed on the first.", exampleThai: "ใบแจ้งยอดรายเดือนของคุณจะถูกส่งทางอีเมลในวันที่หนึ่ง" },
+        { word: "depreciation", pos: "n.", thai: "ค่าเสื่อมราคา", meaningEn: "the loss in value of an asset over time", syn: "decline in value, write-down", ant: "appreciation", example: "Depreciation on the machinery is calculated over five years.", exampleThai: "ค่าเสื่อมราคาของเครื่องจักรคำนวณในระยะเวลาห้าปี" },
+        { word: "receivable", pos: "n.", thai: "ลูกหนี้การค้า", meaningEn: "money that is owed to a business by its customers", syn: "money owed to us, debtors", ant: "payable", example: "Accounts receivable increased after the holiday season.", exampleThai: "ยอดลูกหนี้การค้าเพิ่มขึ้นหลังช่วงเทศกาลวันหยุด" },
+        { word: "payable", pos: "adj./n.", thai: "เจ้าหนี้การค้า/ที่ต้องชำระ", meaningEn: "an amount that must be paid, or money a business owes to suppliers", syn: "due, owing", ant: "receivable", example: "The invoice is payable within thirty days.", exampleThai: "ใบแจ้งหนี้ต้องชำระภายในสามสิบวัน" }
+      ]
+    },
+    {
+      day: 70,
+      theme: "Finance & Accounting (2)",
+      words: [
+        { word: "liquidity", pos: "n.", thai: "สภาพคล่อง", meaningEn: "how easily a company can turn what it owns into cash to pay debts", syn: "cash availability, solvency", example: "The firm maintained strong liquidity throughout the year.", exampleThai: "บริษัทรักษาสภาพคล่องที่แข็งแกร่งไว้ได้ตลอดทั้งปี" },
+        { word: "valuation", pos: "n.", thai: "การประเมินมูลค่า", meaningEn: "an estimate of how much something is worth", syn: "appraisal, assessment, estimate", example: "An independent valuation of the property was requested.", exampleThai: "มีการขอให้ประเมินมูลค่าอสังหาริมทรัพย์โดยผู้ประเมินอิสระ" },
+        { word: "remittance", pos: "n.", thai: "การส่งเงิน", meaningEn: "money sent as payment, especially to another place or country", syn: "payment, transfer", example: "Please attach the remittance advice to the invoice.", exampleThai: "กรุณาแนบหลักฐานการโอนเงินไปกับใบแจ้งหนี้" },
+        { word: "arrears", pos: "n.", thai: "ยอดค้างชำระ", meaningEn: "money that is owed and should already have been paid", syn: "overdue payments, outstanding debt", example: "The account is three months in arrears.", exampleThai: "บัญชีนี้ค้างชำระมาสามเดือนแล้ว" },
+        { word: "subsidy", pos: "n.", thai: "เงินอุดหนุน", meaningEn: "money given by a government or organization to help reduce costs", syn: "grant, financial support, aid", example: "The transport subsidy helps staff with commuting costs.", exampleThai: "เงินอุดหนุนค่าเดินทางช่วยพนักงานเรื่องค่าเดินทางมาทำงาน" },
+        { word: "taxation", pos: "n.", thai: "การเก็บภาษี", meaningEn: "the system by which a government collects money from people and businesses", syn: "taxes, levies", example: "Changes to corporate taxation take effect in January.", exampleThai: "การเปลี่ยนแปลงการเก็บภาษีนิติบุคคลมีผลในเดือนมกราคม" },
+        { word: "auditor", pos: "n.", thai: "ผู้ตรวจสอบบัญชี", meaningEn: "a person whose job is to officially examine financial records", syn: "inspector, examiner, accountant", example: "The external auditor will visit next Tuesday.", exampleThai: "ผู้ตรวจสอบบัญชีภายนอกจะเข้ามาในวันอังคารหน้า" },
+        { word: "ledger", pos: "n.", thai: "สมุดบัญชีแยกประเภท", meaningEn: "a book or file in which financial accounts are recorded", syn: "account book, register, record", example: "All transactions must be entered in the general ledger.", exampleThai: "ธุรกรรมทั้งหมดต้องถูกบันทึกในสมุดบัญชีแยกประเภททั่วไป" },
+        { word: "creditor", pos: "n.", thai: "เจ้าหนี้", meaningEn: "a person or company that is owed money", syn: "lender", ant: "debtor", example: "The company reached an agreement with its creditors.", exampleThai: "บริษัทบรรลุข้อตกลงกับเจ้าหนี้ของตน" },
+        { word: "debtor", pos: "n.", thai: "ลูกหนี้", meaningEn: "a person or company that owes money", syn: "borrower", ant: "creditor", example: "A reminder was sent to every overdue debtor.", exampleThai: "มีการส่งหนังสือเตือนไปยังลูกหนี้ที่ค้างชำระทุกราย" }
+      ]
+    },
+    {
+      day: 71,
+      theme: "Travel & Transportation (1)",
+      words: [
+        { word: "departure", pos: "n.", thai: "การออกเดินทาง", meaningEn: "the act of leaving a place, especially to start a journey", syn: "leaving, exit, takeoff", ant: "arrival", example: "Check the departure board for the latest gate number.", exampleThai: "ตรวจสอบกระดานแสดงเที่ยวบินขาออกเพื่อดูหมายเลขประตูล่าสุด" },
+        { word: "terminal", pos: "n.", thai: "อาคารผู้โดยสาร", meaningEn: "a building where passengers arrive and depart at an airport or station", syn: "depot, station", example: "International flights leave from Terminal Two.", exampleThai: "เที่ยวบินระหว่างประเทศออกจากอาคารผู้โดยสารสอง" },
+        { word: "baggage", pos: "n.", thai: "สัมภาระ", meaningEn: "the bags and cases a traveller carries", syn: "luggage, bags, belongings", example: "Baggage claim is located on the lower level.", exampleThai: "จุดรับสัมภาระอยู่ที่ชั้นล่าง" },
+        { word: "shuttle", pos: "n.", thai: "รถรับส่งประจำเส้นทาง", meaningEn: "a bus, train, or plane that travels regularly between two places", syn: "transfer bus, connecting service", example: "A free shuttle runs between the hotel and the airport.", exampleThai: "มีรถรับส่งฟรีวิ่งระหว่างโรงแรมกับสนามบิน" },
+        { word: "layover", pos: "n.", thai: "การพักรอเปลี่ยนเครื่อง", meaningEn: "a short stop between two parts of a journey", syn: "stopover, break, wait", example: "We have a three-hour layover in Hong Kong.", exampleThai: "เรามีเวลาพักรอเปลี่ยนเครื่องสามชั่วโมงที่ฮ่องกง" },
+        { word: "concourse", pos: "n.", thai: "โถงกลางอาคาร", meaningEn: "a large open area in an airport or station where people walk and wait", syn: "hall, lobby, main area", example: "Meet me by the information desk in the main concourse.", exampleThai: "เจอกันที่เคาน์เตอร์ประชาสัมพันธ์ในโถงกลาง" },
+        { word: "voyage", pos: "n.", thai: "การเดินทางทางเรือระยะไกล", meaningEn: "a long journey, especially by sea or in space", syn: "journey, trip, crossing", example: "The cargo voyage from Rotterdam takes about five weeks.", exampleThai: "การเดินเรือขนส่งสินค้าจากรอตเทอร์ดามใช้เวลาราวห้าสัปดาห์" },
+        { word: "transit", pos: "n.", thai: "การขนส่งผ่าน/ระหว่างทาง", meaningEn: "the process of moving goods or people from one place to another", syn: "transport, passage, movement", example: "The goods were damaged in transit.", exampleThai: "สินค้าเสียหายระหว่างการขนส่ง" },
+        { word: "cruise", pos: "n./v.", thai: "การล่องเรือท่องเที่ยว", meaningEn: "a holiday on a ship visiting several places, or to travel at a steady speed", syn: "boat trip, sail", example: "The company rewarded top sellers with a Caribbean cruise.", exampleThai: "บริษัทให้รางวัลพนักงานขายยอดเยี่ยมด้วยทริปล่องเรือแคริบเบียน" },
+        { word: "lodging", pos: "n.", thai: "ที่พักชั่วคราว", meaningEn: "a temporary place to stay", syn: "accommodation, housing, quarters", example: "Lodging and meals are covered during the training week.", exampleThai: "ค่าที่พักและอาหารได้รับการดูแลตลอดสัปดาห์การอบรม" }
+      ]
+    },
+    {
+      day: 72,
+      theme: "Travel & Transportation (2)",
+      words: [
+        { word: "porter", pos: "n.", thai: "พนักงานยกกระเป๋า", meaningEn: "a person employed to carry luggage at a hotel or station", syn: "bellhop, baggage handler", example: "A porter will bring your bags to the room.", exampleThai: "พนักงานยกกระเป๋าจะนำกระเป๋าของคุณไปที่ห้อง" },
+        { word: "visa", pos: "n.", thai: "วีซ่า", meaningEn: "an official mark in a passport allowing you to enter a country", syn: "entry permit, travel authorization", example: "A business visa is required for this trip.", exampleThai: "การเดินทางครั้งนี้ต้องใช้วีซ่าธุรกิจ" },
+        { word: "passport", pos: "n.", thai: "หนังสือเดินทาง", meaningEn: "an official document identifying you as a citizen, used for travel abroad", syn: "travel document", example: "Your passport must be valid for six more months.", exampleThai: "หนังสือเดินทางของคุณต้องมีอายุเหลืออีกหกเดือน" },
+        { word: "roundtrip", pos: "n./adj.", thai: "ตั๋วไป-กลับ", meaningEn: "a journey to a place and back again", syn: "return trip", ant: "one-way", example: "A roundtrip ticket is cheaper than two one-way fares.", exampleThai: "ตั๋วไป-กลับถูกกว่าตั๋วเที่ยวเดียวสองใบ" },
+        { word: "onboard", pos: "adj./adv.", thai: "บนยานพาหนะ", meaningEn: "on or into a plane, ship, train, or bus", syn: "aboard, on the vehicle", example: "Onboard meals are served ninety minutes after takeoff.", exampleThai: "อาหารบนเครื่องเสิร์ฟหลังเครื่องขึ้นเก้าสิบนาที" },
+        { word: "voucher", pos: "n.", thai: "บัตรกำนัล/คูปอง", meaningEn: "a printed document that can be exchanged for goods or a service", syn: "coupon, token, gift certificate", example: "Delayed passengers received a meal voucher.", exampleThai: "ผู้โดยสารที่ล่าช้าได้รับบัตรกำนัลค่าอาหาร" },
+        { word: "souvenir", pos: "n.", thai: "ของที่ระลึก", meaningEn: "an object kept to remember a place or event", syn: "memento, keepsake", example: "The gift shop sells souvenirs near the departure gate.", exampleThai: "ร้านของขวัญขายของที่ระลึกใกล้ประตูขาออก" },
+        { word: "sightseeing", pos: "n.", thai: "การเที่ยวชมสถานที่", meaningEn: "the activity of visiting interesting places as a tourist", syn: "touring, exploring", example: "The itinerary leaves one free afternoon for sightseeing.", exampleThai: "กำหนดการเว้นช่วงบ่ายหนึ่งวันไว้สำหรับเที่ยวชมสถานที่" },
+        { word: "expedition", pos: "n.", thai: "การเดินทางสำรวจ", meaningEn: "an organized journey made for a particular purpose", syn: "trip, mission, journey", example: "The research expedition will last three months.", exampleThai: "การเดินทางสำรวจเพื่อการวิจัยจะใช้เวลาสามเดือน" },
+        { word: "commuter", pos: "n.", thai: "ผู้เดินทางไป-กลับที่ทำงาน", meaningEn: "a person who travels regularly between home and work", syn: "traveller, passenger", example: "The new rail line serves thousands of commuters daily.", exampleThai: "เส้นทางรถไฟใหม่ให้บริการผู้เดินทางไปทำงานหลายพันคนต่อวัน" }
+      ]
+    },
+    {
+      day: 73,
+      theme: "Manufacturing & Production (1)",
+      words: [
+        { word: "assembly", pos: "n.", thai: "การประกอบ/การรวมตัว", general: "การประกอบชิ้นส่วน หรือ การรวมตัวของผู้คน", meaningEn: "the process of putting parts together, or a gathering of people", syn: "construction, fitting, gathering", ant: "disassembly", example: "Final assembly takes place at the Rayong plant.", exampleThai: "การประกอบขั้นสุดท้ายเกิดขึ้นที่โรงงานระยอง" },
+        { word: "component", pos: "n.", thai: "ชิ้นส่วนประกอบ", meaningEn: "one of the parts that together make up a machine or system", syn: "part, element, piece", example: "A faulty component caused the entire unit to fail.", exampleThai: "ชิ้นส่วนที่บกพร่องทำให้ทั้งเครื่องใช้งานไม่ได้" },
+        { word: "conveyor", pos: "n.", thai: "สายพานลำเลียง", meaningEn: "a moving belt that carries objects through a factory", syn: "belt, transport system", example: "The conveyor was stopped for routine cleaning.", exampleThai: "สายพานลำเลียงถูกหยุดเพื่อทำความสะอาดตามรอบ" },
+        { word: "plant", pos: "n.", thai: "โรงงาน", general: "โรงงานผลิต หรือ ต้นไม้/พืช", meaningEn: "a factory where goods are produced, or a living thing that grows in soil", syn: "factory, facility, works", example: "The plant operates three shifts a day.", exampleThai: "โรงงานเดินเครื่องวันละสามกะ" },
+        { word: "fabricate", pos: "v.", thai: "ผลิตขึ้นรูป/กุเรื่องขึ้น", general: "ผลิตหรือขึ้นรูปชิ้นงาน หรือ แต่งเรื่องเท็จขึ้นมา", meaningEn: "to make or build something from materials, or to invent something false", syn: "manufacture, construct / invent, make up", example: "The brackets are fabricated from stainless steel.", exampleThai: "ขายึดเหล่านี้ผลิตขึ้นจากสเตนเลส" },
+        { word: "calibrate", pos: "v.", thai: "ปรับตั้งค่าเครื่องมือให้แม่นยำ", meaningEn: "to adjust an instrument so that its measurements are accurate", syn: "adjust, fine-tune, set", example: "The scales are calibrated at the start of every shift.", exampleThai: "เครื่องชั่งถูกปรับตั้งค่าทุกครั้งที่เริ่มกะ" },
+        { word: "tolerance", pos: "n.", thai: "ค่าความคลาดเคลื่อนที่ยอมรับได้", general: "ค่าคลาดเคลื่อนที่ยอมรับได้ในงานผลิต หรือ ความอดทนอดกลั้น", meaningEn: "the amount of variation allowed in a measurement, or the ability to accept something", syn: "allowance, margin / patience", example: "Parts outside the stated tolerance are rejected.", exampleThai: "ชิ้นงานที่อยู่นอกค่าความคลาดเคลื่อนที่กำหนดจะถูกคัดออก" },
+        { word: "throughput", pos: "n.", thai: "ปริมาณงานที่ผ่านระบบได้", meaningEn: "the amount of work or goods a system can handle in a given time", syn: "output, capacity, volume", example: "The upgrade raised throughput by twenty percent.", exampleThai: "การอัปเกรดเพิ่มปริมาณงานที่ผ่านระบบได้ร้อยละยี่สิบ" },
+        { word: "downtime", pos: "n.", thai: "เวลาที่เครื่องหยุดทำงาน", meaningEn: "a period when a machine or system is not working", syn: "stoppage, idle time, outage", ant: "uptime", example: "Scheduled maintenance keeps unplanned downtime low.", exampleThai: "การบำรุงรักษาตามแผนช่วยให้เวลาหยุดเครื่องที่ไม่ได้วางแผนไว้อยู่ในระดับต่ำ" },
+        { word: "workshop", pos: "n.", thai: "โรงซ่อม/การอบรมเชิงปฏิบัติการ", general: "ห้องหรือโรงงานที่ซ่อมและสร้างของ หรือ การอบรมที่ได้ลงมือทำ", meaningEn: "a room where things are made or repaired, or a practical training session", syn: "repair shop / training session, seminar", example: "The tools are kept in the workshop behind the office.", exampleThai: "เครื่องมือเก็บไว้ในโรงซ่อมด้านหลังสำนักงาน" }
+      ]
+    },
+    {
+      day: 74,
+      theme: "Manufacturing & Production (2)",
+      words: [
+        { word: "foreman", pos: "n.", thai: "หัวหน้าคนงาน", meaningEn: "a worker who supervises and directs other workers", syn: "supervisor, chargehand, team leader", example: "Report any faults to the foreman immediately.", exampleThai: "แจ้งข้อบกพร่องใดๆ ให้หัวหน้าคนงานทราบทันที" },
+        { word: "blueprint", pos: "n.", thai: "แบบแปลน/พิมพ์เขียว", general: "แบบแปลนทางเทคนิค หรือ แผนแม่บทของโครงการ", meaningEn: "a detailed technical drawing, or a detailed plan for achieving something", syn: "plan, design, drawing, scheme", example: "The engineer checked the blueprint before drilling.", exampleThai: "วิศวกรตรวจสอบแบบแปลนก่อนเจาะ" },
+        { word: "weld", pos: "v.", thai: "เชื่อมโลหะ", meaningEn: "to join pieces of metal by heating them until they melt together", syn: "fuse, join, bond", example: "The frames are welded by hand at this station.", exampleThai: "โครงถูกเชื่อมด้วยมือที่สถานีนี้" },
+        { word: "mold", pos: "n.", thai: "แม่พิมพ์", meaningEn: "a hollow container used to give a shape to liquid material as it hardens", syn: "cast, form, template", example: "A new mold was ordered for the redesigned casing.", exampleThai: "มีการสั่งแม่พิมพ์ใหม่สำหรับตัวเรือนที่ออกแบบใหม่" },
+        { word: "scrap", pos: "n.", thai: "เศษวัสดุที่ทิ้ง", meaningEn: "material left over from production that cannot be used", syn: "waste, offcuts, rejects", example: "Reducing scrap saved the plant thousands last quarter.", exampleThai: "การลดเศษวัสดุที่ทิ้งช่วยโรงงานประหยัดได้หลายพันในไตรมาสที่แล้ว" },
+        { word: "refurbish", pos: "v.", thai: "ปรับปรุงให้เหมือนใหม่", meaningEn: "to clean and repair something so that it looks or works like new", syn: "renovate, restore, recondition", example: "The company refurbishes returned units and resells them.", exampleThai: "บริษัทปรับปรุงเครื่องที่ถูกส่งคืนให้เหมือนใหม่แล้วขายต่อ" },
+        { word: "overhaul", pos: "n./v.", thai: "การยกเครื่องซ่อมใหญ่", meaningEn: "a thorough examination and repair of a machine or system", syn: "complete repair, revamp, rebuild", example: "The generator is due for a full overhaul in March.", exampleThai: "เครื่องกำเนิดไฟฟ้าถึงกำหนดยกเครื่องซ่อมใหญ่ในเดือนมีนาคม" },
+        { word: "machinery", pos: "n.", thai: "เครื่องจักร", meaningEn: "machines in general, especially large industrial ones", syn: "equipment, apparatus, plant", example: "Only trained staff may operate the heavy machinery.", exampleThai: "เฉพาะพนักงานที่ผ่านการอบรมเท่านั้นที่ใช้เครื่องจักรหนักได้" },
+        { word: "workmanship", pos: "n.", thai: "ฝีมือการผลิต", meaningEn: "the level of skill shown in how something is made", syn: "craftsmanship, quality of work", example: "The warranty covers defects in materials and workmanship.", exampleThai: "การรับประกันครอบคลุมข้อบกพร่องด้านวัสดุและฝีมือการผลิต" },
+        { word: "precision", pos: "n.", thai: "ความแม่นยำ", meaningEn: "the quality of being exact and accurate", syn: "accuracy, exactness, care", ant: "imprecision", example: "These instruments are made to a high degree of precision.", exampleThai: "เครื่องมือเหล่านี้ผลิตด้วยความแม่นยำสูง" }
+      ]
+    },
+    {
+      day: 75,
+      theme: "Purchasing & Supply (1)",
+      words: [
+        { word: "purchase", pos: "v./n.", thai: "ซื้อ/การซื้อ", meaningEn: "to buy something, or the thing that is bought", syn: "buy, acquire, procure", ant: "sell", example: "Please keep the receipt for every purchase over 500 baht.", exampleThai: "กรุณาเก็บใบเสร็จสำหรับการซื้อทุกรายการที่เกิน 500 บาท" },
+        { word: "order", pos: "n./v.", thai: "คำสั่งซื้อ/สั่ง", general: "คำสั่งซื้อสินค้า หรือ คำสั่งให้ทำ / ลำดับการจัดเรียง", meaningEn: "a request for goods to be supplied, an instruction, or the way things are arranged", syn: "request, instruction, sequence", example: "Your order will be shipped within two business days.", exampleThai: "คำสั่งซื้อของคุณจะถูกจัดส่งภายในสองวันทำการ" },
+        { word: "catalog", pos: "n.", thai: "แค็ตตาล็อกสินค้า", meaningEn: "a book or list showing the goods a company sells", syn: "brochure, product list, directory", example: "The spring catalog features forty new items.", exampleThai: "แค็ตตาล็อกฤดูใบไม้ผลิมีสินค้าใหม่สี่สิบรายการ" },
+        { word: "requisition", pos: "n.", thai: "ใบขอเบิก/ใบขอซื้อ", meaningEn: "an official request for supplies or equipment", syn: "formal request, order form", example: "Submit a requisition before ordering office supplies.", exampleThai: "ส่งใบขอซื้อก่อนสั่งอุปกรณ์สำนักงาน" },
+        { word: "tender", pos: "n.", thai: "การประมูลงาน", meaningEn: "a formal written offer to supply goods or do work at a stated price", syn: "bid, proposal, quotation", example: "Three firms submitted a tender for the contract.", exampleThai: "สามบริษัทยื่นประมูลสำหรับสัญญานี้" },
+        { word: "bid", pos: "n./v.", thai: "การเสนอราคา/ยื่นประมูล", meaningEn: "an offer to do work or buy something at a particular price", syn: "offer, tender, proposal", example: "Our bid was the lowest of the five received.", exampleThai: "ข้อเสนอราคาของเราต่ำที่สุดในห้ารายที่ได้รับ" },
+        { word: "surcharge", pos: "n.", thai: "ค่าธรรมเนียมเพิ่มเติม", meaningEn: "an extra amount added to the usual price", syn: "extra charge, additional fee", ant: "discount", example: "A fuel surcharge applies to all international shipments.", exampleThai: "มีค่าธรรมเนียมน้ำมันเพิ่มเติมสำหรับการจัดส่งระหว่างประเทศทั้งหมด" },
+        { word: "markup", pos: "n.", thai: "ส่วนบวกเพิ่มจากต้นทุน", meaningEn: "the amount added to the cost of goods to set the selling price", syn: "margin, price increase", ant: "markdown, discount", example: "The standard markup on accessories is forty percent.", exampleThai: "ส่วนบวกเพิ่มมาตรฐานของสินค้าเสริมอยู่ที่ร้อยละสี่สิบ" },
+        { word: "margin", pos: "n.", thai: "อัตรากำไร/ระยะเผื่อ", general: "ส่วนต่างกำไร หรือ ระยะขอบ/ช่องว่างเผื่อไว้", meaningEn: "the difference between cost and selling price, or an amount allowed as extra space", syn: "profit margin, difference, edge", example: "Thin margins forced the company to cut costs.", exampleThai: "อัตรากำไรที่บางทำให้บริษัทต้องลดต้นทุน" },
+        { word: "consignment", pos: "n.", thai: "สินค้าที่ส่งเป็นล็อต", meaningEn: "a batch of goods sent together to a customer or shop", syn: "shipment, batch, delivery", example: "The latest consignment cleared customs yesterday.", exampleThai: "สินค้าล็อตล่าสุดผ่านพิธีการศุลกากรเมื่อวานนี้" }
+      ]
+    },
+    {
+      day: 76,
+      theme: "Purchasing & Supply (2)",
+      words: [
+        { word: "logistics", pos: "n.", thai: "การจัดการขนส่งและคลังสินค้า", meaningEn: "the organization of moving, storing, and supplying goods", syn: "supply chain, distribution, operations", example: "The logistics team coordinates delivery across four countries.", exampleThai: "ทีมโลจิสติกส์ประสานงานการจัดส่งในสี่ประเทศ" },
+        { word: "forwarder", pos: "n.", thai: "ตัวแทนรับจัดส่งสินค้า", meaningEn: "a company that arranges the transport of goods for others", syn: "shipping agent, freight agent", example: "Our freight forwarder handles all customs paperwork.", exampleThai: "ตัวแทนรับจัดส่งสินค้าของเราดูแลเอกสารศุลกากรทั้งหมด" },
+        { word: "broker", pos: "n.", thai: "นายหน้า", meaningEn: "a person who arranges deals between a buyer and a seller", syn: "agent, middleman, intermediary", example: "An insurance broker compared quotes from six companies.", exampleThai: "นายหน้าประกันภัยเปรียบเทียบใบเสนอราคาจากหกบริษัท" },
+        { word: "clearance", pos: "n.", thai: "การผ่านพิธีการ/การอนุมัติ", general: "การผ่านพิธีการศุลกากร หรือ การได้รับอนุญาต / การล้างสต๊อกลดราคา", meaningEn: "official permission for something to proceed, or a sale to clear old stock", syn: "approval, authorization / clearout sale", example: "Customs clearance usually takes two working days.", exampleThai: "การผ่านพิธีการศุลกากรมักใช้เวลาสองวันทำการ" },
+        { word: "quota", pos: "n.", thai: "โควตา/จำนวนที่กำหนด", meaningEn: "a fixed amount that is allowed or expected", syn: "allowance, limit, target", example: "The sales team exceeded its monthly quota.", exampleThai: "ทีมขายทำได้เกินโควตารายเดือน" },
+        { word: "wholesaler", pos: "n.", thai: "ผู้ค้าส่ง", meaningEn: "a business that buys goods in bulk and sells them to shops", syn: "distributor, bulk supplier", ant: "retailer", example: "We buy directly from the wholesaler to reduce costs.", exampleThai: "เราซื้อตรงจากผู้ค้าส่งเพื่อลดต้นทุน" },
+        { word: "retailer", pos: "n.", thai: "ผู้ค้าปลีก", meaningEn: "a business that sells goods directly to the public", syn: "shop, store, merchant", ant: "wholesaler", example: "The product is available at retailers nationwide.", exampleThai: "สินค้ามีจำหน่ายที่ร้านค้าปลีกทั่วประเทศ" },
+        { word: "stockpile", pos: "n./v.", thai: "การกักตุนสินค้า", meaningEn: "a large supply kept for future use, or to build up such a supply", syn: "reserve, hoard, store", example: "The plant keeps a stockpile of critical spare parts.", exampleThai: "โรงงานเก็บสำรองอะไหล่สำคัญไว้จำนวนหนึ่ง" },
+        { word: "replenish", pos: "v.", thai: "เติมสต๊อกให้เต็ม", meaningEn: "to fill something up again after it has been used", syn: "restock, refill, top up", ant: "deplete, use up", example: "Shelves are replenished every morning before opening.", exampleThai: "ชั้นวางสินค้าถูกเติมใหม่ทุกเช้าก่อนเปิดร้าน" },
+        { word: "procure", pos: "v.", thai: "จัดหา", meaningEn: "to obtain something, especially with effort or through official channels", syn: "obtain, acquire, source", example: "The department procured new laptops for all analysts.", exampleThai: "แผนกจัดหาโน้ตบุ๊กใหม่ให้นักวิเคราะห์ทุกคน" }
+      ]
+    },
+    {
+      day: 77,
+      theme: "Office & Administration (1)",
+      words: [
+        { word: "schedule", pos: "n./v.", thai: "ตารางเวลา/กำหนดเวลา", meaningEn: "a plan of when things will happen, or to arrange for something to happen at a set time", syn: "timetable, agenda, plan, arrange", example: "The project is running two weeks behind schedule.", exampleThai: "โครงการล่าช้ากว่าตารางเวลาสองสัปดาห์" },
+        { word: "supplies", pos: "n.", thai: "วัสดุสิ้นเปลือง", meaningEn: "the materials and equipment needed for regular work", syn: "materials, stock, provisions", example: "Office supplies are ordered on the first of each month.", exampleThai: "วัสดุสำนักงานถูกสั่งซื้อทุกวันที่หนึ่งของเดือน" },
+        { word: "filing", pos: "n.", thai: "การจัดเก็บเอกสาร", meaningEn: "the activity of storing documents in an organized way", syn: "record keeping, archiving", example: "The filing system was moved online last year.", exampleThai: "ระบบจัดเก็บเอกสารถูกย้ายไปออนไลน์เมื่อปีที่แล้ว" },
+        { word: "clerical", pos: "adj.", thai: "เกี่ยวกับงานธุรการ", meaningEn: "relating to routine office work such as typing and filing", syn: "administrative, office", example: "A clerical error caused the duplicate invoice.", exampleThai: "ความผิดพลาดทางธุรการทำให้เกิดใบแจ้งหนี้ซ้ำ" },
+        { word: "stapler", pos: "n.", thai: "เครื่องเย็บกระดาษ", meaningEn: "a device that fastens sheets of paper together with metal pins", syn: "paper fastener", example: "There is a stapler on the shelf by the printer.", exampleThai: "มีเครื่องเย็บกระดาษอยู่บนชั้นข้างเครื่องพิมพ์" },
+        { word: "shredder", pos: "n.", thai: "เครื่องทำลายเอกสาร", meaningEn: "a machine that cuts documents into small pieces", syn: "document destroyer", example: "Confidential files must go through the shredder.", exampleThai: "เอกสารลับต้องผ่านเครื่องทำลายเอกสาร" },
+        { word: "binder", pos: "n.", thai: "แฟ้มห่วง", meaningEn: "a stiff cover for holding loose sheets of paper together", syn: "folder, file", example: "Each attendee received a binder with the handouts.", exampleThai: "ผู้เข้าร่วมแต่ละคนได้รับแฟ้มพร้อมเอกสารประกอบ" },
+        { word: "envelope", pos: "n.", thai: "ซองจดหมาย", meaningEn: "a flat paper container used for sending letters", syn: "packet, cover", example: "Place the signed form in a sealed envelope.", exampleThai: "ใส่แบบฟอร์มที่ลงนามแล้วในซองที่ปิดผนึก" },
+        { word: "label", pos: "n./v.", thai: "ป้ายชื่อ/ติดป้าย", meaningEn: "a piece of paper giving information about something, or to attach one", syn: "tag, sticker, mark", example: "Each box must be labeled with its destination.", exampleThai: "กล่องแต่ละใบต้องติดป้ายระบุปลายทาง" },
+        { word: "archive", pos: "n./v.", thai: "คลังเอกสารเก่า/เก็บเข้าคลัง", meaningEn: "a collection of old records kept for reference, or to store records this way", syn: "records, repository, store", example: "Files older than seven years are moved to the archive.", exampleThai: "เอกสารที่เก่ากว่าเจ็ดปีจะถูกย้ายไปยังคลังเอกสาร" }
+      ]
+    },
+    {
+      day: 78,
+      theme: "Office & Administration (2)",
+      words: [
+        { word: "directory", pos: "n.", thai: "สมุดรายชื่อ", meaningEn: "a list of names, addresses, or phone numbers arranged in order", syn: "listing, index, register", example: "You will find her extension in the staff directory.", exampleThai: "คุณจะพบเบอร์ต่อของเธอในสมุดรายชื่อพนักงาน" },
+        { word: "roster", pos: "n.", thai: "ตารางเวรปฏิบัติงาน", meaningEn: "a list showing who is working and when", syn: "schedule, rota, duty list", example: "The weekend roster is posted every Thursday.", exampleThai: "ตารางเวรสุดสัปดาห์ถูกติดประกาศทุกวันพฤหัสบดี" },
+        { word: "register", pos: "n./v.", thai: "ทะเบียน/ลงทะเบียน", meaningEn: "an official list, or to put your name on such a list", syn: "record, enrol, sign up", example: "All visitors must register at the front desk.", exampleThai: "ผู้มาเยือนทุกคนต้องลงทะเบียนที่โต๊ะต้อนรับ" },
+        { word: "circular", pos: "n.", thai: "หนังสือเวียน", meaningEn: "a printed notice sent to many people at once", syn: "notice, bulletin, memo", example: "A circular about the new dress code was emailed today.", exampleThai: "หนังสือเวียนเรื่องระเบียบการแต่งกายใหม่ถูกส่งอีเมลวันนี้" },
+        { word: "voicemail", pos: "n.", thai: "ข้อความเสียงฝากไว้", meaningEn: "a recorded spoken message left on a telephone system", syn: "recorded message, answering service", example: "She left a voicemail asking for a callback.", exampleThai: "เธอฝากข้อความเสียงไว้ขอให้โทรกลับ" },
+        { word: "intercom", pos: "n.", thai: "ระบบสื่อสารภายในอาคาร", meaningEn: "a system that lets people in different rooms speak to each other", syn: "internal phone, PA system", example: "The announcement was made over the intercom.", exampleThai: "ประกาศถูกแจ้งผ่านระบบสื่อสารภายใน" },
+        { word: "whiteboard", pos: "n.", thai: "กระดานไวท์บอร์ด", meaningEn: "a smooth white surface written on with special pens", syn: "board, marker board", example: "He drew the workflow on the whiteboard.", exampleThai: "เขาวาดผังงานบนกระดานไวท์บอร์ด" },
+        { word: "projector", pos: "n.", thai: "เครื่องฉายภาพ", meaningEn: "a device that shows images or slides on a screen or wall", syn: "beamer, display unit", example: "The projector in Room 3 needs a new bulb.", exampleThai: "เครื่องฉายภาพในห้อง 3 ต้องเปลี่ยนหลอดใหม่" },
+        { word: "letterhead", pos: "n.", thai: "หัวจดหมายบริษัท", meaningEn: "the printed name and address at the top of official writing paper", syn: "company heading", example: "Official replies must be printed on company letterhead.", exampleThai: "คำตอบอย่างเป็นทางการต้องพิมพ์บนกระดาษหัวจดหมายบริษัท" },
+        { word: "attachment", pos: "n.", thai: "ไฟล์แนบ", meaningEn: "a file sent together with an email message", syn: "enclosure, attached file", example: "Please open the attachment for the full report.", exampleThai: "กรุณาเปิดไฟล์แนบเพื่อดูรายงานฉบับเต็ม" }
+      ]
+    },
+    {
+      day: 79,
+      theme: "Personnel & HR (1)",
+      words: [
+        { word: "payroll", pos: "n.", thai: "บัญชีเงินเดือน", meaningEn: "the list of employees a company pays, or the total wages it pays out", syn: "wage list, salary account", example: "Payroll is processed on the twenty-fifth of each month.", exampleThai: "บัญชีเงินเดือนถูกดำเนินการทุกวันที่ยี่สิบห้าของเดือน" },
+        { word: "recruit", pos: "v.", thai: "รับสมัครพนักงานใหม่", meaningEn: "to find and hire new people to work for an organization", syn: "hire, employ, take on", ant: "dismiss, lay off", example: "The firm plans to recruit twenty engineers this year.", exampleThai: "บริษัทวางแผนรับวิศวกรใหม่ยี่สิบคนในปีนี้" },
+        { word: "retire", pos: "v.", thai: "เกษียณอายุ", meaningEn: "to stop working permanently, usually because of age", syn: "step down, leave work", example: "He will retire after thirty years with the company.", exampleThai: "เขาจะเกษียณหลังทำงานกับบริษัทมาสามสิบปี" },
+        { word: "staff", pos: "n.", thai: "พนักงาน (โดยรวม)", meaningEn: "all the people who work for an organization", syn: "employees, personnel, workforce", example: "All staff are invited to the year-end party.", exampleThai: "พนักงานทุกคนได้รับเชิญไปงานเลี้ยงส่งท้ายปี" },
+        { word: "headcount", pos: "n.", thai: "จำนวนพนักงาน", meaningEn: "the number of people employed by an organization", syn: "staff number, employee count", example: "The department reduced its headcount by five.", exampleThai: "แผนกลดจำนวนพนักงานลงห้าคน" },
+        { word: "appraisal", pos: "n.", thai: "การประเมินผลงาน", meaningEn: "a formal review of how well an employee has performed", syn: "evaluation, review, assessment", example: "Annual appraisals take place every December.", exampleThai: "การประเมินผลงานประจำปีจัดขึ้นทุกเดือนธันวาคม" },
+        { word: "grievance", pos: "n.", thai: "ข้อร้องทุกข์", meaningEn: "a formal complaint about unfair treatment at work", syn: "complaint, objection", example: "Employees may file a grievance with the HR department.", exampleThai: "พนักงานสามารถยื่นข้อร้องทุกข์ต่อฝ่ายบุคคลได้" },
+        { word: "mediation", pos: "n.", thai: "การไกล่เกลี่ย", meaningEn: "the process of helping two sides reach an agreement", syn: "arbitration, conciliation", example: "The dispute was settled through mediation.", exampleThai: "ข้อพิพาทได้รับการยุติผ่านการไกล่เกลี่ย" },
+        { word: "union", pos: "n.", thai: "สหภาพแรงงาน", meaningEn: "an organization of workers formed to protect their rights", syn: "labour union, trade union", example: "The union negotiated a three percent pay rise.", exampleThai: "สหภาพแรงงานเจรจาขอขึ้นเงินเดือนสามเปอร์เซ็นต์" },
+        { word: "stipend", pos: "n.", thai: "เงินช่วยเหลือรายงวด", meaningEn: "a fixed regular payment, often to a trainee or student", syn: "allowance, grant, salary", example: "Interns receive a monthly stipend and free lunch.", exampleThai: "นักศึกษาฝึกงานได้รับเงินช่วยเหลือรายเดือนและอาหารกลางวันฟรี" }
+      ]
+    },
+    {
+      day: 80,
+      theme: "Personnel & HR (2)",
+      words: [
+        { word: "severance", pos: "n.", thai: "เงินชดเชยการเลิกจ้าง", meaningEn: "money paid to an employee whose job has ended", syn: "redundancy pay, termination pay", example: "Staff affected by the closure received severance pay.", exampleThai: "พนักงานที่ได้รับผลกระทบจากการปิดกิจการได้รับเงินชดเชย" },
+        { word: "tenure", pos: "n.", thai: "ระยะเวลาการดำรงตำแหน่ง", meaningEn: "the length of time a person holds a job or position", syn: "term, period of service", example: "During her tenure, sales doubled.", exampleThai: "ในช่วงที่เธอดำรงตำแหน่ง ยอดขายเพิ่มขึ้นเท่าตัว" },
+        { word: "internship", pos: "n.", thai: "การฝึกงาน", meaningEn: "a period of work experience, often for students, sometimes unpaid", syn: "work placement, traineeship", example: "The summer internship lasts eight weeks.", exampleThai: "การฝึกงานภาคฤดูร้อนใช้เวลาแปดสัปดาห์" },
+        { word: "secondment", pos: "n.", thai: "การยืมตัวไปช่วยงานชั่วคราว", meaningEn: "a temporary transfer of an employee to another department or company", syn: "temporary transfer, posting", example: "She is on secondment to the Tokyo office.", exampleThai: "เธอถูกยืมตัวไปช่วยงานที่สำนักงานโตเกียว" },
+        { word: "redundancy", pos: "n.", thai: "การเลิกจ้างเพราะตำแหน่งไม่จำเป็น", meaningEn: "a situation in which someone loses their job because it is no longer needed", syn: "layoff, job cut", example: "Automation led to redundancies in the packing area.", exampleThai: "ระบบอัตโนมัติทำให้เกิดการเลิกจ้างในส่วนบรรจุภัณฑ์" },
+        { word: "morale", pos: "n.", thai: "ขวัญกำลังใจ", meaningEn: "the level of confidence and enthusiasm in a group of people", syn: "spirit, motivation, confidence", example: "The bonus scheme improved morale across the team.", exampleThai: "โครงการโบนัสช่วยเพิ่มขวัญกำลังใจทั้งทีม" },
+        { word: "absenteeism", pos: "n.", thai: "การขาดงานบ่อย", meaningEn: "the practice of being away from work regularly without good reason", syn: "non-attendance, truancy", example: "Flexible hours helped reduce absenteeism.", exampleThai: "เวลาทำงานที่ยืดหยุ่นช่วยลดการขาดงาน" },
+        { word: "induction", pos: "n.", thai: "การปฐมนิเทศ", meaningEn: "the process of introducing a new employee to a job and workplace", syn: "orientation, onboarding", example: "The induction covers safety rules and company policy.", exampleThai: "การปฐมนิเทศครอบคลุมกฎความปลอดภัยและนโยบายบริษัท" },
+        { word: "timesheet", pos: "n.", thai: "ใบบันทึกเวลาทำงาน", meaningEn: "a record of the hours an employee has worked", syn: "time record, work log", example: "Timesheets must be submitted by Friday afternoon.", exampleThai: "ใบบันทึกเวลาทำงานต้องส่งภายในบ่ายวันศุกร์" },
+        { word: "shift", pos: "n.", thai: "กะการทำงาน", general: "ช่วงเวลาทำงานเป็นกะ หรือ การเปลี่ยนแปลง/ขยับไป", meaningEn: "a fixed period of work, or a change in position or direction", syn: "work period, rotation / change, move", example: "The night shift begins at eleven o'clock.", exampleThai: "กะกลางคืนเริ่มเวลาห้าทุ่ม" }
+      ]
+    },
+    {
+      day: 81,
+      theme: "Property & Facilities (1)",
+      words: [
+        { word: "property", pos: "n.", thai: "อสังหาริมทรัพย์/ทรัพย์สิน", general: "ที่ดินและอาคาร หรือ สิ่งของที่เป็นเจ้าของ", meaningEn: "land and buildings, or a thing that someone owns", syn: "real estate, premises, possessions", example: "The company owns commercial property in three cities.", exampleThai: "บริษัทเป็นเจ้าของอสังหาริมทรัพย์เชิงพาณิชย์ในสามเมือง" },
+        { word: "renovate", pos: "v.", thai: "ปรับปรุงอาคาร", meaningEn: "to repair and improve a building so it is in better condition", syn: "refurbish, remodel, restore", example: "They will renovate the lobby over the holiday.", exampleThai: "พวกเขาจะปรับปรุงล็อบบี้ในช่วงวันหยุด" },
+        { word: "mortgage", pos: "n.", thai: "สินเชื่อบ้าน/การจำนอง", meaningEn: "a loan used to buy property, with the property as security", syn: "home loan, property loan", example: "The bank approved a mortgage for the new warehouse.", exampleThai: "ธนาคารอนุมัติสินเชื่อสำหรับคลังสินค้าใหม่" },
+        { word: "utilities", pos: "n.", thai: "ค่าสาธารณูปโภค", meaningEn: "basic services such as water, gas, and electricity", syn: "services, amenities", example: "Rent includes utilities but not internet.", exampleThai: "ค่าเช่ารวมค่าสาธารณูปโภคแต่ไม่รวมอินเทอร์เน็ต" },
+        { word: "occupancy", pos: "n.", thai: "อัตราการเข้าพัก/การครอบครองพื้นที่", meaningEn: "the act of living or working in a building, or how full it is", syn: "tenancy, use, capacity level", example: "Hotel occupancy rose to ninety percent in December.", exampleThai: "อัตราการเข้าพักโรงแรมเพิ่มเป็นร้อยละเก้าสิบในเดือนธันวาคม" },
+        { word: "furnished", pos: "adj.", thai: "ที่มีเฟอร์นิเจอร์ครบ", meaningEn: "supplied with furniture", syn: "equipped, fitted out", ant: "unfurnished", example: "The apartment is fully furnished and ready to occupy.", exampleThai: "อพาร์ตเมนต์มีเฟอร์นิเจอร์ครบและพร้อมเข้าอยู่" },
+        { word: "janitor", pos: "n.", thai: "ภารโรง", meaningEn: "a person employed to clean and look after a building", syn: "caretaker, custodian, cleaner", example: "The janitor locks the building at ten each night.", exampleThai: "ภารโรงล็อกอาคารตอนสี่ทุ่มทุกคืน" },
+        { word: "custodian", pos: "n.", thai: "ผู้ดูแลรักษา", meaningEn: "a person responsible for looking after a building or valuable things", syn: "caretaker, guardian, keeper", example: "The custodian holds the keys to the storage rooms.", exampleThai: "ผู้ดูแลอาคารเก็บกุญแจห้องเก็บของไว้" },
+        { word: "lobby", pos: "n.", thai: "ล็อบบี้/โถงต้อนรับ", meaningEn: "the entrance hall of a hotel or large building", syn: "foyer, entrance hall, reception area", example: "Please wait in the lobby until you are called.", exampleThai: "กรุณารอในล็อบบี้จนกว่าจะถูกเรียก" },
+        { word: "corridor", pos: "n.", thai: "ทางเดินในอาคาร", meaningEn: "a long passage inside a building with rooms on each side", syn: "hallway, passage, aisle", example: "The meeting rooms are along the corridor to your left.", exampleThai: "ห้องประชุมอยู่ตามทางเดินทางซ้ายมือของคุณ" }
+      ]
+    },
+    {
+      day: 82,
+      theme: "Property & Facilities (2)",
+      words: [
+        { word: "elevator", pos: "n.", thai: "ลิฟต์", meaningEn: "a machine that carries people between floors of a building", syn: "lift", example: "The elevator will be out of service for repairs.", exampleThai: "ลิฟต์จะงดให้บริการเพื่อซ่อมแซม" },
+        { word: "escalator", pos: "n.", thai: "บันไดเลื่อน", meaningEn: "a moving staircase that carries people up or down", syn: "moving stairs", example: "Take the escalator to the second floor.", exampleThai: "ขึ้นบันไดเลื่อนไปชั้นสอง" },
+        { word: "parking", pos: "n.", thai: "ที่จอดรถ", meaningEn: "space where vehicles can be left, or the act of leaving them there", syn: "car park, parking lot", example: "Free parking is available for visitors.", exampleThai: "มีที่จอดรถฟรีสำหรับผู้มาเยือน" },
+        { word: "sublet", pos: "v.", thai: "ให้เช่าช่วง", meaningEn: "to rent out a property that you are already renting from someone else", syn: "sublease, rent out", example: "The tenant may not sublet without written consent.", exampleThai: "ผู้เช่าไม่สามารถให้เช่าช่วงได้หากไม่มีความยินยอมเป็นลายลักษณ์อักษร" },
+        { word: "deed", pos: "n.", thai: "โฉนด/เอกสารสิทธิ์", meaningEn: "a legal document proving ownership of property", syn: "title, legal document", example: "The deed to the land is held by the bank.", exampleThai: "โฉนดที่ดินอยู่ในความครอบครองของธนาคาร" },
+        { word: "appraise", pos: "v.", thai: "ประเมินมูลค่า", meaningEn: "to judge the value or quality of something officially", syn: "assess, evaluate, value", example: "An expert was hired to appraise the building.", exampleThai: "มีการว่าจ้างผู้เชี่ยวชาญมาประเมินมูลค่าอาคาร" },
+        { word: "zoning", pos: "n.", thai: "การกำหนดเขตการใช้ที่ดิน", meaningEn: "official rules about what may be built in a particular area", syn: "land-use rules, planning regulations", example: "Local zoning laws prohibit factories in this district.", exampleThai: "กฎหมายผังเมืองท้องถิ่นห้ามตั้งโรงงานในเขตนี้" },
+        { word: "refurbishment", pos: "n.", thai: "การปรับปรุงตกแต่งใหม่", meaningEn: "the work of cleaning, repairing, and improving a building", syn: "renovation, remodelling, restoration", example: "The refurbishment will take about four months.", exampleThai: "การปรับปรุงตกแต่งใหม่จะใช้เวลาราวสี่เดือน" },
+        { word: "insulation", pos: "n.", thai: "ฉนวนกันความร้อน/เสียง", meaningEn: "material used to stop heat, cold, or sound from passing through", syn: "lagging, padding", example: "Better insulation cut heating costs by a third.", exampleThai: "ฉนวนที่ดีขึ้นช่วยลดค่าทำความร้อนลงหนึ่งในสาม" },
+        { word: "plumbing", pos: "n.", thai: "ระบบท่อประปา", meaningEn: "the system of pipes that carries water in a building", syn: "pipework, water system", example: "The plumbing in the old wing needs replacing.", exampleThai: "ระบบท่อประปาในอาคารเก่าต้องเปลี่ยนใหม่" }
+      ]
+    },
+    {
+      day: 83,
+      theme: "Dining & Hospitality",
+      words: [
+        { word: "menu", pos: "n.", thai: "เมนูอาหาร", meaningEn: "a list of the dishes available in a restaurant", syn: "bill of fare, food list", example: "The set menu includes a starter and a main course.", exampleThai: "เมนูชุดรวมอาหารเรียกน้ำย่อยและอาหารจานหลัก" },
+        { word: "catering", pos: "n.", thai: "บริการจัดเลี้ยง", meaningEn: "the business of providing food and drink for events", syn: "food service, provisioning", example: "Catering for the conference has been arranged.", exampleThai: "บริการจัดเลี้ยงสำหรับงานประชุมได้จัดเตรียมไว้แล้ว" },
+        { word: "waiter", pos: "n.", thai: "พนักงานเสิร์ฟ", meaningEn: "a person who serves food and drink at a restaurant", syn: "server, attendant", example: "The waiter recommended the seafood platter.", exampleThai: "พนักงานเสิร์ฟแนะนำจานรวมอาหารทะเล" },
+        { word: "recipe", pos: "n.", thai: "สูตรอาหาร", meaningEn: "a set of instructions for preparing a particular dish", syn: "formula, instructions", example: "The chef refused to share the recipe.", exampleThai: "เชฟปฏิเสธที่จะเปิดเผยสูตรอาหาร" },
+        { word: "ingredient", pos: "n.", thai: "ส่วนผสม", general: "ส่วนผสมของอาหาร หรือ องค์ประกอบสำคัญของความสำเร็จ", meaningEn: "one of the foods used to make a dish, or an essential part of something", syn: "component, element", example: "All ingredients are sourced from local farms.", exampleThai: "ส่วนผสมทั้งหมดมาจากฟาร์มในท้องถิ่น" },
+        { word: "buffet", pos: "n.", thai: "บุฟเฟต์", meaningEn: "a meal where guests serve themselves from a range of dishes", syn: "self-service meal, spread", example: "A breakfast buffet is served from six to ten.", exampleThai: "บุฟเฟต์อาหารเช้าเสิร์ฟตั้งแต่หกโมงถึงสิบโมง" },
+        { word: "concierge", pos: "n.", thai: "พนักงานอำนวยความสะดวกในโรงแรม", meaningEn: "a hotel employee who helps guests with bookings and information", syn: "hotel attendant, guest services", example: "Ask the concierge to arrange a taxi.", exampleThai: "ขอให้พนักงานอำนวยความสะดวกเรียกแท็กซี่ให้" },
+        { word: "suite", pos: "n.", thai: "ห้องชุด", meaningEn: "a set of connected rooms in a hotel or office building", syn: "apartment, set of rooms", example: "The client was upgraded to an executive suite.", exampleThai: "ลูกค้าได้รับการอัปเกรดเป็นห้องชุดผู้บริหาร" },
+        { word: "amenity", pos: "n.", thai: "สิ่งอำนวยความสะดวก", meaningEn: "a feature that makes a place more comfortable or enjoyable", syn: "facility, comfort, convenience", example: "The hotel's amenities include a gym and a pool.", exampleThai: "สิ่งอำนวยความสะดวกของโรงแรมรวมถึงฟิตเนสและสระว่ายน้ำ" },
+        { word: "hospitality", pos: "n.", thai: "การต้อนรับ/ธุรกิจบริการ", meaningEn: "friendly treatment of guests, or the industry that serves them", syn: "welcome, service industry", example: "She has ten years of experience in hospitality.", exampleThai: "เธอมีประสบการณ์สิบปีในธุรกิจบริการ" }
+      ]
+    },
+    {
+      day: 84,
+      theme: "Media & Entertainment (1)",
+      words: [
+        { word: "exhibit", pos: "n./v.", thai: "สิ่งที่จัดแสดง/จัดแสดง", meaningEn: "an object shown to the public, or to show something publicly", syn: "display, showcase, present", example: "The museum will exhibit the collection until June.", exampleThai: "พิพิธภัณฑ์จะจัดแสดงคอลเลกชันนี้จนถึงเดือนมิถุนายน" },
+        { word: "gallery", pos: "n.", thai: "หอศิลป์", meaningEn: "a room or building where works of art are shown", syn: "art space, exhibition hall", example: "The gallery opens at ten on weekdays.", exampleThai: "หอศิลป์เปิดสิบโมงในวันธรรมดา" },
+        { word: "premiere", pos: "n.", thai: "การเปิดตัวรอบปฐมทัศน์", meaningEn: "the first public performance or showing of a film or play", syn: "first showing, opening night", example: "The premiere attracted more than a thousand guests.", exampleThai: "รอบปฐมทัศน์ดึงดูดแขกกว่าหนึ่งพันคน" },
+        { word: "review", pos: "n./v.", thai: "บทวิจารณ์/ทบทวน", general: "บทวิจารณ์ผลงาน หรือ การตรวจทบทวนอีกครั้ง", meaningEn: "a written opinion about a book, film, or product, or to examine something again", syn: "critique, assessment, reexamine", example: "The product received excellent reviews online.", exampleThai: "สินค้าได้รับบทวิจารณ์ที่ยอดเยี่ยมทางออนไลน์" },
+        { word: "screening", pos: "n.", thai: "การฉายภาพยนตร์/การคัดกรอง", general: "การฉายภาพยนตร์ หรือ การคัดกรองผู้สมัครหรือผู้ป่วย", meaningEn: "a showing of a film, or the process of checking people or things", syn: "showing / vetting, checking", example: "A private screening was held for the sponsors.", exampleThai: "มีการจัดฉายรอบพิเศษสำหรับผู้สนับสนุน" },
+        { word: "festival", pos: "n.", thai: "เทศกาล", meaningEn: "an organized series of events celebrating something", syn: "celebration, fair, gala", example: "The film festival runs for ten days each spring.", exampleThai: "เทศกาลภาพยนตร์จัดขึ้นสิบวันทุกฤดูใบไม้ผลิ" },
+        { word: "sculpture", pos: "n.", thai: "ประติมากรรม", meaningEn: "a work of art made by carving or shaping material", syn: "statue, carving, figure", example: "A bronze sculpture stands in the main lobby.", exampleThai: "ประติมากรรมสำริดตั้งอยู่ในล็อบบี้หลัก" },
+        { word: "playwright", pos: "n.", thai: "นักเขียนบทละคร", meaningEn: "a person who writes plays", syn: "dramatist, scriptwriter", example: "The playwright attended opening night.", exampleThai: "นักเขียนบทละครเข้าร่วมงานคืนเปิดการแสดง" },
+        { word: "soundtrack", pos: "n.", thai: "เพลงประกอบภาพยนตร์", meaningEn: "the recorded music used in a film or programme", syn: "score, background music", example: "The soundtrack was released the same week.", exampleThai: "เพลงประกอบภาพยนตร์ออกจำหน่ายในสัปดาห์เดียวกัน" },
+        { word: "broadcaster", pos: "n.", thai: "ผู้ประกาศ/สถานีออกอากาศ", meaningEn: "a person who presents programmes, or a company that transmits them", syn: "presenter, network, station", example: "The national broadcaster covered the whole event.", exampleThai: "สถานีโทรทัศน์แห่งชาติถ่ายทอดงานทั้งหมด" }
+      ]
+    },
+    {
+      day: 85,
+      theme: "Media & Entertainment (2)",
+      words: [
+        { word: "columnist", pos: "n.", thai: "นักเขียนคอลัมน์", meaningEn: "a person who writes a regular article for a newspaper or magazine", syn: "writer, journalist, commentator", example: "A business columnist praised the company's strategy.", exampleThai: "นักเขียนคอลัมน์ธุรกิจชื่นชมกลยุทธ์ของบริษัท" },
+        { word: "editorial", pos: "n./adj.", thai: "บทบรรณาธิการ", meaningEn: "an article giving a newspaper's opinion, or relating to editing", syn: "opinion piece, leading article", example: "The editorial criticized the new tax policy.", exampleThai: "บทบรรณาธิการวิพากษ์วิจารณ์นโยบายภาษีใหม่" },
+        { word: "headline", pos: "n.", thai: "พาดหัวข่าว", meaningEn: "the title printed in large letters above a news story", syn: "title, heading, banner", example: "The merger made headlines across the region.", exampleThai: "การควบรวมกิจการเป็นข่าวพาดหัวทั่วภูมิภาค" },
+        { word: "transcript", pos: "n.", thai: "บันทึกถอดความ/ใบแสดงผลการเรียน", general: "เอกสารถอดคำพูดเป็นตัวอักษร หรือ ใบแสดงผลการศึกษา", meaningEn: "a written copy of spoken words, or an official record of academic results", syn: "written record, transcription", example: "A transcript of the interview will be sent tomorrow.", exampleThai: "บันทึกถอดความการสัมภาษณ์จะถูกส่งไปพรุ่งนี้" },
+        { word: "copyright", pos: "n.", thai: "ลิขสิทธิ์", meaningEn: "the legal right to control who may copy or use a creative work", syn: "intellectual property right", example: "All images are protected by copyright.", exampleThai: "ภาพทั้งหมดได้รับการคุ้มครองโดยลิขสิทธิ์" },
+        { word: "royalty", pos: "n.", thai: "ค่าลิขสิทธิ์", meaningEn: "a payment made to a creator each time their work is used or sold", syn: "licensing fee, commission", example: "The author receives a royalty on every copy sold.", exampleThai: "ผู้เขียนได้รับค่าลิขสิทธิ์จากทุกเล่มที่ขายได้" },
+        { word: "anniversary", pos: "n.", thai: "วันครบรอบ", meaningEn: "a date remembered because something important happened on it", syn: "commemoration, jubilee", example: "The firm celebrates its fiftieth anniversary in May.", exampleThai: "บริษัทฉลองครบรอบห้าสิบปีในเดือนพฤษภาคม" },
+        { word: "showcase", pos: "v./n.", thai: "จัดแสดงให้เด่น", meaningEn: "to present something so that its best qualities are noticed", syn: "display, feature, highlight", example: "The trade fair showcases products from thirty countries.", exampleThai: "งานแสดงสินค้าจัดแสดงผลิตภัณฑ์จากสามสิบประเทศ" },
+        { word: "spotlight", pos: "n.", thai: "จุดสนใจ/ไฟส่องเวที", meaningEn: "public attention, or a strong light directed at a performer", syn: "limelight, focus, attention", example: "The award put the small firm in the spotlight.", exampleThai: "รางวัลทำให้บริษัทเล็กๆ กลายเป็นจุดสนใจ" },
+        { word: "applause", pos: "n.", thai: "เสียงปรบมือ", meaningEn: "the sound of people clapping to show approval", syn: "clapping, ovation, acclaim", example: "The speech ended to loud applause.", exampleThai: "สุนทรพจน์จบลงด้วยเสียงปรบมือดังกึกก้อง" }
+      ]
+    },
+    {
+      day: 86,
+      theme: "Technical & Equipment (1)",
+      words: [
+        { word: "equipment", pos: "n.", thai: "อุปกรณ์", meaningEn: "the tools or machines needed for a particular activity", syn: "apparatus, gear, machinery", example: "All safety equipment must be inspected monthly.", exampleThai: "อุปกรณ์ความปลอดภัยทั้งหมดต้องได้รับการตรวจสอบทุกเดือน" },
+        { word: "technician", pos: "n.", thai: "ช่างเทคนิค", meaningEn: "a person skilled in the practical use of machines or equipment", syn: "engineer, specialist, repairer", example: "A technician will visit the site on Thursday.", exampleThai: "ช่างเทคนิคจะไปที่หน้างานในวันพฤหัสบดี" },
+        { word: "manual", pos: "n./adj.", thai: "คู่มือ/ด้วยมือ", general: "หนังสือคู่มือการใช้งาน หรือ ที่ทำด้วยแรงคน ไม่ใช่เครื่องจักร", meaningEn: "a book of instructions, or done by hand rather than automatically", syn: "handbook, guide / hand-operated", ant: "automatic", example: "Consult the manual before resetting the device.", exampleThai: "ดูคู่มือก่อนรีเซ็ตอุปกรณ์" },
+        { word: "repair", pos: "v./n.", thai: "ซ่อมแซม", meaningEn: "to fix something that is broken or damaged", syn: "fix, mend, restore", ant: "damage, break", example: "The lift is closed for repair until Monday.", exampleThai: "ลิฟต์ปิดเพื่อซ่อมแซมจนถึงวันจันทร์" },
+        { word: "apparatus", pos: "n.", thai: "เครื่องมือเครื่องใช้", meaningEn: "equipment used for a particular scientific or technical purpose", syn: "equipment, device, instrument", example: "The laboratory apparatus is sterilized after each use.", exampleThai: "เครื่องมือในห้องปฏิบัติการถูกฆ่าเชื้อหลังการใช้งานทุกครั้ง" },
+        { word: "generator", pos: "n.", thai: "เครื่องกำเนิดไฟฟ้า", meaningEn: "a machine that produces electricity", syn: "power unit, dynamo", example: "A backup generator powers the building during outages.", exampleThai: "เครื่องกำเนิดไฟฟ้าสำรองจ่ายไฟให้อาคารระหว่างไฟดับ" },
+        { word: "circuit", pos: "n.", thai: "วงจรไฟฟ้า", meaningEn: "a complete path through which electricity flows", syn: "electrical loop, network", example: "A short circuit caused the machine to shut down.", exampleThai: "ไฟฟ้าลัดวงจรทำให้เครื่องหยุดทำงาน" },
+        { word: "valve", pos: "n.", thai: "วาล์วควบคุมการไหล", meaningEn: "a device that controls the flow of liquid or gas through a pipe", syn: "tap, control device", example: "Close the main valve before starting the repair.", exampleThai: "ปิดวาล์วหลักก่อนเริ่มซ่อม" },
+        { word: "sensor", pos: "n.", thai: "เซนเซอร์ตรวจจับ", meaningEn: "a device that detects changes such as heat, light, or movement", syn: "detector, monitor", example: "The sensor triggers an alarm if the temperature rises.", exampleThai: "เซนเซอร์จะส่งสัญญาณเตือนหากอุณหภูมิสูงขึ้น" },
+        { word: "gauge", pos: "n./v.", thai: "เกจวัด/ประเมิน", meaningEn: "an instrument for measuring, or to judge or estimate something", syn: "meter, measure, assess", example: "Check the pressure gauge before each shift.", exampleThai: "ตรวจสอบเกจวัดแรงดันก่อนเริ่มกะทุกครั้ง" }
+      ]
+    },
+    {
+      day: 87,
+      theme: "Technical & Equipment (2)",
+      words: [
+        { word: "conduit", pos: "n.", thai: "ท่อร้อยสาย/ช่องทางส่งผ่าน", meaningEn: "a pipe or channel for protecting cables or carrying liquid", syn: "pipe, channel, duct", example: "The cables run through a conduit above the ceiling.", exampleThai: "สายเคเบิลเดินผ่านท่อร้อยสายเหนือฝ้าเพดาน" },
+        { word: "insulate", pos: "v.", thai: "หุ้มฉนวน", meaningEn: "to cover something to stop heat, sound, or electricity escaping", syn: "cover, shield, protect", example: "The pipes were insulated to prevent heat loss.", exampleThai: "ท่อถูกหุ้มฉนวนเพื่อป้องกันการสูญเสียความร้อน" },
+        { word: "voltage", pos: "n.", thai: "แรงดันไฟฟ้า", meaningEn: "the force of an electric current, measured in volts", syn: "electrical pressure", example: "Check that the voltage matches before plugging in.", exampleThai: "ตรวจสอบว่าแรงดันไฟฟ้าตรงกันก่อนเสียบปลั๊ก" },
+        { word: "turbine", pos: "n.", thai: "กังหันผลิตพลังงาน", meaningEn: "a machine with blades turned by water, steam, or air to produce power", syn: "rotor, engine", example: "The wind turbine supplies power to the whole site.", exampleThai: "กังหันลมจ่ายพลังงานให้กับพื้นที่ทั้งหมด" },
+        { word: "compressor", pos: "n.", thai: "เครื่องอัดอากาศ", meaningEn: "a machine that presses air or gas into a smaller space", syn: "pump, air unit", example: "The compressor must be serviced twice a year.", exampleThai: "เครื่องอัดอากาศต้องได้รับการบำรุงรักษาปีละสองครั้ง" },
+        { word: "lubricate", pos: "v.", thai: "หล่อลื่น", meaningEn: "to apply oil or grease so parts move smoothly", syn: "oil, grease", example: "Lubricate the bearings every hundred hours.", exampleThai: "หล่อลื่นตลับลูกปืนทุกหนึ่งร้อยชั่วโมง" },
+        { word: "overheat", pos: "v.", thai: "ร้อนเกินไป", meaningEn: "to become too hot, especially so that damage occurs", syn: "get too hot", ant: "cool down", example: "The motor will overheat if the vents are blocked.", exampleThai: "มอเตอร์จะร้อนเกินไปหากช่องระบายอากาศถูกปิดกั้น" },
+        { word: "calibration", pos: "n.", thai: "การปรับตั้งค่ามาตรฐาน", meaningEn: "the process of setting an instrument so it measures correctly", syn: "adjustment, tuning, setting", example: "Calibration records are kept for every instrument.", exampleThai: "บันทึกการปรับตั้งค่าถูกเก็บไว้สำหรับเครื่องมือทุกชิ้น" },
+        { word: "diagnostic", pos: "adj./n.", thai: "เกี่ยวกับการตรวจหาสาเหตุ", meaningEn: "used to find out what is wrong with something", syn: "analytical, investigative", example: "Run a diagnostic test before replacing the board.", exampleThai: "รันการตรวจวิเคราะห์ก่อนเปลี่ยนแผงวงจร" },
+        { word: "spare", pos: "adj./n.", thai: "สำรอง/อะไหล่", general: "อะไหล่สำรอง หรือ ที่เหลือใช้ ว่างอยู่", meaningEn: "kept in reserve for later use, or extra and not currently needed", syn: "reserve, backup, extra", example: "Keep a spare cartridge next to the printer.", exampleThai: "เก็บตลับหมึกสำรองไว้ข้างเครื่องพิมพ์" }
+      ]
+    },
+    {
+      day: 88,
+      theme: "Part 5 Verbs (1)",
+      words: [
+        { word: "accompany", pos: "v.", thai: "ไปเป็นเพื่อน/มาพร้อมกับ", meaningEn: "to go somewhere with someone, or to happen at the same time as something", syn: "go with, escort, come with", example: "A manager will accompany the auditors during the visit.", exampleThai: "ผู้จัดการจะไปกับผู้ตรวจสอบบัญชีระหว่างการเข้าตรวจ" },
+        { word: "accomplish", pos: "v.", thai: "ทำสำเร็จ", meaningEn: "to succeed in doing something, especially after effort", syn: "achieve, complete, fulfil", ant: "fail", example: "The team accomplished the goal ahead of schedule.", exampleThai: "ทีมงานทำเป้าหมายสำเร็จก่อนกำหนด" },
+        { word: "acknowledge", pos: "v.", thai: "ตอบรับ/ยอมรับ", general: "แจ้งว่าได้รับแล้ว หรือ ยอมรับว่าเป็นความจริง", meaningEn: "to confirm that you have received something, or to admit that something is true", syn: "confirm receipt, admit, recognize", ant: "deny, ignore", example: "Please acknowledge receipt of this email.", exampleThai: "กรุณาตอบรับว่าได้รับอีเมลฉบับนี้แล้ว" },
+        { word: "acquire", pos: "v.", thai: "ได้มา/เข้าซื้อกิจการ", meaningEn: "to obtain or buy something, or to gain a skill over time", syn: "obtain, purchase, gain", ant: "lose, sell", example: "The group acquired two competitors last year.", exampleThai: "กลุ่มบริษัทเข้าซื้อคู่แข่งสองรายเมื่อปีที่แล้ว" },
+        { word: "adapt", pos: "v.", thai: "ปรับตัว/ดัดแปลง", meaningEn: "to change to suit a new situation, or to change something for a new use", syn: "adjust, modify, tailor", example: "The software was adapted for the Thai market.", exampleThai: "ซอฟต์แวร์ถูกดัดแปลงสำหรับตลาดไทย" },
+        { word: "adjust", pos: "v.", thai: "ปรับแต่ง", meaningEn: "to change something slightly to make it more suitable or correct", syn: "alter, modify, fine-tune", example: "Please adjust the figures to reflect the new rate.", exampleThai: "กรุณาปรับตัวเลขให้สอดคล้องกับอัตราใหม่" },
+        { word: "administer", pos: "v.", thai: "บริหารจัดการ/ให้ยา", general: "บริหารจัดการระบบหรือองค์กร หรือ ให้ยาแก่ผู้ป่วย", meaningEn: "to manage the running of something, or to give a medicine or treatment", syn: "manage, run, oversee / give", example: "The fund is administered by an independent trustee.", exampleThai: "กองทุนบริหารโดยผู้ดูแลผลประโยชน์อิสระ" },
+        { word: "advocate", pos: "v./n.", thai: "สนับสนุน/ผู้สนับสนุน", meaningEn: "to publicly support an idea, or a person who does so", syn: "support, champion, promote", ant: "oppose", example: "She advocates a shorter working week.", exampleThai: "เธอสนับสนุนให้ลดจำนวนวันทำงานต่อสัปดาห์" },
+        { word: "alter", pos: "v.", thai: "เปลี่ยนแปลง", meaningEn: "to change something, usually slightly", syn: "change, modify, amend", example: "The schedule was altered to allow more testing.", exampleThai: "ตารางเวลาถูกเปลี่ยนเพื่อให้มีเวลาทดสอบมากขึ้น" },
+        { word: "appoint", pos: "v.", thai: "แต่งตั้ง", meaningEn: "to officially choose someone for a job or position", syn: "name, nominate, designate", ant: "dismiss", example: "The board appointed a new chief financial officer.", exampleThai: "คณะกรรมการแต่งตั้งประธานเจ้าหน้าที่ฝ่ายการเงินคนใหม่" }
+      ]
+    },
+    {
+      day: 89,
+      theme: "Part 5 Verbs (2)",
+      words: [
+        { word: "assign", pos: "v.", thai: "มอบหมายงาน", meaningEn: "to give someone a task or responsibility", syn: "allocate, delegate, give", example: "Each analyst was assigned three accounts.", exampleThai: "นักวิเคราะห์แต่ละคนได้รับมอบหมายสามบัญชี" },
+        { word: "assure", pos: "v.", thai: "รับรอง/ทำให้มั่นใจ", meaningEn: "to tell someone confidently that something is true so they stop worrying", syn: "reassure, guarantee, promise", example: "The supplier assured us the parts would arrive Friday.", exampleThai: "ผู้จัดหาสินค้ารับรองกับเราว่าชิ้นส่วนจะมาถึงวันศุกร์" },
+        { word: "attain", pos: "v.", thai: "บรรลุ", meaningEn: "to reach or achieve something after effort", syn: "achieve, reach, accomplish", example: "The branch attained its annual target in October.", exampleThai: "สาขาบรรลุเป้าหมายประจำปีในเดือนตุลาคม" },
+        { word: "attribute", pos: "v./n.", thai: "ยกให้เป็นเพราะ/คุณลักษณะ", meaningEn: "to say that something is caused by something else, or a quality of a person or thing", syn: "credit to, ascribe / quality, feature", example: "He attributed the growth to better customer service.", exampleThai: "เขายกให้การเติบโตเป็นเพราะบริการลูกค้าที่ดีขึ้น" },
+        { word: "authorize", pos: "v.", thai: "อนุมัติอย่างเป็นทางการ", meaningEn: "to give official permission for something", syn: "approve, permit, sanction", ant: "forbid, prohibit", example: "Only the director may authorize overtime payments.", exampleThai: "เฉพาะผู้อำนวยการเท่านั้นที่อนุมัติการจ่ายค่าล่วงเวลาได้" },
+        { word: "commence", pos: "v.", thai: "เริ่มต้น (ทางการ)", meaningEn: "to begin, especially in formal use", syn: "begin, start, initiate", ant: "conclude, end", example: "Construction will commence in the second quarter.", exampleThai: "การก่อสร้างจะเริ่มในไตรมาสที่สอง" },
+        { word: "consult", pos: "v.", thai: "ปรึกษา/ค้นดู", meaningEn: "to ask someone for advice, or to look at something for information", syn: "seek advice from, refer to", example: "Consult the safety manual before using the press.", exampleThai: "ดูคู่มือความปลอดภัยก่อนใช้เครื่องอัด" },
+        { word: "convert", pos: "v.", thai: "แปลง/เปลี่ยนรูป", meaningEn: "to change something into a different form or use", syn: "change, transform, adapt", example: "The old warehouse was converted into offices.", exampleThai: "คลังสินค้าเก่าถูกแปลงเป็นสำนักงาน" },
+        { word: "coordinate", pos: "v.", thai: "ประสานงาน", meaningEn: "to organize people or activities so they work well together", syn: "organize, arrange, harmonize", example: "She coordinates deliveries between three warehouses.", exampleThai: "เธอประสานงานการจัดส่งระหว่างคลังสินค้าสามแห่ง" },
+        { word: "designate", pos: "v.", thai: "กำหนด/แต่งตั้งให้เป็น", meaningEn: "to officially choose something for a purpose or someone for a role", syn: "appoint, assign, name", example: "This area has been designated a no-smoking zone.", exampleThai: "พื้นที่นี้ถูกกำหนดให้เป็นเขตห้ามสูบบุหรี่" }
+      ]
+    },
+    {
+      day: 90,
+      theme: "Part 5 Verbs (3)",
+      words: [
+        { word: "devote", pos: "v.", thai: "อุทิศเวลา/ทุ่มเท", meaningEn: "to give time or effort completely to something", syn: "dedicate, commit, give", example: "He devoted two years to developing the prototype.", exampleThai: "เขาอุทิศเวลาสองปีให้กับการพัฒนาต้นแบบ" },
+        { word: "diminish", pos: "v.", thai: "ลดน้อยลง", meaningEn: "to become smaller or less important", syn: "decrease, reduce, decline", ant: "increase, grow", example: "Demand diminished after the price increase.", exampleThai: "ความต้องการลดลงหลังการขึ้นราคา" },
+        { word: "disclose", pos: "v.", thai: "เปิดเผยข้อมูล", meaningEn: "to make known information that was secret", syn: "reveal, release, make public", ant: "conceal, withhold", example: "Employees must not disclose client information.", exampleThai: "พนักงานต้องไม่เปิดเผยข้อมูลลูกค้า" },
+        { word: "dispose", pos: "v.", thai: "กำจัดทิ้ง", meaningEn: "to get rid of something, especially waste", syn: "discard, throw away, get rid of", ant: "keep, retain", example: "Dispose of used batteries in the marked container.", exampleThai: "ทิ้งแบตเตอรี่ใช้แล้วในภาชนะที่ทำเครื่องหมายไว้" },
+        { word: "eliminate", pos: "v.", thai: "กำจัดออกไป", meaningEn: "to remove something completely", syn: "remove, get rid of, eradicate", ant: "add, include", example: "The new process eliminated most manual checks.", exampleThai: "กระบวนการใหม่กำจัดการตรวจสอบด้วยมือออกไปเกือบทั้งหมด" },
+        { word: "ensure", pos: "v.", thai: "ทำให้แน่ใจว่า", meaningEn: "to make certain that something happens", syn: "make sure, guarantee, secure", example: "Please ensure all doors are locked before leaving.", exampleThai: "กรุณาตรวจให้แน่ใจว่าประตูทุกบานล็อกก่อนออกจากอาคาร" },
+        { word: "exceed", pos: "v.", thai: "เกินกว่า", meaningEn: "to be greater than a particular number or limit", syn: "surpass, go beyond, top", ant: "fall short of", example: "Sales exceeded the forecast by twelve percent.", exampleThai: "ยอดขายเกินกว่าที่คาดการณ์ไว้ร้อยละสิบสอง" },
+        { word: "exempt", pos: "adj./v.", thai: "ได้รับการยกเว้น", meaningEn: "free from a rule, payment, or duty that applies to others", syn: "excused, released, immune", ant: "liable, subject to", example: "Nonprofit groups are exempt from this fee.", exampleThai: "องค์กรไม่แสวงหากำไรได้รับการยกเว้นค่าธรรมเนียมนี้" },
+        { word: "expedite", pos: "v.", thai: "เร่งให้เร็วขึ้น", meaningEn: "to make a process happen more quickly", syn: "speed up, accelerate, hasten", ant: "delay, slow down", example: "We paid extra to expedite the shipment.", exampleThai: "เราจ่ายเพิ่มเพื่อเร่งการจัดส่ง" },
+        { word: "finalize", pos: "v.", thai: "ทำให้เสร็จสมบูรณ์", meaningEn: "to complete the last part of a plan or agreement", syn: "complete, conclude, wrap up", example: "We will finalize the contract on Monday.", exampleThai: "เราจะทำสัญญาให้เสร็จสมบูรณ์ในวันจันทร์" }
+      ]
+    },
+    {
+      day: 91,
+      theme: "Part 5 Verbs (4)",
+      words: [
+        { word: "generate", pos: "v.", thai: "สร้าง/ก่อให้เกิด", meaningEn: "to produce or cause something, especially energy, income, or interest", syn: "produce, create, bring in", example: "The campaign generated hundreds of new leads.", exampleThai: "แคมเปญสร้างรายชื่อลูกค้าเป้าหมายใหม่หลายร้อยราย" },
+        { word: "incur", pos: "v.", thai: "ก่อให้เกิด (ค่าใช้จ่าย/หนี้)", meaningEn: "to experience something unpleasant, especially costs or debt, as a result of your actions", syn: "suffer, run up, sustain", example: "Late payment will incur an additional charge.", exampleThai: "การชำระล่าช้าจะทำให้เกิดค่าธรรมเนียมเพิ่มเติม" },
+        { word: "initiate", pos: "v.", thai: "ริเริ่ม", meaningEn: "to cause something to begin", syn: "start, launch, begin", ant: "conclude, terminate", example: "The manager initiated a review of all suppliers.", exampleThai: "ผู้จัดการริเริ่มการทบทวนผู้จัดหาสินค้าทั้งหมด" },
+        { word: "integrate", pos: "v.", thai: "ผสานรวมเข้าด้วยกัน", meaningEn: "to combine things so that they work together as one", syn: "combine, merge, incorporate", ant: "separate, divide", example: "The two systems were integrated over the weekend.", exampleThai: "ระบบทั้งสองถูกผสานรวมกันในช่วงสุดสัปดาห์" },
+        { word: "introduce", pos: "v.", thai: "แนะนำ/นำมาใช้ใหม่", general: "แนะนำคนให้รู้จักกัน หรือ นำสิ่งใหม่มาใช้เป็นครั้งแรก", meaningEn: "to make people known to each other, or to bring something into use for the first time", syn: "present, launch, bring in", example: "The company introduced flexible hours last year.", exampleThai: "บริษัทนำเวลาทำงานที่ยืดหยุ่นมาใช้เมื่อปีที่แล้ว" },
+        { word: "justify", pos: "v.", thai: "ให้เหตุผลสนับสนุน", meaningEn: "to give a good reason for something you have done", syn: "defend, explain, support", example: "The savings justify the initial investment.", exampleThai: "เงินที่ประหยัดได้คุ้มค่ากับการลงทุนเริ่มต้น" },
+        { word: "modify", pos: "v.", thai: "ปรับเปลี่ยน", meaningEn: "to change something slightly to improve it or make it more suitable", syn: "adjust, alter, revise", example: "The design was modified after customer feedback.", exampleThai: "การออกแบบถูกปรับเปลี่ยนหลังได้รับความเห็นจากลูกค้า" },
+        { word: "monitor", pos: "v.", thai: "ติดตามตรวจสอบ", meaningEn: "to watch and check something over a period of time", syn: "track, observe, oversee", example: "Supervisors monitor output throughout the shift.", exampleThai: "หัวหน้างานติดตามผลผลิตตลอดกะ" },
+        { word: "nominate", pos: "v.", thai: "เสนอชื่อ", meaningEn: "to formally suggest someone for a position or award", syn: "propose, put forward, name", example: "She was nominated for the service excellence award.", exampleThai: "เธอได้รับการเสนอชื่อชิงรางวัลความเป็นเลิศด้านบริการ" },
+        { word: "operate", pos: "v.", thai: "ดำเนินงาน/ควบคุมเครื่อง", general: "ดำเนินธุรกิจ หรือ ควบคุมเครื่องจักร / ผ่าตัด", meaningEn: "to run a business or machine, or to perform surgery", syn: "run, manage, work", example: "The company operates in twelve countries.", exampleThai: "บริษัทดำเนินงานในสิบสองประเทศ" }
+      ]
+    },
+    {
+      day: 92,
+      theme: "Part 5 Verbs (5)",
+      words: [
+        { word: "oversee", pos: "v.", thai: "กำกับดูแล", meaningEn: "to watch over work to make sure it is done properly", syn: "supervise, manage, superintend", example: "A senior engineer oversees the installation.", exampleThai: "วิศวกรอาวุโสกำกับดูแลการติดตั้ง" },
+        { word: "precede", pos: "v.", thai: "เกิดขึ้นก่อน", meaningEn: "to come or happen before something else", syn: "come before, lead up to", ant: "follow, succeed", example: "A short reception precedes the awards ceremony.", exampleThai: "งานเลี้ยงรับรองสั้นๆ จัดขึ้นก่อนพิธีมอบรางวัล" },
+        { word: "pursue", pos: "v.", thai: "ไล่ตาม/ดำเนินการต่อ", meaningEn: "to continue trying to achieve something over time", syn: "chase, follow up, strive for", ant: "abandon", example: "The firm decided not to pursue the claim.", exampleThai: "บริษัทตัดสินใจไม่ดำเนินการเรียกร้องต่อ" },
+        { word: "reduce", pos: "v.", thai: "ลดลง", meaningEn: "to make something smaller in size, amount, or price", syn: "lower, cut, decrease", ant: "increase, raise", example: "We reduced packaging waste by half.", exampleThai: "เราลดขยะบรรจุภัณฑ์ลงครึ่งหนึ่ง" },
+        { word: "refer", pos: "v.", thai: "อ้างถึง/ส่งต่อ", general: "กล่าวถึงหรือค้นดู หรือ ส่งตัวไปหาผู้เชี่ยวชาญ", meaningEn: "to mention or look at something for information, or to send someone to a specialist", syn: "mention, consult, direct", example: "Please refer to page four of the handbook.", exampleThai: "กรุณาดูหน้าสี่ของคู่มือ" },
+        { word: "reflect", pos: "v.", thai: "สะท้อน/แสดงให้เห็น", general: "สะท้อนแสงหรือภาพ หรือ แสดงให้เห็นถึงสภาพความจริง", meaningEn: "to show or be a sign of something, or to send back light or an image", syn: "show, indicate, mirror", example: "The figures reflect a strong second quarter.", exampleThai: "ตัวเลขสะท้อนให้เห็นไตรมาสที่สองที่แข็งแกร่ง" },
+        { word: "reject", pos: "v.", thai: "ปฏิเสธไม่รับ", meaningEn: "to refuse to accept or agree to something", syn: "turn down, refuse, decline", ant: "accept, approve", example: "The proposal was rejected on cost grounds.", exampleThai: "ข้อเสนอถูกปฏิเสธด้วยเหตุผลด้านต้นทุน" },
+        { word: "renew", pos: "v.", thai: "ต่ออายุ", meaningEn: "to extend something so it continues, such as a contract or licence", syn: "extend, continue, prolong", ant: "cancel, terminate", example: "Remember to renew your membership before June.", exampleThai: "อย่าลืมต่ออายุสมาชิกก่อนเดือนมิถุนายน" },
+        { word: "replace", pos: "v.", thai: "แทนที่/เปลี่ยนใหม่", meaningEn: "to put something new in the place of something old or damaged", syn: "substitute, change, swap", example: "We will replace the faulty unit free of charge.", exampleThai: "เราจะเปลี่ยนเครื่องที่ชำรุดให้ใหม่โดยไม่คิดค่าใช้จ่าย" },
+        { word: "request", pos: "v./n.", thai: "ขอ/คำขอ", meaningEn: "to ask for something politely or formally, or the act of asking", syn: "ask for, apply for, appeal", example: "He requested an extension of the deadline.", exampleThai: "เขาขอขยายกำหนดเวลา" }
+      ]
+    },
+    {
+      day: 93,
+      theme: "Part 5 Nouns (1)",
+      words: [
+        { word: "approval", pos: "n.", thai: "การอนุมัติ", meaningEn: "official permission, or a good opinion of something", syn: "authorization, consent, endorsement", ant: "rejection, disapproval", example: "The budget is awaiting approval from head office.", exampleThai: "งบประมาณกำลังรอการอนุมัติจากสำนักงานใหญ่" },
+        { word: "assistance", pos: "n.", thai: "ความช่วยเหลือ", meaningEn: "help or support given to someone", syn: "help, support, aid", example: "Technical assistance is available around the clock.", exampleThai: "มีบริการช่วยเหลือทางเทคนิคตลอดยี่สิบสี่ชั่วโมง" },
+        { word: "assumption", pos: "n.", thai: "ข้อสันนิษฐาน", meaningEn: "something believed to be true without proof", syn: "belief, presumption, supposition", example: "The forecast is based on an assumption of steady growth.", exampleThai: "การคาดการณ์ตั้งอยู่บนข้อสันนิษฐานว่าจะเติบโตอย่างคงที่" },
+        { word: "attendance", pos: "n.", thai: "การเข้าร่วม/จำนวนผู้เข้าร่วม", meaningEn: "the act of being present, or the number of people present", syn: "presence, turnout", ant: "absence", example: "Attendance at the safety briefing is compulsory.", exampleThai: "การเข้าร่วมการชี้แจงด้านความปลอดภัยเป็นข้อบังคับ" },
+        { word: "authority", pos: "n.", thai: "อำนาจหน้าที่/หน่วยงานราชการ", general: "อำนาจในการสั่งการ หรือ หน่วยงานที่มีอำนาจ / ผู้เชี่ยวชาญ", meaningEn: "the power to make decisions, or an official organization with such power", syn: "power, jurisdiction, agency", example: "Only the branch manager has the authority to approve refunds.", exampleThai: "เฉพาะผู้จัดการสาขาเท่านั้นที่มีอำนาจอนุมัติการคืนเงิน" },
+        { word: "capacity", pos: "n.", thai: "ความจุ/ขีดความสามารถ", general: "ปริมาณที่รองรับได้ หรือ ความสามารถ / บทบาทหน้าที่", meaningEn: "the amount something can hold or produce, or a person's role or ability", syn: "volume, capability, role", example: "The plant is running at full capacity.", exampleThai: "โรงงานเดินเครื่องเต็มกำลังการผลิต" },
+        { word: "certificate", pos: "n.", thai: "ใบรับรอง", meaningEn: "an official document proving a fact or a completed course", syn: "document, diploma, credential", example: "A certificate is issued on completion of the course.", exampleThai: "ใบรับรองจะออกให้เมื่อเรียนจบหลักสูตร" },
+        { word: "commitment", pos: "n.", thai: "ความมุ่งมั่น/ภาระผูกพัน", meaningEn: "a promise to do something, or willingness to give time and effort", syn: "pledge, obligation, dedication", example: "The company reaffirmed its commitment to safety.", exampleThai: "บริษัทยืนยันความมุ่งมั่นด้านความปลอดภัยอีกครั้ง" },
+        { word: "competition", pos: "n.", thai: "การแข่งขัน", meaningEn: "the activity of trying to be more successful than others, or a contest", syn: "rivalry, contest, tournament", example: "Competition in the retail sector has intensified.", exampleThai: "การแข่งขันในภาคค้าปลีกทวีความเข้มข้นขึ้น" },
+        { word: "cooperation", pos: "n.", thai: "ความร่วมมือ", meaningEn: "the act of working together toward a shared goal", syn: "collaboration, teamwork, partnership", ant: "conflict, opposition", example: "Thank you for your cooperation during the audit.", exampleThai: "ขอบคุณสำหรับความร่วมมือระหว่างการตรวจสอบ" }
+      ]
+    },
+    {
+      day: 94,
+      theme: "Part 5 Nouns (2)",
+      words: [
+        { word: "consumption", pos: "n.", thai: "การบริโภค/การใช้ไป", meaningEn: "the amount of something used, or the act of using or eating it", syn: "usage, use, intake", example: "Energy consumption fell after the upgrade.", exampleThai: "การใช้พลังงานลดลงหลังการอัปเกรด" },
+        { word: "delegation", pos: "n.", thai: "คณะผู้แทน/การมอบอำนาจ", general: "กลุ่มผู้แทนที่ถูกส่งไป หรือ การมอบหมายอำนาจให้ผู้อื่น", meaningEn: "a group sent to represent others, or the act of giving work to someone else", syn: "deputation, mission / assignment", example: "A delegation from the parent company visited the plant.", exampleThai: "คณะผู้แทนจากบริษัทแม่มาเยี่ยมชมโรงงาน" },
+        { word: "department", pos: "n.", thai: "แผนก", meaningEn: "a section of a company, shop, or organization", syn: "division, unit, section", example: "The accounting department is on the fourth floor.", exampleThai: "แผนกบัญชีอยู่ชั้นสี่" },
+        { word: "description", pos: "n.", thai: "คำอธิบายลักษณะ", meaningEn: "a statement saying what someone or something is like", syn: "account, portrayal, outline", example: "The job description lists five main duties.", exampleThai: "คำบรรยายลักษณะงานระบุหน้าที่หลักห้าข้อ" },
+        { word: "development", pos: "n.", thai: "การพัฒนา/ความคืบหน้า", meaningEn: "the process of growing or improving, or a new event in a situation", syn: "growth, progress, advance", example: "We will inform you of any further developments.", exampleThai: "เราจะแจ้งให้คุณทราบหากมีความคืบหน้าเพิ่มเติม" },
+        { word: "distribution", pos: "n.", thai: "การกระจายสินค้า/การแจกจ่าย", meaningEn: "the process of delivering goods to shops and customers, or of sharing something out", syn: "delivery, supply, allocation", example: "The company handles distribution across Southeast Asia.", exampleThai: "บริษัทดูแลการกระจายสินค้าทั่วเอเชียตะวันออกเฉียงใต้" },
+        { word: "division", pos: "n.", thai: "ฝ่าย/การแบ่ง", general: "หน่วยงานย่อยขนาดใหญ่ในองค์กร หรือ การแบ่งแยกออกจากกัน", meaningEn: "a large section of an organization, or the act of separating into parts", syn: "branch, department, separation", example: "The consumer products division reported record sales.", exampleThai: "ฝ่ายสินค้าอุปโภคบริโภครายงานยอดขายสูงเป็นประวัติการณ์" },
+        { word: "documentation", pos: "n.", thai: "เอกสารประกอบ", meaningEn: "the documents that provide official information or proof", syn: "paperwork, records, papers", example: "Please submit all supporting documentation with the claim.", exampleThai: "กรุณาส่งเอกสารประกอบทั้งหมดพร้อมกับคำเรียกร้อง" },
+        { word: "emphasis", pos: "n.", thai: "การเน้นความสำคัญ", meaningEn: "special importance given to something", syn: "stress, focus, priority", example: "The training places emphasis on customer safety.", exampleThai: "การอบรมเน้นความสำคัญที่ความปลอดภัยของลูกค้า" },
+        { word: "employee", pos: "n.", thai: "ลูกจ้าง/พนักงาน", meaningEn: "a person who is paid to work for a company", syn: "worker, staff member", ant: "employer", example: "Every employee receives an annual performance review.", exampleThai: "พนักงานทุกคนได้รับการประเมินผลงานประจำปี" }
+      ]
+    },
+    {
+      day: 95,
+      theme: "Part 5 Nouns (3)",
+      words: [
+        { word: "enterprise", pos: "n.", thai: "กิจการ/ความริเริ่มกล้าเสี่ยง", general: "บริษัทหรือกิจการ หรือ ความกล้าริเริ่มลงมือทำ", meaningEn: "a company or business project, or the willingness to start new things", syn: "business, venture, company", example: "The government supports small and medium enterprises.", exampleThai: "รัฐบาลสนับสนุนวิสาหกิจขนาดกลางและขนาดย่อม" },
+        { word: "exception", pos: "n.", thai: "ข้อยกเว้น", meaningEn: "someone or something not included in a general rule", syn: "special case, exclusion", example: "No exceptions will be made to the refund policy.", exampleThai: "จะไม่มีข้อยกเว้นสำหรับนโยบายการคืนเงิน" },
+        { word: "expertise", pos: "n.", thai: "ความเชี่ยวชาญ", meaningEn: "a high level of knowledge or skill in a particular area", syn: "know-how, proficiency, mastery", example: "We hired a consultant for his legal expertise.", exampleThai: "เราจ้างที่ปรึกษาเพราะความเชี่ยวชาญด้านกฎหมายของเขา" },
+        { word: "experience", pos: "n.", thai: "ประสบการณ์", meaningEn: "knowledge or skill gained from doing something over time", syn: "background, practice, know-how", example: "The role requires five years of relevant experience.", exampleThai: "ตำแหน่งนี้ต้องการประสบการณ์ที่เกี่ยวข้องห้าปี" },
+        { word: "figure", pos: "n.", thai: "ตัวเลข/รูปร่าง", general: "ตัวเลขทางสถิติ หรือ รูปร่างของคน / บุคคลสำคัญ", meaningEn: "a number, especially in official statistics, or a shape or important person", syn: "number, statistic, amount", example: "The sales figures for March were encouraging.", exampleThai: "ตัวเลขยอดขายเดือนมีนาคมน่าพอใจ" },
+        { word: "function", pos: "n./v.", thai: "หน้าที่การทำงาน/ทำงาน", general: "หน้าที่หรือการทำงานของสิ่งใด หรือ งานเลี้ยงสังสรรค์อย่างเป็นทางการ", meaningEn: "the purpose something serves or how it works, or a formal social event", syn: "purpose, role, operate / event", example: "This button controls the search function.", exampleThai: "ปุ่มนี้ควบคุมฟังก์ชันการค้นหา" },
+        { word: "guarantee", pos: "n./v.", thai: "การรับประกัน/รับรอง", meaningEn: "a promise that something will be done or will work, or to make such a promise", syn: "warranty, assurance, promise", example: "The laptop comes with a two-year guarantee.", exampleThai: "โน้ตบุ๊กมาพร้อมการรับประกันสองปี" },
+        { word: "improvement", pos: "n.", thai: "การปรับปรุงให้ดีขึ้น", meaningEn: "the act of making something better, or a change that makes it better", syn: "enhancement, upgrade, progress", ant: "deterioration", example: "There has been a marked improvement in delivery times.", exampleThai: "มีการปรับปรุงเวลาจัดส่งอย่างเห็นได้ชัด" },
+        { word: "industry", pos: "n.", thai: "อุตสาหกรรม", meaningEn: "the companies and activities involved in producing a type of goods or service", syn: "sector, trade, business", example: "He has worked in the hotel industry for a decade.", exampleThai: "เขาทำงานในอุตสาหกรรมโรงแรมมาสิบปี" },
+        { word: "installation", pos: "n.", thai: "การติดตั้ง", meaningEn: "the act of putting equipment in place ready for use", syn: "setup, fitting, assembly", example: "Installation of the new server takes about four hours.", exampleThai: "การติดตั้งเซิร์ฟเวอร์ใหม่ใช้เวลาราวสี่ชั่วโมง" }
+      ]
+    },
+    {
+      day: 96,
+      theme: "Part 5 Nouns (4)",
+      words: [
+        { word: "instruction", pos: "n.", thai: "คำแนะนำวิธีทำ/คำสั่ง", meaningEn: "information telling you how to do something, or an order", syn: "direction, guidance, order", example: "Follow the instructions printed on the label.", exampleThai: "ปฏิบัติตามคำแนะนำที่พิมพ์อยู่บนฉลาก" },
+        { word: "insurance", pos: "n.", thai: "การประกันภัย", meaningEn: "an arrangement in which you pay a company to cover possible losses", syn: "cover, coverage, protection", example: "Travel insurance is included in the package.", exampleThai: "ประกันการเดินทางรวมอยู่ในแพ็กเกจแล้ว" },
+        { word: "management", pos: "n.", thai: "ฝ่ายบริหาร/การบริหาร", meaningEn: "the people who run an organization, or the act of controlling it", syn: "administration, leadership, executives", example: "Management approved the revised schedule.", exampleThai: "ฝ่ายบริหารอนุมัติตารางเวลาที่แก้ไขแล้ว" },
+        { word: "manufacturer", pos: "n.", thai: "ผู้ผลิต", meaningEn: "a company that produces goods in large numbers", syn: "producer, maker, factory", example: "Contact the manufacturer for replacement parts.", exampleThai: "ติดต่อผู้ผลิตเพื่อขออะไหล่ทดแทน" },
+        { word: "objective", pos: "n./adj.", thai: "วัตถุประสงค์/เป็นกลาง", general: "เป้าหมายที่ตั้งไว้ หรือ การตัดสินโดยไม่ใช้ความรู้สึกส่วนตัว", meaningEn: "a goal you aim to achieve, or based on facts rather than personal feelings", syn: "goal, aim, target / impartial", ant: "subjective", example: "The main objective is to cut delivery time in half.", exampleThai: "วัตถุประสงค์หลักคือลดเวลาจัดส่งลงครึ่งหนึ่ง" },
+        { word: "occasion", pos: "n.", thai: "โอกาส/เหตุการณ์สำคัญ", meaningEn: "a particular time when something happens, or a special event", syn: "event, time, instance", example: "The dinner marked a special occasion for the staff.", exampleThai: "งานเลี้ยงอาหารค่ำเป็นโอกาสพิเศษสำหรับพนักงาน" },
+        { word: "operation", pos: "n.", thai: "การดำเนินงาน/การผ่าตัด", general: "การดำเนินงานของธุรกิจหรือเครื่องจักร หรือ การผ่าตัด", meaningEn: "the way a business or machine runs, or a medical procedure", syn: "running, functioning, activity", example: "Daily operations continue during the renovation.", exampleThai: "การดำเนินงานประจำวันยังคงดำเนินต่อระหว่างการปรับปรุง" },
+        { word: "opportunity", pos: "n.", thai: "โอกาสที่ดี", meaningEn: "a situation that makes it possible to do something you want", syn: "chance, opening, prospect", example: "The merger created new opportunities for staff.", exampleThai: "การควบรวมกิจการสร้างโอกาสใหม่ให้พนักงาน" },
+        { word: "option", pos: "n.", thai: "ตัวเลือก", meaningEn: "something you can choose to do or have", syn: "choice, alternative, possibility", example: "Customers have the option of paying in installments.", exampleThai: "ลูกค้ามีตัวเลือกในการผ่อนชำระ" },
+        { word: "permission", pos: "n.", thai: "การอนุญาต", meaningEn: "the act of allowing someone to do something", syn: "consent, authorization, approval", ant: "refusal, prohibition", example: "You need written permission to access the archive.", exampleThai: "คุณต้องมีการอนุญาตเป็นลายลักษณ์อักษรเพื่อเข้าถึงคลังเอกสาร" }
+      ]
+    },
+    {
+      day: 97,
+      theme: "Part 5 Adjectives (1)",
+      words: [
+        { word: "annual", pos: "adj.", thai: "ประจำปี", meaningEn: "happening once every year", syn: "yearly, once-a-year", example: "The annual report will be published in March.", exampleThai: "รายงานประจำปีจะเผยแพร่ในเดือนมีนาคม" },
+        { word: "available", pos: "adj.", thai: "มีให้ใช้/ว่างพร้อม", meaningEn: "able to be obtained or used, or free to meet someone", syn: "obtainable, accessible, free", ant: "unavailable, occupied", example: "The report is available on the shared drive.", exampleThai: "รายงานมีอยู่ในไดรฟ์ที่ใช้ร่วมกัน" },
+        { word: "beneficial", pos: "adj.", thai: "เป็นประโยชน์", meaningEn: "having a good effect or bringing an advantage", syn: "helpful, advantageous, useful", ant: "harmful, damaging", example: "The partnership proved beneficial to both firms.", exampleThai: "ความร่วมมือพิสูจน์แล้วว่าเป็นประโยชน์ต่อทั้งสองบริษัท" },
+        { word: "comprehensive", pos: "adj.", thai: "ครอบคลุมครบถ้วน", meaningEn: "including everything that is needed", syn: "complete, thorough, all-inclusive", ant: "partial, limited", example: "The policy offers comprehensive coverage.", exampleThai: "กรมธรรม์ให้ความคุ้มครองที่ครอบคลุมครบถ้วน" },
+        { word: "consecutive", pos: "adj.", thai: "ติดต่อกัน", meaningEn: "following one after another without a break", syn: "successive, in a row, continuous", example: "Sales rose for the fifth consecutive quarter.", exampleThai: "ยอดขายเพิ่มขึ้นเป็นไตรมาสที่ห้าติดต่อกัน" },
+        { word: "considerable", pos: "adj.", thai: "มากพอสมควร", meaningEn: "large in amount, size, or importance", syn: "substantial, significant, sizeable", ant: "negligible, slight", example: "The project required considerable investment.", exampleThai: "โครงการต้องใช้เงินลงทุนจำนวนมากพอสมควร" },
+        { word: "dependable", pos: "adj.", thai: "พึ่งพาได้", meaningEn: "able to be trusted to do what is needed", syn: "reliable, trustworthy, steady", ant: "unreliable", example: "We need a dependable supplier for this component.", exampleThai: "เราต้องการผู้จัดหาที่พึ่งพาได้สำหรับชิ้นส่วนนี้" },
+        { word: "desirable", pos: "adj.", thai: "เป็นที่ต้องการ/พึงปรารถนา", meaningEn: "worth having or wanting", syn: "sought-after, attractive, preferable", ant: "undesirable", example: "A second language is desirable but not required.", exampleThai: "ภาษาที่สองเป็นที่ต้องการแต่ไม่ใช่ข้อบังคับ" },
+        { word: "exceptional", pos: "adj.", thai: "ยอดเยี่ยมเป็นพิเศษ", general: "ดีเยี่ยมกว่าปกติมาก หรือ เป็นกรณีพิเศษที่ไม่ปกติ", meaningEn: "unusually good, or unusual and not typical", syn: "outstanding, remarkable, extraordinary", ant: "ordinary, average", example: "She received a bonus for exceptional performance.", exampleThai: "เธอได้รับโบนัสจากผลงานที่ยอดเยี่ยมเป็นพิเศษ" },
+        { word: "extensive", pos: "adj.", thai: "กว้างขวาง/ครอบคลุมมาก", meaningEn: "covering a large area or including a lot of detail", syn: "wide-ranging, broad, thorough", ant: "limited, narrow", example: "The candidate has extensive experience in logistics.", exampleThai: "ผู้สมัครมีประสบการณ์กว้างขวางด้านโลจิสติกส์" }
+      ]
+    },
+    {
+      day: 98,
+      theme: "Part 5 Adjectives (2)",
+      words: [
+        { word: "feasible", pos: "adj.", thai: "เป็นไปได้ในทางปฏิบัติ", meaningEn: "possible to do successfully", syn: "practical, workable, achievable", ant: "impractical, unworkable", example: "The timeline is tight but feasible.", exampleThai: "กรอบเวลากระชั้นแต่เป็นไปได้" },
+        { word: "identical", pos: "adj.", thai: "เหมือนกันทุกประการ", meaningEn: "exactly the same in every detail", syn: "same, indistinguishable, matching", ant: "different, distinct", example: "The two invoices are identical apart from the date.", exampleThai: "ใบแจ้งหนี้สองใบเหมือนกันทุกประการยกเว้นวันที่" },
+        { word: "impressive", pos: "adj.", thai: "น่าประทับใจ", meaningEn: "causing admiration because of quality or scale", syn: "remarkable, striking, admirable", ant: "unimpressive", example: "The team delivered impressive results this quarter.", exampleThai: "ทีมงานส่งมอบผลลัพธ์ที่น่าประทับใจในไตรมาสนี้" },
+        { word: "inclusive", pos: "adj.", thai: "รวมทุกอย่าง/เปิดรับทุกคน", meaningEn: "including everything mentioned, or welcoming to all people", syn: "all-in, comprehensive, welcoming", ant: "exclusive", example: "The price is inclusive of tax and delivery.", exampleThai: "ราคานี้รวมภาษีและค่าจัดส่งแล้ว" },
+        { word: "mandatory", pos: "adj.", thai: "บังคับ ต้องทำ", meaningEn: "required by a rule or law", syn: "compulsory, obligatory, required", ant: "optional, voluntary", example: "Attendance at the briefing is mandatory.", exampleThai: "การเข้าร่วมการชี้แจงเป็นข้อบังคับ" },
+        { word: "numerous", pos: "adj.", thai: "จำนวนมาก", meaningEn: "existing in large numbers", syn: "many, countless, plentiful", ant: "few", example: "Numerous complaints were received about the delay.", exampleThai: "ได้รับข้อร้องเรียนจำนวนมากเกี่ยวกับความล่าช้า" },
+        { word: "obsolete", pos: "adj.", thai: "ล้าสมัยเลิกใช้แล้ว", meaningEn: "no longer used because something newer exists", syn: "outdated, out of date, superseded", ant: "current, modern", example: "The old model became obsolete within two years.", exampleThai: "รุ่นเก่าล้าสมัยภายในสองปี" },
+        { word: "optional", pos: "adj.", thai: "ไม่บังคับ เลือกได้", meaningEn: "something you can choose to do or not do", syn: "voluntary, discretionary", ant: "mandatory, compulsory", example: "The evening session is optional.", exampleThai: "ช่วงเย็นเป็นทางเลือก ไม่บังคับ" },
+        { word: "preliminary", pos: "adj.", thai: "เบื้องต้น", meaningEn: "happening before the main part, in preparation for it", syn: "initial, introductory, early", ant: "final, conclusive", example: "Preliminary results suggest a strong response.", exampleThai: "ผลเบื้องต้นบ่งชี้ว่าได้รับการตอบรับที่ดี" },
+        { word: "previous", pos: "adj.", thai: "ก่อนหน้านี้", meaningEn: "happening or existing before the one being talked about", syn: "earlier, prior, preceding", ant: "following, subsequent", example: "Please refer to the previous version of the manual.", exampleThai: "กรุณาดูคู่มือฉบับก่อนหน้านี้" }
+      ]
+    },
+    {
+      day: 99,
+      theme: "Part 5 Adverbs (1)",
+      words: [
+        { word: "accordingly", pos: "adv.", thai: "ตามนั้น/ดังนั้น", meaningEn: "in a way that suits the situation, or as a result", syn: "correspondingly, therefore, consequently", example: "Costs have risen, and prices were adjusted accordingly.", exampleThai: "ต้นทุนสูงขึ้น และราคาจึงถูกปรับตามนั้น" },
+        { word: "additionally", pos: "adv.", thai: "นอกจากนี้", meaningEn: "used to add another piece of information", syn: "also, moreover, furthermore", example: "Additionally, all staff will receive new ID cards.", exampleThai: "นอกจากนี้ พนักงานทุกคนจะได้รับบัตรประจำตัวใหม่" },
+        { word: "alternatively", pos: "adv.", thai: "หรืออีกทางหนึ่ง", meaningEn: "used to suggest another possibility", syn: "otherwise, instead, or else", example: "Alternatively, you may collect the item in store.", exampleThai: "หรืออีกทางหนึ่ง คุณสามารถมารับสินค้าที่ร้านได้" },
+        { word: "approximately", pos: "adv.", thai: "ประมาณ", meaningEn: "close to a particular number but not exactly", syn: "about, roughly, around", ant: "exactly, precisely", example: "The repair will take approximately three hours.", exampleThai: "การซ่อมจะใช้เวลาประมาณสามชั่วโมง" },
+        { word: "consequently", pos: "adv.", thai: "ดังนั้น/เป็นผลให้", meaningEn: "as a result of something that happened before", syn: "therefore, as a result, thus", example: "The supplier failed to deliver; consequently, production stopped.", exampleThai: "ผู้จัดหาสินค้าส่งของไม่ทัน เป็นผลให้การผลิตหยุดลง" },
+        { word: "currently", pos: "adv.", thai: "ในขณะนี้", meaningEn: "at the present time", syn: "now, at present, at the moment", example: "We are currently reviewing all applications.", exampleThai: "ขณะนี้เรากำลังพิจารณาใบสมัครทั้งหมด" },
+        { word: "eventually", pos: "adv.", thai: "ในที่สุด", meaningEn: "in the end, especially after a long time or delay", syn: "finally, in the end, ultimately", example: "The dispute was eventually settled out of court.", exampleThai: "ข้อพิพาทได้รับการยุติในที่สุดนอกชั้นศาล" },
+        { word: "frequently", pos: "adv.", thai: "บ่อยครั้ง", meaningEn: "happening often", syn: "often, regularly, repeatedly", ant: "rarely, seldom", example: "This question is asked frequently by new clients.", exampleThai: "คำถามนี้ถูกถามบ่อยครั้งโดยลูกค้าใหม่" },
+        { word: "gradually", pos: "adv.", thai: "อย่างค่อยเป็นค่อยไป", meaningEn: "slowly over a period of time", syn: "steadily, little by little, progressively", ant: "suddenly, abruptly", example: "Output increased gradually over six months.", exampleThai: "ผลผลิตเพิ่มขึ้นอย่างค่อยเป็นค่อยไปตลอดหกเดือน" },
+        { word: "immediately", pos: "adv.", thai: "ทันที", meaningEn: "at once, without any delay", syn: "at once, instantly, right away", ant: "later, eventually", example: "Report any leak to maintenance immediately.", exampleThai: "แจ้งการรั่วไหลใดๆ ให้ฝ่ายซ่อมบำรุงทราบทันที" }
+      ]
+    },
+    {
+      day: 100,
+      theme: "Part 5 Adverbs (2)",
+      words: [
+        { word: "nearly", pos: "adv.", thai: "เกือบ", meaningEn: "almost but not completely", syn: "almost, virtually, practically", example: "Nearly all the seats were taken.", exampleThai: "ที่นั่งเกือบทั้งหมดถูกจองแล้ว" },
+        { word: "originally", pos: "adv.", thai: "เดิมที", meaningEn: "at the beginning, before any changes", syn: "initially, at first, formerly", example: "The event was originally planned for June.", exampleThai: "เดิมทีงานถูกวางแผนไว้ในเดือนมิถุนายน" },
+        { word: "previously", pos: "adv.", thai: "ก่อนหน้านี้", meaningEn: "before the time being talked about", syn: "formerly, earlier, before", ant: "subsequently, later", example: "She previously worked for a logistics firm.", exampleThai: "ก่อนหน้านี้เธอทำงานให้บริษัทโลจิสติกส์" },
+        { word: "rarely", pos: "adv.", thai: "ไม่ค่อย/นานๆ ครั้ง", meaningEn: "not often", syn: "seldom, hardly ever, infrequently", ant: "often, frequently", example: "The machine rarely breaks down.", exampleThai: "เครื่องจักรเสียนานๆ ครั้ง" },
+        { word: "recently", pos: "adv.", thai: "เมื่อไม่นานมานี้", meaningEn: "a short time ago", syn: "lately, not long ago, of late", example: "The policy was recently updated.", exampleThai: "นโยบายเพิ่งได้รับการปรับปรุงเมื่อไม่นานมานี้" },
+        { word: "relatively", pos: "adv.", thai: "ค่อนข้าง (เมื่อเทียบกับ)", meaningEn: "in comparison with something else", syn: "comparatively, fairly, somewhat", example: "Costs remain relatively low in this region.", exampleThai: "ต้นทุนยังค่อนข้างต่ำในภูมิภาคนี้" },
+        { word: "separately", pos: "adv.", thai: "แยกต่างหาก", meaningEn: "apart from other things, not together", syn: "individually, apart, independently", ant: "together, jointly", example: "The invoice will be sent separately by email.", exampleThai: "ใบแจ้งหนี้จะถูกส่งแยกต่างหากทางอีเมล" },
+        { word: "shortly", pos: "adv.", thai: "ในไม่ช้า", meaningEn: "soon, in a short time", syn: "soon, before long, presently", example: "The manager will be with you shortly.", exampleThai: "ผู้จัดการจะมาพบคุณในไม่ช้า" },
+        { word: "significantly", pos: "adv.", thai: "อย่างมีนัยสำคัญ", meaningEn: "by a large enough amount to be important or noticed", syn: "considerably, substantially, markedly", ant: "slightly, marginally", example: "Waiting times fell significantly after the change.", exampleThai: "เวลารอลดลงอย่างมีนัยสำคัญหลังการเปลี่ยนแปลง" },
+        { word: "ultimately", pos: "adv.", thai: "ในท้ายที่สุด", meaningEn: "finally, after everything else has happened", syn: "eventually, in the end, finally", example: "Ultimately, the decision rests with the board.", exampleThai: "ในท้ายที่สุด การตัดสินใจขึ้นอยู่กับคณะกรรมการ" }
       ]
     }
   ]

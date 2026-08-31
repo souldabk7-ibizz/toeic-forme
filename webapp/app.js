@@ -175,7 +175,7 @@
     var due = dueWordsToday().map(function (d) { return d.word; });
     var vocabPool = due.length ? due : shuffle(allWords().map(function (w) { return w.word; })).slice(0, 10);
     var vocabItems = buildQuizFromWords(vocabPool, 8).map(function (it) {
-      return { text: it.prompt, kind: "vocab", choices: it.choices, answer: it.answer, picked: null };
+      return { text: it.prompt, kind: "vocab", word: it.word, choices: it.choices, answer: it.answer, picked: null };
     });
     var dayCount = Math.max(0, daysBetween(profile.startDate, todayKey()));
     var lesson = GRAMMAR.lessons[dayCount % GRAMMAR.lessons.length];
@@ -371,6 +371,8 @@
           });
           if (item.picked === item.answer) correct++;
         });
+        /* only the vocab items carry a `word`, so misses feed the retest list */
+        recordAnswers(dashboardQuiz.filter(function (i) { return i.kind === "vocab" && i.word; }));
         var tests = loadDailyTests();
         tests[dateKey] = { score: correct, total: dashboardQuiz.length };
         saveDailyTests(tests);
@@ -719,9 +721,43 @@
   function loadReviewScores() { return getJSON(REVIEW_KEY, {}); }
   function saveReviewScores(obj) { setJSON(REVIEW_KEY, obj); }
 
-  var REVIEW_SIZES = [5, 10];
-  var REVIEW_QUESTIONS = { 5: 20, 10: 30 };
-  var reviewState = { size: 5, block: null, quiz: null };
+  var REVIEW_SIZES = [5, 10, 20];
+  var REVIEW_QUESTIONS = { 5: 20, 10: 30, 20: 40 };
+  var reviewState = { size: 5, block: null, quiz: null, special: null };
+
+  /* Words answered wrongly are remembered so they can be drilled again.
+     A later correct answer clears one miss, so a word leaves the list once
+     it has been recovered as often as it was missed. */
+  var MISSED_KEY = "toeic_missed_v1";
+  function loadMissed() { return getJSON(MISSED_KEY, {}); }
+  function recordAnswers(quiz) {
+    var missed = loadMissed();
+    quiz.forEach(function (item) {
+      if (item.picked === item.answer) {
+        if (missed[item.word]) {
+          missed[item.word] -= 1;
+          if (missed[item.word] <= 0) delete missed[item.word];
+        }
+      } else {
+        missed[item.word] = (missed[item.word] || 0) + 1;
+      }
+    });
+    setJSON(MISSED_KEY, missed);
+  }
+  function missedWords() {
+    var missed = loadMissed();
+    var out = [];
+    VOCAB.days.forEach(function (d) {
+      d.words.forEach(function (w) { if (missed[w.word]) out.push(w); });
+    });
+    return out;
+  }
+  function studiedWords() {
+    var arr = loadStudiedDays();
+    var out = [];
+    VOCAB.days.forEach(function (d) { if (arr.indexOf(d.day) !== -1) out = out.concat(d.words); });
+    return out;
+  }
 
   /* Split the whole vocabulary into consecutive blocks of `size` days. The
      final block absorbs the remainder when the total is not a multiple. */
@@ -757,6 +793,25 @@
     });
     html += "</div></div>";
 
+    /* two drills that are not tied to a day range */
+    var missed = missedWords();
+    var studied = studiedWords();
+    html += '<div class="card"><h3>ชุดพิเศษ</h3>';
+    html += '<div class="review-row">';
+    html += '<div class="review-row-main"><div class="review-row-title">คำที่เคยตอบผิด <span class="tiny-muted">(' + missed.length + " คำ)</span></div>";
+    html += '<div class="review-row-sub"><span class="tiny-muted">' + (missed.length
+      ? "ดึงเฉพาะคำที่เคยตอบผิด มาถามซ้ำจนกว่าจะจำได้"
+      : "ยังไม่มีคำที่ตอบผิดค้างอยู่ — ทำแบบทดสอบแล้วคำที่ผิดจะมาอยู่ตรงนี้") + "</span></div></div>";
+    html += '<button class="btn small' + (missed.length ? " primary" : "") + '" data-special="missed"' + (missed.length ? "" : " disabled") + ">เริ่มทดสอบ</button>";
+    html += "</div>";
+    html += '<div class="review-row">';
+    html += '<div class="review-row-main"><div class="review-row-title">รวมทุกวันที่ท่องแล้ว <span class="tiny-muted">(' + studied.length + " คำ)</span></div>";
+    html += '<div class="review-row-sub"><span class="tiny-muted">' + (studied.length >= 10
+      ? "สุ่ม 40 ข้อจากทุกวันที่ติ๊กว่าท่องแล้ว"
+      : "ติ๊กว่าท่องแล้วอย่างน้อย 1 วันก่อน") + "</span></div></div>";
+    html += '<button class="btn small" data-special="all"' + (studied.length >= 10 ? "" : " disabled") + ">เริ่มทดสอบ</button>";
+    html += "</div></div>";
+
     html += '<div class="card"><h3>เลือกช่วงที่จะทดสอบ</h3>';
     html += '<div class="tiny-muted">ท่องต่อเนื่องถึงวันที่ ' + studiedThrough + " แล้ว — ช่วงที่ท่องครบจะขึ้นว่า &ldquo;พร้อมทดสอบ&rdquo;</div>";
     html += '<div class="review-list">';
@@ -788,31 +843,55 @@
     html += "</div></div>";
 
     if (reviewState.quiz) {
-      var cur = blocks.filter(function (b) { return b.start === reviewState.block; })[0];
-      html += '<div class="card"><h3>ชุดทดสอบ: วันที่ ' + cur.start + "&ndash;" + cur.end + " (" + reviewState.quiz.length + " ข้อ)</h3>";
-      html += '<div class="tiny-muted">สุ่มจาก ' + cur.words.length + " คำในช่วงนี้ สลับ 4 รูปแบบคำถามเหมือน Quiz รายวัน</div></div>";
+      var title, sub;
+      if (reviewState.special === "missed") {
+        title = "คำที่เคยตอบผิด";
+        sub = "ถามซ้ำเฉพาะคำที่เคยพลาด ตอบถูกแล้วคำนั้นจะถูกตัดออกจากรายการ";
+      } else if (reviewState.special === "all") {
+        title = "รวมทุกวันที่ท่องแล้ว";
+        sub = "สุ่มจากทุกคำในวันที่คุณติ๊กว่าท่องแล้ว";
+      } else {
+        var cur = blocks.filter(function (b) { return b.start === reviewState.block; })[0];
+        title = "วันที่ " + cur.start + "&ndash;" + cur.end;
+        sub = "สุ่มจาก " + cur.words.length + " คำในช่วงนี้ สลับ 4 รูปแบบคำถามเหมือน Quiz รายวัน";
+      }
+      html += '<div class="card"><h3>ชุดทดสอบ: ' + title + " (" + reviewState.quiz.length + " ข้อ)</h3>";
+      html += '<div class="tiny-muted">' + sub + "</div></div>";
       html += renderReviewQuizBlock(reviewState.quiz);
     }
 
     root.innerHTML = html;
 
+    function startQuiz(quiz, special, block) {
+      reviewState.special = special || null;
+      reviewState.block = block === undefined ? null : block;
+      reviewState.quiz = quiz;
+      renderReview();
+      var el = $("#review-quiz-block");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
     $$("button[data-size]", root).forEach(function (b) {
       b.addEventListener("click", function () {
         reviewState.size = Number(b.dataset.size);
         reviewState.block = null;
+        reviewState.special = null;
         reviewState.quiz = null;
         renderReview();
+      });
+    });
+    $$("button[data-special]", root).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var pool = b.dataset.special === "missed" ? missedWords() : studiedWords();
+        if (!pool.length) return;
+        startQuiz(buildQuizFromWords(pool, Math.min(40, pool.length)), b.dataset.special);
       });
     });
     $$("button[data-block]", root).forEach(function (b) {
       b.addEventListener("click", function () {
         var start = Number(b.dataset.block);
         var blk = reviewBlocks(reviewState.size).filter(function (x) { return x.start === start; })[0];
-        reviewState.block = start;
-        reviewState.quiz = buildReviewQuiz(blk, reviewState.size);
-        renderReview();
-        var el = $("#review-quiz-block");
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        startQuiz(buildReviewQuiz(blk, reviewState.size), null, start);
       });
     });
 
@@ -856,25 +935,38 @@
       });
 
       var total = reviewState.quiz.length;
-      var scores = loadReviewScores();
-      var key = reviewKey(reviewState.size, reviewState.block);
-      var rec = scores[key] || { best: 0, total: total, attempts: 0, last: "" };
-      rec.attempts += 1;
-      rec.total = total;
-      rec.best = Math.max(rec.best, correct);
-      rec.last = todayKey();
-      scores[key] = rec;
-      saveReviewScores(scores);
+      recordAnswers(reviewState.quiz);
+
+      /* only the day-range blocks have a slot in the score table; the two
+         special drills vary in content each run, so a best score there would
+         not mean anything */
+      var rec = null;
+      if (!reviewState.special) {
+        var scores = loadReviewScores();
+        var key = reviewKey(reviewState.size, reviewState.block);
+        rec = scores[key] || { best: 0, total: total, attempts: 0, last: "" };
+        rec.attempts += 1;
+        rec.total = total;
+        rec.best = Math.max(rec.best, correct);
+        rec.last = todayKey();
+        scores[key] = rec;
+        saveReviewScores(scores);
+      }
 
       var pct = Math.round((correct / total) * 100);
       var msg = "ได้ " + correct + " / " + total + " ข้อ (" + pct + "%)";
       if (pct >= 80) msg += " — จำได้ดีมาก 🎉";
       else if (pct >= 60) msg += " — พอใช้ ควรทวนคำที่ผิดอีกรอบ";
       else msg += " — ควรกลับไปทบทวนช่วงนี้อีกครั้ง";
-      if (rec.best === correct && rec.attempts > 1) msg += " (คะแนนสูงสุดใหม่)";
+      if (rec && rec.best === correct && rec.attempts > 1) msg += " (คะแนนสูงสุดใหม่)";
 
       var out = $("#review-result");
-      out.innerHTML = msg + (wrong.length ? '<div class="tiny-muted" style="margin-top:6px">คำที่ตอบผิด: <b>' + wrong.join(", ") + "</b></div>" : "");
+      var extra = wrong.length ? '<div class="tiny-muted" style="margin-top:6px">คำที่ตอบผิด: <b>' + wrong.join(", ") + "</b></div>" : "";
+      if (reviewState.special === "missed") {
+        var left = missedWords().length;
+        extra += '<div class="tiny-muted" style="margin-top:6px">เหลือคำที่ต้องแก้อีก <b>' + left + "</b> คำ</div>";
+      }
+      out.innerHTML = msg + extra;
     });
   }
 
@@ -1035,6 +1127,7 @@
         if (item.picked === item.answer) correct++;
       });
       $("#quiz-result").textContent = "ได้ " + correct + " / " + vocabState.quiz.length + " ข้อ";
+      recordAnswers(vocabState.quiz);
 
       if (vocabState.mode === "day") {
         markDayStudied(vocabState.day);
