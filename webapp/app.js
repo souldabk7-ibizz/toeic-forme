@@ -1677,7 +1677,12 @@
     reviewState = { size: reviewState.size, block: null, quiz: null, special: null };
     vocabState.quiz = null;
     dashboardQuiz = null;
-    alert("ล้างเรียบร้อยแล้ว " + chosen.length + " ส่วน");
+    /* push the deletion out now rather than on the debounce, in case the
+       page is closed straight after */
+    var synced = false;
+    if (window.TOEIC_SYNC && window.TOEIC_SYNC.signedIn()) { window.TOEIC_SYNC.pushNow(); synced = true; }
+    alert("ล้างเรียบร้อยแล้ว " + chosen.length + " ส่วน" +
+      (synced ? "\nส่งการล้างขึ้นคลาวด์แล้ว เครื่องอื่นจะตามเมื่อเปิดครั้งถัดไป" : ""));
     renderHeaderBadge();
     renderProgress();
     return true;

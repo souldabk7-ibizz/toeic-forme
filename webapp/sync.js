@@ -79,11 +79,18 @@
     pushTimer = setTimeout(pushNow, 1500);
   }
 
+  /* The whole document is replaced, deliberately: with { merge: true }
+     Firestore merges the data map field by field, so a key deleted locally
+     stays in the cloud copy forever. The next device to pull — or this one
+     after its local timestamp falls behind — would then get the deleted
+     keys written straight back, which is exactly what made a reset appear
+     not to work. Last-write-wins over the whole blob, as the header says,
+     needs a full overwrite. */
   function pushNow() {
     if (!user) return;
     var now = Date.now();
     origSet(META_KEY, String(now));
-    docRef().set({ data: collectData(), updatedAt: now }, { merge: true })
+    docRef().set({ data: collectData(), updatedAt: now })
       .then(function () { setStatus("ซิงก์แล้ว · " + (user.email || "")); })
       .catch(function (e) { setStatus("ซิงก์ไม่สำเร็จ: " + (e && e.code)); });
   }
@@ -146,4 +153,13 @@
   });
 
   wireUI(function () { if (user) auth.signOut(); else signIn(); });
+
+  /* A reset deletes several keys at once and the user may well close or
+     reload the page straight after. The 1.5s debounce would lose that push,
+     leaving the cloud holding data the device no longer has — so the reset
+     path asks for an immediate one. */
+  window.TOEIC_SYNC = {
+    signedIn: function () { return !!user; },
+    pushNow: function () { clearTimeout(pushTimer); pushNow(); }
+  };
 })();
