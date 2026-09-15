@@ -421,3 +421,7 @@ svg.chart text { fill: var(--text-secondary); font-size: 10px; font-family: syst
 .reset-row.empty:hover { border-color: var(--border); }
 .btn.danger { border-color: color-mix(in srgb, var(--critical) 50%, transparent); color: var(--critical); }
 .btn.danger:hover { border-color: var(--critical); }
+
+/* build id, so the running deploy can be read off the screen when a cached
+   copy is suspected */
+.build-tag { color: var(--text-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
