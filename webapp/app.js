@@ -77,9 +77,18 @@
     return clampIndex(diff + 1, VOCAB.days.length);
   }
 
-  /* ---------- SRS (Leitner boxes) ---------- */
+  /* ---------- SRS (Leitner boxes) ----------
+     Six boxes rather than five: a word that has been recalled five times
+     still comes back after a month, which is where long-term retention is
+     actually won.
+     Grading has three levels instead of two. With only "known / not known"
+     a half-remembered word gets marked known, leaves the rotation early and
+     is gone two weeks later — the single most common reason vocabulary does
+     not stick. "เกือบได้" keeps the word at its current box instead. */
   var SRS_KEY = "toeic_srs_v1";
-  var INTERVALS = { 1: 1, 2: 2, 3: 4, 4: 7, 5: 14 };
+  var INTERVALS = { 1: 1, 2: 2, 3: 4, 4: 8, 5: 16, 6: 35 };
+  var MAX_BOX = 6;
+  var LEECH_LAPSES = 3; /* forgotten this many times = needs different treatment */
   function loadSRS() { return getJSON(SRS_KEY, {}); }
   var srs = loadSRS();
   function saveSRS() { setJSON(SRS_KEY, srs); }
@@ -96,11 +105,31 @@
     var s = wordState(text);
     return !s || s.due <= todayKey();
   }
-  function markWord(text, known) {
-    var s = wordState(text) || { box: 0 };
-    var box = known ? Math.min(5, (s.box || 0) + 1) : 1;
-    srs[text] = { box: box, due: addDays(todayKey(), INTERVALS[box]) };
+  /* level: "again" (forgot) | "hard" (half-remembered) | "good" (recalled) */
+  function markWord(text, level) {
+    var s = wordState(text) || { box: 0, lapses: 0 };
+    var box;
+    if (level === "again") {
+      box = 1;
+      s.lapses = (s.lapses || 0) + 1;
+    } else if (level === "hard") {
+      box = Math.max(1, s.box || 1); /* stays put — seen again on the same cycle */
+    } else {
+      box = Math.min(MAX_BOX, (s.box || 0) + 1);
+    }
+    srs[text] = { box: box, due: addDays(todayKey(), INTERVALS[box]), lapses: s.lapses || 0 };
     saveSRS();
+  }
+  /* words forgotten repeatedly — rote review is clearly not working on these */
+  function leechWords() {
+    var out = [];
+    VOCAB.days.forEach(function (d) {
+      d.words.forEach(function (w) {
+        var s = srs[w.word];
+        if (s && (s.lapses || 0) >= LEECH_LAPSES) out.push(w);
+      });
+    });
+    return out;
   }
   function dueWordsToday() {
     return allWords().filter(function (w) { return isDue(w.word.word); }).sort(function (a, b) {
@@ -407,27 +436,42 @@
   }
 
   /* ================= VOCAB ================= */
-  var vocabState = { day: currentVocabDay(), mode: "today", quiz: null, moreOpen: false };
+  var vocabState = { day: currentVocabDay(), mode: "today", quiz: null, moreOpen: false, reverse: false };
 
   function flashCardHTML(w) {
     var st = wordState(w.word);
     var box = st ? st.box : 0;
     var due = st ? st.due : "ยังไม่เคยเรียน";
-    return '<div class="flash-card">' +
-      '<div class="front-only"><div class="word">' + w.word + ' <button class="btn small no-flip speak-word" data-text="' + escapeAttr(w.word) + '" aria-label="ฟังคำอ่าน">🔊</button></div><div class="pos">' + w.pos + '</div></div>' +
+    var lapses = st ? (st.lapses || 0) : 0;
+
+    /* Reverse shows the Thai meaning first and asks you to produce the English
+       word. Recognising a word you are shown is much easier than retrieving it
+       from meaning, and only the harder direction is what the test needs. */
+    var front = vocabState.reverse
+      ? '<div class="front-only"><div class="word">' + w.thai + "</div><div class=\"pos\">" + w.pos + " &middot; นึกคำอังกฤษให้ได้ก่อนพลิก</div></div>"
+      : '<div class="front-only"><div class="word">' + w.word + ' <button class="btn small no-flip speak-word" data-text="' + escapeAttr(w.word) + '" aria-label="ฟังคำอ่าน">🔊</button></div><div class="pos">' + w.pos + "</div></div>";
+
+    var headline = vocabState.reverse
+      ? '<div><b>' + w.word + '</b> <button class="btn small no-flip speak-word" data-text="' + escapeAttr(w.word) + '" aria-label="ฟังคำอ่าน">🔊</button></div>'
+      : "<div><b>" + w.thai + "</b></div>";
+
+    return '<div class="flash-card' + (lapses >= LEECH_LAPSES ? " leech" : "") + '">' +
+      front +
       '<div class="back">' +
-      '<div><b>' + w.thai + '</b></div>' +
-      (w.general ? '<div class="tiny-muted">ความหมายทั่วไป: ' + w.general + '</div>' : '') +
-      (w.meaningEn ? '<div class="tiny-muted meaning-en"><i>' + w.meaningEn + '</i> <button class="btn small no-flip speak-meaning" data-text="' + escapeAttr(w.meaningEn) + '" aria-label="ฟังคำจำกัดความภาษาอังกฤษ">🔊</button></div>' : '') +
-      (w.syn ? '<div class="tiny-muted word-rel"><span class="rel-tag syn">คล้าย</span>' + w.syn + '</div>' : '') +
-      (w.ant ? '<div class="tiny-muted word-rel"><span class="rel-tag ant">ตรงข้าม</span>' + w.ant + '</div>' : '') +
+      headline +
+      (w.general ? '<div class="tiny-muted">ความหมายทั่วไป: ' + w.general + "</div>" : "") +
+      (w.meaningEn ? '<div class="tiny-muted meaning-en"><i>' + w.meaningEn + '</i> <button class="btn small no-flip speak-meaning" data-text="' + escapeAttr(w.meaningEn) + '" aria-label="ฟังคำจำกัดความภาษาอังกฤษ">🔊</button></div>' : "") +
+      (w.syn ? '<div class="tiny-muted word-rel"><span class="rel-tag syn">คล้าย</span>' + w.syn + "</div>" : "") +
+      (w.ant ? '<div class="tiny-muted word-rel"><span class="rel-tag ant">ตรงข้าม</span>' + w.ant + "</div>" : "") +
       '<div class="tiny-muted example-line">' + w.example + ' <button class="btn small no-flip speak-ex" data-text="' + escapeAttr(w.example) + '" aria-label="ฟังตัวอย่างประโยค">🔊</button></div>' +
-      '<div class="tiny-muted">' + w.exampleThai + '</div>' +
-      '<div class="box-tag">Box ' + box + ' &middot; ทวนครั้งถัดไป: ' + due + '</div>' +
+      '<div class="tiny-muted">' + w.exampleThai + "</div>" +
+      '<div class="box-tag">Box ' + box + " / " + MAX_BOX + " &middot; ทวนครั้งถัดไป: " + due +
+      (lapses ? ' &middot; <span class="lapse-tag">ลืมมาแล้ว ' + lapses + " ครั้ง</span>" : "") + "</div>" +
       '<div class="know-row">' +
-      '<button class="btn small know-yes">รู้แล้ว</button>' +
-      '<button class="btn small know-no">ยังไม่รู้</button>' +
-      '</div></div></div>';
+      '<button class="btn small know-again">ยังไม่รู้</button>' +
+      '<button class="btn small know-hard">เกือบได้</button>' +
+      '<button class="btn small know-good">รู้แล้ว</button>' +
+      "</div></div></div>";
   }
 
   function wireFlashCard(card, w, afterUpdate) {
@@ -435,12 +479,19 @@
       if (e.target.closest(".no-flip") || e.target.closest(".know-row")) return;
       card.classList.toggle("flipped");
     });
-    card.querySelector(".speak-word").addEventListener("click", function (e) { e.stopPropagation(); speak(w.word); });
+    $$(".speak-word", card).forEach(function (b) {
+      b.addEventListener("click", function (e) { e.stopPropagation(); speak(w.word); });
+    });
     var speakMeaning = card.querySelector(".speak-meaning");
     if (speakMeaning) speakMeaning.addEventListener("click", function (e) { e.stopPropagation(); speak(w.meaningEn); });
     card.querySelector(".speak-ex").addEventListener("click", function (e) { e.stopPropagation(); speak(w.example); });
-    card.querySelector(".know-yes").addEventListener("click", function (e) { e.stopPropagation(); markWord(w.word, true); afterUpdate(); });
-    card.querySelector(".know-no").addEventListener("click", function (e) { e.stopPropagation(); markWord(w.word, false); afterUpdate(); });
+    [["again", ".know-again"], ["hard", ".know-hard"], ["good", ".know-good"]].forEach(function (pair) {
+      card.querySelector(pair[1]).addEventListener("click", function (e) {
+        e.stopPropagation();
+        markWord(w.word, pair[0]);
+        afterUpdate();
+      });
+    });
   }
 
   function vocabStampHTML() {
@@ -478,10 +529,15 @@
 
     html += '<div class="card">';
     html += "<h2>ศัพท์ TOEIC</h2>";
-    html += '<div class="muted">ระบบ Leitner: กด &ldquo;รู้แล้ว&rdquo; คำนั้นจะเว้นระยะทวนนานขึ้นอัตโนมัติ กด &ldquo;ยังไม่รู้&rdquo; จะกลับมาทวนพรุ่งนี้</div>';
+    html += '<div class="muted">ก่อนพลิกการ์ด ให้<b>พูดคำตอบออกเสียงก่อนทุกครั้ง</b> — ช่วงที่สมองดิ้นรนนึกคือตอนที่มันจำ ถ้าพลิกทันทีคือข้ามขั้นตอนนั้นไป</div>';
+    html += '<div class="tiny-muted">ตอบตามจริง: ลังเลเกิน 3 วินาทีให้กด &ldquo;เกือบได้&rdquo; ไม่ใช่ &ldquo;รู้แล้ว&rdquo; — คำจะได้อยู่ในรอบทบทวนต่อ</div>';
     html += '<div class="btn-row">';
     html += '<button class="btn small' + (vocabState.mode === "today" ? " primary" : "") + '" data-mode="today">ทบทวนวันนี้ (' + due.length + ")</button>";
     html += '<button class="btn small' + (vocabState.mode === "day" ? " primary" : "") + '" data-mode="day">เรียนคำใหม่ตามวัน</button>';
+    html += "</div>";
+    html += '<div class="toggle-row">';
+    html += '<label class="ios-toggle"><input type="checkbox" id="reverse-toggle"' + (vocabState.reverse ? " checked" : "") + '><span class="slider"></span></label>';
+    html += '<span class="toggle-label">โหมดยาก: เห็นความหมายไทย นึกคำอังกฤษเอง</span>';
     html += "</div></div>";
 
     if (vocabState.mode === "today") {
@@ -540,6 +596,10 @@
 
     $$("button[data-mode]", root).forEach(function (b) {
       b.addEventListener("click", function () { vocabState.mode = b.dataset.mode; vocabState.quiz = null; renderVocab(); });
+    });
+    $("#reverse-toggle").addEventListener("change", function (e) {
+      vocabState.reverse = e.target.checked;
+      renderVocab();
     });
 
     var grid = $("#flash-grid");
@@ -804,6 +864,14 @@
       : "ยังไม่มีคำที่ตอบผิดค้างอยู่ — ทำแบบทดสอบแล้วคำที่ผิดจะมาอยู่ตรงนี้") + "</span></div></div>";
     html += '<button class="btn small' + (missed.length ? " primary" : "") + '" data-special="missed"' + (missed.length ? "" : " disabled") + ">เริ่มทดสอบ</button>";
     html += "</div>";
+    var leeches = leechWords();
+    html += '<div class="review-row">';
+    html += '<div class="review-row-main"><div class="review-row-title">คำที่ลืมซ้ำๆ <span class="tiny-muted">(' + leeches.length + " คำ)</span></div>";
+    html += '<div class="review-row-sub"><span class="tiny-muted">' + (leeches.length
+      ? "คำที่กด &ldquo;ยังไม่รู้&rdquo; มาแล้ว " + LEECH_LAPSES + " ครั้งขึ้นไป — การท่องซ้ำแบบเดิมไม่ได้ผลกับคำกลุ่มนี้"
+      : "ยังไม่มีคำที่ลืมซ้ำเกิน " + LEECH_LAPSES + " ครั้ง") + "</span></div></div>";
+    html += '<button class="btn small' + (leeches.length ? " primary" : "") + '" data-special="leech"' + (leeches.length ? "" : " disabled") + ">เริ่มทดสอบ</button>";
+    html += "</div>";
     html += '<div class="review-row">';
     html += '<div class="review-row-main"><div class="review-row-title">รวมทุกวันที่ท่องแล้ว <span class="tiny-muted">(' + studied.length + " คำ)</span></div>";
     html += '<div class="review-row-sub"><span class="tiny-muted">' + (studied.length >= 10
@@ -847,6 +915,9 @@
       if (reviewState.special === "missed") {
         title = "คำที่เคยตอบผิด";
         sub = "ถามซ้ำเฉพาะคำที่เคยพลาด ตอบถูกแล้วคำนั้นจะถูกตัดออกจากรายการ";
+      } else if (reviewState.special === "leech") {
+        title = "คำที่ลืมซ้ำๆ";
+        sub = "คำที่ลืมมาแล้วอย่างน้อย " + LEECH_LAPSES + " ครั้ง — ถ้ายังผิดอีก ให้เลิกท่องซ้ำแล้วไปหาวิธีจำใหม่ เช่น ผูกกับประโยคตัวอย่างหรือคำพ้อง";
       } else if (reviewState.special === "all") {
         title = "รวมทุกวันที่ท่องแล้ว";
         sub = "สุ่มจากทุกคำในวันที่คุณติ๊กว่าท่องแล้ว";
@@ -882,7 +953,9 @@
     });
     $$("button[data-special]", root).forEach(function (b) {
       b.addEventListener("click", function () {
-        var pool = b.dataset.special === "missed" ? missedWords() : studiedWords();
+        var pool = b.dataset.special === "missed" ? missedWords()
+          : b.dataset.special === "leech" ? leechWords()
+          : studiedWords();
         if (!pool.length) return;
         startQuiz(buildQuizFromWords(pool, Math.min(40, pool.length)), b.dataset.special);
       });

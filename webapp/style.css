@@ -229,8 +229,20 @@ select, input[type="date"], input[type="number"] {
 .flash-card.flipped .front-only { display: none; }
 .flash-card.flipped .back { display: block; }
 .flash-card .box-tag { font-size: 0.68rem; color: var(--text-muted); margin-top: 6px; }
-.flash-card .know-row { display: none; gap: 6px; margin-top: 8px; }
+.flash-card .know-row { display: none; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
 .flash-card.flipped .know-row { display: flex; }
+
+/* three grading levels, colour-coded so the honest middle option is easy to reach */
+.flash-card .know-again { border-color: color-mix(in srgb, var(--critical) 45%, transparent); color: var(--critical); }
+.flash-card .know-hard { border-color: color-mix(in srgb, var(--warning) 55%, transparent); color: var(--series-3); }
+.flash-card .know-good { border-color: color-mix(in srgb, var(--good) 45%, transparent); color: var(--good); }
+.flash-card .know-again:hover { border-color: var(--critical); }
+.flash-card .know-hard:hover { border-color: var(--series-3); }
+.flash-card .know-good:hover { border-color: var(--good); }
+
+/* a word forgotten repeatedly gets a visible marker so it stops hiding in the deck */
+.flash-card.leech { border-color: color-mix(in srgb, var(--critical) 40%, var(--border)); }
+.lapse-tag { color: var(--critical); font-weight: 700; }
 
 .q-block { border-top: 1px solid var(--gridline); padding: 12px 0; }
 .q-block:first-child { border-top: none; }
