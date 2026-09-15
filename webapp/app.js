@@ -1662,30 +1662,55 @@
     return html;
   }
 
+  /* Confirms, clears, and re-syncs in-memory state. Shared by the panel
+     button and the ?reset= link, so both go through the same confirm. */
+  function runReset(chosen) {
+    if (!chosen.length) { alert("ยังไม่ได้เลือกส่วนที่จะล้าง"); return false; }
+    var lines = chosen.map(function (g) { return "• " + g.label + " (" + groupCount(g) + " รายการ)"; });
+    if (!confirm("จะล้างข้อมูลต่อไปนี้ทิ้งถาวร กู้คืนไม่ได้\n\n" + lines.join("\n") + "\n\nยืนยันหรือไม่?")) return false;
+    chosen.forEach(function (g) {
+      groupKeys(g).forEach(function (k) { localStorage.removeItem(k); });
+    });
+    /* in-memory copies have to follow, or the next save writes them back */
+    srs = loadSRS();
+    profile = loadProfile();
+    reviewState = { size: reviewState.size, block: null, quiz: null, special: null };
+    vocabState.quiz = null;
+    dashboardQuiz = null;
+    alert("ล้างเรียบร้อยแล้ว " + chosen.length + " ส่วน");
+    renderHeaderBadge();
+    renderProgress();
+    return true;
+  }
+
+  function groupsById(ids) {
+    return ids.map(function (id) {
+      return RESET_GROUPS.filter(function (g) { return g.id === id; })[0];
+    }).filter(Boolean);
+  }
+
   function wireResetPanel() {
     var btn = $("#reset-run");
     if (!btn) return;
     btn.addEventListener("click", function () {
-      var chosen = $$(".reset-check").filter(function (c) { return c.checked; })
-        .map(function (c) {
-          return RESET_GROUPS.filter(function (g) { return g.id === c.dataset.group; })[0];
-        });
-      if (!chosen.length) { alert("ยังไม่ได้เลือกส่วนที่จะล้าง"); return; }
-      var lines = chosen.map(function (g) { return "• " + g.label + " (" + groupCount(g) + " รายการ)"; });
-      if (!confirm("จะล้างข้อมูลต่อไปนี้ทิ้งถาวร กู้คืนไม่ได้\n\n" + lines.join("\n") + "\n\nยืนยันหรือไม่?")) return;
-      chosen.forEach(function (g) {
-        groupKeys(g).forEach(function (k) { localStorage.removeItem(k); });
-      });
-      /* in-memory copies have to follow, or the next save writes them back */
-      srs = loadSRS();
-      profile = loadProfile();
-      reviewState = { size: reviewState.size, block: null, quiz: null, special: null };
-      vocabState.quiz = null;
-      dashboardQuiz = null;
-      alert("ล้างเรียบร้อยแล้ว " + chosen.length + " ส่วน");
-      renderHeaderBadge();
-      renderProgress();
+      runReset(groupsById($$(".reset-check").filter(function (c) { return c.checked; })
+        .map(function (c) { return c.dataset.group; })));
     });
+  }
+
+  /* ?reset=quiz,lessons clears those groups on load, for when the panel is
+     awkward to reach — a link on a phone beats four taps. It still goes
+     through the same confirm, and the query is dropped straight afterwards
+     so a refresh or a bookmark cannot repeat the clear silently. */
+  function handleResetLink() {
+    var m = /[?&]reset=([^&]*)/.exec(location.search);
+    if (!m) return;
+    history.replaceState(null, "", location.pathname + location.hash);
+    var ids = decodeURIComponent(m[1]).split(",").map(function (x) { return x.trim(); });
+    var chosen = groupsById(ids);
+    showTab("progress");
+    if (!chosen.length) { alert("ลิงก์รีเซ็ตไม่ถูกต้อง: ไม่รู้จักส่วน \"" + ids.join(", ") + "\""); return; }
+    runReset(chosen);
   }
 
   function renderProgress() {
@@ -1807,4 +1832,5 @@
 
   renderHeaderBadge();
   showTab(localStorage.getItem("toeic_last_tab") || "dashboard");
+  handleResetLink();
 })();
