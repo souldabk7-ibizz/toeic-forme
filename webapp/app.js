@@ -1052,10 +1052,6 @@
   };
   var grammarState = { track: "grammar", lesson: 1 };
 
-  var GRAMMAR_KEY = "toeic_grammar_v1";
-  function loadGrammarProgress() { return getJSON(GRAMMAR_KEY, {}); }
-  function saveGrammarProgress(obj) { setJSON(GRAMMAR_KEY, obj); }
-
   function trackLessons() { return LESSON_TRACKS[grammarState.track].data(); }
   function loadTrackProgress() { return getJSON(LESSON_TRACKS[grammarState.track].key, {}); }
   function saveTrackProgress(obj) { setJSON(LESSON_TRACKS[grammarState.track].key, obj); }
@@ -1564,6 +1560,134 @@
   }
 
   /* ================= PROGRESS ================= */
+  /* ================= reset =================
+     Practice history is worth clearing on purpose — an exercise answered
+     months ago tells you nothing about what you know today, and a stale
+     "missed words" list keeps drilling words that have since stuck. The
+     groups are separate because clearing a quiz score is cheap while
+     clearing the Leitner boxes or the studied-day ticks throws away
+     progress that took weeks to build, so those are off by default and
+     spelt out before they go. */
+  var RESET_GROUPS = [
+    {
+      id: "quiz", safe: true,
+      label: "แบบทดสอบคำศัพท์",
+      note: "คะแนนชุดทบทวนรวม 5 / 10 / 20 วัน และรายการคำที่เคยตอบผิด",
+      keys: [REVIEW_KEY, MISSED_KEY]
+    },
+    {
+      id: "lessons", safe: true,
+      label: "แบบฝึกหัดท้ายบทเรียน",
+      note: "บทไวยากรณ์และบทศัพท์จะกลับไปเป็น “ยังไม่เรียน” พร้อมทำแบบฝึกหัดใหม่",
+      keys: [LESSON_TRACKS.grammar.key, LESSON_TRACKS.vocab.key]
+    },
+    {
+      id: "daily", safe: true,
+      label: "แบบทดสอบประจำวันและเช็กลิสต์",
+      note: "ผลแบบทดสอบในหน้า “วันนี้” ย้อนหลัง และเช็กลิสต์กิจกรรมรายวัน",
+      keys: [DAILY_TEST_KEY], prefixes: ["toeic_steps_"]
+    },
+    {
+      id: "mock", safe: true,
+      label: "ข้อสอบชุดเต็ม (Mock)",
+      note: "ประวัติการทำข้อสอบชุดเต็มทั้งหมด",
+      keys: [MOCK_HISTORY_KEY]
+    },
+    {
+      id: "srs", safe: false,
+      label: "ความจำคำศัพท์ (กล่อง Leitner)",
+      note: "ล้างกล่อง กำหนดวันทวน และจำนวนครั้งที่ลืมของทุกคำ — ศัพท์ทั้งหมดจะกลับไปเริ่มนับใหม่",
+      keys: [SRS_KEY]
+    },
+    {
+      id: "studied", safe: false,
+      label: "วันที่ติ๊กว่าท่องแล้ว",
+      note: "ตัวนับว่าท่องถึงวันไหนจะกลับไปเริ่มที่วันที่ 1",
+      keys: [VOCAB_STUDIED_KEY]
+    },
+    {
+      id: "scores", safe: false,
+      label: "บันทึกผลสอบจำลอง",
+      note: "ตารางและกราฟคะแนนในหน้านี้",
+      keys: [SCORES_KEY]
+    }
+  ];
+
+  function groupKeys(g) {
+    var keys = g.keys.slice();
+    (g.prefixes || []).forEach(function (pre) {
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && k.indexOf(pre) === 0) keys.push(k);
+      }
+    });
+    return keys;
+  }
+
+  /* How much is actually stored, so the panel can say "ยังไม่มีข้อมูล"
+     instead of offering to clear nothing. Counting parses the raw value
+     rather than going through getJSON, which takes the expected shape from
+     its fallback and would reject every array-valued key here. */
+  function groupCount(g) {
+    var n = 0;
+    groupKeys(g).forEach(function (k) {
+      var raw = localStorage.getItem(k);
+      if (raw === null) return;
+      var v;
+      try { v = JSON.parse(raw); } catch (e) { n += 1; return; }
+      if (Array.isArray(v)) n += v.length;
+      else if (v && typeof v === "object") n += Object.keys(v).length;
+      else if (v !== null) n += 1;
+    });
+    return n;
+  }
+
+  function buildResetPanel() {
+    var html = '<div class="muted">ล้างผลที่เคยทำไว้เพื่อเริ่มทบทวนใหม่ เลือกเฉพาะส่วนที่ต้องการ — ตัวคำศัพท์ บทเรียน และข้อสอบยังอยู่ครบ ล้างเฉพาะ “ผลที่เคยทำ” เท่านั้น</div>';
+    html += '<div class="reset-list">';
+    RESET_GROUPS.forEach(function (g) {
+      var n = groupCount(g);
+      html += '<label class="reset-row' + (g.safe ? "" : " danger") + (n ? "" : " empty") + '">';
+      html += '<input type="checkbox" class="reset-check" data-group="' + g.id + '"' +
+        (g.safe && n ? " checked" : "") + (n ? "" : " disabled") + ">";
+      html += '<span class="reset-text"><span class="reset-label">' + g.label +
+        (g.safe ? "" : ' <span class="reset-warn">ระวัง</span>') + "</span>";
+      html += '<span class="reset-note">' + g.note + "</span>";
+      html += '<span class="reset-count">' + (n ? n + " รายการที่บันทึกไว้" : "ยังไม่มีข้อมูล") + "</span>";
+      html += "</span></label>";
+    });
+    html += "</div>";
+    html += '<div class="btn-row"><button class="btn danger" id="reset-run">ล้างส่วนที่เลือก</button></div>';
+    html += '<div class="tiny-muted">ถ้าเปิดซิงก์คลาวด์ไว้ การล้างจะถูกส่งขึ้นคลาวด์ด้วย เครื่องอื่นที่ล็อกอินบัญชีเดียวกันจะถูกล้างตาม</div>';
+    return html;
+  }
+
+  function wireResetPanel() {
+    var btn = $("#reset-run");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var chosen = $$(".reset-check").filter(function (c) { return c.checked; })
+        .map(function (c) {
+          return RESET_GROUPS.filter(function (g) { return g.id === c.dataset.group; })[0];
+        });
+      if (!chosen.length) { alert("ยังไม่ได้เลือกส่วนที่จะล้าง"); return; }
+      var lines = chosen.map(function (g) { return "• " + g.label + " (" + groupCount(g) + " รายการ)"; });
+      if (!confirm("จะล้างข้อมูลต่อไปนี้ทิ้งถาวร กู้คืนไม่ได้\n\n" + lines.join("\n") + "\n\nยืนยันหรือไม่?")) return;
+      chosen.forEach(function (g) {
+        groupKeys(g).forEach(function (k) { localStorage.removeItem(k); });
+      });
+      /* in-memory copies have to follow, or the next save writes them back */
+      srs = loadSRS();
+      profile = loadProfile();
+      reviewState = { size: reviewState.size, block: null, quiz: null, special: null };
+      vocabState.quiz = null;
+      dashboardQuiz = null;
+      alert("ล้างเรียบร้อยแล้ว " + chosen.length + " ส่วน");
+      renderHeaderBadge();
+      renderProgress();
+    });
+  }
+
   function renderProgress() {
     var root = $("#tab-progress");
     var scores = loadScores();
@@ -1582,6 +1706,8 @@
 
     html += '<div class="card"><h3>ตารางบันทึกผล</h3>' + buildScoreTable(scores) + '</div>';
 
+    html += '<div class="card"><h2>รีเซ็ตแบบฝึกหัดที่เคยทำ</h2>' + buildResetPanel() + '</div>';
+
     root.innerHTML = html;
 
     $("#score-add").addEventListener("click", function () {
@@ -1593,6 +1719,8 @@
       renderProgress();
       renderHeaderBadge();
     });
+
+    wireResetPanel();
   }
 
   function buildScoreTable(scores) {

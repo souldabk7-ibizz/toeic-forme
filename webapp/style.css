@@ -397,3 +397,27 @@ table.data-table th { color: var(--text-muted); font-weight: 600; }
 .app-footer { text-align: center; color: var(--text-muted); font-size: 0.72rem; padding: 14px; }
 
 svg.chart text { fill: var(--text-secondary); font-size: 10px; font-family: system-ui, sans-serif; }
+
+/* ---- reset panel (Progress tab) ---- */
+.reset-list { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+.reset-row {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px; border: 1px solid var(--border);
+  border-radius: var(--radius); cursor: pointer;
+}
+.reset-row:hover { border-color: var(--text-muted); }
+.reset-row input { margin-top: 3px; flex: 0 0 auto; accent-color: var(--critical); }
+.reset-text { display: flex; flex-direction: column; gap: 2px; }
+.reset-label { font-weight: 700; font-size: 0.9rem; }
+.reset-note { color: var(--text-secondary); font-size: 0.8rem; line-height: 1.45; }
+.reset-count { color: var(--text-muted); font-size: 0.72rem; }
+.reset-row.danger { border-color: color-mix(in srgb, var(--critical) 35%, var(--border)); }
+.reset-warn {
+  color: var(--critical); font-size: 0.68rem; font-weight: 700;
+  border: 1px solid color-mix(in srgb, var(--critical) 45%, transparent);
+  border-radius: 999px; padding: 1px 6px; vertical-align: 2px;
+}
+.reset-row.empty { opacity: 0.5; cursor: default; }
+.reset-row.empty:hover { border-color: var(--border); }
+.btn.danger { border-color: color-mix(in srgb, var(--critical) 50%, transparent); color: var(--critical); }
+.btn.danger:hover { border-color: var(--critical); }
