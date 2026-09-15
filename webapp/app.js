@@ -583,7 +583,7 @@
       }).join("") + "</select>";
       html += '<button class="btn small" id="mark-through-btn">ทำเครื่องหมายว่าท่องถึงวันนี้ (วันที่ 1&ndash;' + dayData.day + ')</button>';
       html += "</div>";
-      html += '<div class="tiny-muted">' + VOCAB.days.length + " วัน x 10 คำ — เรียนวันละชุด แล้วคำจะเข้าระบบทบทวนอัตโนมัติที่โหมด &ldquo;ทบทวนวันนี้&rdquo;</div>";
+      html += '<div class="tiny-muted">' + VOCAB.days.length + " วัน &middot; รวม " + totalVocabWordCount() + " คำ (วันที่ 1-56 วันละ 10 คำ ตั้งแต่วันที่ 57 เหลือวันละ 5 คำ เพื่อให้จำได้แม่นขึ้น) — เรียนวันละชุด แล้วคำจะเข้าระบบทบทวนอัตโนมัติที่โหมด &ldquo;ทบทวนวันนี้&rdquo;</div>";
       html += "</details>";
       html += "</div>";
 
@@ -658,16 +658,38 @@
      Questions rotate through four formats and draw distractors from words
      that share the prompt word's part of speech (and theme where possible),
      so wrong choices cannot be eliminated on shape alone. */
-  var QUIZ_FORMATS = ["th", "en", "def", "cloze"];
+  /* Two of these mirror question types the real test actually uses:
+     "cloze" is Part 5's incomplete-sentence item (one blank, four options of
+     the same part of speech, so the choice turns on meaning rather than
+     grammar), and "syn" is Part 7's "the word X is closest in meaning to".
+     "th", "en" and "def" are memorisation drills, not exam formats — they
+     are here because recall has to be built before it can be tested, and
+     they are labelled as drills rather than dressed up as exam questions. */
+  var QUIZ_FORMATS = ["cloze", "syn", "def", "en", "th"];
   var CHOICE_COUNT = 4;
+
+  /* The leading synonym, used as the answer to a Part 7-style item. */
+  function firstSyn(w) {
+    if (!w.syn) return null;
+    var first = w.syn.split(/[,\/]/)[0].trim();
+    if (!first || first.split(/\s+/).length > 2) return null;
+    if (first.toLowerCase() === w.word.toLowerCase()) return null;
+    return first;
+  }
+
+  /* "n./v." and "n." are the same part of speech for choice-building. */
+  function primaryPos(pos) { return String(pos || "").split("/")[0].trim(); }
 
   /* Pick distractor words, closest-matching first: same theme + pos, then
      same pos, then anything.
      `labelOf` keeps the displayed choices distinct. `conflictOf` rules out
      words that would also correctly answer the prompt — necessary because
      several words share a Thai meaning (deny/refuse, evaluate/assess), so a
-     "pick the English word for ปฏิเสธ" question must not offer both. */
-  function pickDistractors(correct, entries, labelOf, conflictOf, count) {
+     "pick the English word for ปฏิเสธ" question must not offer both.
+     `rejects` is a further per-candidate veto for cases a single comparable
+     value cannot express, such as a Part 7 distractor that happens to sit in
+     the target's own synonym list. */
+  function pickDistractors(correct, entries, labelOf, conflictOf, count, strictPos, rejects) {
     var correctLabel = labelOf(correct);
     var correctConflict = conflictOf(correct);
     var taken = {};
@@ -677,7 +699,8 @@
       if (e.word.word === correct.word) return false;
       var label = labelOf(e.word);
       if (!label || label === correctLabel) return false;
-      return conflictOf(e.word) !== correctConflict;
+      if (conflictOf(e.word) !== correctConflict) return !rejects || !rejects(e.word, label);
+      return false;
     });
 
     var correctEntry = null;
@@ -686,11 +709,18 @@
     }
     var theme = correctEntry ? correctEntry.theme : null;
 
+    /* Part 5 options are always the same part of speech — the question is
+       which word means the right thing, not which one fits the slot — so a
+       strict caller drops the catch-all tier. Entries like "n./v." are
+       compared on their leading tag, or the handful of words carrying a rare
+       combination would have no same-pos company and fall through. */
+    var wantPos = primaryPos(correct.pos);
+    var samePos = eligible.filter(function (e) { return primaryPos(e.word.pos) === wantPos; });
     var tiers = [
-      eligible.filter(function (e) { return e.theme === theme && e.word.pos === correct.pos; }),
-      eligible.filter(function (e) { return e.word.pos === correct.pos; }),
-      eligible
+      samePos.filter(function (e) { return e.theme === theme; }),
+      samePos
     ];
+    if (!strictPos || samePos.length < count) tiers.push(eligible);
 
     var out = [];
     for (var t = 0; t < tiers.length && out.length < count; t++) {
@@ -703,6 +733,16 @@
       }
     }
     return out;
+  }
+
+  /* Underline the target word where it sits in its own example, for the
+     Part 7-style item — the point of that question is reading the word in
+     context, so the sentence has to stay intact. */
+  function highlightWord(w) {
+    var escaped = w.word.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    var re = new RegExp("\\b" + escaped + "(?:s|es|ed|d|ing)?\\b", "i");
+    if (!re.test(w.example)) return w.example + ' <b><u>' + w.word + "</u></b>";
+    return w.example.replace(re, function (m) { return "<b><u>" + m + "</u></b>"; });
   }
 
   /* Blank out the target word in its own example sentence. Returns null when
@@ -721,41 +761,79 @@
     return null;
   }
 
+  /* A day now holds five words rather than ten, so the quiz asks each word
+     more than once instead of getting shorter: every pass over the pool uses
+     a different format for a given word, which is also better for recall
+     than one look at ten separate words. */
   function buildQuizFromWords(pool, limit) {
     var entries = allWords();
-    var picks = shuffle(pool).slice(0, Math.min(limit || 10, pool.length));
+    var want = Math.min(limit || 10, pool.length * QUIZ_FORMATS.length);
+    var picks = [];
+    for (var round = 0; picks.length < want; round++) {
+      var order = shuffle(pool);
+      for (var j = 0; j < order.length && picks.length < want; j++) {
+        picks.push({ word: order[j], format: QUIZ_FORMATS[(j + round) % QUIZ_FORMATS.length] });
+      }
+    }
 
-    return picks.map(function (correct, i) {
-      var format = QUIZ_FORMATS[i % QUIZ_FORMATS.length];
-      var sentence = null;
+    return picks.map(function (pick) {
+      var correct = pick.word;
+      var format = pick.format;
+      var sentence = null, syn = null;
 
       if (format === "cloze") {
         sentence = clozeSentence(correct);
-        if (!sentence) format = "def";
+        if (!sentence) format = "syn";
+      }
+      if (format === "syn") {
+        syn = firstSyn(correct);
+        if (!syn || !correct.example) format = "def";
       }
       if (format === "def" && !correct.meaningEn) format = "th";
 
-      /* "th" asks for the Thai meaning; every other format asks for the
-         English word, so choices are Thai labels only in the "th" case.
-         conflictOf marks what would make a distractor a second valid answer:
-         for "def" that is an identical English definition, otherwise an
-         identical Thai meaning. */
-      var wantsThai = format === "th";
-      var labelOf = wantsThai
-        ? function (w) { return w.thai; }
-        : function (w) { return w.word; };
+      /* "th" asks for the Thai meaning, "syn" for a word of similar meaning;
+         every other format asks for the English word itself, so choices are
+         Thai labels only in the "th" case. conflictOf marks what would make a
+         distractor a second valid answer: for "def" that is an identical
+         English definition, otherwise an identical Thai meaning. */
+      var labelOf;
+      if (format === "th") labelOf = function (w) { return w.thai; };
+      else if (format === "syn") labelOf = firstSyn;
+      else labelOf = function (w) { return w.word; };
       var conflictOf = format === "def"
         ? function (w) { return w.meaningEn; }
         : function (w) { return w.thai; };
 
       var prompt;
-      if (format === "cloze") prompt = sentence + ' <span class="tiny-muted">(เติมคำที่หายไป)</span>';
-      else if (format === "def") prompt = "<i>" + correct.meaningEn + "</i>";
-      else if (format === "en") prompt = correct.thai;
-      else prompt = correct.word;
+      if (format === "cloze") {
+        prompt = sentence + ' <span class="tiny-muted">(เติมคำที่หายไป)</span>';
+      } else if (format === "syn") {
+        prompt = highlightWord(correct) +
+          ' <span class="tiny-muted">(คำที่ขีดเส้นใต้ใกล้เคียงกับข้อใดมากที่สุด)</span>';
+      } else if (format === "def") {
+        prompt = "<i>" + correct.meaningEn + "</i>";
+      } else if (format === "en") {
+        prompt = correct.thai;
+      } else {
+        prompt = correct.word;
+      }
 
+      /* Part 5 and Part 7 both offer four options of one part of speech. */
+      var strictPos = format === "cloze" || format === "syn";
+      /* "closest in meaning" has exactly one answer only if no other option
+         is also a synonym of the target — agenda's answer is "schedule", so
+         "plan" cannot be offered beside it. */
+      var rejects = null;
+      if (format === "syn") {
+        var own = {};
+        (correct.syn || "").split(/[,\/]/).forEach(function (x) {
+          x = x.trim().toLowerCase();
+          if (x) own[x] = true;
+        });
+        rejects = function (w, label) { return own[String(label).toLowerCase()] === true; };
+      }
       var correctLabel = labelOf(correct);
-      var distractors = pickDistractors(correct, entries, labelOf, conflictOf, CHOICE_COUNT - 1);
+      var distractors = pickDistractors(correct, entries, labelOf, conflictOf, CHOICE_COUNT - 1, strictPos, rejects);
       var choices = shuffle([correctLabel].concat(distractors.map(labelOf)));
 
       return {
@@ -1156,10 +1234,11 @@
   }
 
   var QUIZ_FORMAT_TAGS = {
-    th: '<span class="pill blue">ความหมายไทย</span>',
-    en: '<span class="pill aqua">เลือกคำอังกฤษ</span>',
-    def: '<span class="pill">นิยามอังกฤษ</span>',
-    cloze: '<span class="pill yellow">เติมคำในประโยค</span>'
+    th: '<span class="pill blue">ฝึกจำ: ความหมายไทย</span>',
+    en: '<span class="pill aqua">ฝึกจำ: เลือกคำอังกฤษ</span>',
+    def: '<span class="pill">ฝึกจำ: นิยามอังกฤษ</span>',
+    cloze: '<span class="pill yellow">แนว Part 5: เติมคำในประโยค</span>',
+    syn: '<span class="pill yellow">แนว Part 7: คำที่ความหมายใกล้เคียง</span>'
   };
 
   function renderQuizBlock(quiz) {
