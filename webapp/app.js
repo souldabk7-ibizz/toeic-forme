@@ -1388,11 +1388,172 @@
   /* ================= READING ================= */
   var readingState = { week: Math.min(currentWeek(), READING.weeks.length) };
 
+  /* ================= Part 5 timed sprint =================
+     Part 5 is where the reading section is won or lost on the clock: 30
+     questions in about 12 minutes, or Part 7 goes unfinished. Practising the
+     questions without the clock trains the wrong thing, so this drill is the
+     clock — it draws 30 sentence-completion items from every Part 5-shaped
+     pool already in the app and shows pace, not just score. */
+  var SPRINT_KEY = "toeic_p5sprint_v1";
+  var SPRINT_COUNT = 30;
+  var SPRINT_SECONDS = 12 * 60;
+  var sprintState = { items: null, endsAt: 0, tick: null, graded: false, elapsed: 0 };
+
+  function sprintPool() {
+    var out = [], seen = {};
+    function take(item) {
+      if (!item || !item.sentence || !item.choices || item.choices.length !== 4) return;
+      if (typeof item.answer !== "number") return;
+      var key = item.sentence.trim();
+      if (seen[key]) return;
+      seen[key] = true;
+      out.push(item);
+    }
+    MOCK.sets.forEach(function (set) { ((set.reading || {}).part5 || []).forEach(take); });
+    READING.weeks.forEach(function (w) { (w.part5 || []).forEach(take); });
+    /* end-of-lesson practice is written in the same one-blank shape */
+    GRAMMAR.lessons.forEach(function (l) { l.practice.forEach(take); });
+    return out;
+  }
+
+  function loadSprint() { return getJSON(SPRINT_KEY, {}); }
+
+  function startSprint() {
+    var pool = sprintPool();
+    sprintState.items = shuffle(pool).slice(0, Math.min(SPRINT_COUNT, pool.length)).map(function (q) {
+      return { sentence: q.sentence, choices: q.choices, answer: q.answer, picked: null };
+    });
+    sprintState.endsAt = Date.now() + SPRINT_SECONDS * 1000;
+    sprintState.graded = false;
+    sprintState.elapsed = 0;
+    renderReading();
+  }
+
+  function sprintRemaining() { return Math.max(0, Math.round((sprintState.endsAt - Date.now()) / 1000)); }
+
+  function mmss(sec) {
+    var m = Math.floor(sec / 60), r = sec % 60;
+    return m + ":" + (r < 10 ? "0" : "") + r;
+  }
+
+  function gradeSprint(ranOut) {
+    if (sprintState.graded) return;
+    sprintState.graded = true;
+    sprintState.elapsed = ranOut ? SPRINT_SECONDS : SPRINT_SECONDS - sprintRemaining();
+    var right = 0, answered = 0;
+    sprintState.items.forEach(function (q) {
+      if (q.picked !== null) answered++;
+      if (q.picked === q.answer) right++;
+    });
+    var best = loadSprint();
+    var rec = { date: todayKey(), score: right, answered: answered, total: sprintState.items.length, seconds: sprintState.elapsed };
+    if (!best.best || right > best.best.score) best.best = rec;
+    best.last = rec;
+    best.runs = (best.runs || 0) + 1;
+    setJSON(SPRINT_KEY, best);
+    renderReading();
+  }
+
+  function sprintHTML() {
+    var rec = loadSprint();
+    var html = '<div class="card"><h3>ซ้อม Part 5 จับเวลา</h3>';
+
+    if (!sprintState.items) {
+      html += '<div class="muted">30 ข้อ 12 นาที เท่ากับจังหวะจริงในห้องสอบ ข้อละ 24 วินาที เป้าหมายของการซ้อมนี้คือ<b>คุมเวลาให้ได้</b> ไม่ใช่ได้เต็ม เพราะการใช้เวลาเกินงบที่ Part 5 คือสาเหตุที่ทำให้ Part 7 ทำไม่ทัน</div>';
+      html += '<div class="tiny-muted">โจทย์สุ่มจากคลังข้อ Part 5 ทั้งหมดในแอป ' + sprintPool().length + ' ข้อ ทุกครั้งที่เริ่มใหม่จะได้ชุดใหม่</div>';
+      if (rec.best) {
+        html += '<div class="sprint-best">สถิติดีที่สุด ' + rec.best.score + " / " + rec.best.total +
+          " &middot; ใช้เวลา " + mmss(rec.best.seconds) + " &middot; ทำมาแล้ว " + rec.runs + " ครั้ง</div>";
+      }
+      html += '<div class="btn-row"><button class="btn primary" id="sprint-start">เริ่มจับเวลา</button></div></div>';
+      return html;
+    }
+
+    if (!sprintState.graded) {
+      html += '<div class="sprint-bar"><span class="sprint-clock" id="sprint-clock">' + mmss(sprintRemaining()) + '</span>';
+      html += '<span class="tiny-muted" id="sprint-pace"></span></div>';
+    } else {
+      var right = sprintState.items.filter(function (q) { return q.picked === q.answer; }).length;
+      var answered = sprintState.items.filter(function (q) { return q.picked !== null; }).length;
+      var per = answered ? Math.round(sprintState.elapsed / answered) : 0;
+      html += '<div class="sprint-result">ได้ ' + right + " / " + sprintState.items.length +
+        " &middot; ตอบไป " + answered + " ข้อ &middot; ใช้เวลา " + mmss(sprintState.elapsed) +
+        (answered ? " &middot; เฉลี่ยข้อละ " + per + " วินาที" : "") + "</div>";
+      var verdict;
+      if (answered < sprintState.items.length) {
+        verdict = "ยังทำไม่ครบในเวลา นี่คือปัญหาการคุมเวลา ไม่ใช่ปัญหาภาษา รอบหน้าให้ตั้งใจว่าข้อไหนเกิน 30 วินาทีต้องเดาแล้วไปต่อทันที";
+      } else if (per > 24) {
+        verdict = "ทำครบแต่ช้ากว่าจังหวะจริงเล็กน้อย ลองดูว่าข้อที่ช้าคือข้อไวยากรณ์หรือข้อคำศัพท์ ถ้าเป็นข้อไวยากรณ์แปลว่ายังแปลประโยคอยู่ทั้งที่ไม่ต้องแปล";
+      } else {
+        verdict = "คุมเวลาได้ตามจังหวะจริงแล้ว จากนี้ให้ไปเน้นความแม่น ดูว่าข้อที่ผิดเป็นข้อไวยากรณ์หรือข้อคำศัพท์";
+      }
+      html += '<div class="tiny-muted">' + verdict + "</div>";
+    }
+
+    sprintState.items.forEach(function (q, qi) {
+      var cls = "q-block";
+      if (sprintState.graded) cls += q.picked === q.answer ? " correct" : " wrong";
+      html += '<div class="' + cls + '" data-section="sprint" data-qi="' + qi + '"><div class="q-text">' + (qi + 1) + ". " + q.sentence + "</div>";
+      q.choices.forEach(function (c, ci) {
+        var rowCls = "choice-row";
+        if (sprintState.graded && ci === q.answer) rowCls += " correct";
+        html += '<label class="' + rowCls + '" data-qi="' + qi + '" data-c="' + ci + '"><input type="radio" name="sp-' + qi +
+          '" value="' + ci + '"' + (q.picked === ci ? " checked" : "") + (sprintState.graded ? " disabled" : "") + "> " + c + "</label>";
+      });
+      html += "</div>";
+    });
+
+    html += '<div class="btn-row">';
+    html += sprintState.graded
+      ? '<button class="btn primary" id="sprint-start">ซ้อมอีกรอบ</button><button class="btn" id="sprint-close">ปิด</button>'
+      : '<button class="btn primary" id="sprint-submit">ส่งคำตอบ</button><button class="btn" id="sprint-close">ยกเลิก</button>';
+    html += "</div></div>";
+    return html;
+  }
+
+  function wireSprint() {
+    var start = $("#sprint-start");
+    if (start) start.addEventListener("click", startSprint);
+    var close = $("#sprint-close");
+    if (close) close.addEventListener("click", function () {
+      sprintState.items = null;
+      sprintState.graded = false;
+      renderReading();
+    });
+    var submit = $("#sprint-submit");
+    if (submit) submit.addEventListener("click", function () { gradeSprint(false); });
+
+    $$('.q-block[data-section="sprint"] .choice-row').forEach(function (row) {
+      row.addEventListener("click", function () {
+        if (sprintState.graded) return;
+        sprintState.items[Number(row.dataset.qi)].picked = Number(row.dataset.c);
+      });
+    });
+
+    clearInterval(sprintState.tick);
+    if (sprintState.items && !sprintState.graded) {
+      sprintState.tick = setInterval(function () {
+        var el = document.getElementById("sprint-clock");
+        /* the tab may have been re-rendered or left — stop rather than tick on */
+        if (!el) { clearInterval(sprintState.tick); return; }
+        var left = sprintRemaining();
+        el.textContent = mmss(left);
+        el.classList.toggle("low", left <= 120);
+        var done = sprintState.items.filter(function (q) { return q.picked !== null; }).length;
+        var should = Math.min(SPRINT_COUNT, Math.floor((SPRINT_SECONDS - left) / (SPRINT_SECONDS / SPRINT_COUNT)));
+        var pace = $("#sprint-pace");
+        if (pace) pace.textContent = "ตอบแล้ว " + done + " / " + SPRINT_COUNT + " &middot; ตามจังหวะควรอยู่ที่ " + should;
+        if (left <= 0) { clearInterval(sprintState.tick); gradeSprint(true); }
+      }, 1000);
+    }
+  }
+
   function renderReading() {
     var root = $("#tab-reading");
     var wk = READING.weeks[readingState.week - 1];
 
     var html = "";
+    html += sprintHTML();
     html += '<div class="card"><h2>Reading Practice</h2>';
     html += '<select id="reading-week">' + READING.weeks.map(function (w) {
       return '<option value="' + w.week + '"' + (w.week === readingState.week ? " selected" : "") + '>สัปดาห์ ' + w.week + '</option>';
@@ -1450,6 +1611,8 @@
         else if (section === "p7") checkSection(root, "p7", wk.part7.questions);
       });
     });
+
+    wireSprint();
   }
 
   /* ================= MOCK (full practice sets) ================= */
@@ -1610,21 +1773,25 @@
   function renderPlan() {
     var root = $("#tab-plan");
     var wk = currentWeek();
-    var dayLabels = { rest: "พัก/ทบทวนเบาๆ", listening: "Listening", reading: "Reading", mixed: "รวม Mix", review: "ทบทวนอิสระ" };
+    /* labels and length come from the data, so reshaping the plan does not
+       need a matching edit here */
+    var dayLabels = PLAN.dayLabels;
 
     var html = "";
-    html += '<div class="card"><h2>แผน 12 สัปดาห์: 510 &rarr; 770</h2>';
-    html += '<div class="muted">' + PLAN.phaseNote + '</div></div>';
+    html += '<div class="card"><h2>' + PLAN.title + '</h2>';
+    html += '<div class="muted" style="white-space:pre-line">' + PLAN.phaseNote + '</div></div>';
 
-    html += '<div class="card"><h3>รูปแบบรายวัน (30 นาที/วัน, ' + PLAN.sessionWindow + ')</h3>';
-    html += '<table class="week-table"><tr><th>วัน</th><th>ประเภท</th></tr>';
+    html += '<div class="card"><h3>รูปแบบรายวัน &middot; ' + PLAN.sessionWindow + '</h3>';
+    html += '<table class="week-table"><tr><th>วัน</th><th>ประเภท</th><th>เวลา</th></tr>';
     ["จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์", "อาทิตย์"].forEach(function (d, i) {
       var idx = (i + 1) % 7; // Mon=1 ... Sun=0
-      html += "<tr><td>" + d + "</td><td>" + dayLabels[PLAN.dayTypes[idx]] + "</td></tr>";
+      var type = PLAN.dayTypes[idx];
+      var mins = (PLAN.sessionTemplates[type] || []).reduce(function (a, st) { return a + st.minutes; }, 0);
+      html += "<tr><td>" + d + "</td><td>" + dayLabels[type] + "</td><td>" + (mins ? mins + " นาที" : "&mdash;") + "</td></tr>";
     });
     html += '</table></div>';
 
-    html += '<div class="card"><h3>ภาพรวม 12 สัปดาห์</h3><table class="week-table"><tr><th>สัปดาห์</th><th>ธีมศัพท์</th><th>โฟกัส</th></tr>';
+    html += '<div class="card"><h3>ภาพรวม ' + PLAN.weeks.length + ' สัปดาห์</h3><table class="week-table"><tr><th>สัปดาห์</th><th>ธีมศัพท์</th><th>โฟกัส</th></tr>';
     PLAN.weeks.forEach(function (w) {
       html += '<tr class="' + (w.week === wk ? "current-week" : "") + '"><td>' + w.week + '</td><td>' + w.theme + '</td><td>' + w.focus + '</td></tr>';
     });
@@ -1669,9 +1836,9 @@
     },
     {
       id: "mock", safe: true,
-      label: "ข้อสอบชุดเต็ม (Mock)",
-      note: "ประวัติการทำข้อสอบชุดเต็มทั้งหมด",
-      keys: [MOCK_HISTORY_KEY]
+      label: "ข้อสอบชุดเต็มและซ้อมจับเวลา",
+      note: "ประวัติการทำข้อสอบชุดเต็ม และสถิติซ้อม Part 5 จับเวลา",
+      keys: [MOCK_HISTORY_KEY, SPRINT_KEY]
     },
     {
       id: "srs", safe: false,

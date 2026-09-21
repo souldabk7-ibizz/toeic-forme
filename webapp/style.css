@@ -425,3 +425,18 @@ svg.chart text { fill: var(--text-secondary); font-size: 10px; font-family: syst
 /* build id, so the running deploy can be read off the screen when a cached
    copy is suspected */
 .build-tag { color: var(--text-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---- Part 5 timed sprint ---- */
+.sprint-bar {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--surface-1); padding: 8px 0; margin-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+.sprint-clock {
+  font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+.sprint-clock.low { color: var(--critical); }
+.sprint-result { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.sprint-best { color: var(--text-secondary); font-size: 0.85rem; margin: 6px 0; }
