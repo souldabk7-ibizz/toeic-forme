@@ -440,3 +440,7 @@ svg.chart text { fill: var(--text-secondary); font-size: 10px; font-family: syst
 .sprint-clock.low { color: var(--critical); }
 .sprint-result { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
 .sprint-best { color: var(--text-secondary); font-size: 0.85rem; margin: 6px 0; }
+
+/* ---- score target editor ---- */
+.target-field { display: flex; flex-direction: column; gap: 3px; font-size: 0.78rem; color: var(--text-secondary); }
+.target-field input { width: 6.5rem; }

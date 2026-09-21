@@ -51,10 +51,19 @@
       startDate: todayKey(),
       baselineReading: 350,
       baselineListening: 160,
-      targetReading: 420,
-      targetListening: 350
+      targetReading: 345,
+      targetListening: 375
     };
     var p = getJSON(PROFILE_KEY, defaults);
+    /* The goal moved from 770 to 720 (700 with a 20-point cushion). A stored
+       profile keeps its own numbers, so carrying the old pair forward would
+       have left the app chasing a target nobody asked for — but only that
+       exact pair is replaced, so a target set by hand survives. */
+    if (Number(p.targetReading) === 420 && Number(p.targetListening) === 350) {
+      p.targetReading = defaults.targetReading;
+      p.targetListening = defaults.targetListening;
+      setJSON(PROFILE_KEY, p);
+    }
     /* fill in anything missing or unusable rather than letting it reach the
        date maths, where a bad startDate would produce a NaN day index */
     Object.keys(defaults).forEach(function (k) {
@@ -290,6 +299,12 @@
     var total = latest ? latest.reading + latest.listening : profile.baselineReading + profile.baselineListening;
     $("#score-badge").innerHTML =
       "<b>" + total + "</b> / " + (profile.targetReading + profile.targetListening) + " เป้าหมาย";
+    /* the header carries no hard-coded goal, so changing it needs no edit here */
+    var sub = $("#brand-sub");
+    if (sub) {
+      sub.textContent = (profile.baselineReading + profile.baselineListening) + " → " +
+        (profile.targetReading + profile.targetListening) + " · " + PLAN.dailyMinutes + " min/day";
+    }
   }
 
   /* ================= DASHBOARD ================= */
@@ -1778,7 +1793,9 @@
     var dayLabels = PLAN.dayLabels;
 
     var html = "";
-    html += '<div class="card"><h2>' + PLAN.title + '</h2>';
+    html += '<div class="card"><h2>' + PLAN.title + ": " +
+      (profile.baselineReading + profile.baselineListening) + " &rarr; " +
+      (profile.targetReading + profile.targetListening) + "</h2>";
     html += '<div class="muted" style="white-space:pre-line">' + PLAN.phaseNote + '</div></div>';
 
     html += '<div class="card"><h3>รูปแบบรายวัน &middot; ' + PLAN.sessionWindow + '</h3>';
@@ -1983,6 +2000,15 @@
 
     html += '<div class="card"><h3>ตารางบันทึกผล</h3>' + buildScoreTable(scores) + '</div>';
 
+    html += '<div class="card"><h3>เป้าหมายคะแนน</h3>';
+    html += '<div class="muted">ตั้งเป้าแยกรายพาร์ท คะแนนเต็มพาร์ทละ 495 ทุกหน้าในแอปจะอัปเดตตามทันที</div>';
+    html += '<div class="btn-row">';
+    html += '<label class="target-field">Reading<input type="number" id="target-reading" min="5" max="495" step="5" value="' + profile.targetReading + '"></label>';
+    html += '<label class="target-field">Listening<input type="number" id="target-listening" min="5" max="495" step="5" value="' + profile.targetListening + '"></label>';
+    html += '<button class="btn primary" id="target-save">บันทึกเป้าหมาย</button>';
+    html += '</div>';
+    html += '<div class="tiny-muted">รวมตอนนี้ <b id="target-total">' + (profile.targetReading + profile.targetListening) + '</b> คะแนน</div></div>';
+
     html += '<div class="card"><h2>รีเซ็ตแบบฝึกหัดที่เคยทำ</h2>' + buildResetPanel() + '</div>';
 
     root.innerHTML = html;
@@ -1995,6 +2021,26 @@
       saveScores(scores);
       renderProgress();
       renderHeaderBadge();
+    });
+
+    var tr = $("#target-reading"), tl = $("#target-listening");
+    function showTotal() {
+      var t = $("#target-total");
+      if (t) t.textContent = String((Number(tr.value) || 0) + (Number(tl.value) || 0));
+    }
+    tr.addEventListener("input", showTotal);
+    tl.addEventListener("input", showTotal);
+    $("#target-save").addEventListener("click", function () {
+      var r = Number(tr.value), l = Number(tl.value);
+      if (!isFinite(r) || !isFinite(l) || r < 5 || l < 5 || r > 495 || l > 495) {
+        alert("คะแนนแต่ละพาร์ทต้องอยู่ระหว่าง 5 ถึง 495");
+        return;
+      }
+      profile.targetReading = r;
+      profile.targetListening = l;
+      saveProfile();
+      renderHeaderBadge();
+      renderProgress();
     });
 
     wireResetPanel();

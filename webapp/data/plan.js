@@ -7,12 +7,12 @@
    hour.
 
    Weighted toward Reading on purpose. Listening at 73-80 out of 100 on real
-   past papers is already close to a 770-level section score, while Reading
-   is where the remaining gap sits — and Reading is also the half the
+   past papers already scales to somewhere near the listening half of a 720
+   total, while Reading is where the remaining gap sits — and Reading is also the half the
    candidate has to pace themselves, which is a trainable skill. Listening
    therefore gets one maintenance day a week rather than half the plan. */
 window.PLAN = {
-  title: "แผน 20 สัปดาห์: 510 → 770",
+  title: "แผน 20 สัปดาห์",
   dailyMinutes: 30,
   sessionWindow: "วันธรรมดา 30 นาที · เสาร์ 60-90 นาที · อาทิตย์พัก",
   startDate: null, // set on first run in app.js and cached in localStorage
@@ -90,12 +90,12 @@ window.PLAN = {
   ],
 
   milestones: [
-    { afterWeek: 4, note: "ทำ Part 5 จับเวลา 30 ข้อ 12 นาที ให้ได้จริง ตอนนี้ยังไม่ต้องหวังคะแนน ขอแค่คุมเวลาได้", targetListening: 355, targetReading: 365 },
-    { afterWeek: 8, note: "Reading เต็มชุดครั้งแรก ดูว่าทำถึงข้อที่เท่าไหร่ตอนหมดเวลา และกองไหนมีข้อผิดมากที่สุด", targetListening: 360, targetReading: 385 },
-    { afterWeek: 12, note: "Reading เต็มชุดครั้งที่สอง กอง “หมดเวลา” ควรลดลงชัดเจนแล้ว ถ้ายังไม่ลด ปัญหาคือการคุมเวลาไม่ใช่ภาษา", targetListening: 365, targetReading: 400 },
-    { afterWeek: 16, note: "Reading เต็มชุดครั้งที่สาม ควรทำครบทุกข้อในเวลาแล้ว จากนี้คะแนนจะขึ้นจากความแม่นของศัพท์", targetListening: 370, targetReading: 415 },
-    { afterWeek: 20, note: "ซ้อมเต็มรูปแบบ 2 ชั่วโมง ถ้าผลรวม 2 ครั้งติดกันถึง 770 ให้จองสอบจริงได้", targetListening: 375, targetReading: 430 }
+    { afterWeek: 4, note: "ทำ Part 5 จับเวลา 30 ข้อ 12 นาที ให้ได้จริง ตอนนี้ยังไม่ต้องหวังคะแนน ขอแค่คุมเวลาได้", targetListening: 355, targetReading: 320 },
+    { afterWeek: 8, note: "Reading เต็มชุดครั้งแรก ดูว่าทำถึงข้อที่เท่าไหร่ตอนหมดเวลา และกองไหนมีข้อผิดมากที่สุด", targetListening: 360, targetReading: 328 },
+    { afterWeek: 12, note: "Reading เต็มชุดครั้งที่สอง กอง “หมดเวลา” ควรลดลงชัดเจนแล้ว ถ้ายังไม่ลด ปัญหาคือการคุมเวลาไม่ใช่ภาษา — จุดนี้ควรแตะ 700 แล้ว", targetListening: 365, targetReading: 335 },
+    { afterWeek: 16, note: "Reading เต็มชุดครั้งที่สาม ควรทำครบทุกข้อในเวลาแล้ว จากนี้คะแนนจะขึ้นจากความแม่นของศัพท์", targetListening: 370, targetReading: 340 },
+    { afterWeek: 20, note: "ซ้อมเต็มรูปแบบ 2 ชั่วโมง ถ้าผลรวม 2 ครั้งติดกันถึง 720 ให้จองสอบจริงได้ เผื่อไว้ 20 คะแนนจากเป้าจริงที่ 700", targetListening: 375, targetReading: 345 }
   ],
 
-  phaseNote: "แผนนี้ตั้งอยู่บนเวลาที่มีจริง คือวันธรรมดาวันละ 30 นาที วันเสาร์ 60-90 นาที วันอาทิตย์พัก รวมประมาณ 4 ชั่วโมงต่อสัปดาห์ การขยับจาก 510 ไป 770 ด้วยเวลาเท่านี้ใช้เวลาประมาณ 5 เดือน ซึ่งคือ 20 สัปดาห์นี้พอดี\n\nน้ำหนักเทไปที่ Reading โดยตั้งใจ เพราะคะแนน Listening จากข้อสอบเก่าจริงอยู่ที่ 73-80 จาก 100 ซึ่งใกล้ระดับที่ต้องการแล้ว ส่วน Reading คือช่องว่างที่เหลือ และเป็นฝั่งที่ต้องคุมเวลาเอง ซึ่งเป็นทักษะที่ฝึกได้ตรงๆ Listening จึงเหลือสัปดาห์ละวันไว้รักษาระดับ แล้วกลับมาเร่งอีกครั้งในสัปดาห์ที่ 18\n\nถ้าสัปดาห์ไหนทำไม่ครบ ไม่ต้องไล่ตามให้ทัน ให้ข้ามไปทำของสัปดาห์ปัจจุบันต่อ ความสม่ำเสมอสำคัญกว่าความครบ"
+  phaseNote: "แผนนี้ตั้งอยู่บนเวลาที่มีจริง คือวันธรรมดาวันละ 30 นาที วันเสาร์ 60-90 นาที วันอาทิตย์พัก รวมประมาณ 4 ชั่วโมงต่อสัปดาห์ เป้าหมายคือ 720 ซึ่งคือ 700 บวกส่วนเผื่อ 20 คะแนน กันพลาดในวันสอบจริง การขยับจาก 510 ไปถึงจุดนั้นด้วยเวลาเท่านี้ใช้เวลาประมาณ 5 เดือน ซึ่งคือ 20 สัปดาห์นี้พอดี โดยควรแตะ 700 ราวสัปดาห์ที่ 12\n\nน้ำหนักเทไปที่ Reading โดยตั้งใจ เพราะคะแนน Listening จากข้อสอบเก่าจริงอยู่ที่ 73-80 จาก 100 ซึ่งเทียบเป็นคะแนนแล้วใกล้ครึ่ง Listening ของเป้า 720 แล้ว ส่วน Reading คือช่องว่างที่เหลือ และเป็นฝั่งที่ต้องคุมเวลาเอง ซึ่งเป็นทักษะที่ฝึกได้ตรงๆ Listening จึงเหลือสัปดาห์ละวันไว้รักษาระดับ แล้วกลับมาเร่งอีกครั้งในสัปดาห์ที่ 18\n\nถ้าสัปดาห์ไหนทำไม่ครบ ไม่ต้องไล่ตามให้ทัน ให้ข้ามไปทำของสัปดาห์ปัจจุบันต่อ ความสม่ำเสมอสำคัญกว่าความครบ"
 };
