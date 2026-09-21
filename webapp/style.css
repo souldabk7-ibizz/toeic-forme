@@ -444,3 +444,18 @@ svg.chart text { fill: var(--text-secondary); font-size: 10px; font-family: syst
 /* ---- score target editor ---- */
 .target-field { display: flex; flex-direction: column; gap: 3px; font-size: 0.78rem; color: var(--text-secondary); }
 .target-field input { width: 6.5rem; }
+
+/* ---- lesson practice in exam dress ---- */
+.exam-direction {
+  font-style: italic; color: var(--text-secondary); font-size: 0.82rem;
+  border-left: 2px solid var(--border); padding-left: 8px; margin: 6px 0 12px;
+}
+.choice-letter { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.choice-row.correct .choice-letter { color: inherit; }
+.why {
+  margin-top: 8px; padding: 8px 10px; border-radius: var(--radius);
+  background: color-mix(in srgb, var(--series-1) 8%, transparent);
+  border-left: 3px solid var(--series-1);
+  font-size: 0.83rem; line-height: 1.55; color: var(--text-secondary);
+}
+.why b { color: var(--text-primary); }

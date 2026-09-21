@@ -193,64 +193,10 @@
     return count;
   }
 
-  /* ---------- session step checkboxes ---------- */
-  function stepsKey(dateKey) { return "toeic_steps_" + dateKey; }
-  function loadSteps(dateKey) { return getJSON(stepsKey(dateKey), []); }
-  function saveSteps(dateKey, arr) { setJSON(stepsKey(dateKey), arr); }
-
   /* ---------- score log ---------- */
   var SCORES_KEY = "toeic_scores_v1";
   function loadScores() { return getJSON(SCORES_KEY, []); }
   function saveScores(arr) { setJSON(SCORES_KEY, arr); }
-
-  /* ---------- daily test (vocab + grammar mix) ---------- */
-  var DAILY_TEST_KEY = "toeic_dailytest_v1";
-  function loadDailyTests() { return getJSON(DAILY_TEST_KEY, {}); }
-  function saveDailyTests(obj) { setJSON(DAILY_TEST_KEY, obj); }
-  var dashboardQuiz = null;
-
-  function buildDailyTest() {
-    var due = dueWordsToday().map(function (d) { return d.word; });
-    var vocabPool = due.length ? due : shuffle(allWords().map(function (w) { return w.word; })).slice(0, 10);
-    var vocabItems = buildQuizFromWords(vocabPool, 8).map(function (it) {
-      return { text: it.prompt, kind: "vocab", word: it.word, choices: it.choices, answer: it.answer, picked: null };
-    });
-    var dayCount = Math.max(0, daysBetween(profile.startDate, todayKey()));
-    var lesson = GRAMMAR.lessons[dayCount % GRAMMAR.lessons.length];
-    var grammarItems = shuffle(lesson.practice).map(function (p) {
-      return { text: p.sentence, kind: "grammar", choices: p.choices, answer: p.answer, picked: null };
-    });
-    var lwk = LISTENING.weeks[Math.min(currentWeek(), LISTENING.weeks.length) - 1];
-    var listeningItems = shuffle(lwk.part2).slice(0, 3).map(function (p) {
-      return { text: p.q, kind: "listening", choices: p.choices, answer: p.answer, picked: null };
-    });
-    var rwk = READING.weeks[Math.min(currentWeek(), READING.weeks.length) - 1];
-    var readingItems = shuffle(rwk.part5).slice(0, 3).map(function (p) {
-      return { text: p.sentence, kind: "reading", choices: p.choices, answer: p.answer, picked: null };
-    });
-    return shuffle(vocabItems.concat(grammarItems, listeningItems, readingItems));
-  }
-
-  var DAILY_TEST_TAGS = {
-    vocab: '<span class="pill blue">ศัพท์</span>',
-    grammar: '<span class="pill aqua">แกรมมาร์</span>',
-    listening: '<span class="pill yellow">Listening</span>',
-    reading: '<span class="pill">Reading</span>'
-  };
-
-  function renderDailyTestBlock(items) {
-    var html = '<div class="card" id="daily-quiz-block"><h3>ทำแบบทดสอบวันนี้ (' + items.length + ' ข้อ)</h3>';
-    items.forEach(function (item, qi) {
-      var tag = DAILY_TEST_TAGS[item.kind] || "";
-      html += '<div class="q-block"><div class="q-text">' + (qi + 1) + ". " + item.text + " " + tag + "</div>";
-      item.choices.forEach(function (c, ci) {
-        html += '<label class="choice-row" data-q="' + qi + '" data-c="' + ci + '"><input type="radio" name="daily-' + qi + '" value="' + ci + '"> ' + c + "</label>";
-      });
-      html += "</div>";
-    });
-    html += '<div class="btn-row"><button class="btn primary" id="daily-check">ตรวจคำตอบ</button></div><div id="daily-result" class="muted"></div></div>';
-    return html;
-  }
 
   /* ---------- speech ---------- */
   var speechRate = 1;
@@ -305,149 +251,6 @@
       sub.textContent = (profile.baselineReading + profile.baselineListening) + " → " +
         (profile.targetReading + profile.targetListening) + " · " + PLAN.dailyMinutes + " min/day";
     }
-  }
-
-  /* ================= DASHBOARD ================= */
-  function renderDashboard() {
-    var root = $("#tab-dashboard");
-    var wk = currentWeek();
-    var weekInfo = PLAN.weeks[wk - 1];
-    var dayType = PLAN.dayTypes[new Date().getDay()];
-    var template = PLAN.sessionTemplates[dayType];
-    var dateKey = todayKey();
-    var steps = loadSteps(dateKey);
-    var scores = loadScores();
-    var latest = scores.length ? scores[scores.length - 1] : null;
-    var curTotal = latest ? latest.reading + latest.listening : profile.baselineReading + profile.baselineListening;
-    var target = profile.targetReading + profile.targetListening;
-    var baseTotal = profile.baselineReading + profile.baselineListening;
-    var pct = Math.max(0, Math.min(100, Math.round(((curTotal - baseTotal) / (target - baseTotal)) * 100)));
-
-    var html = "";
-    html += '<div class="card">';
-    html += "<h2>เป้าหมายของคุณ</h2>";
-    html += '<div class="muted">คะแนนเริ่มต้น ' + baseTotal + " (Reading " + profile.baselineReading + " / Listening " + profile.baselineListening + ") &rarr; เป้าหมาย " + target + " (Reading " + profile.targetReading + " / Listening " + profile.targetListening + ")</div>";
-    html += '<div class="progress-track"><div class="progress-fill" style="width:' + pct + '%"></div></div>';
-    html += '<div class="tiny-muted">ความคืบหน้าจากคะแนนล่าสุดที่บันทึกไว้ (' + curTotal + ') เทียบกับเป้าหมาย — ไปที่แท็บ "ความคืบหน้า" เพื่อบันทึกผลสอบจำลอง</div>';
-    html += '<div class="btn-row">';
-    html += '<label class="tiny-muted">วันเริ่มแผน: <input type="date" id="start-date-input" value="' + profile.startDate + '"></label>';
-    html += "</div></div>";
-
-    html += '<div class="card">';
-    html += "<h2>วันนี้ &middot; สัปดาห์ที่ " + wk + " / " + PLAN.weeks.length + " &mdash; " + weekInfo.theme + "</h2>";
-    html += '<div class="muted">โฟกัส: ' + weekInfo.focus + "</div>";
-    html += '<div class="tiny-muted">ช่วงเวลาแนะนำ: ' + PLAN.sessionWindow + "</div>";
-    html += '<ul class="step-list">';
-    template.forEach(function (step, i) {
-      var checked = steps[i] ? "checked" : "";
-      html += "<li><input type=\"checkbox\" data-step=\"" + i + "\" " + checked + "><span class=\"step-min\">" + step.minutes + " น.</span><span><b>" + step.label + "</b><br><span class=\"muted\">" + step.detail + "</span></span></li>";
-    });
-    html += "</ul>";
-    html += '<div class="btn-row">';
-    html += '<button class="btn" data-tab-link="vocab">ไปหน้าศัพท์</button>';
-    html += '<button class="btn" data-tab-link="listening">ไปหน้า Listening</button>';
-    html += '<button class="btn" data-tab-link="reading">ไปหน้า Reading</button>';
-    html += "</div></div>";
-
-    html += '<div class="card">';
-    html += "<h2>ตัวจับเวลา 30 นาที</h2>";
-    html += '<div class="timer-display" id="timer-display">30:00</div>';
-    html += '<div class="btn-row" style="justify-content:center">';
-    html += '<button class="btn primary" id="timer-start">เริ่ม</button>';
-    html += '<button class="btn" id="timer-pause">พัก</button>';
-    html += '<button class="btn" id="timer-reset">รีเซ็ต</button>';
-    html += "</div></div>";
-
-    html += '<div class="card">';
-    html += "<h2>คำศัพท์ที่ต้องทวนวันนี้</h2>";
-    html += '<div class="muted">มี <b>' + dueCount() + "</b> คำที่ครบกำหนดทวนแล้ว</div>";
-    html += '<div class="tiny-muted">ท่องศัพท์ต่อเนื่องถึงวันที่ ' + (nextUnstudiedDay() - 1) + ' / ' + VOCAB.days.length + ' วัน (' + studiedWordCount() + ' / ' + totalVocabWordCount() + ' คำ) &middot; วันถัดไป: วันที่ ' + nextUnstudiedDay() + "</div>";
-    html += '<div class="btn-row"><button class="btn" data-tab-link="vocab">ไปทวนศัพท์</button></div>';
-    html += "</div>";
-
-    var dailyTests = loadDailyTests();
-    var todayResult = dailyTests[dateKey];
-    html += '<div class="card">';
-    html += "<h2>แบบทดสอบวันนี้</h2>";
-    html += todayResult
-      ? '<div class="muted">ทำแล้ววันนี้: <b>' + todayResult.score + " / " + todayResult.total + "</b> ข้อ &mdash; ทำซ้ำได้ถ้าอยากฝึกเพิ่ม</div>"
-      : '<div class="muted">รวมศัพท์ที่ต้องทบทวน + ไวยากรณ์ประจำวัน + Listening/Reading ของสัปดาห์นี้ ~19 ข้อ ใช้เวลาประมาณ 10-15 นาที</div>';
-    html += '<div class="btn-row"><button class="btn primary" id="daily-test-btn">' + (todayResult ? "ทำแบบทดสอบซ้ำ" : "เริ่มทำแบบทดสอบวันนี้") + "</button></div>";
-    if (dashboardQuiz) html += renderDailyTestBlock(dashboardQuiz);
-    html += "</div>";
-
-    root.innerHTML = html;
-
-    $("#start-date-input").addEventListener("change", function (e) {
-      profile.startDate = e.target.value;
-      saveProfile();
-      renderDashboard();
-    });
-    $$('[data-tab-link]', root).forEach(function (b) {
-      b.addEventListener("click", function () { showTab(b.dataset.tabLink); });
-    });
-    $$('input[data-step]', root).forEach(function (cb) {
-      cb.addEventListener("change", function () {
-        var arr = loadSteps(dateKey);
-        arr[Number(cb.dataset.step)] = cb.checked;
-        saveSteps(dateKey, arr);
-      });
-    });
-    setupTimer();
-
-    var dtBtn = $("#daily-test-btn");
-    if (dtBtn) dtBtn.addEventListener("click", function () { dashboardQuiz = buildDailyTest(); renderDashboard(); });
-    if (dashboardQuiz) {
-      $$('input[type="radio"]', $("#daily-quiz-block")).forEach(function (r) {
-        r.addEventListener("change", function () {
-          var row = r.closest(".choice-row");
-          dashboardQuiz[Number(row.dataset.q)].picked = Number(row.dataset.c);
-        });
-      });
-      $("#daily-check").addEventListener("click", function () {
-        var correct = 0;
-        dashboardQuiz.forEach(function (item, qi) {
-          $$('.choice-row[data-q="' + qi + '"]', root).forEach(function (row) {
-            var ci = Number(row.dataset.c);
-            row.classList.remove("correct", "incorrect");
-            if (ci === item.answer) row.classList.add("correct");
-            else if (ci === item.picked) row.classList.add("incorrect");
-          });
-          if (item.picked === item.answer) correct++;
-        });
-        /* only the vocab items carry a `word`, so misses feed the retest list */
-        recordAnswers(dashboardQuiz.filter(function (i) { return i.kind === "vocab" && i.word; }));
-        var tests = loadDailyTests();
-        tests[dateKey] = { score: correct, total: dashboardQuiz.length };
-        saveDailyTests(tests);
-        $("#daily-result").innerHTML = "ได้ " + correct + " / " + dashboardQuiz.length + " ข้อ — บันทึกผลวันนี้แล้ว";
-      });
-    }
-  }
-
-  var timerSeconds = 30 * 60;
-  var timerInterval = null;
-  function setupTimer() {
-    var display = $("#timer-display");
-    function render() {
-      var m = Math.floor(timerSeconds / 60), s = timerSeconds % 60;
-      display.textContent = pad(m) + ":" + pad(s);
-    }
-    render();
-    $("#timer-start").addEventListener("click", function () {
-      if (timerInterval) return;
-      timerInterval = setInterval(function () {
-        if (timerSeconds > 0) { timerSeconds--; render(); }
-        else { clearInterval(timerInterval); timerInterval = null; }
-      }, 1000);
-    });
-    $("#timer-pause").addEventListener("click", function () {
-      clearInterval(timerInterval); timerInterval = null;
-    });
-    $("#timer-reset").addEventListener("click", function () {
-      clearInterval(timerInterval); timerInterval = null;
-      timerSeconds = 30 * 60; render();
-    });
   }
 
   /* ================= VOCAB ================= */
@@ -680,6 +483,8 @@
      "th", "en" and "def" are memorisation drills, not exam formats — they
      are here because recall has to be built before it can be tested, and
      they are labelled as drills rather than dressed up as exam questions. */
+  var CHOICE_LETTERS = ["A", "B", "C", "D"];
+
   var QUIZ_FORMATS = ["cloze", "syn", "def", "en", "th"];
   var CHOICE_COUNT = 4;
 
@@ -1140,9 +945,21 @@
      Two lesson tracks sharing one renderer. Each keeps its own completion
      progress so finishing a grammar lesson does not tick a vocab one. */
   var LESSON_TRACKS = {
-    grammar: { label: "ไวยากรณ์", data: function () { return GRAMMAR.lessons; }, key: "toeic_grammar_v1" },
-    vocab: { label: "คำศัพท์", data: function () { return VOCABLESSONS.lessons; }, key: "toeic_vocablesson_v1" },
-    parts: { label: "กลยุทธ์รายพาร์ท", data: function () { return PARTSTRATEGY.lessons; }, key: "toeic_partstrategy_v1" }
+    grammar: {
+      label: "ไวยากรณ์", data: function () { return GRAMMAR.lessons; }, key: "toeic_grammar_v1",
+      direction: "เลือกคำตอบที่ถูกต้องที่สุดเติมลงในช่องว่าง",
+      tag: '<span class="pill yellow">รูปแบบเดียวกับ Part 5</span>'
+    },
+    vocab: {
+      label: "คำศัพท์", data: function () { return VOCABLESSONS.lessons; }, key: "toeic_vocablesson_v1",
+      direction: "เลือกคำตอบที่ถูกต้องที่สุดเติมลงในช่องว่าง",
+      tag: '<span class="pill yellow">รูปแบบเดียวกับ Part 5</span>'
+    },
+    parts: {
+      label: "กลยุทธ์รายพาร์ท", data: function () { return PARTSTRATEGY.lessons; }, key: "toeic_partstrategy_v1",
+      direction: "เลือกวิธีที่ถูกต้องที่สุด",
+      tag: '<span class="pill">ตรวจความเข้าใจ</span>'
+    }
   };
   var grammarState = { track: "grammar", lesson: 1 };
 
@@ -1200,12 +1017,18 @@
     });
     html += "</div>";
 
-    html += '<div class="card"><h3>แบบฝึกหัดท้ายบท (' + lesson.practice.length + " ข้อ)</h3>";
+    var track = LESSON_TRACKS[grammarState.track];
+    html += '<div class="card"><h3>แบบฝึกหัดท้ายบท (' + lesson.practice.length + " ข้อ) " + track.tag + "</h3>";
+    html += '<div class="exam-direction">' + track.direction + "</div>";
     lesson.practice.forEach(function (item, qi) {
       html += '<div class="q-block" data-qi="' + qi + '"><div class="q-text">' + (qi + 1) + ". " + item.sentence + "</div>";
       item.choices.forEach(function (c, ci) {
-        html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="gp-' + qi + '" value="' + ci + '"> ' + c + "</label>";
+        /* lettered like the real answer sheet, so the options read the way
+           they will on the day */
+        html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="gp-' + qi + '" value="' + ci +
+          '"> <span class="choice-letter">(' + CHOICE_LETTERS[ci] + ')</span> ' + c + "</label>";
       });
+      if (item.why) html += '<div class="why" hidden><b>ทำไมตอบข้อนี้</b><br>' + item.why + "</div>";
       html += "</div>";
     });
     html += '<div class="btn-row"><button class="btn primary" id="grammar-check">ตรวจคำตอบ</button></div><div id="grammar-result" class="muted"></div></div>';
@@ -1234,6 +1057,8 @@
         var block = $('.q-block[data-qi="' + qi + '"]', root);
         var picked = null;
         $$(".choice-row", block).forEach(function (row) { if (row.querySelector("input").checked) picked = Number(row.dataset.c); });
+        var why = $(".why", block);
+        if (why) why.hidden = false;
         $$(".choice-row", block).forEach(function (row) {
           var ci = Number(row.dataset.c);
           row.classList.remove("correct", "incorrect");
@@ -1784,45 +1609,6 @@
     });
   }
 
-  /* ================= PLAN ================= */
-  function renderPlan() {
-    var root = $("#tab-plan");
-    var wk = currentWeek();
-    /* labels and length come from the data, so reshaping the plan does not
-       need a matching edit here */
-    var dayLabels = PLAN.dayLabels;
-
-    var html = "";
-    html += '<div class="card"><h2>' + PLAN.title + ": " +
-      (profile.baselineReading + profile.baselineListening) + " &rarr; " +
-      (profile.targetReading + profile.targetListening) + "</h2>";
-    html += '<div class="muted" style="white-space:pre-line">' + PLAN.phaseNote + '</div></div>';
-
-    html += '<div class="card"><h3>รูปแบบรายวัน &middot; ' + PLAN.sessionWindow + '</h3>';
-    html += '<table class="week-table"><tr><th>วัน</th><th>ประเภท</th><th>เวลา</th></tr>';
-    ["จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์", "อาทิตย์"].forEach(function (d, i) {
-      var idx = (i + 1) % 7; // Mon=1 ... Sun=0
-      var type = PLAN.dayTypes[idx];
-      var mins = (PLAN.sessionTemplates[type] || []).reduce(function (a, st) { return a + st.minutes; }, 0);
-      html += "<tr><td>" + d + "</td><td>" + dayLabels[type] + "</td><td>" + (mins ? mins + " นาที" : "&mdash;") + "</td></tr>";
-    });
-    html += '</table></div>';
-
-    html += '<div class="card"><h3>ภาพรวม ' + PLAN.weeks.length + ' สัปดาห์</h3><table class="week-table"><tr><th>สัปดาห์</th><th>ธีมศัพท์</th><th>โฟกัส</th></tr>';
-    PLAN.weeks.forEach(function (w) {
-      html += '<tr class="' + (w.week === wk ? "current-week" : "") + '"><td>' + w.week + '</td><td>' + w.theme + '</td><td>' + w.focus + '</td></tr>';
-    });
-    html += '</table></div>';
-
-    html += '<div class="card"><h3>จุดตรวจสอบ (Checkpoints)</h3><ul class="step-list">';
-    PLAN.milestones.forEach(function (m) {
-      html += '<li><span class="step-min">W' + m.afterWeek + '</span><span>' + m.note + ' (เป้าคร่าวๆ: Reading ' + m.targetReading + ' / Listening ' + m.targetListening + ')</span></li>';
-    });
-    html += '</ul></div>';
-
-    root.innerHTML = html;
-  }
-
   /* ================= PROGRESS ================= */
   /* ================= reset =================
      Practice history is worth clearing on purpose — an exercise answered
@@ -1847,9 +1633,9 @@
     },
     {
       id: "daily", safe: true,
-      label: "แบบทดสอบประจำวันและเช็กลิสต์",
-      note: "ผลแบบทดสอบในหน้า “วันนี้” ย้อนหลัง และเช็กลิสต์กิจกรรมรายวัน",
-      keys: [DAILY_TEST_KEY], prefixes: ["toeic_steps_"]
+      label: "ข้อมูลเก่าจากหน้า “วันนี้”",
+      note: "ผลแบบทดสอบประจำวันและเช็กลิสต์ที่เก็บไว้ตอนยังมีหน้านั้น ตอนนี้ไม่มีอะไรเขียนเพิ่มอีกแล้ว ล้างทิ้งได้",
+      keys: ["toeic_dailytest_v1"], prefixes: ["toeic_steps_"]
     },
     {
       id: "mock", safe: true,
@@ -1940,7 +1726,6 @@
     profile = loadProfile();
     reviewState = { size: reviewState.size, block: null, quiz: null, special: null };
     vocabState.quiz = null;
-    dashboardQuiz = null;
     /* push the deletion out now rather than on the debounce, in case the
        page is closed straight after */
     var synced = false;
@@ -2117,18 +1902,19 @@
 
   /* ================= boot ================= */
   var render = {
-    dashboard: renderDashboard,
     vocab: renderVocab,
     review: renderReview,
     grammar: renderGrammar,
     listening: renderListening,
     reading: renderReading,
     mock: renderMock,
-    plan: renderPlan,
     progress: renderProgress
   };
 
   renderHeaderBadge();
-  showTab(localStorage.getItem("toeic_last_tab") || "dashboard");
+  /* a tab remembered from a version that had more of them must not leave the
+     app sitting on a panel nothing renders into */
+  var lastTab = localStorage.getItem("toeic_last_tab");
+  showTab(render[lastTab] ? lastTab : "vocab");
   handleResetLink();
 })();

@@ -42,7 +42,8 @@ window.VOCABLESSONS = {
             "analysis",
             "analytical"
           ],
-          "answer": 2
+          "answer": 2,
+          "why": "หลัง a thorough ซึ่งเป็นคุณศัพท์ ต้องเป็นคำนาม analysis คือรูปคำนาม ส่วน analytical เป็นคุณศัพท์ analyze เป็นกริยา"
         },
         {
           "sentence": "All ______ must submit their documents before Friday.",
@@ -52,7 +53,8 @@ window.VOCABLESSONS = {
             "applicants",
             "applied"
           ],
-          "answer": 2
+          "answer": 2,
+          "why": "ประธานของ must submit ต้องเป็นคนที่ยื่นเอกสาร จึงเป็น applicants ที่แปลว่าผู้สมัคร ส่วน applications แปลว่าใบสมัคร ซึ่งยื่นเอกสารเองไม่ได้"
         },
         {
           "sentence": "The new system has improved productivity ______.",
@@ -62,7 +64,8 @@ window.VOCABLESSONS = {
             "signify",
             "significant"
           ],
-          "answer": 1
+          "answer": 1,
+          "why": "ช่องว่างขยายกริยา has improved จึงต้องเป็นกริยาวิเศษณ์ significantly ส่วน significant เป็นคุณศัพท์"
         },
         {
           "sentence": "Our prices remain highly ______ compared with other suppliers.",
@@ -72,7 +75,8 @@ window.VOCABLESSONS = {
             "competition",
             "competitively"
           ],
-          "answer": 0
+          "answer": 0,
+          "why": "หลัง remain ซึ่งทำหน้าที่คล้าย verb to be และมี highly ขยาย ต้องเป็นคุณศัพท์ competitive"
         },
         {
           "sentence": "The manager made a ______ decision to postpone the launch.",
@@ -82,7 +86,8 @@ window.VOCABLESSONS = {
             "decision",
             "decisive"
           ],
-          "answer": 3
+          "answer": 3,
+          "why": "ช่องว่างอยู่ระหว่าง a กับคำนาม decision จึงต้องเป็นคุณศัพท์ decisive แปลว่าเด็ดขาด"
         }
       ]
     },
@@ -122,7 +127,8 @@ window.VOCABLESSONS = {
             "do",
             "take"
           ],
-          "answer": 0
+          "answer": 0,
+          "why": "คู่คำที่ตายตัวคือ make a decision ห้ามใช้ do หรือ take กับ decision ในภาษาอังกฤษแบบมาตรฐาน"
         },
         {
           "sentence": "All staff must ______ the deadline for submitting expense reports.",
@@ -132,7 +138,8 @@ window.VOCABLESSONS = {
             "reach",
             "meet"
           ],
-          "answer": 3
+          "answer": 3,
+          "why": "คู่คำที่ตายตัวคือ meet a deadline แปลว่าส่งทันกำหนด ไม่ใช้ catch หรือ reach กับ deadline"
         },
         {
           "sentence": "The new safety regulations will ______ effect on January 1.",
@@ -142,7 +149,8 @@ window.VOCABLESSONS = {
             "make",
             "bring"
           ],
-          "answer": 0
+          "answer": 0,
+          "why": "คู่คำที่ตายตัวคือ take effect แปลว่ามีผลบังคับใช้ ข้อสอบชอบออกคู่นี้มาก"
         },
         {
           "sentence": "Customers who ______ an order before noon receive same-day delivery.",
@@ -152,7 +160,8 @@ window.VOCABLESSONS = {
             "do",
             "set"
           ],
-          "answer": 1
+          "answer": 1,
+          "why": "คู่คำที่ตายตัวคือ place an order แปลว่าสั่งซื้อ ส่วน make an order พบน้อยกว่ามากในบริบทธุรกิจ"
         },
         {
           "sentence": "Employees must obtain ______ approval before booking travel.",
@@ -162,7 +171,8 @@ window.VOCABLESSONS = {
             "front",
             "early"
           ],
-          "answer": 0
+          "answer": 0,
+          "why": "คู่คำที่ตายตัวคือ prior approval แปลว่าการอนุมัติล่วงหน้า prior เป็นคุณศัพท์ที่แปลว่าก่อนหน้า"
         }
       ]
     },
@@ -188,7 +198,8 @@ window.VOCABLESSONS = {
             "affect",
             "effect"
           ],
-          "answer": 2
+          "answer": 2,
+          "why": "affect เป็นกริยาแปลว่าส่งผลกระทบ ส่วน effect เป็นคำนามแปลว่าผลกระทบ หลัง will ต้องเป็นกริยา จึงตอบ affect"
         },
         {
           "sentence": "The company plans to ______ its prices by five percent next quarter.",
@@ -198,7 +209,8 @@ window.VOCABLESSONS = {
             "arise",
             "raise"
           ],
-          "answer": 3
+          "answer": 3,
+          "why": "raise เป็นกริยาที่ต้องมีกรรมตามเสมอ ในที่นี้กรรมคือ its prices ส่วน rise ใช้เองโดยไม่มีกรรม"
         },
         {
           "sentence": "Buying in bulk is a more ______ option for large families.",
@@ -208,7 +220,8 @@ window.VOCABLESSONS = {
             "economics",
             "economy"
           ],
-          "answer": 1
+          "answer": 1,
+          "why": "economical แปลว่าประหยัดคุ้มค่า ส่วน economic แปลว่าเกี่ยวกับเศรษฐกิจ บริบทนี้พูดถึงความคุ้มค่าของครอบครัว จึงใช้ economical"
         },
         {
           "sentence": "Managers should return to their ______ offices after the meeting.",
@@ -218,7 +231,8 @@ window.VOCABLESSONS = {
             "respective",
             "respectful"
           ],
-          "answer": 2
+          "answer": 2,
+          "why": "respective แปลว่าของแต่ละคนตามลำดับ ส่วน respectful แปลว่ามีความเคารพ และ respected แปลว่าได้รับความนับถือ"
         },
         {
           "sentence": "The renovation required a ______ amount of funding.",
@@ -228,7 +242,8 @@ window.VOCABLESSONS = {
             "considerate",
             "considering"
           ],
-          "answer": 1
+          "answer": 1,
+          "why": "considerable แปลว่ามากพอสมควร ใช้ขยายจำนวนเงิน ส่วน considerate แปลว่าเกรงใจผู้อื่น ซึ่งใช้กับคนไม่ใช่จำนวนเงิน"
         }
       ]
     },
@@ -254,7 +269,8 @@ window.VOCABLESSONS = {
             "put in",
             "put up"
           ],
-          "answer": 0
+          "answer": 0,
+          "why": "put off แปลว่าเลื่อนออกไป ซึ่งเข้ากับ until next Tuesday ส่วน put on แปลว่าสวมใส่ put up แปลว่าติดตั้ง"
         },
         {
           "sentence": "Please ______ this form and return it to the front desk.",
@@ -264,7 +280,8 @@ window.VOCABLESSONS = {
             "fill over",
             "fill up"
           ],
-          "answer": 1
+          "answer": 1,
+          "why": "fill out แปลว่ากรอกแบบฟอร์มให้ครบ ส่วน fill in for แปลว่าทำงานแทนคนอื่น และ fill up แปลว่าเติมให้เต็มถัง"
         },
         {
           "sentence": "The IT department will ______ the cause of the system failure.",
@@ -274,7 +291,8 @@ window.VOCABLESSONS = {
             "look into",
             "look out"
           ],
-          "answer": 2
+          "answer": 2,
+          "why": "look into แปลว่าสืบหาสาเหตุ ส่วน look after แปลว่าดูแล look up to แปลว่านับถือ look out แปลว่าระวัง"
         },
         {
           "sentence": "We have ______ printer paper and need to order more.",
@@ -284,7 +302,8 @@ window.VOCABLESSONS = {
             "run through",
             "run out of"
           ],
-          "answer": 3
+          "answer": 3,
+          "why": "run out of แปลว่าใช้หมด ซึ่งเข้ากับการต้องสั่งเพิ่ม ส่วน run into แปลว่าบังเอิญเจอ"
         },
         {
           "sentence": "The assistant manager will ______ while the director is on leave.",
@@ -294,7 +313,8 @@ window.VOCABLESSONS = {
             "take up",
             "take off"
           ],
-          "answer": 0
+          "answer": 0,
+          "why": "take over แปลว่ารับช่วงหน้าที่ต่อ ซึ่งเข้ากับการที่ผู้อำนวยการลา ส่วน take off แปลว่าเครื่องขึ้นหรือลางาน"
         }
       ]
     },
@@ -324,7 +344,8 @@ window.VOCABLESSONS = {
             "with",
             "for"
           ],
-          "answer": 3
+          "answer": 3,
+          "why": "คู่ที่ตายตัวคือ responsible for แปลว่ารับผิดชอบเรื่องอะไร"
         },
         {
           "sentence": "All employees must comply ______ the updated safety regulations.",
@@ -334,7 +355,8 @@ window.VOCABLESSONS = {
             "to",
             "with"
           ],
-          "answer": 3
+          "answer": 3,
+          "why": "คู่ที่ตายตัวคือ comply with แปลว่าปฏิบัติตามกฎ ห้ามใช้ comply to"
         },
         {
           "sentence": "There has been a sharp increase ______ demand for electric vehicles.",
@@ -344,7 +366,8 @@ window.VOCABLESSONS = {
             "in",
             "of"
           ],
-          "answer": 2
+          "answer": 2,
+          "why": "คู่ที่ตายตัวคือ increase in แปลว่าการเพิ่มขึ้นของสิ่งใด ส่วน increase to ใช้เมื่อบอกว่าเพิ่มไปถึงเท่าไหร่"
         },
         {
           "sentence": "Full-time staff are eligible ______ the health insurance plan.",
@@ -354,7 +377,8 @@ window.VOCABLESSONS = {
             "to",
             "of"
           ],
-          "answer": 1
+          "answer": 1,
+          "why": "คู่ที่ตายตัวคือ eligible for แปลว่ามีสิทธิได้รับ"
         },
         {
           "sentence": "The delay resulted ______ significant additional costs.",
@@ -364,7 +388,8 @@ window.VOCABLESSONS = {
             "of",
             "in"
           ],
-          "answer": 3
+          "answer": 3,
+          "why": "result in แปลว่าส่งผลให้เกิด ส่วน result from แปลว่าเกิดจาก ในที่นี้ความล่าช้าเป็นเหตุ ค่าใช้จ่ายเป็นผล จึงใช้ result in"
         }
       ]
     },
@@ -394,7 +419,8 @@ window.VOCABLESSONS = {
             "resume",
             "itinerary"
           ],
-          "answer": 0
+          "answer": 0,
+          "why": "invoice แปลว่าใบแจ้งหนี้ ซึ่งส่งให้ฝ่ายบัญชีเพื่อจ่ายเงิน ส่วน itinerary คือกำหนดการเดินทาง resume คือประวัติสมัครงาน"
         },
         {
           "sentence": "The travel agent emailed the full ______ for the Tokyo trip.",
@@ -404,7 +430,8 @@ window.VOCABLESSONS = {
             "invoice",
             "itinerary"
           ],
-          "answer": 3
+          "answer": 3,
+          "why": "itinerary แปลว่ากำหนดการเดินทาง ซึ่งเป็นสิ่งที่เอเจนซีทัวร์ส่งให้"
         },
         {
           "sentence": "The company signed a five-year ______ for the downtown office.",
@@ -414,7 +441,8 @@ window.VOCABLESSONS = {
             "loan",
             "label"
           ],
-          "answer": 0
+          "answer": 0,
+          "why": "lease แปลว่าสัญญาเช่า ซึ่งเข้ากับสำนักงาน ส่วน license คือใบอนุญาต loan คือเงินกู้"
         },
         {
           "sentence": "Damaged goods may be returned under the manufacturer's ______.",
@@ -424,7 +452,8 @@ window.VOCABLESSONS = {
             "warrant",
             "warning"
           ],
-          "answer": 1
+          "answer": 1,
+          "why": "warranty แปลว่าการรับประกันสินค้า ซึ่งครอบคลุมการคืนของเสีย ส่วน warning แปลว่าคำเตือน"
         },
         {
           "sentence": "The warehouse manager updates the ______ at the end of each month.",
@@ -434,7 +463,8 @@ window.VOCABLESSONS = {
             "invention",
             "interview"
           ],
-          "answer": 0
+          "answer": 0,
+          "why": "inventory แปลว่าบัญชีสินค้าคงคลัง ซึ่งผู้จัดการคลังสินค้าต้องอัปเดต"
         }
       ]
     },
@@ -474,7 +504,8 @@ window.VOCABLESSONS = {
             "obtained",
             "guarded"
           ],
-          "answer": 2
+          "answer": 2,
+          "why": "ในบริบทธุรกิจ secure a contract แปลว่าได้สัญญามา จึงใกล้เคียงกับ obtain ไม่ใช่ความหมายว่าปกป้องซึ่งเป็นความหมายที่คุ้นกว่า"
         },
         {
           "sentence": "In \"The manager will address the issue today,\" the word \"address\" is closest in meaning to ______.",
@@ -484,7 +515,8 @@ window.VOCABLESSONS = {
             "write to",
             "locate"
           ],
-          "answer": 1
+          "answer": 1,
+          "why": "address an issue แปลว่าจัดการกับปัญหา จึงใกล้เคียงกับ deal with ไม่ใช่ความหมายว่าที่อยู่หรือกล่าวปราศรัย"
         },
         {
           "sentence": "In \"She runs a small consulting firm,\" the word \"runs\" is closest in meaning to ______.",
@@ -494,7 +526,8 @@ window.VOCABLESSONS = {
             "sprints",
             "manages"
           ],
-          "answer": 3
+          "answer": 3,
+          "why": "run a firm แปลว่าบริหารกิจการ จึงใกล้เคียงกับ manage ไม่ใช่ความหมายว่าวิ่ง"
         },
         {
           "sentence": "In \"The warranty covers parts and labor,\" the word \"covers\" is closest in meaning to ______.",
@@ -504,7 +537,8 @@ window.VOCABLESSONS = {
             "substitutes for",
             "reports on"
           ],
-          "answer": 0
+          "answer": 0,
+          "why": "cover ในบริบทการรับประกัน แปลว่าครอบคลุมหรือรวมถึง จึงใกล้เคียงกับ includes ไม่ใช่ความหมายว่าปกปิด"
         },
         {
           "sentence": "In \"Please review the terms of the agreement,\" the word \"terms\" is closest in meaning to ______.",
@@ -514,7 +548,8 @@ window.VOCABLESSONS = {
             "semesters",
             "vocabulary"
           ],
-          "answer": 1
+          "answer": 1,
+          "why": "terms of the agreement แปลว่าเงื่อนไขของข้อตกลง จึงใกล้เคียงกับ conditions ไม่ใช่ความหมายว่าช่วงเวลาหรือคำศัพท์"
         }
       ]
     },
@@ -544,7 +579,8 @@ window.VOCABLESSONS = {
             "overstaffed",
             "restaffed"
           ],
-          "answer": 1
+          "answer": 1,
+          "why": "under- แปลว่าน้อยเกินไป understaffed จึงแปลว่าคนไม่พอ ซึ่งเข้ากับการต้องจ้างคนชั่วคราวเพิ่ม ส่วน over- แปลว่ามากเกินไป"
         },
         {
           "sentence": "Each ______ will receive a certificate at the end of the training.",
@@ -554,7 +590,8 @@ window.VOCABLESSONS = {
             "trainer",
             "trained"
           ],
-          "answer": 0
+          "answer": 0,
+          "why": "-ee แปลว่าผู้ถูกกระทำ trainee จึงแปลว่าผู้เข้ารับการอบรม ส่วน -er คือผู้กระทำ trainer แปลว่าผู้ฝึกสอน"
         },
         {
           "sentence": "The flight was cancelled because the weather was ______.",
@@ -564,7 +601,8 @@ window.VOCABLESSONS = {
             "predictably",
             "unpredictable"
           ],
-          "answer": 3
+          "answer": 3,
+          "why": "un- แปลว่าไม่ unpredictable จึงแปลว่าคาดเดาไม่ได้ ซึ่งเป็นเหตุให้ยกเลิกเที่ยวบิน"
         },
         {
           "sentence": "Please ______ the meeting for a date when everyone is available.",
@@ -574,7 +612,8 @@ window.VOCABLESSONS = {
             "reschedule",
             "preschedule"
           ],
-          "answer": 2
+          "answer": 2,
+          "why": "re- แปลว่าทำใหม่อีกครั้ง reschedule จึงแปลว่าเลื่อนนัดไปวันใหม่"
         },
         {
           "sentence": "The manufacturer hired a ______ to handle the electrical work.",
@@ -584,7 +623,8 @@ window.VOCABLESSONS = {
             "contraction",
             "contracted"
           ],
-          "answer": 1
+          "answer": 1,
+          "why": "sub- แปลว่ารองหรือช่วงต่อ subcontractor จึงแปลว่าผู้รับเหมาช่วง ซึ่งเป็นคนไม่ใช่คุณศัพท์อย่าง contractual"
         }
       ]
     }
