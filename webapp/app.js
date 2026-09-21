@@ -1296,15 +1296,18 @@
       graded = p1.slice(start, start + P1_PER_SET);
       html += '<div class="card"><h3>Part 1 &middot; ดูภาพ</h3>';
       html += setNavHTML(listeningState.idx, p1Sets, "lset-prev", "lset-next", "6 ข้อต่อชุด เท่าข้อสอบจริง");
-      html += '<div class="muted">แอปนี้ไม่มีรูปภาพ ฉากจึงเขียนเป็นข้อความแทน อ่านฉากให้เห็นภาพในหัวก่อน แล้วเลือกประโยคที่ตรงกับฉากนั้นที่สุด — ฝึกทักษะเดียวกับของจริงคือจับคู่ประโยคกับสิ่งที่เห็น แต่ไม่ใช่ของจริงทั้งหมด</div>';
+      html += '<div class="muted">แอปนี้ไม่มีรูปภาพ กรอบสีเหลืองคือ<b>คำบรรยายภาพ</b> ทำหน้าที่แทนรูป อ่านให้เห็นภาพในหัวก่อน แล้วค่อยกดฟังทั้ง 4 ตัวเลือกและเลือกข้อที่ตรงกับภาพที่สุด ตัวลวงในแต่ละข้อคือกับดักจริงของ Part 1 คือกริยาผิดทั้งที่ของอยู่ในภาพ, being + ช่อง 3 ทั้งที่ไม่มีคนทำ และคำพ้องเสียง</div>';
       graded.forEach(function (item, qi) {
         html += '<div class="q-block" data-section="lp1" data-qi="' + qi + '">';
-        html += '<div class="q-text">' + (qi + 1) + '. <span class="scene-box">' + item.scene + "</span></div>";
+        html += '<div class="q-text">' + (qi + 1) + '. <span class="scene-box">' + item.scene + "</span>";
+        html += ' <button class="btn small play-btn" data-text="' + escapeAttr(
+          item.choices.map(function (c, ci) { return CHOICE_LETTERS[ci] + ". " + c; }).join(" ")
+        ) + '">▶ ฟังทั้ง 4 ตัวเลือก</button></div>';
         item.choices.forEach(function (c, ci) {
           html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="lp1-' + qi + '" value="' + ci +
-            '"> <span class="choice-letter">(' + CHOICE_LETTERS[ci] + ')</span> ' + c +
-            ' <button class="btn small no-flip play-btn" data-text="' + escapeAttr(c) + '">▶</button></label>';
+            '"> <span class="choice-letter">(' + CHOICE_LETTERS[ci] + ')</span> ' + c + "</label>";
         });
+        if (item.why) html += '<div class="why" hidden><b>ทำไมตอบข้อนี้</b><br>' + item.why + "</div>";
         html += "</div>";
       });
       html += '<div class="btn-row"><button class="btn primary drill-check" data-section="lp1">ตรวจคำตอบ</button></div>';
@@ -1374,6 +1377,7 @@
     $$(".drill-check", root).forEach(function (b) {
       b.addEventListener("click", function () {
         var right = gradeSection(root, b.dataset.section, graded);
+        $$(".why", root).forEach(function (w) { w.hidden = false; });
         $("#l-result").textContent = "ได้ " + right + " / " + graded.length + " ข้อ";
       });
     });
@@ -1638,8 +1642,12 @@
     items.forEach(function (item, qi) {
       h += '<div class="q-block" data-section="' + key + '" data-qi="' + qi + '"><div class="q-text">';
       if (mode === "photo") {
-        var spoken = item.scene + " Option A. " + item.choices[0] + " Option B. " + item.choices[1] + " Option C. " + item.choices[2] + " Option D. " + item.choices[3];
-        h += (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(spoken) + '">▶ ฟัง</button><div class="tiny-muted">ภาพ: ' + item.scene + "</div>";
+        /* the scene stands in for the photograph, so it is shown and not
+           spoken — reading it aloud handed over the answer */
+        var spoken = "Option A. " + item.choices[0] + " Option B. " + item.choices[1] +
+          " Option C. " + item.choices[2] + " Option D. " + item.choices[3];
+        h += (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(spoken) + '">▶ ฟังทั้ง 4 ตัวเลือก</button>';
+        h += '<div class="tiny-muted">คำบรรยายภาพ (แทนรูป): <span class="scene-box">' + item.scene + "</span></div>";
       } else if (mode === "play") h += "Q" + (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(item.q) + '">▶ ฟัง</button>';
       else if (mode === "blank") h += "ช่องที่ " + (qi + 1);
       else if (mode === "sentence") h += (qi + 1) + ". " + item.sentence;

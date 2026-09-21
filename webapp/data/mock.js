@@ -14,81 +14,87 @@ window.MOCK = {
       "listening": {
         "part1": [
           {
-            "scene": "A man is typing on a laptop at a desk in an office.",
+            "scene": "ในออฟฟิศ ผู้ชายคนหนึ่งนั่งที่โต๊ะ มีแล็ปท็อปเปิดอยู่ตรงหน้า มือทั้งสองวางอยู่บนแป้นพิมพ์ ข้างๆ มีแก้วกาแฟและโทรศัพท์ตั้งโต๊ะวางอยู่",
             "choices": [
-              "The man is talking on the phone.",
-              "The man is sleeping in a chair.",
+              "The man is copying a document.",
               "The man is typing on a laptop.",
-              "The man is reading a newspaper."
+              "The laptop is being repaired.",
+              "The man is talking on the telephone."
             ],
-            "answer": 2
+            "answer": 1,
+            "why": "โทรศัพท์อยู่ในภาพจริงแต่เขาไม่ได้ใช้ จึงเป็นกับดักกริยาผิด ส่วน being repaired ต้องมีคนกำลังซ่อมอยู่ในภาพ และ copier กับ coffee เสียงคล้ายกันแต่ไม่มีเครื่องถ่ายเอกสารในภาพ"
           },
           {
-            "scene": "Several people are seated around a conference table during a meeting.",
+            "scene": "ห้องประชุม มีคนหลายคนนั่งอยู่รอบโต๊ะยาว บนโต๊ะมีเอกสารและแก้วน้ำวางอยู่ ทุกคนหันหน้าไปทางเดียวกัน ไม่มีใครลุกยืน",
             "choices": [
-              "The people are leaving the building.",
+              "Chairs are being moved into the room.",
               "The people are seated around a table.",
-              "The people are standing in a line.",
-              "The people are washing dishes."
+              "The people are standing near the door.",
+              "The people are boarding a train."
             ],
-            "answer": 1
+            "answer": 1,
+            "why": "ไม่มีใครยืนในภาพ ข้อที่บอกว่ายืนอยู่ใกล้ประตูจึงผิด ส่วน being moved ต้องมีคนกำลังยกเก้าอี้ และ train กับ meeting ไม่เกี่ยวกันเลย เป็นตัวลวงที่ฟังผ่านๆ อาจหลุด"
           },
           {
-            "scene": "A woman is pouring coffee into a cup at a cafe counter.",
+            "scene": "เคาน์เตอร์ร้านกาแฟ ผู้หญิงคนหนึ่งถือเหยือกเอียงลงเหนือแก้ว มีของเหลวกำลังไหลลงแก้ว ด้านหลังมีชั้นวางแก้วเปล่าเรียงอยู่",
             "choices": [
-              "The woman is painting a wall.",
-              "The woman is carrying boxes.",
+              "The glasses are being washed.",
               "The woman is pouring a drink.",
-              "The woman is cutting vegetables."
+              "The woman is drinking from a cup.",
+              "The woman is wearing a helmet."
             ],
-            "answer": 2
+            "answer": 1,
+            "why": "เธอกำลังริน ไม่ได้ดื่ม จึงเป็นกับดักกริยาผิดที่ใช้ของชิ้นเดียวกัน ส่วน being washed ไม่มีใครล้างแก้วในภาพ แม้จะมีแก้วอยู่ก็ตาม"
           },
           {
-            "scene": "Workers are loading boxes onto a delivery truck in a warehouse.",
+            "scene": "ในคลังสินค้า คนงานสองคนยกกล่องขึ้นวางบนท้ายรถบรรทุกที่จอดเปิดท้ายอยู่ มีกล่องอีกหลายใบวางกองอยู่บนพื้น",
             "choices": [
-              "The workers are planting trees.",
-              "The workers are loading boxes onto a truck.",
-              "The workers are repairing a roof.",
-              "The workers are unloading passengers from a bus."
+              "The truck is being repaired.",
+              "Boxes are being loaded onto a truck.",
+              "The workers are unloading a container.",
+              "The boxes are stacked on a shelf."
             ],
-            "answer": 1
+            "answer": 1,
+            "why": "ข้อนี้ being loaded ถูก เพราะมีคนกำลังยกอยู่จริง ต่างจาก being repaired ที่ไม่มีใครซ่อมรถ และ unload คือเอาลง ตรงข้ามกับที่เห็น"
           },
           {
-            "scene": "A woman is presenting a chart to colleagues in a meeting room.",
+            "scene": "ห้องประชุม ผู้หญิงคนหนึ่งยืนอยู่ข้างจอที่แสดงกราฟแท่ง มือข้างหนึ่งชี้ไปที่จอ คนอื่นนั่งอยู่และมองไปทางเธอ",
             "choices": [
-              "The woman is sweeping the floor.",
-              "The woman is watering plants.",
-              "The woman is fixing a printer.",
-              "The woman is presenting a chart."
+              "The people are leaving the room.",
+              "A woman is turning off the lights.",
+              "The chart is being printed.",
+              "A woman is pointing at a screen."
             ],
-            "answer": 3
+            "answer": 3,
+            "why": "การชี้คือกริยาที่เห็นชัด ส่วน being printed ไม่มีเครื่องพิมพ์ในภาพ และคนยังนั่งอยู่ ไม่ได้ออกจากห้อง"
           },
           {
-            "scene": "A technician is repairing a piece of machinery on a factory floor.",
+            "scene": "โรงงาน ช่างคนหนึ่งคุกเข่าอยู่ข้างเครื่องจักร ถือประแจอยู่ในมือ มีกล่องเครื่องมือเปิดวางอยู่บนพื้นข้างๆ",
             "choices": [
-              "The technician is signing a contract.",
-              "The technician is serving a meal.",
-              "The technician is answering the phone.",
-              "The technician is repairing a machine."
+              "A man is holding a tool.",
+              "The machine is being operated.",
+              "A man is putting on a jacket.",
+              "A man is sweeping the floor."
             ],
-            "answer": 3
+            "answer": 0,
+            "why": "เขาถือประแจอยู่ ส่วน being operated แปลว่ามีคนกำลังเดินเครื่อง ซึ่งไม่ใช่ เขากำลังซ่อม และพื้นในภาพไม่มีใครกวาด"
           }
         ],
         "part2": [
           {
             "q": "What time does the store open?",
             "choices": [
+              "Near the mall.",
               "At nine o'clock.",
-              "Yes, it's open.",
-              "Near the mall."
+              "Yes, it's open."
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "q": "Who is in charge of the budget this year?",
             "choices": [
-              "It's very tight.",
               "Twice a month.",
+              "It's very tight.",
               "Ms. Carter is."
             ],
             "answer": 2
@@ -97,19 +103,19 @@ window.MOCK = {
             "q": "Where should I leave the packages?",
             "choices": [
               "By the back door.",
-              "They're heavy.",
-              "Around noon."
+              "Around noon.",
+              "They're heavy."
             ],
             "answer": 0
           },
           {
             "q": "Why was the shipment delayed?",
             "choices": [
-              "Because of a strike.",
               "Two boxes.",
+              "Because of a strike.",
               "In the warehouse."
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "q": "How long will the renovation take?",
@@ -123,8 +129,8 @@ window.MOCK = {
           {
             "q": "Did you finish the quarterly report?",
             "choices": [
-              "It's on the shelf.",
               "Every quarter.",
+              "It's on the shelf.",
               "Yes, this morning."
             ],
             "answer": 2
@@ -141,81 +147,81 @@ window.MOCK = {
           {
             "q": "Isn't the meeting starting soon?",
             "choices": [
-              "Yes, in five minutes.",
+              "About the budget.",
               "It's a long meeting.",
-              "About the budget."
+              "Yes, in five minutes."
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "q": "Could you send me the invoice?",
             "choices": [
-              "Twice a week.",
               "Sure, right away.",
-              "It's overdue."
-            ],
-            "answer": 1
-          },
-          {
-            "q": "When does the new employee start?",
-            "choices": [
-              "In the HR office.",
-              "Next Monday.",
-              "She's very skilled."
-            ],
-            "answer": 1
-          },
-          {
-            "q": "How much does the annual subscription cost?",
-            "choices": [
-              "Once a year.",
-              "Fifty dollars.",
-              "It's very popular."
-            ],
-            "answer": 1
-          },
-          {
-            "q": "Which floor is the accounting department on?",
-            "choices": [
-              "It's very busy.",
-              "Every morning.",
-              "The fourth floor."
-            ],
-            "answer": 2
-          },
-          {
-            "q": "Has the client confirmed the order?",
-            "choices": [
-              "Around three o'clock.",
-              "Not yet.",
-              "It's a big order."
-            ],
-            "answer": 1
-          },
-          {
-            "q": "Who's presenting at the conference tomorrow?",
-            "choices": [
-              "Mr. Diaz is.",
-              "In Room 12.",
-              "It went well."
+              "It's overdue.",
+              "Twice a week."
             ],
             "answer": 0
           },
           {
-            "q": "Do you know where the printer is?",
+            "q": "When does the new employee start?",
             "choices": [
-              "Yes, I printed it.",
-              "About ten pages.",
-              "It's down the hall."
+              "Next Monday.",
+              "In the HR office.",
+              "She's very skilled."
+            ],
+            "answer": 0
+          },
+          {
+            "q": "How much does the annual subscription cost?",
+            "choices": [
+              "It's very popular.",
+              "Once a year.",
+              "Fifty dollars."
             ],
             "answer": 2
           },
           {
+            "q": "Which floor is the accounting department on?",
+            "choices": [
+              "The fourth floor.",
+              "It's very busy.",
+              "Every morning."
+            ],
+            "answer": 0
+          },
+          {
+            "q": "Has the client confirmed the order?",
+            "choices": [
+              "It's a big order.",
+              "Around three o'clock.",
+              "Not yet."
+            ],
+            "answer": 2
+          },
+          {
+            "q": "Who's presenting at the conference tomorrow?",
+            "choices": [
+              "It went well.",
+              "In Room 12.",
+              "Mr. Diaz is."
+            ],
+            "answer": 2
+          },
+          {
+            "q": "Do you know where the printer is?",
+            "choices": [
+              "It's down the hall.",
+              "Yes, I printed it.",
+              "About ten pages."
+            ],
+            "answer": 0
+          },
+          {
             "q": "What's the best way to reach the airport?",
             "choices": [
-              "Around five hours.",
+              "It's very far.",
               "Take the shuttle bus.",
-              "It's very far."
+              "Around five hours."
             ],
             "answer": 1
           },
@@ -231,38 +237,38 @@ window.MOCK = {
           {
             "q": "Why don't we reschedule the call?",
             "choices": [
-              "Yesterday afternoon.",
+              "It lasted an hour.",
               "That works for me.",
-              "It lasted an hour."
+              "Yesterday afternoon."
             ],
             "answer": 1
           },
           {
             "q": "How was your business trip?",
             "choices": [
-              "To Chicago.",
               "It went really well.",
+              "To Chicago.",
               "For three days."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "Is the contract ready for review?",
             "choices": [
+              "Yes, I just sent it.",
               "Next week.",
-              "It's very long.",
-              "Yes, I just sent it."
+              "It's very long."
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "q": "Who approved this expense?",
             "choices": [
-              "The finance director.",
+              "In cash.",
               "Fifty dollars.",
-              "In cash."
+              "The finance director."
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "q": "What did the client say about the proposal?",
@@ -276,11 +282,11 @@ window.MOCK = {
           {
             "q": "Could I get a copy of the agenda?",
             "choices": [
+              "Twelve people.",
               "It starts at nine.",
-              "Of course, here you go.",
-              "Twelve people."
+              "Of course, here you go."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "Are you attending the workshop next week?",
@@ -313,20 +319,20 @@ window.MOCK = {
               {
                 "q": "Why does the woman want to change the meeting time?",
                 "choices": [
+                  "She is on vacation.",
                   "She has another call.",
-                  "The room is booked.",
-                  "She is on vacation."
+                  "The room is booked."
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "What does the man agree to do?",
                 "choices": [
-                  "Book a new room.",
                   "Update the calendar.",
+                  "Book a new room.",
                   "Cancel the meeting."
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What does the woman ask the man to do?",
@@ -350,20 +356,20 @@ window.MOCK = {
               {
                 "q": "What problem is the man having?",
                 "choices": [
-                  "His printer is broken.",
+                  "His computer keeps freezing.",
                   "His password expired.",
-                  "His computer keeps freezing."
+                  "His printer is broken."
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What happened last week, according to the man?",
                 "choices": [
+                  "The same problem occurred.",
                   "He lost his files.",
-                  "He got a new computer.",
-                  "The same problem occurred."
+                  "He got a new computer."
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What will the woman do?",
@@ -396,11 +402,11 @@ window.MOCK = {
               {
                 "q": "When does the woman want to return?",
                 "choices": [
+                  "Sunday.",
                   "Wednesday.",
-                  "Friday.",
-                  "Sunday."
+                  "Friday."
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "What will the man do next?",
@@ -424,29 +430,29 @@ window.MOCK = {
               {
                 "q": "What is the customer's problem?",
                 "choices": [
-                  "She was overcharged.",
+                  "Her order never arrived.",
                   "She received a defective item.",
-                  "Her order never arrived."
+                  "She was overcharged."
                 ],
                 "answer": 1
               },
               {
                 "q": "What does the customer ask for, in addition to a replacement?",
                 "choices": [
-                  "An apology letter.",
                   "A discount.",
-                  "A refund."
+                  "A refund.",
+                  "An apology letter."
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What will they do?",
                 "choices": [
-                  "Ignore the request.",
+                  "Process the refund.",
                   "Send a new blender.",
-                  "Process the refund."
+                  "Ignore the request."
                 ],
-                "answer": 2
+                "answer": 0
               }
             ]
           },
@@ -461,17 +467,17 @@ window.MOCK = {
               {
                 "q": "What are the speakers discussing?",
                 "choices": [
-                  "An office move.",
                   "A budget cut.",
+                  "An office move.",
                   "A new hire."
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "When is the move scheduled?",
                 "choices": [
-                  "In two months.",
                   "This Monday.",
+                  "In two months.",
                   "Next Friday."
                 ],
                 "answer": 2
@@ -479,11 +485,11 @@ window.MOCK = {
               {
                 "q": "Who will handle the packing?",
                 "choices": [
-                  "The facilities team.",
+                  "Each employee.",
                   "An outside company.",
-                  "Each employee."
+                  "The facilities team."
                 ],
-                "answer": 0
+                "answer": 2
               }
             ]
           },
@@ -516,11 +522,11 @@ window.MOCK = {
               {
                 "q": "When will they discuss the budget?",
                 "choices": [
+                  "Next month.",
                   "Tomorrow morning.",
-                  "At Thursday's meeting.",
-                  "Next month."
+                  "At Thursday's meeting."
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -544,20 +550,20 @@ window.MOCK = {
               {
                 "q": "Who will do the initial screening?",
                 "choices": [
-                  "An outside agency.",
                   "The man.",
-                  "HR."
+                  "HR.",
+                  "An outside agency."
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "When will interviews likely take place?",
                 "choices": [
+                  "Next month.",
                   "This afternoon.",
-                  "Early next week.",
-                  "Next month."
+                  "Early next week."
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -572,20 +578,20 @@ window.MOCK = {
               {
                 "q": "What is the man doing?",
                 "choices": [
-                  "Asking for a refund.",
                   "Making a reservation.",
+                  "Asking for a refund.",
                   "Cancelling an order."
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What time is the table available?",
                 "choices": [
-                  "Noon.",
+                  "Seven in the evening.",
                   "Nine in the evening.",
-                  "Seven in the evening."
+                  "Noon."
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What does the man request?",
@@ -609,20 +615,20 @@ window.MOCK = {
               {
                 "q": "What is low in the warehouse?",
                 "choices": [
-                  "Computers.",
                   "Office chairs.",
-                  "Packaging boxes."
+                  "Packaging boxes.",
+                  "Computers."
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What will the man do today?",
                 "choices": [
+                  "Place an order.",
                   "Count the inventory.",
-                  "Hire a new worker.",
-                  "Place an order."
+                  "Hire a new worker."
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What does the woman ask about?",
@@ -646,29 +652,29 @@ window.MOCK = {
               {
                 "q": "What is the woman preparing?",
                 "choices": [
-                  "A training manual.",
                   "A presentation.",
-                  "A budget report."
+                  "A budget report.",
+                  "A training manual."
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What does she still need to finish?",
                 "choices": [
-                  "Two slides.",
                   "The introduction.",
-                  "A video."
+                  "A video.",
+                  "Two slides."
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What does the man offer to help with?",
                 "choices": [
-                  "Data charts.",
+                  "Booking the room.",
                   "Printing handouts.",
-                  "Booking the room."
+                  "Data charts."
                 ],
-                "answer": 0
+                "answer": 2
               }
             ]
           },
@@ -684,28 +690,28 @@ window.MOCK = {
                 "q": "What problem is being discussed?",
                 "choices": [
                   "The lights are flickering.",
-                  "The elevator is stuck.",
-                  "The air conditioning is broken."
+                  "The air conditioning is broken.",
+                  "The elevator is stuck."
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What will the man do?",
                 "choices": [
+                  "Fix it himself.",
                   "Contact maintenance.",
-                  "Close the office.",
-                  "Fix it himself."
+                  "Close the office."
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "How quickly does the company usually respond?",
                 "choices": [
+                  "Within a few hours.",
                   "Within a week.",
-                  "The next day.",
-                  "Within a few hours."
+                  "The next day."
                 ],
-                "answer": 2
+                "answer": 0
               }
             ]
           },
@@ -720,29 +726,29 @@ window.MOCK = {
               {
                 "q": "What time does the training start?",
                 "choices": [
-                  "Noon.",
+                  "Ten.",
                   "Nine.",
-                  "Ten."
+                  "Noon."
                 ],
                 "answer": 1
               },
               {
                 "q": "Where will the training be held?",
                 "choices": [
-                  "The cafeteria.",
                   "Off-site.",
-                  "The main conference room."
+                  "The main conference room.",
+                  "The cafeteria."
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What should the woman bring?",
                 "choices": [
-                  "A laptop.",
                   "Her employee ID.",
-                  "A notebook."
+                  "A notebook.",
+                  "A laptop."
                 ],
-                "answer": 1
+                "answer": 0
               }
             ]
           },
@@ -766,17 +772,17 @@ window.MOCK = {
               {
                 "q": "Where is the shipment currently?",
                 "choices": [
+                  "At customs.",
                   "Still with the supplier.",
-                  "At the warehouse.",
-                  "At customs."
+                  "At the warehouse."
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "When is it expected to clear?",
                 "choices": [
-                  "Today.",
                   "Next month.",
+                  "Today.",
                   "In two business days."
                 ],
                 "answer": 2
@@ -791,27 +797,27 @@ window.MOCK = {
               {
                 "q": "What is the announcement about?",
                 "choices": [
-                  "A fire drill.",
                   "A building inspection.",
-                  "A power outage."
+                  "A power outage.",
+                  "A fire drill."
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What should staff do when the alarm sounds?",
                 "choices": [
                   "Stay at their desks.",
-                  "Call security.",
-                  "Leave through the nearest exit."
+                  "Leave through the nearest exit.",
+                  "Call security."
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "How long will the drill take?",
                 "choices": [
-                  "All afternoon.",
+                  "One hour.",
                   "About ten minutes.",
-                  "One hour."
+                  "All afternoon."
                 ],
                 "answer": 1
               }
@@ -832,11 +838,11 @@ window.MOCK = {
               {
                 "q": "Where can passengers wait?",
                 "choices": [
+                  "In the lounge near gate nine.",
                   "At the check-in counter.",
-                  "On the plane.",
-                  "In the lounge near gate nine."
+                  "On the plane."
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "How long is the delay?",
@@ -856,16 +862,16 @@ window.MOCK = {
                 "q": "What is on sale this week?",
                 "choices": [
                   "Fresh produce.",
-                  "Electronics.",
-                  "Clothing."
+                  "Clothing.",
+                  "Electronics."
                 ],
                 "answer": 0
               },
               {
                 "q": "How much is the discount?",
                 "choices": [
-                  "Ten percent.",
                   "Fifty percent.",
+                  "Ten percent.",
                   "Twenty percent."
                 ],
                 "answer": 2
@@ -873,11 +879,11 @@ window.MOCK = {
               {
                 "q": "What benefit do rewards members get?",
                 "choices": [
+                  "Free delivery.",
                   "A gift card.",
-                  "Double points.",
-                  "Free delivery."
+                  "Double points."
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -897,10 +903,10 @@ window.MOCK = {
                 "q": "By how much did revenue grow?",
                 "choices": [
                   "Eighty percent.",
-                  "Eighteen percent.",
-                  "Eight percent."
+                  "Eight percent.",
+                  "Eighteen percent."
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "What will happen next month?",
@@ -928,20 +934,20 @@ window.MOCK = {
               {
                 "q": "What document is needed?",
                 "choices": [
-                  "A tax return.",
                   "A recent pay stub.",
-                  "A passport copy."
+                  "A passport copy.",
+                  "A tax return."
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What is the listener asked to do?",
                 "choices": [
-                  "Send an email.",
+                  "Call back.",
                   "Visit the bank in person.",
-                  "Call back."
+                  "Send an email."
                 ],
-                "answer": 2
+                "answer": 0
               }
             ]
           },
@@ -951,29 +957,29 @@ window.MOCK = {
               {
                 "q": "How often do guided tours begin?",
                 "choices": [
+                  "Every hour.",
                   "Every thirty minutes.",
-                  "Twice a day.",
-                  "Every hour."
+                  "Twice a day."
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "How long does a tour last?",
                 "choices": [
-                  "Two hours.",
+                  "About forty-five minutes.",
                   "Fifteen minutes.",
-                  "About forty-five minutes."
+                  "Two hours."
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What is not allowed on the second floor?",
                 "choices": [
+                  "Talking.",
                   "Photography.",
-                  "Eating.",
-                  "Talking."
+                  "Eating."
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -984,28 +990,28 @@ window.MOCK = {
                 "q": "Why is traffic moving slowly?",
                 "choices": [
                   "Construction.",
-                  "An accident.",
-                  "Bad weather."
+                  "Bad weather.",
+                  "An accident."
                 ],
                 "answer": 0
               },
               {
                 "q": "What are drivers advised to do?",
                 "choices": [
-                  "Avoid driving today.",
                   "Use the north bypass.",
+                  "Avoid driving today.",
                   "Take public transportation."
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "When should traffic return to normal?",
                 "choices": [
-                  "Tomorrow morning.",
+                  "Early afternoon.",
                   "This evening.",
-                  "Early afternoon."
+                  "Tomorrow morning."
                 ],
-                "answer": 2
+                "answer": 0
               }
             ]
           },
@@ -1015,18 +1021,18 @@ window.MOCK = {
               {
                 "q": "What event is taking place?",
                 "choices": [
-                  "A tech conference.",
                   "A job fair.",
-                  "A product launch."
+                  "A product launch.",
+                  "A tech conference."
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "Where will lunch be served?",
                 "choices": [
                   "In the main hall.",
-                  "Outside.",
-                  "In the lobby."
+                  "In the lobby.",
+                  "Outside."
                 ],
                 "answer": 0
               },
@@ -1047,20 +1053,20 @@ window.MOCK = {
               {
                 "q": "What must workers wear on the production floor?",
                 "choices": [
+                  "Safety goggles and gloves.",
                   "Uniforms only.",
-                  "Hard hats only.",
-                  "Safety goggles and gloves."
+                  "Hard hats only."
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What should workers do if equipment malfunctions?",
                 "choices": [
-                  "Repair it themselves.",
                   "Report it to a supervisor.",
-                  "Ignore it."
+                  "Ignore it.",
+                  "Repair it themselves."
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "When does this briefing take place?",
@@ -1079,8 +1085,8 @@ window.MOCK = {
               {
                 "q": "What is the checkout time?",
                 "choices": [
-                  "Ten in the evening.",
                   "Noon.",
+                  "Ten in the evening.",
                   "Eleven in the morning."
                 ],
                 "answer": 2
@@ -1088,20 +1094,20 @@ window.MOCK = {
               {
                 "q": "What should guests do to extend their stay?",
                 "choices": [
-                  "Check out and check back in.",
+                  "Contact the front desk.",
                   "Pay an extra fee automatically.",
-                  "Contact the front desk."
+                  "Check out and check back in."
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What free service is mentioned?",
                 "choices": [
-                  "Breakfast.",
                   "Airport shuttle.",
-                  "Luggage storage."
+                  "Luggage storage.",
+                  "Breakfast."
                 ],
-                "answer": 2
+                "answer": 1
               }
             ]
           }
@@ -1112,22 +1118,22 @@ window.MOCK = {
           {
             "sentence": "The manager asked everyone to ______ the new safety policy.",
             "choices": [
+              "reviewed",
               "reviews",
-              "reviewing",
               "review",
-              "reviewed"
+              "reviewing"
             ],
             "answer": 2
           },
           {
             "sentence": "Sales have grown ______ over the past two years.",
             "choices": [
-              "steadier",
-              "steady",
               "steadily",
-              "steadiness"
+              "steadier",
+              "steadiness",
+              "steady"
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "sentence": "Please submit the form ______ the end of the day.",
@@ -1142,160 +1148,160 @@ window.MOCK = {
           {
             "sentence": "The company's new logo is more ______ than the old one.",
             "choices": [
-              "modernize",
               "modern",
-              "modernization",
-              "modernly"
-            ],
-            "answer": 1
-          },
-          {
-            "sentence": "Employees ______ complete the survey will receive a small gift.",
-            "choices": [
-              "whom",
-              "whose",
-              "which",
-              "who"
-            ],
-            "answer": 3
-          },
-          {
-            "sentence": "The board plans ______ a new director next month.",
-            "choices": [
-              "appointing",
-              "to appoint",
-              "appoints",
-              "appointed"
-            ],
-            "answer": 1
-          },
-          {
-            "sentence": "All visitors must ______ at the front desk before entering.",
-            "choices": [
-              "register",
-              "registered",
-              "registers",
-              "registration"
+              "modernly",
+              "modernize",
+              "modernization"
             ],
             "answer": 0
           },
           {
-            "sentence": "Her proposal was ______ organized and well researched.",
+            "sentence": "Employees ______ complete the survey will receive a small gift.",
             "choices": [
-              "careful",
-              "caring",
-              "care",
-              "carefully"
+              "who",
+              "whom",
+              "whose",
+              "which"
+            ],
+            "answer": 0
+          },
+          {
+            "sentence": "The board plans ______ a new director next month.",
+            "choices": [
+              "appointed",
+              "appointing",
+              "to appoint",
+              "appoints"
+            ],
+            "answer": 2
+          },
+          {
+            "sentence": "All visitors must ______ at the front desk before entering.",
+            "choices": [
+              "registration",
+              "registers",
+              "registered",
+              "register"
             ],
             "answer": 3
+          },
+          {
+            "sentence": "Her proposal was ______ organized and well researched.",
+            "choices": [
+              "care",
+              "carefully",
+              "careful",
+              "caring"
+            ],
+            "answer": 1
           },
           {
             "sentence": "The new employees ______ orientation last Monday.",
             "choices": [
               "to attend",
-              "attended",
               "attend",
+              "attended",
               "attending"
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "sentence": "This model is ______ efficient than the previous one.",
             "choices": [
-              "much",
-              "very",
               "most",
-              "more"
+              "much",
+              "more",
+              "very"
             ],
-            "answer": 3
+            "answer": 2
           },
           {
             "sentence": "The invoice must be paid ______ thirty days.",
             "choices": [
               "within",
+              "between",
               "among",
-              "through",
-              "between"
+              "through"
             ],
             "answer": 0
           },
           {
             "sentence": "The technician ______ the printer before the meeting starts.",
             "choices": [
-              "fixing",
               "fixed",
-              "will fix",
-              "fixes"
+              "fixing",
+              "fixes",
+              "will fix"
             ],
-            "answer": 2
+            "answer": 3
           },
           {
             "sentence": "Neither the manager nor the assistants ______ available today.",
             "choices": [
               "is",
-              "are",
               "be",
+              "are",
               "was"
-            ],
-            "answer": 1
-          },
-          {
-            "sentence": "The report ______ several errors that need correcting.",
-            "choices": [
-              "contain",
-              "contained",
-              "contains",
-              "containing"
             ],
             "answer": 2
           },
           {
-            "sentence": "We are looking for a candidate ______ strong communication skills.",
+            "sentence": "The report ______ several errors that need correcting.",
             "choices": [
-              "for",
-              "with",
-              "of",
-              "at"
+              "containing",
+              "contains",
+              "contain",
+              "contained"
             ],
             "answer": 1
+          },
+          {
+            "sentence": "We are looking for a candidate ______ strong communication skills.",
+            "choices": [
+              "with",
+              "of",
+              "for",
+              "at"
+            ],
+            "answer": 0
           },
           {
             "sentence": "The client seemed ______ satisfied with the final design.",
             "choices": [
               "height",
-              "high",
               "highness",
-              "highly"
+              "highly",
+              "high"
             ],
-            "answer": 3
+            "answer": 2
           },
           {
             "sentence": "Please make sure the documents are signed ______ you submit them.",
             "choices": [
-              "during",
+              "since",
               "after",
               "before",
-              "since"
+              "during"
             ],
             "answer": 2
           },
           {
             "sentence": "The workshop will help employees ______ their presentation skills.",
             "choices": [
-              "improving",
-              "improves",
+              "improve",
               "improved",
-              "improve"
+              "improving",
+              "improves"
             ],
-            "answer": 3
+            "answer": 0
           },
           {
             "sentence": "Due to heavy rain, the outdoor event was ______ postponed.",
             "choices": [
               "temporarily",
               "temporariness",
-              "temporary",
-              "temporize"
+              "temporize",
+              "temporary"
             ],
             "answer": 0
           },
@@ -1303,108 +1309,108 @@ window.MOCK = {
             "sentence": "The applicants must submit their resumes ______ Friday.",
             "choices": [
               "by",
-              "since",
+              "for",
               "until",
-              "for"
+              "since"
             ],
             "answer": 0
           },
           {
             "sentence": "Our team achieved its goals ______ despite the tight deadline.",
             "choices": [
-              "succeed",
-              "success",
               "successfully",
-              "successful"
+              "succeed",
+              "successful",
+              "success"
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "sentence": "The company ______ its headquarters to a larger building last year.",
             "choices": [
               "moving",
               "moves",
-              "has moved",
-              "moved"
+              "moved",
+              "has moved"
             ],
-            "answer": 3
+            "answer": 2
           },
           {
             "sentence": "You should double-check the figures ______ submitting the report.",
             "choices": [
-              "despite",
+              "before",
               "although",
               "unless",
-              "before"
+              "despite"
             ],
-            "answer": 3
+            "answer": 0
           },
           {
             "sentence": "The new regulation requires all vehicles ______ inspected annually.",
             "choices": [
-              "being",
-              "been",
               "be",
-              "to be"
+              "to be",
+              "been",
+              "being"
             ],
-            "answer": 3
+            "answer": 1
           },
           {
             "sentence": "Customer feedback has been ______ positive since the redesign.",
             "choices": [
               "overwhelm",
               "overwhelming",
-              "overwhelmingly",
-              "overwhelms"
+              "overwhelms",
+              "overwhelmingly"
             ],
-            "answer": 2
+            "answer": 3
           },
           {
             "sentence": "The negotiations lasted ______ three hours before an agreement was reached.",
             "choices": [
+              "during",
               "for",
               "by",
-              "since",
-              "during"
+              "since"
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "sentence": "Each department ______ responsible for its own budget.",
             "choices": [
-              "are",
               "be",
               "is",
+              "are",
               "were"
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "sentence": "The manual explains how to ______ the equipment safely.",
             "choices": [
-              "operation",
+              "operational",
               "operate",
-              "operating",
-              "operational"
+              "operation",
+              "operating"
             ],
             "answer": 1
           },
           {
             "sentence": "The merger will ______ significant changes to the company structure.",
             "choices": [
-              "bringing",
               "bring",
+              "brought",
               "brings",
-              "brought"
+              "bringing"
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "sentence": "Staff are encouraged to report any safety concerns ______ their supervisor.",
             "choices": [
-              "on",
-              "in",
               "at",
+              "in",
+              "on",
               "to"
             ],
             "answer": 3
@@ -1416,39 +1422,39 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
-                  "required",
-                  "requires",
                   "requiring",
-                  "require"
+                  "required",
+                  "require",
+                  "requires"
                 ],
-                "answer": 3
+                "answer": 2
               },
               {
                 "choices": [
-                  "allow",
+                  "allows",
                   "allowed",
                   "allowing",
-                  "allows"
+                  "allow"
                 ],
                 "answer": 1
               },
               {
                 "choices": [
-                  "questioned",
+                  "questions",
                   "questioning",
-                  "question",
-                  "questions"
+                  "questioned",
+                  "question"
                 ],
-                "answer": 3
+                "answer": 0
               },
               {
                 "choices": [
                   "cooperative",
+                  "cooperate",
                   "cooperation",
-                  "cooperatively",
-                  "cooperate"
+                  "cooperatively"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -1457,39 +1463,39 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
-                  "announce",
                   "announcing",
+                  "announced",
                   "announces",
-                  "announced"
+                  "announce"
                 ],
-                "answer": 0
+                "answer": 3
               },
               {
                 "choices": [
                   "cares",
-                  "carefully",
                   "care",
-                  "careful"
+                  "careful",
+                  "carefully"
                 ],
-                "answer": 1
+                "answer": 3
               },
               {
                 "choices": [
-                  "receiving",
                   "received",
-                  "receive",
-                  "receives"
+                  "receives",
+                  "receiving",
+                  "receive"
                 ],
-                "answer": 2
+                "answer": 3
               },
               {
                 "choices": [
+                  "supporting",
                   "supported",
                   "support",
-                  "supporting",
                   "supports"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -1498,39 +1504,39 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
-                  "hiring",
-                  "hired",
+                  "hire",
                   "hires",
-                  "hire"
+                  "hiring",
+                  "hired"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "choices": [
-                  "experience",
-                  "experienced",
                   "experiencing",
-                  "experiences"
-                ],
-                "answer": 0
-              },
-              {
-                "choices": [
-                  "analyzed",
-                  "analyzing",
-                  "analyzes",
-                  "analyze"
-                ],
-                "answer": 1
-              },
-              {
-                "choices": [
-                  "since",
-                  "at",
-                  "until",
-                  "by"
+                  "experiences",
+                  "experienced",
+                  "experience"
                 ],
                 "answer": 3
+              },
+              {
+                "choices": [
+                  "analyzing",
+                  "analyze",
+                  "analyzed",
+                  "analyzes"
+                ],
+                "answer": 0
+              },
+              {
+                "choices": [
+                  "at",
+                  "by",
+                  "until",
+                  "since"
+                ],
+                "answer": 1
               }
             ]
           },
@@ -1540,11 +1546,11 @@ window.MOCK = {
               {
                 "choices": [
                   "turn",
+                  "turned",
                   "turning",
-                  "turns",
-                  "turned"
+                  "turns"
                 ],
-                "answer": 3
+                "answer": 1
               },
               {
                 "choices": [
@@ -1557,19 +1563,19 @@ window.MOCK = {
               },
               {
                 "choices": [
-                  "inspect",
                   "inspects",
+                  "inspecting",
                   "inspected",
-                  "inspecting"
+                  "inspect"
                 ],
-                "answer": 3
+                "answer": 1
               },
               {
                 "choices": [
-                  "inconveniently",
                   "inconvenienced",
+                  "inconvenient",
                   "inconvenience",
-                  "inconvenient"
+                  "inconveniently"
                 ],
                 "answer": 2
               }
@@ -1584,26 +1590,26 @@ window.MOCK = {
                 {
                   "q": "What is the main purpose of this memo?",
                   "choices": [
-                    "To announce a new recycling program.",
                     "To announce a schedule change.",
-                    "To announce a new parking policy."
+                    "To announce a new parking policy.",
+                    "To announce a new recycling program."
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "What should be placed in the blue bins?",
                   "choices": [
-                    "Food waste.",
                     "Paper waste.",
+                    "Food waste.",
                     "Plastic and cans."
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "When is the training session?",
                   "choices": [
-                    "Monday at noon.",
                     "Friday afternoon.",
+                    "Monday at noon.",
                     "Thursday at ten in the morning."
                   ],
                   "answer": 2
@@ -1620,20 +1626,20 @@ window.MOCK = {
                 {
                   "q": "Is attendance at the training required?",
                   "choices": [
-                    "No, it is optional.",
                     "Yes, it is mandatory.",
-                    "Only for managers."
+                    "Only for managers.",
+                    "No, it is optional."
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "Who should employees contact with questions?",
                   "choices": [
+                    "The office manager.",
                     "Human resources.",
-                    "The IT department.",
-                    "The office manager."
+                    "The IT department."
                   ],
-                  "answer": 2
+                  "answer": 0
                 }
               ]
             },
@@ -1643,9 +1649,9 @@ window.MOCK = {
                 {
                   "q": "What is the article mainly about?",
                   "choices": [
-                    "An advertisement for a music service.",
+                    "A comparison of phone brands.",
                     "A review of headphones.",
-                    "A comparison of phone brands."
+                    "An advertisement for a music service."
                   ],
                   "answer": 1
                 },
@@ -1653,34 +1659,34 @@ window.MOCK = {
                   "q": "How long does the battery last?",
                   "choices": [
                     "One week.",
-                    "Up to thirty hours.",
-                    "Ten hours."
-                  ],
-                  "answer": 1
-                },
-                {
-                  "q": "What do some users complain about?",
-                  "choices": [
-                    "The weight of the headphones.",
-                    "The price.",
-                    "The color options."
-                  ],
-                  "answer": 0
-                },
-                {
-                  "q": "How much do the headphones cost?",
-                  "choices": [
-                    "Two hundred dollars.",
-                    "Thirty dollars.",
-                    "Eighty dollars."
+                    "Ten hours.",
+                    "Up to thirty hours."
                   ],
                   "answer": 2
                 },
                 {
+                  "q": "What do some users complain about?",
+                  "choices": [
+                    "The price.",
+                    "The weight of the headphones.",
+                    "The color options."
+                  ],
+                  "answer": 1
+                },
+                {
+                  "q": "How much do the headphones cost?",
+                  "choices": [
+                    "Thirty dollars.",
+                    "Eighty dollars.",
+                    "Two hundred dollars."
+                  ],
+                  "answer": 1
+                },
+                {
                   "q": "What is the sound quality described as?",
                   "choices": [
-                    "Too loud.",
                     "Weak and unclear.",
+                    "Too loud.",
                     "Clear and balanced."
                   ],
                   "answer": 2
@@ -1688,11 +1694,11 @@ window.MOCK = {
                 {
                   "q": "What conclusion does the article reach about value?",
                   "choices": [
+                    "The headphones are not recommended.",
                     "The headphones are overpriced.",
-                    "The headphones offer strong value.",
-                    "The headphones are not recommended."
+                    "The headphones offer strong value."
                   ],
-                  "answer": 1
+                  "answer": 2
                 }
               ]
             },
@@ -1702,44 +1708,44 @@ window.MOCK = {
                 {
                   "q": "Why is Priya writing this email?",
                   "choices": [
+                    "To announce a meeting change.",
                     "To cancel a meeting.",
-                    "To introduce a new employee.",
-                    "To announce a meeting change."
-                  ],
-                  "answer": 2
-                },
-                {
-                  "q": "When was the meeting originally scheduled?",
-                  "choices": [
-                    "Next Thursday.",
-                    "Next Tuesday.",
-                    "This Friday."
-                  ],
-                  "answer": 1
-                },
-                {
-                  "q": "What time is the meeting?",
-                  "choices": [
-                    "Two in the afternoon.",
-                    "Five in the evening.",
-                    "Nine in the morning."
+                    "To introduce a new employee."
                   ],
                   "answer": 0
                 },
                 {
+                  "q": "When was the meeting originally scheduled?",
+                  "choices": [
+                    "Next Tuesday.",
+                    "This Friday.",
+                    "Next Thursday."
+                  ],
+                  "answer": 0
+                },
+                {
+                  "q": "What time is the meeting?",
+                  "choices": [
+                    "Five in the evening.",
+                    "Two in the afternoon.",
+                    "Nine in the morning."
+                  ],
+                  "answer": 1
+                },
+                {
                   "q": "Why was the meeting rescheduled?",
                   "choices": [
-                    "Bad weather.",
                     "The room was unavailable.",
-                    "A scheduling conflict with the regional director."
+                    "A scheduling conflict with the regional director.",
+                    "Bad weather."
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "What should employees do if Thursday doesn't work?",
                   "choices": [
-                    "Skip the meeting.",
                     "Attend anyway.",
+                    "Skip the meeting.",
                     "Let Priya know by Wednesday."
                   ],
                   "answer": 2
@@ -1747,9 +1753,9 @@ window.MOCK = {
                 {
                   "q": "Who will now be able to attend the meeting?",
                   "choices": [
-                    "The CEO.",
+                    "A client.",
                     "The regional director.",
-                    "A client."
+                    "The CEO."
                   ],
                   "answer": 1
                 }
@@ -1761,11 +1767,11 @@ window.MOCK = {
                 {
                   "q": "What is being advertised?",
                   "choices": [
-                    "A new fitness center.",
+                    "A clothing store.",
                     "A restaurant.",
-                    "A clothing store."
+                    "A new fitness center."
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "When will the center open?",
@@ -1789,19 +1795,19 @@ window.MOCK = {
                   "q": "What facilities does the center include?",
                   "choices": [
                     "A spa and sauna only.",
-                    "A pool, weight room, and exercise classes.",
-                    "A basketball court only."
+                    "A basketball court only.",
+                    "A pool, weight room, and exercise classes."
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "How much is the regular monthly membership?",
                   "choices": [
                     "One hundred dollars.",
-                    "Forty-five dollars.",
-                    "Fifteen dollars."
+                    "Fifteen dollars.",
+                    "Forty-five dollars."
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "Is a long-term contract required?",
@@ -1820,20 +1826,20 @@ window.MOCK = {
                 {
                   "q": "What is this announcement about?",
                   "choices": [
-                    "A new branch manager.",
                     "A merger with another bank.",
-                    "A new bank location."
+                    "A new bank location.",
+                    "A new branch manager."
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "When does Mr. Reyes start?",
                   "choices": [
-                    "August 1st.",
                     "July 1st.",
-                    "September 1st."
+                    "September 1st.",
+                    "August 1st."
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "How much experience does Mr. Reyes have?",
@@ -1847,11 +1853,11 @@ window.MOCK = {
                 {
                   "q": "What new initiative will be introduced?",
                   "choices": [
-                    "Online-only banking.",
                     "Small business lending.",
+                    "Online-only banking.",
                     "International transfers."
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What did Mr. Reyes do before this role?",
@@ -1875,17 +1881,17 @@ window.MOCK = {
                 {
                   "q": "What position is being advertised?",
                   "choices": [
-                    "Warehouse manager.",
+                    "Delivery driver.",
                     "Customer service representative.",
-                    "Delivery driver."
+                    "Warehouse manager."
                   ],
                   "answer": 1
                 },
                 {
                   "q": "What is the deadline to apply?",
                   "choices": [
-                    "July 15.",
                     "May 15.",
+                    "July 15.",
                     "June 15."
                   ],
                   "answer": 2
@@ -1893,29 +1899,29 @@ window.MOCK = {
                 {
                   "q": "How much experience does Wanda Lee have?",
                   "choices": [
-                    "Two years.",
+                    "One year.",
                     "Five years.",
-                    "One year."
+                    "Two years."
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "What did Wanda Lee do in her previous role?",
                   "choices": [
                     "Handled shipment tracking and complaints.",
-                    "Designed marketing materials.",
-                    "Managed a warehouse."
+                    "Managed a warehouse.",
+                    "Designed marketing materials."
                   ],
                   "answer": 0
                 },
                 {
                   "q": "What did Wanda Lee attach to her email?",
                   "choices": [
-                    "A cover letter only.",
                     "Her resume.",
+                    "A cover letter only.",
                     "A reference list."
                   ],
-                  "answer": 1
+                  "answer": 0
                 }
               ]
             },
@@ -1928,11 +1934,11 @@ window.MOCK = {
                 {
                   "q": "Why will the store be closed on Monday?",
                   "choices": [
-                    "A holiday.",
                     "Annual inventory.",
+                    "A holiday.",
                     "Renovation."
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "When will online orders ship?",
@@ -1955,20 +1961,20 @@ window.MOCK = {
                 {
                   "q": "Why is Tomas writing?",
                   "choices": [
-                    "To confirm his order will ship as planned.",
                     "To cancel his order.",
+                    "To confirm his order will ship as planned.",
                     "To request a refund."
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "What is Tomas's order number?",
                   "choices": [
                     "8824.",
-                    "4288.",
-                    "8842."
+                    "8842.",
+                    "4288."
                   ],
-                  "answer": 2
+                  "answer": 1
                 }
               ]
             }
@@ -1993,36 +1999,36 @@ window.MOCK = {
                 {
                   "q": "What is the early registration price?",
                   "choices": [
-                    "One hundred fifty dollars.",
+                    "One hundred dollars.",
                     "Two hundred dollars.",
-                    "One hundred dollars."
+                    "One hundred fifty dollars."
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "Why does Julia believe she qualifies for the early rate?",
                   "choices": [
-                    "Her registration is before September 1.",
                     "She worked at the hotel.",
-                    "She is a first-time attendee."
+                    "She is a first-time attendee.",
+                    "Her registration is before September 1."
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "What is included with registration?",
                   "choices": [
+                    "Airfare.",
                     "Hotel accommodation.",
-                    "Lunch both days and a welcome reception.",
-                    "Airfare."
+                    "Lunch both days and a welcome reception."
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "What changed about the welcome reception?",
                   "choices": [
                     "The start time moved to six in the evening.",
-                    "It was cancelled.",
-                    "The location moved to another hotel."
+                    "The location moved to another hotel.",
+                    "It was cancelled."
                   ],
                   "answer": 0
                 }
@@ -2038,17 +2044,17 @@ window.MOCK = {
                 {
                   "q": "What is EcoClean made from?",
                   "choices": [
-                    "Plant-based ingredients.",
+                    "Synthetic chemicals.",
                     "Recycled plastic.",
-                    "Synthetic chemicals."
+                    "Plant-based ingredients."
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "How much does the 3L bottle cost?",
                   "choices": [
-                    "Six dollars.",
                     "Twenty dollars.",
+                    "Six dollars.",
                     "Fifteen dollars."
                   ],
                   "answer": 2
@@ -2056,11 +2062,11 @@ window.MOCK = {
                 {
                   "q": "What does Ben Ortiz want to know?",
                   "choices": [
-                    "Whether it has a scent.",
+                    "Whether it's safe for HE washing machines.",
                     "Whether it's available in stores.",
-                    "Whether it's safe for HE washing machines."
+                    "Whether it has a scent."
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What machine does Ben have?",
@@ -2074,11 +2080,11 @@ window.MOCK = {
                 {
                   "q": "What does the company recommend for HE machines?",
                   "choices": [
-                    "Using half the usual amount.",
+                    "Using double the amount.",
                     "Not using the product at all.",
-                    "Using double the amount."
+                    "Using half the usual amount."
                   ],
-                  "answer": 0
+                  "answer": 2
                 }
               ]
             },
@@ -2092,9 +2098,9 @@ window.MOCK = {
                 {
                   "q": "What is the new policy about?",
                   "choices": [
-                    "Vacation days.",
+                    "Overtime pay.",
                     "Working from home.",
-                    "Overtime pay."
+                    "Vacation days."
                   ],
                   "answer": 1
                 },
@@ -2102,37 +2108,37 @@ window.MOCK = {
                   "q": "How many remote days are allowed per week?",
                   "choices": [
                     "Up to five.",
-                    "One.",
-                    "Up to two."
+                    "Up to two.",
+                    "One."
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "What are the core hours on remote days?",
                   "choices": [
-                    "Nine to five.",
+                    "All day.",
                     "Ten in the morning to three in the afternoon.",
-                    "All day."
+                    "Nine to five."
                   ],
                   "answer": 1
                 },
                 {
                   "q": "When will the policy be reviewed?",
                   "choices": [
-                    "Never.",
+                    "After one year.",
                     "After six months.",
-                    "After one year."
+                    "Never."
                   ],
                   "answer": 1
                 },
                 {
                   "q": "Can employees choose their own remote days?",
                   "choices": [
-                    "Yes, with manager approval.",
+                    "No, days are fixed.",
                     "Only senior staff can choose.",
-                    "No, days are fixed."
+                    "Yes, with manager approval."
                   ],
-                  "answer": 0
+                  "answer": 2
                 }
               ]
             }
@@ -2146,118 +2152,124 @@ window.MOCK = {
       "listening": {
         "part1": [
           {
-            "scene": "A woman is checking in at a hotel front desk.",
+            "scene": "เคาน์เตอร์โรงแรม ผู้หญิงคนหนึ่งยืนอยู่หน้าเคาน์เตอร์ มีกระเป๋าเดินทางวางอยู่ข้างเท้า พนักงานอีกฝั่งกำลังยื่นเอกสารให้",
             "choices": [
-              "The woman is cooking a meal.",
-              "The woman is swimming in a pool.",
-              "The woman is checking in at a desk.",
-              "The woman is boarding a bus."
+              "A woman is sitting in the lobby.",
+              "A woman is carrying a suitcase.",
+              "A woman is standing at a counter.",
+              "The luggage is being weighed."
             ],
-            "answer": 2
+            "answer": 2,
+            "why": "กระเป๋าวางอยู่กับพื้น ไม่ได้ถูกถือ จึงไม่ใช่ carrying และ being weighed ต้องมีเครื่องชั่งกับคนกำลังชั่ง"
           },
           {
-            "scene": "Passengers are boarding an airplane through a jet bridge.",
+            "scene": "ทางเดินขึ้นเครื่องบิน ผู้โดยสารหลายคนเดินเรียงแถวถือกระเป๋าถือ มุ่งไปทางประตูเครื่อง",
             "choices": [
-              "Passengers are washing a car.",
-              "Passengers are painting a wall.",
+              "Passengers are seated on a bus.",
+              "The plane is being refueled.",
               "Passengers are unloading luggage.",
-              "Passengers are boarding a plane."
+              "Passengers are walking in a line."
             ],
-            "answer": 3
+            "answer": 3,
+            "why": "เดินเรียงแถวคือสิ่งที่เห็น ส่วน being refueled ไม่มีรถเติมน้ำมันในภาพ และไม่มีใครนั่ง"
           },
           {
-            "scene": "A tour guide is pointing at a map for a group of tourists.",
+            "scene": "กลุ่มนักท่องเที่ยวยืนล้อมรอบผู้ชายคนหนึ่งที่กางแผนที่ไว้ในมือ นิ้วของเขาแตะอยู่บนแผนที่ ทุกคนก้มมอง",
             "choices": [
-              "The guide is pointing at a map.",
-              "The guide is selling tickets.",
-              "The guide is repairing a camera.",
-              "The guide is driving a bus."
+              "The tourists are taking photographs.",
+              "A man is folding a newspaper.",
+              "A man is holding a map.",
+              "Tickets are being sold."
             ],
-            "answer": 0
+            "answer": 2,
+            "why": "map กับ newspaper เป็นของกระดาษเหมือนกันจึงเป็นตัวลวงที่ดี แต่ในภาพเป็นแผนที่ และไม่มีใครถ่ายรูปหรือขายตั๋ว"
           },
           {
-            "scene": "A porter is loading suitcases onto a luggage cart.",
+            "scene": "พนักงานยกกระเป๋าวางกระเป๋าเดินทางใบใหญ่ขึ้นบนรถเข็น มีกระเป๋าอีกสองใบวางอยู่บนรถเข็นแล้ว",
             "choices": [
-              "The porter is cleaning windows.",
-              "The porter is answering the phone.",
-              "The porter is serving food.",
-              "The porter is loading suitcases."
+              "A man is pushing an empty cart.",
+              "Luggage is being placed on a cart.",
+              "The suitcases are being opened.",
+              "A man is repairing a wheel."
             ],
-            "answer": 3
+            "answer": 1,
+            "why": "รถเข็นไม่ว่าง มีกระเป๋าอยู่แล้วสองใบ และไม่มีใครเปิดกระเป๋าหรือซ่อมล้อ"
           },
           {
-            "scene": "A family is having breakfast at an outdoor cafe table.",
+            "scene": "โต๊ะกลางแจ้งหน้าร้านอาหาร มีคนนั่งอยู่สี่คน บนโต๊ะมีจานอาหารและแก้วน้ำ มีร่มกางอยู่เหนือโต๊ะ",
             "choices": [
-              "The family is fishing.",
-              "The family is having breakfast outdoors.",
-              "The family is shopping for clothes.",
-              "The family is packing suitcases."
+              "The dishes are being cleared.",
+              "People are seated at an outdoor table.",
+              "People are setting up an umbrella.",
+              "People are waiting in line to order."
             ],
-            "answer": 1
+            "answer": 1,
+            "why": "ร่มกางอยู่แล้ว ไม่มีใครกำลังกาง และจานยังอยู่บนโต๊ะ ไม่มีใครเก็บ"
           },
           {
-            "scene": "A pilot is speaking into a microphone in the cockpit.",
+            "scene": "ในห้องนักบิน ชายคนหนึ่งสวมหูฟังนั่งอยู่หน้าแผงควบคุม มือข้างหนึ่งจับคันบังคับ ปากอยู่ใกล้ไมโครโฟน",
             "choices": [
-              "The pilot is fixing an engine.",
-              "The pilot is greeting passengers at the door.",
-              "The pilot is speaking into a microphone.",
-              "The pilot is reading a newspaper."
+              "A man is wearing a headset.",
+              "A man is removing his headset.",
+              "A man is reading a magazine.",
+              "The controls are being installed."
             ],
-            "answer": 2
+            "answer": 0,
+            "why": "wearing คือสวมอยู่แล้ว ต่างจาก removing ที่กำลังถอด ข้อสอบชอบออกคู่นี้มาก และไม่มีใครติดตั้งอุปกรณ์ในภาพ"
           }
         ],
         "part2": [
           {
             "q": "What time does the shuttle leave for the airport?",
             "choices": [
+              "Yes, it's free.",
               "From the lobby.",
-              "At half past six.",
-              "Yes, it's free."
+              "At half past six."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "Where can I find a taxi?",
             "choices": [
-              "In twenty minutes.",
               "Just outside the main entrance.",
+              "In twenty minutes.",
               "It was expensive."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "Has the flight been delayed?",
             "choices": [
-              "A window seat, please.",
               "Yes, by about an hour.",
-              "At gate ten."
+              "At gate ten.",
+              "A window seat, please."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "Would you prefer a room with a sea view?",
             "choices": [
               "On the fifth floor.",
-              "Yes, if it's available.",
-              "For three nights."
+              "For three nights.",
+              "Yes, if it's available."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "Why are you visiting the city?",
             "choices": [
-              "Last weekend.",
               "For a business conference.",
-              "By train."
+              "By train.",
+              "Last weekend."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "How would you like to pay?",
             "choices": [
-              "It's room 210.",
+              "At the front desk.",
               "By credit card, please.",
-              "At the front desk."
+              "It's room 210."
             ],
             "answer": 1
           },
@@ -2265,61 +2277,61 @@ window.MOCK = {
             "q": "Is breakfast included in the room rate?",
             "choices": [
               "Yes, it is.",
-              "In the lobby.",
-              "At seven o'clock."
+              "At seven o'clock.",
+              "In the lobby."
             ],
             "answer": 0
           },
           {
             "q": "Where should I check my luggage?",
             "choices": [
-              "At the counter over there.",
+              "Two bags.",
               "This afternoon.",
-              "Two bags."
+              "At the counter over there."
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "q": "When does the ferry depart?",
             "choices": [
+              "It's a short trip.",
               "From pier six.",
-              "At noon.",
-              "It's a short trip."
+              "At noon."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "Could you recommend a good restaurant nearby?",
             "choices": [
               "Around eight o'clock.",
-              "It's very popular.",
-              "Sure, there's one across the street."
+              "Sure, there's one across the street.",
+              "It's very popular."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "How long is the layover in Dubai?",
             "choices": [
-              "Yes, it's short.",
               "About two hours.",
-              "Gate twenty-two."
+              "Gate twenty-two.",
+              "Yes, it's short."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "Do you have any rooms available for tonight?",
             "choices": [
+              "Check-in is at three.",
               "It's fully booked.",
-              "Yes, one double room.",
-              "Check-in is at three."
+              "Yes, one double room."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "Why was our connecting flight cancelled?",
             "choices": [
-              "At gate five.",
               "Two hours late.",
+              "At gate five.",
               "Due to a mechanical issue."
             ],
             "answer": 2
@@ -2328,17 +2340,17 @@ window.MOCK = {
             "q": "Which terminal does the flight depart from?",
             "choices": [
               "In an hour.",
-              "Terminal two.",
-              "With one bag."
+              "With one bag.",
+              "Terminal two."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "Should we rent a car or take the train?",
             "choices": [
-              "About three hours.",
+              "It's expensive either way.",
               "I'd prefer the train.",
-              "It's expensive either way."
+              "About three hours."
             ],
             "answer": 1
           },
@@ -2346,28 +2358,28 @@ window.MOCK = {
             "q": "Is the hotel pool open all day?",
             "choices": [
               "On the second floor.",
-              "Yes, from six to ten.",
-              "It's heated."
+              "It's heated.",
+              "Yes, from six to ten."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "How much is the taxi fare to downtown?",
             "choices": [
-              "Cash only.",
               "About twenty dollars.",
+              "Cash only.",
               "Ten minutes away."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "Did you confirm the hotel reservation?",
             "choices": [
-              "For two nights.",
               "It's non-refundable.",
-              "Yes, this morning."
+              "Yes, this morning.",
+              "For two nights."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "What's the best way to get to the conference center?",
@@ -2382,17 +2394,17 @@ window.MOCK = {
             "q": "Are pets allowed in the rooms?",
             "choices": [
               "In a carrier.",
-              "Only on weekends.",
-              "No, unfortunately not."
+              "No, unfortunately not.",
+              "Only on weekends."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "When should we check out?",
             "choices": [
-              "Whenever is convenient.",
+              "This evening.",
               "By eleven in the morning.",
-              "This evening."
+              "Whenever is convenient."
             ],
             "answer": 1
           },
@@ -2400,37 +2412,37 @@ window.MOCK = {
             "q": "Could I get an extra pillow?",
             "choices": [
               "It's a queen room.",
-              "Of course, right away.",
-              "There are two beds."
+              "There are two beds.",
+              "Of course, right away."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "How was the flight?",
             "choices": [
+              "It was smooth and on time.",
               "About six hours.",
-              "Economy class.",
-              "It was smooth and on time."
+              "Economy class."
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "q": "Is there Wi-Fi available in the rooms?",
             "choices": [
-              "It's very fast.",
               "In the lobby only.",
-              "Yes, it's free for guests."
+              "Yes, it's free for guests.",
+              "It's very fast."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "Where do I collect my rental car?",
             "choices": [
-              "Tomorrow morning.",
+              "At the counter near baggage claim.",
               "With a valid license.",
-              "At the counter near baggage claim."
+              "Tomorrow morning."
             ],
-            "answer": 2
+            "answer": 0
           }
         ],
         "part3": [
@@ -2446,28 +2458,28 @@ window.MOCK = {
                 "q": "What is the woman doing?",
                 "choices": [
                   "Booking a flight",
-                  "Renting a car",
-                  "Checking into a hotel"
+                  "Checking into a hotel",
+                  "Renting a car"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "How many nights will she stay?",
                 "choices": [
                   "Two",
-                  "Three",
-                  "Five"
+                  "Five",
+                  "Three"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "What does the man agree to?",
                 "choices": [
-                  "A discount",
                   "A late checkout",
+                  "A discount",
                   "A room upgrade"
                 ],
-                "answer": 1
+                "answer": 0
               }
             ]
           },
@@ -2482,11 +2494,11 @@ window.MOCK = {
               {
                 "q": "What does the man ask about?",
                 "choices": [
-                  "His flight status",
+                  "A gate change",
                   "A lost bag",
-                  "A gate change"
+                  "His flight status"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "How long is the delay?",
@@ -2500,11 +2512,11 @@ window.MOCK = {
               {
                 "q": "Why is the flight delayed?",
                 "choices": [
+                  "A mechanical issue",
                   "A staffing shortage",
-                  "Weather at the departure airport",
-                  "A mechanical issue"
+                  "Weather at the departure airport"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -2519,8 +2531,8 @@ window.MOCK = {
               {
                 "q": "What is the woman doing?",
                 "choices": [
-                  "Booking a hotel",
                   "Returning a car",
+                  "Booking a hotel",
                   "Picking up a rental car"
                 ],
                 "answer": 2
@@ -2538,10 +2550,10 @@ window.MOCK = {
                 "q": "What did the woman request?",
                 "choices": [
                   "Insurance",
-                  "GPS",
-                  "A larger car"
+                  "A larger car",
+                  "GPS"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -2565,20 +2577,20 @@ window.MOCK = {
               {
                 "q": "How many people is the reservation for?",
                 "choices": [
-                  "Two",
+                  "Four",
                   "Six",
-                  "Four"
+                  "Two"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What time will they arrive?",
                 "choices": [
-                  "Seven",
                   "Eight thirty",
-                  "Nine"
+                  "Nine",
+                  "Seven"
                 ],
-                "answer": 0
+                "answer": 2
               }
             ]
           },
@@ -2602,20 +2614,20 @@ window.MOCK = {
               {
                 "q": "When does the next tour start?",
                 "choices": [
-                  "Tomorrow",
                   "In fifteen minutes",
+                  "Tomorrow",
                   "In one hour"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "Where will they meet the guide?",
                 "choices": [
-                  "On the second floor",
+                  "At the entrance desk",
                   "In the gift shop",
-                  "At the entrance desk"
+                  "On the second floor"
                 ],
-                "answer": 2
+                "answer": 0
               }
             ]
           },
@@ -2630,20 +2642,20 @@ window.MOCK = {
               {
                 "q": "What is the man's problem?",
                 "choices": [
-                  "He can't find his suitcase",
                   "He lost his passport",
+                  "He can't find his suitcase",
                   "His flight was cancelled"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "How does the man describe his bag?",
                 "choices": [
+                  "Blue with wheels",
                   "Large and green",
-                  "Black with a red tag",
-                  "Blue with wheels"
+                  "Black with a red tag"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "When will the bag arrive?",
@@ -2685,8 +2697,8 @@ window.MOCK = {
               {
                 "q": "What time is the next available train?",
                 "choices": [
-                  "Ten thirty",
                   "Noon",
+                  "Ten thirty",
                   "Eleven fifteen"
                 ],
                 "answer": 2
@@ -2713,18 +2725,18 @@ window.MOCK = {
               {
                 "q": "What will the woman do?",
                 "choices": [
-                  "Send someone up right away",
+                  "Move him to another room",
                   "Give him a refund",
-                  "Move him to another room"
+                  "Send someone up right away"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What does the man also request?",
                 "choices": [
                   "Extra towels",
-                  "A late checkout",
-                  "Room service"
+                  "Room service",
+                  "A late checkout"
                 ],
                 "answer": 0
               }
@@ -2741,29 +2753,29 @@ window.MOCK = {
               {
                 "q": "What is the woman asking about?",
                 "choices": [
-                  "A shopping trip",
                   "A city tour package",
+                  "A shopping trip",
                   "A cooking class"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What is included in the package?",
                 "choices": [
+                  "Lunch and three attractions",
                   "Only transportation",
-                  "A guidebook",
-                  "Lunch and three attractions"
+                  "A guidebook"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What does the man confirm?",
                 "choices": [
-                  "Hotel pickup is available",
                   "The tour is sold out",
+                  "Hotel pickup is available",
                   "The price includes drinks"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -2778,11 +2790,11 @@ window.MOCK = {
               {
                 "q": "What does the man want to do?",
                 "choices": [
-                  "Change his destination",
                   "Upgrade his seat",
-                  "Cancel his flight"
+                  "Cancel his flight",
+                  "Change his destination"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "Is an upgrade available?",
@@ -2797,8 +2809,8 @@ window.MOCK = {
                 "q": "How much does the upgrade cost?",
                 "choices": [
                   "Two hundred dollars",
-                  "Fifty dollars",
-                  "It's free"
+                  "It's free",
+                  "Fifty dollars"
                 ],
                 "answer": 0
               }
@@ -2815,26 +2827,26 @@ window.MOCK = {
               {
                 "q": "What does the woman want to do?",
                 "choices": [
-                  "Exchange currency",
                   "Open a bank account",
+                  "Exchange currency",
                   "Withdraw cash"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "How much does she want to exchange?",
                 "choices": [
                   "Three hundred dollars",
-                  "Five hundred dollars",
-                  "One hundred dollars"
+                  "One hundred dollars",
+                  "Five hundred dollars"
                 ],
                 "answer": 0
               },
               {
                 "q": "Where can she find the exchange rate?",
                 "choices": [
-                  "On her phone",
                   "In a brochure",
+                  "On her phone",
                   "On the board"
                 ],
                 "answer": 2
@@ -2852,8 +2864,8 @@ window.MOCK = {
               {
                 "q": "What is the man booking?",
                 "choices": [
-                  "A dinner reservation",
                   "A haircut",
+                  "A dinner reservation",
                   "A massage"
                 ],
                 "answer": 2
@@ -2861,20 +2873,20 @@ window.MOCK = {
               {
                 "q": "When is the appointment?",
                 "choices": [
-                  "Today at two o'clock",
                   "Tomorrow at two o'clock",
+                  "Today at two o'clock",
                   "Tomorrow morning"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "How long does the session last?",
                 "choices": [
-                  "Sixty minutes",
                   "Two hours",
-                  "Thirty minutes"
+                  "Thirty minutes",
+                  "Sixty minutes"
                 ],
-                "answer": 0
+                "answer": 2
               }
             ]
           },
@@ -2923,29 +2935,29 @@ window.MOCK = {
               {
                 "q": "What is being announced?",
                 "choices": [
+                  "Boarding for a flight",
                   "A flight cancellation",
-                  "A gate change",
-                  "Boarding for a flight"
+                  "A gate change"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "Which gate will be used?",
                 "choices": [
                   "Gate two",
-                  "Gate thirty",
-                  "Gate twenty-three"
+                  "Gate twenty-three",
+                  "Gate thirty"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "Who may board first?",
                 "choices": [
-                  "Passengers needing extra time or with young children",
                   "All passengers at once",
+                  "Passengers needing extra time or with young children",
                   "Only premium members"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -2955,29 +2967,29 @@ window.MOCK = {
               {
                 "q": "What can the room key also be used for?",
                 "choices": [
-                  "Room service orders",
+                  "Pool and gym access",
                   "Parking access",
-                  "Pool and gym access"
+                  "Room service orders"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "When is breakfast served?",
                 "choices": [
-                  "All day",
                   "Six thirty to ten",
-                  "Seven to nine"
+                  "Seven to nine",
+                  "All day"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "How can guests get help?",
                 "choices": [
+                  "Dial zero from the room phone",
                   "Visit the front desk in person",
-                  "Use the hotel app",
-                  "Dial zero from the room phone"
+                  "Use the hotel app"
                 ],
-                "answer": 2
+                "answer": 0
               }
             ]
           },
@@ -2988,19 +3000,19 @@ window.MOCK = {
                 "q": "What is the speaker describing?",
                 "choices": [
                   "A flight schedule",
-                  "A hotel checklist",
-                  "A city tour itinerary"
+                  "A city tour itinerary",
+                  "A hotel checklist"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "Where will the lunch break be?",
                 "choices": [
-                  "At the harbor",
+                  "At the town square",
                   "At the castle",
-                  "At the town square"
+                  "At the harbor"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What are passengers reminded to do?",
@@ -3019,29 +3031,29 @@ window.MOCK = {
               {
                 "q": "What is the announcement about?",
                 "choices": [
+                  "A ticket price change",
                   "A train delay",
-                  "A platform change",
-                  "A ticket price change"
+                  "A platform change"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "How long is the delay?",
                 "choices": [
-                  "One hour",
                   "Twenty minutes",
-                  "Ten minutes"
+                  "Ten minutes",
+                  "One hour"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "Why is the train delayed?",
                 "choices": [
-                  "Bad weather",
                   "Signal issues",
+                  "Bad weather",
                   "A staff shortage"
                 ],
-                "answer": 1
+                "answer": 0
               }
             ]
           },
@@ -3052,28 +3064,28 @@ window.MOCK = {
                 "q": "What should customers do before returning the car?",
                 "choices": [
                   "Fill the tank with fuel",
-                  "Remove the license plate",
-                  "Wash the car"
+                  "Wash the car",
+                  "Remove the license plate"
                 ],
                 "answer": 0
               },
               {
                 "q": "Why should the tank be full?",
                 "choices": [
-                  "To avoid an additional charge",
                   "It is required by law",
+                  "To avoid an additional charge",
                   "To pass inspection faster"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "What happens at the drop-off counter?",
                 "choices": [
-                  "A staff member inspects the vehicle",
                   "Customers pay in full",
+                  "A staff member inspects the vehicle",
                   "Customers receive a receipt only"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -3083,11 +3095,11 @@ window.MOCK = {
               {
                 "q": "When will the ship arrive at the next port?",
                 "choices": [
-                  "In thirty minutes",
                   "Tomorrow",
-                  "In about one hour"
+                  "In about one hour",
+                  "In thirty minutes"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What must passengers bring ashore?",
@@ -3101,11 +3113,11 @@ window.MOCK = {
               {
                 "q": "Why is the ID card needed?",
                 "choices": [
+                  "To enter the dining hall",
                   "To receive a discount",
-                  "To reboard the vessel",
-                  "To enter the dining hall"
+                  "To reboard the vessel"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -3115,29 +3127,29 @@ window.MOCK = {
               {
                 "q": "Where is registration located?",
                 "choices": [
+                  "The west entrance",
                   "The east lobby",
-                  "The main ballroom",
-                  "The west entrance"
-                ],
-                "answer": 0
-              },
-              {
-                "q": "What must attendees wear?",
-                "choices": [
-                  "Formal business attire",
-                  "Name badges at all times",
-                  "Colored wristbands"
+                  "The main ballroom"
                 ],
                 "answer": 1
               },
               {
+                "q": "What must attendees wear?",
+                "choices": [
+                  "Name badges at all times",
+                  "Colored wristbands",
+                  "Formal business attire"
+                ],
+                "answer": 0
+              },
+              {
                 "q": "Where can attendees find refreshments?",
                 "choices": [
-                  "In the parking lot",
                   "Only in the cafeteria",
-                  "In the main hallway"
+                  "In the main hallway",
+                  "In the parking lot"
                 ],
-                "answer": 2
+                "answer": 1
               }
             ]
           },
@@ -3156,11 +3168,11 @@ window.MOCK = {
               {
                 "q": "What applies to additional bags?",
                 "choices": [
+                  "A discount",
                   "Checked baggage fees",
-                  "No extra charge",
-                  "A discount"
+                  "No extra charge"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "Where must oversized items be checked?",
@@ -3180,28 +3192,28 @@ window.MOCK = {
                 "q": "How long will the tour last?",
                 "choices": [
                   "About two hours",
-                  "All day",
-                  "Thirty minutes"
+                  "Thirty minutes",
+                  "All day"
                 ],
                 "answer": 0
               },
               {
                 "q": "What are participants advised to wear?",
                 "choices": [
-                  "Comfortable shoes",
                   "Rain jackets",
+                  "Comfortable shoes",
                   "Formal clothing"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "What can participants request during the tour?",
                 "choices": [
-                  "A map",
                   "A break",
+                  "A map",
                   "A refund"
                 ],
-                "answer": 1
+                "answer": 0
               }
             ]
           },
@@ -3211,29 +3223,29 @@ window.MOCK = {
               {
                 "q": "What item was found?",
                 "choices": [
-                  "A laptop bag",
                   "A black umbrella",
-                  "A passport"
-                ],
-                "answer": 1
-              },
-              {
-                "q": "Where is the lost and found office?",
-                "choices": [
-                  "On the ground floor",
-                  "Near gate ten",
-                  "On the third floor"
+                  "A passport",
+                  "A laptop bag"
                 ],
                 "answer": 0
               },
               {
-                "q": "What must the listener bring to collect the item?",
+                "q": "Where is the lost and found office?",
                 "choices": [
-                  "A receipt",
-                  "A valid ID",
-                  "A boarding pass"
+                  "Near gate ten",
+                  "On the ground floor",
+                  "On the third floor"
                 ],
                 "answer": 1
+              },
+              {
+                "q": "What must the listener bring to collect the item?",
+                "choices": [
+                  "A boarding pass",
+                  "A receipt",
+                  "A valid ID"
+                ],
+                "answer": 2
               }
             ]
           }
@@ -3244,19 +3256,19 @@ window.MOCK = {
           {
             "sentence": "The hotel is located ______ walking distance of the beach.",
             "choices": [
-              "among",
+              "within",
               "between",
               "onto",
-              "within"
+              "among"
             ],
-            "answer": 3
+            "answer": 0
           },
           {
             "sentence": "Guests are ______ to check out before noon.",
             "choices": [
               "require",
-              "requiring",
               "requirement",
+              "requiring",
               "required"
             ],
             "answer": 3
@@ -3264,8 +3276,8 @@ window.MOCK = {
           {
             "sentence": "We apologize for the ______ caused by the delay.",
             "choices": [
-              "inconvenient",
               "inconvenienced",
+              "inconvenient",
               "inconveniently",
               "inconvenience"
             ],
@@ -3274,68 +3286,68 @@ window.MOCK = {
           {
             "sentence": "The tour guide spoke ______ so that everyone could understand.",
             "choices": [
-              "clear",
               "clearer",
-              "clarity",
-              "clearly"
+              "clear",
+              "clearly",
+              "clarity"
             ],
-            "answer": 3
+            "answer": 2
           },
           {
             "sentence": "Please make sure your luggage is ______ labeled.",
             "choices": [
-              "propriety",
+              "property",
               "proper",
-              "properly",
-              "property"
-            ],
-            "answer": 2
-          },
-          {
-            "sentence": "The plane ______ off two hours late because of the storm.",
-            "choices": [
-              "taking",
-              "take",
-              "taken",
-              "took"
+              "propriety",
+              "properly"
             ],
             "answer": 3
           },
           {
-            "sentence": "You can request a refund ______ you cancel within 24 hours.",
+            "sentence": "The plane ______ off two hours late because of the storm.",
             "choices": [
-              "despite",
-              "unless",
-              "if",
-              "although"
+              "take",
+              "taken",
+              "took",
+              "taking"
             ],
             "answer": 2
+          },
+          {
+            "sentence": "You can request a refund ______ you cancel within 24 hours.",
+            "choices": [
+              "although",
+              "despite",
+              "unless",
+              "if"
+            ],
+            "answer": 3
           },
           {
             "sentence": "All passengers ______ their seatbelts during takeoff and landing.",
             "choices": [
+              "to wear",
               "must wear",
-              "wearing",
               "worn",
-              "to wear"
+              "wearing"
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "sentence": "The airline offers a ______ range of destinations.",
             "choices": [
-              "width",
-              "widely",
               "wide",
-              "widen"
+              "widen",
+              "widely",
+              "width"
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "sentence": "Passengers ______ connecting flights should proceed to the transfer desk.",
             "choices": [
-              "of",
               "for",
+              "of",
               "with",
               "among"
             ],
@@ -3344,100 +3356,100 @@ window.MOCK = {
           {
             "sentence": "The resort ______ over five hundred rooms.",
             "choices": [
-              "have",
-              "had",
               "has",
-              "having"
+              "have",
+              "having",
+              "had"
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "sentence": "Guests can enjoy the pool ______ seven in the morning until ten at night.",
             "choices": [
-              "by",
               "since",
+              "from",
               "at",
-              "from"
+              "by"
             ],
-            "answer": 3
+            "answer": 1
           },
           {
             "sentence": "The flight attendant ______ safety instructions before takeoff.",
             "choices": [
               "explain",
+              "to explain",
               "explaining",
-              "explained",
-              "to explain"
-            ],
-            "answer": 2
-          },
-          {
-            "sentence": "We recommend arriving ______ two hours before international flights.",
-            "choices": [
-              "at least",
-              "no more than",
-              "at most",
-              "less than"
-            ],
-            "answer": 0
-          },
-          {
-            "sentence": "The itinerary was ______ changed due to weather conditions.",
-            "choices": [
-              "suddens",
-              "sudden",
-              "suddenly",
-              "suddenness"
-            ],
-            "answer": 2
-          },
-          {
-            "sentence": "Travelers ______ valid passports may not board the flight.",
-            "choices": [
-              "for",
-              "without",
-              "of",
-              "with"
-            ],
-            "answer": 1
-          },
-          {
-            "sentence": "The hotel staff were extremely ______ during our stay.",
-            "choices": [
-              "helpful",
-              "helps",
-              "help",
-              "helper"
-            ],
-            "answer": 0
-          },
-          {
-            "sentence": "Passengers should keep their boarding pass ______ at all times.",
-            "choices": [
-              "accessibility",
-              "accessibly",
-              "accessed",
-              "accessible"
+              "explained"
             ],
             "answer": 3
           },
           {
+            "sentence": "We recommend arriving ______ two hours before international flights.",
+            "choices": [
+              "less than",
+              "at most",
+              "at least",
+              "no more than"
+            ],
+            "answer": 2
+          },
+          {
+            "sentence": "The itinerary was ______ changed due to weather conditions.",
+            "choices": [
+              "suddenly",
+              "sudden",
+              "suddenness",
+              "suddens"
+            ],
+            "answer": 0
+          },
+          {
+            "sentence": "Travelers ______ valid passports may not board the flight.",
+            "choices": [
+              "of",
+              "for",
+              "with",
+              "without"
+            ],
+            "answer": 3
+          },
+          {
+            "sentence": "The hotel staff were extremely ______ during our stay.",
+            "choices": [
+              "help",
+              "helper",
+              "helpful",
+              "helps"
+            ],
+            "answer": 2
+          },
+          {
+            "sentence": "Passengers should keep their boarding pass ______ at all times.",
+            "choices": [
+              "accessible",
+              "accessed",
+              "accessibly",
+              "accessibility"
+            ],
+            "answer": 0
+          },
+          {
             "sentence": "The cruise ship ______ at the next port tomorrow morning.",
             "choices": [
-              "arrived",
-              "will arrive",
               "arrives",
-              "arriving"
+              "arriving",
+              "will arrive",
+              "arrived"
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "sentence": "Due to overbooking, some passengers were asked to ______ their seats voluntarily.",
             "choices": [
-              "give out",
+              "give away",
               "give up",
-              "give in",
-              "give away"
+              "give out",
+              "give in"
             ],
             "answer": 1
           },
@@ -3445,19 +3457,19 @@ window.MOCK = {
             "sentence": "The train station is ______ accessible by taxi or bus.",
             "choices": [
               "easy",
-              "easily",
               "ease",
-              "eased"
+              "eased",
+              "easily"
             ],
-            "answer": 1
+            "answer": 3
           },
           {
             "sentence": "Visitors are advised to carry a copy of their ______ at all times.",
             "choices": [
               "identification",
-              "identifying",
+              "identified",
               "identify",
-              "identified"
+              "identifying"
             ],
             "answer": 0
           },
@@ -3465,58 +3477,58 @@ window.MOCK = {
             "sentence": "The tour operator offers a full refund ______ cancellations made in advance.",
             "choices": [
               "in",
-              "for",
               "at",
-              "of"
-            ],
-            "answer": 1
-          },
-          {
-            "sentence": "This ticket is valid ______ thirty days from the date of purchase.",
-            "choices": [
-              "since",
-              "by",
-              "during",
+              "of",
               "for"
             ],
             "answer": 3
           },
           {
+            "sentence": "This ticket is valid ______ thirty days from the date of purchase.",
+            "choices": [
+              "by",
+              "since",
+              "for",
+              "during"
+            ],
+            "answer": 2
+          },
+          {
             "sentence": "The airline's customer service team responded ______ to our complaint.",
             "choices": [
-              "prompt",
-              "promptly",
               "prompted",
-              "promptness"
+              "promptly",
+              "promptness",
+              "prompt"
             ],
             "answer": 1
           },
           {
             "sentence": "Passengers are asked to remain ______ during turbulence.",
             "choices": [
-              "seats",
-              "seat",
               "seating",
-              "seated"
+              "seated",
+              "seat",
+              "seats"
             ],
-            "answer": 3
+            "answer": 1
           },
           {
             "sentence": "The hotel's cancellation policy ______ from one property to another.",
             "choices": [
-              "vary",
-              "varying",
               "varies",
+              "varying",
+              "vary",
               "varied"
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "sentence": "We were ______ impressed by the quality of the service.",
             "choices": [
               "genuineness",
-              "genuinize",
               "genuine",
+              "genuinize",
               "genuinely"
             ],
             "answer": 3
@@ -3524,18 +3536,18 @@ window.MOCK = {
           {
             "sentence": "The airport shuttle runs ______ every fifteen minutes.",
             "choices": [
-              "approximate",
               "approximates",
-              "approximation",
-              "approximately"
+              "approximately",
+              "approximate",
+              "approximation"
             ],
-            "answer": 3
+            "answer": 1
           },
           {
             "sentence": "Guests must present a valid ID ______ checking in.",
             "choices": [
-              "despite",
               "although",
+              "despite",
               "when",
               "unless"
             ],
@@ -3548,39 +3560,39 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
+                  "completes",
                   "completely",
                   "completion",
-                  "complete",
-                  "completes"
-                ],
-                "answer": 2
-              },
-              {
-                "choices": [
-                  "improvement",
-                  "improves",
-                  "improve",
-                  "improving"
-                ],
-                "answer": 2
-              },
-              {
-                "choices": [
-                  "minuted",
-                  "minute",
-                  "minutely",
-                  "minutes"
+                  "complete"
                 ],
                 "answer": 3
               },
               {
                 "choices": [
-                  "confidential",
-                  "confide",
-                  "confidentially",
-                  "confidence"
+                  "improves",
+                  "improve",
+                  "improving",
+                  "improvement"
+                ],
+                "answer": 1
+              },
+              {
+                "choices": [
+                  "minutes",
+                  "minute",
+                  "minuted",
+                  "minutely"
                 ],
                 "answer": 0
+              },
+              {
+                "choices": [
+                  "confide",
+                  "confidential",
+                  "confidence",
+                  "confidentially"
+                ],
+                "answer": 1
               }
             ]
           },
@@ -3589,35 +3601,35 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
-                  "ensures",
+                  "ensuring",
                   "ensured",
                   "ensure",
-                  "ensuring"
+                  "ensures"
                 ],
                 "answer": 2
               },
               {
                 "choices": [
-                  "opened",
+                  "open",
                   "opens",
                   "opening",
-                  "open"
+                  "opened"
                 ],
                 "answer": 1
               },
               {
                 "choices": [
-                  "changed",
-                  "change",
                   "changing",
+                  "change",
+                  "changed",
                   "changes"
                 ],
                 "answer": 3
               },
               {
                 "choices": [
-                  "pleasantly",
                   "please",
+                  "pleasantly",
                   "pleasant",
                   "pleasing"
                 ],
@@ -3630,39 +3642,39 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
-                  "informed",
-                  "inform",
                   "informing",
-                  "informs"
-                ],
-                "answer": 1
-              },
-              {
-                "choices": [
-                  "booked",
-                  "book",
-                  "books",
-                  "booking"
+                  "informed",
+                  "informs",
+                  "inform"
                 ],
                 "answer": 3
               },
               {
                 "choices": [
-                  "inconvenienced",
-                  "inconvenience",
-                  "inconveniently",
-                  "inconvenient"
+                  "booking",
+                  "booked",
+                  "books",
+                  "book"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "choices": [
-                  "enjoyed",
-                  "enjoys",
-                  "enjoy",
-                  "enjoying"
+                  "inconveniently",
+                  "inconvenienced",
+                  "inconvenience",
+                  "inconvenient"
                 ],
                 "answer": 2
+              },
+              {
+                "choices": [
+                  "enjoying",
+                  "enjoy",
+                  "enjoyed",
+                  "enjoys"
+                ],
+                "answer": 1
               }
             ]
           },
@@ -3671,39 +3683,39 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
-                  "returns",
                   "returning",
                   "returned",
+                  "returns",
                   "return"
-                ],
-                "answer": 2
-              },
-              {
-                "choices": [
-                  "apply",
-                  "applies",
-                  "applying",
-                  "applied"
-                ],
-                "answer": 0
-              },
-              {
-                "choices": [
-                  "register",
-                  "registered",
-                  "registers",
-                  "registering"
                 ],
                 "answer": 1
               },
               {
                 "choices": [
-                  "list",
-                  "listing",
-                  "listed",
-                  "lists"
+                  "applied",
+                  "applying",
+                  "apply",
+                  "applies"
                 ],
                 "answer": 2
+              },
+              {
+                "choices": [
+                  "registers",
+                  "registered",
+                  "registering",
+                  "register"
+                ],
+                "answer": 1
+              },
+              {
+                "choices": [
+                  "listed",
+                  "list",
+                  "listing",
+                  "lists"
+                ],
+                "answer": 0
               }
             ]
           }
@@ -3716,56 +3728,56 @@ window.MOCK = {
                 {
                   "q": "What is closed on Wednesday?",
                   "choices": [
-                    "The spa",
                     "The rooftop pool",
-                    "The fitness center"
+                    "The fitness center",
+                    "The spa"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What time will it reopen?",
                   "choices": [
-                    "Noon",
                     "Six in the evening",
+                    "Noon",
                     "Eight in the morning"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "Why is the pool closed?",
                   "choices": [
+                    "For repairs",
                     "Due to weather",
-                    "For cleaning",
-                    "For repairs"
+                    "For cleaning"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "What remains open during this time?",
                   "choices": [
-                    "The fitness center and spa",
                     "Nothing",
+                    "The fitness center and spa",
                     "Only the spa"
-                  ],
-                  "answer": 0
-                },
-                {
-                  "q": "How long will the pool be closed?",
-                  "choices": [
-                    "One hour",
-                    "Four hours",
-                    "All day"
                   ],
                   "answer": 1
                 },
                 {
-                  "q": "What does the hotel ask of guests?",
+                  "q": "How long will the pool be closed?",
                   "choices": [
-                    "Their understanding",
-                    "A survey",
-                    "A written complaint"
+                    "Four hours",
+                    "One hour",
+                    "All day"
                   ],
                   "answer": 0
+                },
+                {
+                  "q": "What does the hotel ask of guests?",
+                  "choices": [
+                    "A written complaint",
+                    "A survey",
+                    "Their understanding"
+                  ],
+                  "answer": 2
                 }
               ]
             },
@@ -3776,25 +3788,25 @@ window.MOCK = {
                   "q": "What is the purpose of this email?",
                   "choices": [
                     "To offer a refund",
-                    "To inform about a schedule change",
-                    "To confirm a cancellation"
+                    "To confirm a cancellation",
+                    "To inform about a schedule change"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "What was the original departure time?",
                   "choices": [
                     "Noon",
-                    "9:00 a.m.",
-                    "11:30 a.m."
+                    "11:30 a.m.",
+                    "9:00 a.m."
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "What is the new departure time?",
                   "choices": [
-                    "9:00 a.m.",
                     "1:00 p.m.",
+                    "9:00 a.m.",
                     "11:30 a.m."
                   ],
                   "answer": 2
@@ -3802,26 +3814,26 @@ window.MOCK = {
                 {
                   "q": "Does the date of the flight change?",
                   "choices": [
-                    "Yes, it moves one day earlier.",
                     "Yes, it moves one day later.",
-                    "No, it remains the same day."
-                  ],
-                  "answer": 2
-                },
-                {
-                  "q": "What else changed about the flight?",
-                  "choices": [
-                    "The destination changed.",
-                    "Nothing else changed.",
-                    "The gate number changed."
+                    "No, it remains the same day.",
+                    "Yes, it moves one day earlier."
                   ],
                   "answer": 1
                 },
                 {
+                  "q": "What else changed about the flight?",
+                  "choices": [
+                    "Nothing else changed.",
+                    "The destination changed.",
+                    "The gate number changed."
+                  ],
+                  "answer": 0
+                },
+                {
                   "q": "What airline sent this email?",
                   "choices": [
-                    "Pacific Airways",
                     "Global Air",
+                    "Pacific Airways",
                     "SkyLine Airlines"
                   ],
                   "answer": 2
@@ -3834,18 +3846,18 @@ window.MOCK = {
                 {
                   "q": "What is this article about?",
                   "choices": [
-                    "Tips for choosing hotels",
+                    "Tips for booking flights",
                     "Tips for packing light",
-                    "Tips for booking flights"
+                    "Tips for choosing hotels"
                   ],
                   "answer": 1
                 },
                 {
                   "q": "What is the first tip mentioned?",
                   "choices": [
-                    "Pack heavy items first",
+                    "Buy a bigger suitcase",
                     "Choose clothing that can be mixed and matched",
-                    "Buy a bigger suitcase"
+                    "Pack heavy items first"
                   ],
                   "answer": 1
                 },
@@ -3853,28 +3865,28 @@ window.MOCK = {
                   "q": "Why should items serve multiple purposes?",
                   "choices": [
                     "To save space and be efficient",
-                    "To avoid customs issues",
-                    "To look more stylish"
+                    "To look more stylish",
+                    "To avoid customs issues"
                   ],
                   "answer": 0
                 },
                 {
                   "q": "What method is suggested for packing clothes?",
                   "choices": [
+                    "Using vacuum bags only",
                     "Folding instead of rolling",
-                    "Rolling instead of folding",
-                    "Using vacuum bags only"
+                    "Rolling instead of folding"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "How many pairs of extra shoes are recommended?",
                   "choices": [
-                    "None",
                     "One",
-                    "Three"
+                    "Three",
+                    "None"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "Why should travelers leave extra room in their bag?",
@@ -3893,8 +3905,8 @@ window.MOCK = {
                 {
                   "q": "What is being advertised?",
                   "choices": [
-                    "A cruise line",
                     "An airline",
+                    "A cruise line",
                     "A beach resort"
                   ],
                   "answer": 2
@@ -3911,38 +3923,38 @@ window.MOCK = {
                 {
                   "q": "What activity is offered daily?",
                   "choices": [
-                    "Cooking classes",
                     "Dance lessons",
-                    "Yoga classes"
-                  ],
-                  "answer": 2
-                },
-                {
-                  "q": "What is complimentary at the resort?",
-                  "choices": [
-                    "Airport transfers",
-                    "Snorkeling equipment",
-                    "Laundry service"
+                    "Yoga classes",
+                    "Cooking classes"
                   ],
                   "answer": 1
                 },
                 {
-                  "q": "What are the starting rates?",
+                  "q": "What is complimentary at the resort?",
                   "choices": [
-                    "One hundred eighty dollars per night",
-                    "Fifty dollars per night",
-                    "Three hundred dollars per night"
+                    "Snorkeling equipment",
+                    "Airport transfers",
+                    "Laundry service"
                   ],
                   "answer": 0
                 },
                 {
+                  "q": "What are the starting rates?",
+                  "choices": [
+                    "Three hundred dollars per night",
+                    "One hundred eighty dollars per night",
+                    "Fifty dollars per night"
+                  ],
+                  "answer": 1
+                },
+                {
                   "q": "Under what condition do children stay free?",
                   "choices": [
+                    "Only during off-season",
                     "Sharing a room with a paying adult",
-                    "Only on weekdays",
-                    "Only during off-season"
+                    "Only on weekdays"
                   ],
-                  "answer": 0
+                  "answer": 1
                 }
               ]
             },
@@ -3952,29 +3964,29 @@ window.MOCK = {
                 {
                   "q": "Why is the express service being replaced?",
                   "choices": [
-                    "Track maintenance",
                     "A staff shortage",
-                    "Low ridership"
-                  ],
-                  "answer": 0
-                },
-                {
-                  "q": "How much longer will journeys take?",
-                  "choices": [
-                    "Thirty minutes",
-                    "One hour",
-                    "About fifteen minutes"
+                    "Low ridership",
+                    "Track maintenance"
                   ],
                   "answer": 2
                 },
                 {
-                  "q": "Which days does this affect?",
+                  "q": "How much longer will journeys take?",
                   "choices": [
-                    "Every day",
-                    "Monday to Friday",
-                    "Weekends only"
+                    "One hour",
+                    "About fifteen minutes",
+                    "Thirty minutes"
                   ],
                   "answer": 1
+                },
+                {
+                  "q": "Which days does this affect?",
+                  "choices": [
+                    "Monday to Friday",
+                    "Every day",
+                    "Weekends only"
+                  ],
+                  "answer": 0
                 },
                 {
                   "q": "What service will passengers use instead?",
@@ -3989,8 +4001,8 @@ window.MOCK = {
                   "q": "What does the notice thank passengers for?",
                   "choices": [
                     "Their patience",
-                    "Their feedback",
-                    "Their loyalty"
+                    "Their loyalty",
+                    "Their feedback"
                   ],
                   "answer": 0
                 }
@@ -4007,38 +4019,38 @@ window.MOCK = {
                 {
                   "q": "What is the hotel promotion?",
                   "choices": [
-                    "Fifty percent off all rooms",
                     "Stay three nights, get the fourth free",
-                    "Free breakfast for a week"
+                    "Free breakfast for a week",
+                    "Fifty percent off all rooms"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "When is the offer valid?",
                   "choices": [
-                    "All year round",
                     "July only",
-                    "June 1 to August 31"
+                    "June 1 to August 31",
+                    "All year round"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "How far in advance must guests book?",
                   "choices": [
-                    "No advance notice needed",
                     "One month",
-                    "At least two weeks"
+                    "At least two weeks",
+                    "No advance notice needed"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "How many nights does Priya want to book?",
                   "choices": [
-                    "Three nights",
+                    "Four nights",
                     "Five nights",
-                    "Four nights"
+                    "Three nights"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What does Priya ask about combining?",
@@ -4060,20 +4072,20 @@ window.MOCK = {
                 {
                   "q": "What is the departure time of flight SL118?",
                   "choices": [
-                    "8:30 PM",
                     "8:15 AM",
+                    "8:30 PM",
                     "10:00 AM"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What is Marco's current seat number?",
                   "choices": [
+                    "10A",
                     "14C",
-                    "8:15",
-                    "10A"
+                    "8:15"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "What does Marco request instead?",
@@ -4087,20 +4099,20 @@ window.MOCK = {
                 {
                   "q": "What does Marco ask about?",
                   "choices": [
-                    "Flight duration",
+                    "Baggage allowance",
                     "Whether meals are included",
-                    "Baggage allowance"
+                    "Flight duration"
                   ],
                   "answer": 1
                 },
                 {
                   "q": "What class is Marco's ticket?",
                   "choices": [
+                    "Economy",
                     "Business",
-                    "First class",
-                    "Economy"
+                    "First class"
                   ],
-                  "answer": 2
+                  "answer": 0
                 }
               ]
             }
@@ -4116,20 +4128,20 @@ window.MOCK = {
                 {
                   "q": "What is included in the hiking package?",
                   "choices": [
+                    "Guided hiking, lunch, and transportation",
                     "Camping equipment",
-                    "Hotel accommodation",
-                    "Guided hiking, lunch, and transportation"
+                    "Hotel accommodation"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "How much does the full-day hike cost?",
                   "choices": [
+                    "Sixty-five dollars per person",
                     "Forty dollars per person",
-                    "Free",
-                    "Sixty-five dollars per person"
+                    "Free"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "Why can't Elena's daughter join the hiking tour?",
@@ -4143,20 +4155,20 @@ window.MOCK = {
                 {
                   "q": "What alternative is suggested?",
                   "choices": [
-                    "A family-friendly nature walk",
                     "A shorter hiking route",
+                    "A family-friendly nature walk",
                     "A private tour"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "How much does the alternative cost?",
                   "choices": [
                     "Sixty-five dollars per person",
-                    "Forty dollars per person",
-                    "Twenty dollars per person"
+                    "Twenty dollars per person",
+                    "Forty dollars per person"
                   ],
-                  "answer": 1
+                  "answer": 2
                 }
               ]
             },
@@ -4170,18 +4182,18 @@ window.MOCK = {
                 {
                   "q": "How much can economy passengers check for free?",
                   "choices": [
-                    "Two bags up to 20kg each",
+                    "One bag up to 23kg",
                     "Unlimited weight",
-                    "One bag up to 23kg"
+                    "Two bags up to 20kg each"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What is the fee for an additional bag?",
                   "choices": [
-                    "80 dollars",
+                    "30 dollars",
                     "50 dollars",
-                    "30 dollars"
+                    "80 dollars"
                   ],
                   "answer": 1
                 },
@@ -4197,17 +4209,17 @@ window.MOCK = {
                 {
                   "q": "Why does the second bag have a surcharge?",
                   "choices": [
-                    "It is checked late",
+                    "It exceeds 23kg",
                     "It is the wrong size",
-                    "It exceeds 23kg"
+                    "It is checked late"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What is the total fee for Hassan's second bag?",
                   "choices": [
-                    "50 dollars",
                     "30 dollars",
+                    "50 dollars",
                     "80 dollars"
                   ],
                   "answer": 2
@@ -4224,27 +4236,27 @@ window.MOCK = {
                 {
                   "q": "What is on deck 5?",
                   "choices": [
+                    "The main dining room and theater",
                     "The buffet restaurant",
-                    "The pool and spa",
-                    "The main dining room and theater"
+                    "The pool and spa"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "Where is Noor's cabin located?",
                   "choices": [
                     "Deck 10",
-                    "Deck 7",
-                    "Deck 8"
+                    "Deck 8",
+                    "Deck 7"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "What does Noor ask about?",
                   "choices": [
-                    "The dinner menu",
+                    "Wi-Fi access",
                     "The location of the fitness center",
-                    "Wi-Fi access"
+                    "The dinner menu"
                   ],
                   "answer": 1
                 },
@@ -4278,64 +4290,70 @@ window.MOCK = {
       "listening": {
         "part1": [
           {
-            "scene": "An accountant is reviewing documents at a desk with a calculator.",
+            "scene": "โต๊ะทำงาน ผู้ชายคนหนึ่งก้มดูเอกสารที่กางอยู่ตรงหน้า มือขวาวางอยู่บนเครื่องคิดเลข มีแฟ้มวางซ้อนอยู่มุมโต๊ะ",
             "choices": [
-              "The accountant is reviewing documents.",
-              "The accountant is watering plants.",
-              "The accountant is painting a wall.",
-              "The accountant is answering the phone."
+              "A man is signing a check.",
+              "A man is filing papers in a cabinet.",
+              "A man is examining some documents.",
+              "The calculator is being replaced."
             ],
-            "answer": 0
+            "answer": 2,
+            "why": "เขาดูเอกสาร ไม่ได้เก็บเข้าแฟ้มหรือเซ็นอะไร แม้จะมีแฟ้มอยู่ในภาพก็ตาม จึงเป็นกับดักของที่มีอยู่จริงแต่กริยาผิด"
           },
           {
-            "scene": "A bank teller is counting cash at a counter.",
+            "scene": "เคาน์เตอร์ธนาคาร พนักงานหญิงถือปึกธนบัตรอยู่ในมือทั้งสองข้าง ด้านหน้ามีเครื่องนับเงินวางอยู่",
             "choices": [
-              "The teller is counting cash.",
-              "The teller is delivering mail.",
-              "The teller is sweeping the floor.",
-              "The teller is fixing a computer."
+              "A woman is opening a safe.",
+              "A woman is handling some money.",
+              "The money is being deposited.",
+              "A woman is closing the counter."
             ],
-            "answer": 0
+            "answer": 1,
+            "why": "handling ครอบคลุมทั้งถือและนับ จึงปลอดภัยที่สุด ส่วน being deposited ต้องมีลูกค้าฝากเงินอยู่ ซึ่งไม่มีในภาพ"
           },
           {
-            "scene": "Workers are loading boxes onto a delivery truck outside a warehouse.",
+            "scene": "ลานหน้าคลังสินค้า รถบรรทุกจอดเปิดท้าย มีคนงานสองคนกำลังส่งกล่องต่อกันขึ้นรถ มีรถยกจอดอยู่ด้านหลัง",
             "choices": [
-              "Workers are planting trees.",
-              "Workers are unloading passengers.",
-              "Workers are painting the truck.",
-              "Workers are loading boxes onto a truck."
+              "The men are sitting on the boxes.",
+              "The truck is parked inside a garage.",
+              "A forklift is being driven.",
+              "Some men are lifting boxes."
             ],
-            "answer": 3
+            "answer": 3,
+            "why": "รถยกอยู่ในภาพแต่จอดอยู่ ไม่มีคนขับ จึงเป็นกับดัก being + ช่อง 3 ที่คลาสสิกที่สุดของ Part 1"
           },
           {
-            "scene": "A customer is signing a document at a bank counter.",
+            "scene": "เคาน์เตอร์ธนาคาร ลูกค้าก้มเขียนบนเอกสารที่วางอยู่บนเคาน์เตอร์ มือถือปากกา พนักงานยืนรออีกฝั่ง",
             "choices": [
-              "The customer is withdrawing groceries.",
-              "The customer is reading a menu.",
-              "The customer is repairing a machine.",
-              "The customer is signing a document."
+              "A customer is counting bills.",
+              "A customer is using a telephone.",
+              "The document is being stamped.",
+              "A customer is writing on a form."
             ],
-            "answer": 3
+            "answer": 3,
+            "why": "เขียนคือกริยาที่เห็น ส่วน being stamped ต้องมีคนกำลังประทับตรา และไม่มีธนบัตรหรือโทรศัพท์ในภาพ"
           },
           {
-            "scene": "Two colleagues are shaking hands after signing a contract.",
+            "scene": "ในห้องทำงาน ชายสองคนยืนหันหน้าเข้าหากันและจับมือกัน บนโต๊ะข้างๆ มีเอกสารวางเปิดอยู่พร้อมปากกา",
             "choices": [
-              "The colleagues are cleaning a room.",
-              "The colleagues are eating lunch.",
-              "The colleagues are shaking hands.",
-              "The colleagues are arguing."
+              "Two men are exchanging business cards.",
+              "Two men are shaking hands.",
+              "A contract is being signed.",
+              "Two men are seated across a desk."
             ],
-            "answer": 2
+            "answer": 1,
+            "why": "สัญญาวางอยู่บนโต๊ะแต่ไม่มีใครกำลังเซ็น จึงเป็นกับดัก being + ช่อง 3 และทั้งคู่ยืนอยู่ ไม่ได้นั่ง"
           },
           {
-            "scene": "A clerk is stacking boxes in a storage room.",
+            "scene": "ห้องเก็บของ พนักงานคนหนึ่งยกกล่องวางซ้อนขึ้นบนกองกล่องที่สูงระดับอก มีชั้นวางว่างอยู่ด้านหลัง",
             "choices": [
-              "The clerk is driving a forklift.",
-              "The clerk is painting shelves.",
-              "The clerk is answering emails.",
-              "The clerk is stacking boxes."
+              "The shelves are being assembled.",
+              "A man is carrying a ladder.",
+              "A man is stacking boxes.",
+              "A man is opening a carton."
             ],
-            "answer": 3
+            "answer": 2,
+            "why": "ชั้นวางอยู่ในภาพแต่ประกอบเสร็จแล้ว ไม่มีใครกำลังประกอบ และไม่มีบันไดในภาพ"
           }
         ],
         "part2": [
@@ -4343,10 +4361,10 @@ window.MOCK = {
             "q": "When is the invoice due?",
             "choices": [
               "Yes, I paid it.",
-              "In the accounting office.",
-              "At the end of the month."
+              "At the end of the month.",
+              "In the accounting office."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "How many units did the client order?",
@@ -4369,11 +4387,11 @@ window.MOCK = {
           {
             "q": "Why was the payment declined?",
             "choices": [
-              "At the bank.",
               "The card has expired.",
+              "At the bank.",
               "Two thousand dollars."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "Where should I send the invoice?",
@@ -4387,26 +4405,26 @@ window.MOCK = {
           {
             "q": "Did the shipment arrive yet?",
             "choices": [
-              "About ten boxes.",
+              "Yes, this morning.",
               "In the warehouse.",
-              "Yes, this morning."
+              "About ten boxes."
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "q": "How much was the total order?",
             "choices": [
+              "By courier.",
               "Last week.",
-              "About three thousand dollars.",
-              "By courier."
+              "About three thousand dollars."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "Who approved the purchase order?",
             "choices": [
-              "In cash.",
               "Two days ago.",
+              "In cash.",
               "The finance director."
             ],
             "answer": 2
@@ -4414,17 +4432,17 @@ window.MOCK = {
           {
             "q": "Is the invoice number correct?",
             "choices": [
+              "It's a large invoice.",
               "Yes, I double-checked it.",
-              "Next month.",
-              "It's a large invoice."
+              "Next month."
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "q": "When will we receive the refund?",
             "choices": [
-              "It's a small amount.",
               "At the register.",
+              "It's a small amount.",
               "Within a week."
             ],
             "answer": 2
@@ -4433,37 +4451,37 @@ window.MOCK = {
             "q": "Why did the price increase?",
             "choices": [
               "Due to rising material costs.",
-              "By ten dollars.",
-              "Last quarter."
+              "Last quarter.",
+              "By ten dollars."
             ],
             "answer": 0
           },
           {
             "q": "Could you confirm the wire transfer?",
             "choices": [
-              "In the bank.",
               "It's a large sum.",
-              "Yes, it was received today."
+              "Yes, it was received today.",
+              "In the bank."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "How often do we review the budget?",
             "choices": [
+              "By the manager.",
               "Every quarter.",
-              "In the office.",
-              "By the manager."
+              "In the office."
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "q": "Is this expense tax-deductible?",
             "choices": [
+              "Yesterday afternoon.",
               "I'll check with the accountant.",
-              "It's a small amount.",
-              "Yesterday afternoon."
+              "It's a small amount."
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "q": "Who is handling the audit this year?",
@@ -4477,63 +4495,63 @@ window.MOCK = {
           {
             "q": "What's the deadline for expense reports?",
             "choices": [
-              "About ten pages.",
               "In the accounting office.",
-              "The fifth of every month."
+              "The fifth of every month.",
+              "About ten pages."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "Has the client paid the deposit?",
             "choices": [
+              "Yes, last week.",
               "It's fifty percent.",
-              "At checkout.",
-              "Yes, last week."
+              "At checkout."
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "q": "Why is the account overdrawn?",
             "choices": [
-              "Last Friday.",
               "A payment was processed twice.",
-              "By fifty dollars."
+              "By fifty dollars.",
+              "Last Friday."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "Could you double check these numbers?",
             "choices": [
               "In the spreadsheet.",
-              "They're accurate.",
-              "Sure, I'll review them now."
+              "Sure, I'll review them now.",
+              "They're accurate."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "When does the fiscal year end?",
             "choices": [
-              "Next quarter.",
               "At the end of December.",
-              "In the finance office."
+              "In the finance office.",
+              "Next quarter."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "How should I categorize this expense?",
             "choices": [
-              "Last Tuesday.",
               "As office supplies.",
+              "Last Tuesday.",
               "About twenty dollars."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "Is the discount still available?",
             "choices": [
               "Yes, until Friday.",
-              "It's ten percent.",
-              "At checkout."
+              "At checkout.",
+              "It's ten percent."
             ],
             "answer": 0
           },
@@ -4541,8 +4559,8 @@ window.MOCK = {
             "q": "Who signed off on this purchase?",
             "choices": [
               "The department head.",
-              "This morning.",
-              "By email."
+              "By email.",
+              "This morning."
             ],
             "answer": 0
           },
@@ -4550,19 +4568,19 @@ window.MOCK = {
             "q": "What's the exchange rate today?",
             "choices": [
               "It changes daily.",
-              "About thirty-five per dollar.",
-              "At the bank."
+              "At the bank.",
+              "About thirty-five per dollar."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "Could we extend the payment deadline?",
             "choices": [
-              "It's thirty days.",
               "I'll ask the supplier.",
+              "It's thirty days.",
               "Two weeks ago."
             ],
-            "answer": 1
+            "answer": 0
           }
         ],
         "part3": [
@@ -4577,29 +4595,29 @@ window.MOCK = {
               {
                 "q": "What is the problem?",
                 "choices": [
-                  "The price was wrong",
                   "The order was cancelled",
-                  "Some items are missing"
+                  "Some items are missing",
+                  "The price was wrong"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "Which items are missing?",
                 "choices": [
                   "Both",
-                  "Monitors",
-                  "Keyboards"
+                  "Keyboards",
+                  "Monitors"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What will the man do?",
                 "choices": [
+                  "Give a refund",
                   "Send a new invoice",
-                  "Ship the missing items today",
-                  "Give a refund"
+                  "Ship the missing items today"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -4614,20 +4632,20 @@ window.MOCK = {
               {
                 "q": "What are they discussing?",
                 "choices": [
-                  "The marketing budget",
+                  "Staff hiring",
                   "A new product",
-                  "Staff hiring"
+                  "The marketing budget"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "How much over budget are they?",
                 "choices": [
+                  "Fifteen percent",
                   "About five percent",
-                  "They are under budget",
-                  "Fifteen percent"
+                  "They are under budget"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "What caused the increase?",
@@ -4651,20 +4669,20 @@ window.MOCK = {
               {
                 "q": "What is the woman checking?",
                 "choices": [
-                  "Her account balance",
                   "Her loan application status",
-                  "Her credit score"
+                  "Her credit score",
+                  "Her account balance"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What is the current status?",
                 "choices": [
+                  "Denied",
                   "Approved",
-                  "Under review",
-                  "Denied"
+                  "Under review"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "How long does review usually take?",
@@ -4688,29 +4706,29 @@ window.MOCK = {
               {
                 "q": "What is the man's complaint?",
                 "choices": [
-                  "He was billed twice",
                   "The invoice was late",
+                  "He was billed twice",
                   "The price was wrong"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "How much was the duplicate charge?",
                 "choices": [
-                  "Thirty dollars",
+                  "Three hundred dollars",
                   "Three thousand dollars",
-                  "Three hundred dollars"
+                  "Thirty dollars"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What will the woman do?",
                 "choices": [
                   "Escalate to a manager",
-                  "Ask for more information",
-                  "Process a refund immediately"
+                  "Process a refund immediately",
+                  "Ask for more information"
                 ],
-                "answer": 2
+                "answer": 1
               }
             ]
           },
@@ -4734,20 +4752,20 @@ window.MOCK = {
               {
                 "q": "Why are they considering the switch?",
                 "choices": [
-                  "Better quality",
                   "Faster delivery",
-                  "Lower prices"
+                  "Lower prices",
+                  "Better quality"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What will they do next week?",
                 "choices": [
-                  "Schedule a call with the new supplier",
+                  "Visit the factory",
                   "Sign a contract",
-                  "Visit the factory"
+                  "Schedule a call with the new supplier"
                 ],
-                "answer": 0
+                "answer": 2
               }
             ]
           },
@@ -4762,29 +4780,29 @@ window.MOCK = {
               {
                 "q": "What is the man doing?",
                 "choices": [
-                  "Submitting an expense report",
                   "Requesting a loan",
-                  "Booking a trip"
+                  "Booking a trip",
+                  "Submitting an expense report"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What does the woman remind him to do?",
                 "choices": [
+                  "Convert currency",
                   "Get manager approval",
-                  "Attach all receipts",
-                  "Convert currency"
+                  "Attach all receipts"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "What problem does the man mention?",
                 "choices": [
-                  "He missed the deadline",
                   "He lost a receipt",
-                  "He overspent"
+                  "He overspent",
+                  "He missed the deadline"
                 ],
-                "answer": 1
+                "answer": 0
               }
             ]
           },
@@ -4800,26 +4818,26 @@ window.MOCK = {
                 "q": "What is the woman's problem?",
                 "choices": [
                   "A lost card",
-                  "A declined payment",
-                  "Unauthorized charges on her card"
+                  "Unauthorized charges on her card",
+                  "A declined payment"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What will the man do?",
                 "choices": [
                   "Cancel her card",
-                  "Increase her limit",
-                  "Close her account"
+                  "Close her account",
+                  "Increase her limit"
                 ],
                 "answer": 0
               },
               {
                 "q": "What does the man promise?",
                 "choices": [
-                  "To refund the annual fee",
+                  "To issue a new card immediately",
                   "To reverse fraudulent charges",
-                  "To issue a new card immediately"
+                  "To refund the annual fee"
                 ],
                 "answer": 1
               }
@@ -4837,28 +4855,28 @@ window.MOCK = {
                 "q": "What are they discussing?",
                 "choices": [
                   "An audit",
-                  "A tax filing deadline",
-                  "A budget meeting"
+                  "A budget meeting",
+                  "A tax filing deadline"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "When is the deadline?",
                 "choices": [
                   "Next week",
-                  "Tomorrow",
-                  "The end of next month"
+                  "The end of next month",
+                  "Tomorrow"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "Do they need an extension?",
                 "choices": [
-                  "Yes, definitely",
+                  "Probably not",
                   "They already requested one",
-                  "Probably not"
+                  "Yes, definitely"
                 ],
-                "answer": 2
+                "answer": 0
               }
             ]
           },
@@ -4873,29 +4891,29 @@ window.MOCK = {
               {
                 "q": "What are they discussing?",
                 "choices": [
+                  "A stock purchase",
                   "A wire transfer",
-                  "A loan application",
-                  "A stock purchase"
+                  "A loan application"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "When was it confirmed?",
                 "choices": [
-                  "Yesterday",
                   "Next week",
-                  "This morning"
+                  "This morning",
+                  "Yesterday"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What does the woman ask for?",
                 "choices": [
                   "A refund",
-                  "A receipt",
-                  "The confirmation number"
+                  "The confirmation number",
+                  "A receipt"
                 ],
-                "answer": 2
+                "answer": 1
               }
             ]
           },
@@ -4910,29 +4928,29 @@ window.MOCK = {
               {
                 "q": "What is the man doing?",
                 "choices": [
-                  "Cancelling a policy",
+                  "Filing an insurance claim",
                   "Requesting a repair",
-                  "Filing an insurance claim"
+                  "Cancelling a policy"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What does the woman ask about?",
                 "choices": [
-                  "A witness statement",
+                  "Photos of the damage",
                   "A receipt",
-                  "Photos of the damage"
+                  "A witness statement"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What should the man send?",
                 "choices": [
                   "Only the claim form",
-                  "Photos and the claim form",
-                  "A written report"
+                  "A written report",
+                  "Photos and the claim form"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -4947,27 +4965,27 @@ window.MOCK = {
               {
                 "q": "What is the woman's concern?",
                 "choices": [
+                  "Her paycheck is lower than usual",
                   "Her hours were miscounted",
-                  "She wasn't paid at all",
-                  "Her paycheck is lower than usual"
+                  "She wasn't paid at all"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What caused the change?",
                 "choices": [
-                  "A benefits deduction",
+                  "A tax increase",
                   "A payroll error",
-                  "A tax increase"
+                  "A benefits deduction"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What will the man send?",
                 "choices": [
                   "A breakdown of the deduction",
-                  "A corrected paycheck",
-                  "An apology letter"
+                  "An apology letter",
+                  "A corrected paycheck"
                 ],
                 "answer": 0
               }
@@ -4984,29 +5002,29 @@ window.MOCK = {
               {
                 "q": "What is the vendor proposing?",
                 "choices": [
-                  "An eight percent price increase",
+                  "A discount",
                   "A new contract",
-                  "A discount"
+                  "An eight percent price increase"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What did the man already do?",
                 "choices": [
-                  "Asked about negotiating the increase",
+                  "Signed the new contract",
                   "Cancelled the order",
-                  "Signed the new contract"
+                  "Asked about negotiating the increase"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What does the woman want to do?",
                 "choices": [
-                  "Push for the lower rate",
                   "Accept the increase",
+                  "Push for the lower rate",
                   "Find a new vendor"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -5021,18 +5039,18 @@ window.MOCK = {
               {
                 "q": "What is happening this afternoon?",
                 "choices": [
-                  "A job interview",
                   "An earnings call",
+                  "A job interview",
                   "A product launch"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What is the man doing?",
                 "choices": [
                   "Finalizing slides",
-                  "Reviewing contracts",
-                  "Booking a flight"
+                  "Booking a flight",
+                  "Reviewing contracts"
                 ],
                 "answer": 0
               },
@@ -5040,10 +5058,10 @@ window.MOCK = {
                 "q": "What does the woman remind him to include?",
                 "choices": [
                   "A competitor analysis",
-                  "A revenue comparison chart",
-                  "A staff photo"
+                  "A staff photo",
+                  "A revenue comparison chart"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           }
@@ -5055,27 +5073,27 @@ window.MOCK = {
               {
                 "q": "What change is being announced?",
                 "choices": [
-                  "Branches will close early",
                   "Statements will be sent by email",
-                  "Fees will increase"
+                  "Fees will increase",
+                  "Branches will close early"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What should customers do to keep paper statements?",
                 "choices": [
                   "Visit a branch",
-                  "Update their preferences in the app",
-                  "Call customer service"
+                  "Call customer service",
+                  "Update their preferences in the app"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "When does this change start?",
                 "choices": [
                   "September",
-                  "January",
-                  "Immediately"
+                  "Immediately",
+                  "January"
                 ],
                 "answer": 0
               }
@@ -5096,18 +5114,18 @@ window.MOCK = {
               {
                 "q": "What does Maria offer?",
                 "choices": [
-                  "Free shipping",
                   "A full refund",
-                  "The gray model at the same price"
+                  "The gray model at the same price",
+                  "Free shipping"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What is out of stock?",
                 "choices": [
                   "The blue model",
-                  "All models",
-                  "The gray model"
+                  "The gray model",
+                  "All models"
                 ],
                 "answer": 0
               }
@@ -5119,29 +5137,29 @@ window.MOCK = {
               {
                 "q": "What is the speaker reporting?",
                 "choices": [
-                  "Quarterly financial results",
+                  "A new product launch",
                   "A staff restructuring",
-                  "A new product launch"
+                  "Quarterly financial results"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "How much did revenue increase?",
                 "choices": [
-                  "Ten percent",
                   "Three percent",
+                  "Ten percent",
                   "Twenty percent"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "What happened to operating costs?",
                 "choices": [
+                  "They stayed the same",
                   "They decreased by three percent",
-                  "They increased",
-                  "They stayed the same"
+                  "They increased"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -5169,11 +5187,11 @@ window.MOCK = {
               {
                 "q": "What should the customer do?",
                 "choices": [
-                  "Ignore the message",
                   "Call back to verify transactions",
-                  "Visit a branch in person"
+                  "Visit a branch in person",
+                  "Ignore the message"
                 ],
-                "answer": 1
+                "answer": 0
               }
             ]
           },
@@ -5183,29 +5201,29 @@ window.MOCK = {
               {
                 "q": "What is the first topic of the seminar?",
                 "choices": [
+                  "Retirement planning",
                   "Market trends",
-                  "Tax strategies",
-                  "Retirement planning"
+                  "Tax strategies"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "When will retirement planning be discussed?",
                 "choices": [
+                  "At the very beginning",
                   "Only during Q&A",
-                  "After a short break",
-                  "At the very beginning"
+                  "After a short break"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "When can attendees ask questions?",
                 "choices": [
                   "Only by email",
-                  "During the Q&A at the end",
-                  "At any time"
+                  "At any time",
+                  "During the Q&A at the end"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -5215,29 +5233,29 @@ window.MOCK = {
               {
                 "q": "Who is this reminder for?",
                 "choices": [
-                  "New employees",
                   "Department managers",
-                  "External vendors"
+                  "External vendors",
+                  "New employees"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What is the deadline for invoices?",
                 "choices": [
+                  "The first of each month",
                   "The fifteenth of each month",
-                  "The last day of the month",
-                  "The first of each month"
+                  "The last day of the month"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "What happens to late submissions?",
                 "choices": [
-                  "They are processed the next cycle",
                   "They are charged a fee",
+                  "They are processed the next cycle",
                   "They are rejected"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -5248,19 +5266,19 @@ window.MOCK = {
                 "q": "What has been updated?",
                 "choices": [
                   "Branch hours",
-                  "Exchange rates",
-                  "Interest rates"
+                  "Interest rates",
+                  "Exchange rates"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "Where can customers see the rates?",
                 "choices": [
-                  "On their receipt",
                   "On the board near the entrance",
-                  "Only online"
+                  "Only online",
+                  "On their receipt"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What applies to all transactions?",
@@ -5279,20 +5297,20 @@ window.MOCK = {
               {
                 "q": "What is expiring?",
                 "choices": [
-                  "A lease agreement",
                   "A business license",
-                  "A business insurance policy"
+                  "A business insurance policy",
+                  "A lease agreement"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "When does it expire?",
                 "choices": [
                   "In six months",
-                  "Next week",
-                  "The end of this month"
+                  "The end of this month",
+                  "Next week"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "How can the policy be renewed?",
@@ -5330,10 +5348,10 @@ window.MOCK = {
                 "q": "What is the purpose of this change?",
                 "choices": [
                   "To speed up deliveries",
-                  "To reduce staff",
-                  "To control spending and ensure best pricing"
+                  "To control spending and ensure best pricing",
+                  "To reduce staff"
                 ],
-                "answer": 2
+                "answer": 1
               }
             ]
           },
@@ -5343,29 +5361,29 @@ window.MOCK = {
               {
                 "q": "What is being announced?",
                 "choices": [
-                  "A new branch location",
                   "A change in interest rates",
-                  "A new mobile app"
+                  "A new mobile app",
+                  "A new branch location"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What can members do with the app?",
                 "choices": [
-                  "Only pay bills",
+                  "Deposit checks and transfer funds",
                   "Only view their balance",
-                  "Deposit checks and transfer funds"
+                  "Only pay bills"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "When will the app be available?",
                 "choices": [
-                  "Next Monday",
                   "Next year",
-                  "Immediately"
+                  "Immediately",
+                  "Next Monday"
                 ],
-                "answer": 0
+                "answer": 2
               }
             ]
           }
@@ -5376,149 +5394,149 @@ window.MOCK = {
           {
             "sentence": "The payment must be made ______ 30 days of receiving the invoice.",
             "choices": [
-              "since",
               "within",
-              "among",
-              "through"
+              "through",
+              "since",
+              "among"
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "sentence": "Our profits have risen ______ compared to last year.",
             "choices": [
-              "sharpness",
+              "sharp",
               "sharply",
-              "sharpen",
-              "sharp"
+              "sharpness",
+              "sharpen"
             ],
             "answer": 1
           },
           {
             "sentence": "The accountant is responsible ______ preparing the monthly reports.",
             "choices": [
-              "for",
               "of",
               "with",
+              "for",
               "to"
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "sentence": "The supplier promised a ______ delivery of the goods.",
             "choices": [
               "prompt",
-              "promptly",
+              "prompted",
               "promptness",
-              "prompted"
+              "promptly"
             ],
             "answer": 0
           },
           {
             "sentence": "Please review the contract ______ signing it.",
             "choices": [
-              "since",
               "before",
+              "during",
               "while",
-              "during"
+              "since"
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "sentence": "The finance team ______ the report before the deadline.",
             "choices": [
-              "completion",
-              "completing",
               "to complete",
-              "completed"
+              "completion",
+              "completed",
+              "completing"
             ],
-            "answer": 3
+            "answer": 2
           },
           {
             "sentence": "If the shipment is late, we ______ the customer immediately.",
             "choices": [
+              "to notify",
               "notifying",
               "will notify",
-              "notified",
-              "to notify"
+              "notified"
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "sentence": "All expenses must be ______ by a receipt.",
             "choices": [
               "supported",
+              "support",
               "supportive",
-              "supporting",
-              "support"
+              "supporting"
             ],
             "answer": 0
           },
           {
             "sentence": "The company's ______ increased significantly this year.",
             "choices": [
+              "revenue",
               "revenues",
               "revenued",
-              "revenuing",
-              "revenue"
+              "revenuing"
             ],
-            "answer": 3
+            "answer": 0
           },
           {
             "sentence": "The accountant ______ the figures twice before submitting them.",
             "choices": [
+              "check",
               "checking",
-              "checked",
               "to check",
-              "check"
+              "checked"
             ],
-            "answer": 1
+            "answer": 3
           },
           {
             "sentence": "We need to ______ the budget before the end of the quarter.",
             "choices": [
-              "finalize",
               "finalized",
               "finalization",
+              "finalize",
               "finalizing"
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "sentence": "The invoice was rejected ______ a missing signature.",
             "choices": [
               "due to",
+              "unless",
               "despite",
-              "although",
-              "unless"
+              "although"
             ],
             "answer": 0
           },
           {
             "sentence": "Our accounts department handles all ______ matters.",
             "choices": [
-              "financial",
               "financially",
+              "finance",
               "financier",
-              "finance"
+              "financial"
             ],
-            "answer": 0
+            "answer": 3
           },
           {
             "sentence": "The client requested a ______ breakdown of all charges.",
             "choices": [
-              "detailed",
               "detailing",
-              "details",
-              "detail"
+              "detail",
+              "detailed",
+              "details"
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "sentence": "The auditor found the records to be ______ accurate.",
             "choices": [
               "completely",
-              "complete",
               "completes",
+              "complete",
               "completion"
             ],
             "answer": 0
@@ -5526,19 +5544,19 @@ window.MOCK = {
           {
             "sentence": "Please ensure the wire transfer is ______ before Friday.",
             "choices": [
+              "completed",
               "complete",
-              "completing",
               "completes",
-              "completed"
+              "completing"
             ],
-            "answer": 3
+            "answer": 0
           },
           {
             "sentence": "The company's stock price ______ by ten percent last month.",
             "choices": [
-              "rise",
               "rising",
               "risen",
+              "rise",
               "rose"
             ],
             "answer": 3
@@ -5548,70 +5566,70 @@ window.MOCK = {
             "choices": [
               "to issue",
               "issued",
-              "will issue",
-              "issuing"
-            ],
-            "answer": 2
-          },
-          {
-            "sentence": "The new policy applies to ______ employee in the finance department.",
-            "choices": [
-              "most",
-              "every",
-              "all",
-              "each of"
-            ],
-            "answer": 1
-          },
-          {
-            "sentence": "The bank ______ a low interest rate on savings accounts.",
-            "choices": [
-              "offering",
-              "offered",
-              "offer",
-              "offers"
+              "issuing",
+              "will issue"
             ],
             "answer": 3
           },
           {
+            "sentence": "The new policy applies to ______ employee in the finance department.",
+            "choices": [
+              "every",
+              "most",
+              "all",
+              "each of"
+            ],
+            "answer": 0
+          },
+          {
+            "sentence": "The bank ______ a low interest rate on savings accounts.",
+            "choices": [
+              "offers",
+              "offered",
+              "offering",
+              "offer"
+            ],
+            "answer": 0
+          },
+          {
             "sentence": "This transaction cannot be ______ once it is confirmed.",
             "choices": [
-              "reverse",
               "reversing",
               "reversed",
+              "reverse",
               "reversal"
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "sentence": "The report shows a ______ decline in expenses.",
             "choices": [
-              "grade",
-              "gradualness",
               "gradual",
+              "gradualness",
+              "grade",
               "gradually"
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "sentence": "Employees must submit receipts ______ than the fifth of the month.",
             "choices": [
-              "no less",
-              "no later",
+              "no more",
               "no sooner",
-              "no more"
+              "no less",
+              "no later"
             ],
-            "answer": 1
+            "answer": 3
           },
           {
             "sentence": "The finance director ______ the new budget proposal yesterday.",
             "choices": [
               "approves",
               "approving",
-              "approved",
-              "approve"
+              "approve",
+              "approved"
             ],
-            "answer": 2
+            "answer": 3
           },
           {
             "sentence": "Our records indicate the payment was ______ on time.",
@@ -5626,18 +5644,18 @@ window.MOCK = {
           {
             "sentence": "The company offers a two percent discount for early ______.",
             "choices": [
+              "paying",
               "payment",
               "paid",
-              "pay",
-              "paying"
+              "pay"
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "sentence": "The spreadsheet ______ all transactions from last month.",
             "choices": [
-              "listing",
               "list",
+              "listing",
               "lists",
               "listed"
             ],
@@ -5647,17 +5665,17 @@ window.MOCK = {
             "sentence": "We are currently ______ our accounting software to a newer version.",
             "choices": [
               "upgraded",
-              "upgrades",
+              "upgrade",
               "upgrading",
-              "upgrade"
+              "upgrades"
             ],
             "answer": 2
           },
           {
             "sentence": "The client's account was ______ due to non-payment.",
             "choices": [
-              "suspends",
               "suspend",
+              "suspends",
               "suspending",
               "suspended"
             ],
@@ -5666,10 +5684,10 @@ window.MOCK = {
           {
             "sentence": "Please retain this receipt ______ your records.",
             "choices": [
-              "of",
-              "for",
               "in",
-              "at"
+              "for",
+              "at",
+              "of"
             ],
             "answer": 1
           }
@@ -5680,39 +5698,39 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
+                  "including",
                   "inclusion",
                   "included",
-                  "include",
-                  "including"
-                ],
-                "answer": 2
-              },
-              {
-                "choices": [
-                  "reviewed",
-                  "reviewing",
-                  "review",
-                  "reviewer"
-                ],
-                "answer": 2
-              },
-              {
-                "choices": [
-                  "since",
-                  "during",
-                  "before",
-                  "after"
+                  "include"
                 ],
                 "answer": 3
               },
               {
                 "choices": [
-                  "department",
-                  "depart",
-                  "departed",
-                  "departure"
+                  "reviewer",
+                  "review",
+                  "reviewed",
+                  "reviewing"
+                ],
+                "answer": 1
+              },
+              {
+                "choices": [
+                  "after",
+                  "before",
+                  "since",
+                  "during"
                 ],
                 "answer": 0
+              },
+              {
+                "choices": [
+                  "depart",
+                  "departure",
+                  "departed",
+                  "department"
+                ],
+                "answer": 3
               }
             ]
           },
@@ -5722,35 +5740,35 @@ window.MOCK = {
               {
                 "choices": [
                   "notify",
+                  "notified",
                   "notifies",
-                  "notifying",
-                  "notified"
+                  "notifying"
                 ],
                 "answer": 0
               },
               {
                 "choices": [
-                  "increases",
-                  "increasing",
                   "increase",
-                  "increased"
+                  "increased",
+                  "increases",
+                  "increasing"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "choices": [
-                  "waived",
-                  "waives",
                   "waive",
-                  "waiving"
+                  "waived",
+                  "waiving",
+                  "waives"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "choices": [
                   "contact",
-                  "contacting",
                   "contacts",
+                  "contacting",
                   "contacted"
                 ],
                 "answer": 0
@@ -5763,38 +5781,38 @@ window.MOCK = {
               {
                 "choices": [
                   "unpays",
+                  "unpay",
                   "unpaying",
-                  "unpaid",
-                  "unpay"
+                  "unpaid"
                 ],
-                "answer": 2
+                "answer": 3
               },
               {
                 "choices": [
                   "applying",
                   "applied",
-                  "apply",
-                  "applies"
+                  "applies",
+                  "apply"
                 ],
                 "answer": 1
               },
               {
                 "choices": [
-                  "sent",
-                  "sending",
+                  "send",
                   "sends",
-                  "send"
+                  "sent",
+                  "sending"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "choices": [
-                  "quickness",
-                  "quick",
                   "quickly",
-                  "quicken"
+                  "quick",
+                  "quicken",
+                  "quickness"
                 ],
-                "answer": 2
+                "answer": 0
               }
             ]
           },
@@ -5803,39 +5821,39 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
-                  "approves",
+                  "approving",
                   "approve",
                   "approved",
-                  "approving"
+                  "approves"
                 ],
                 "answer": 2
               },
               {
                 "choices": [
-                  "submit",
                   "submits",
-                  "submitted",
-                  "submitting"
+                  "submit",
+                  "submitting",
+                  "submitted"
+                ],
+                "answer": 3
+              },
+              {
+                "choices": [
+                  "purchasing",
+                  "purchase",
+                  "purchases",
+                  "purchased"
+                ],
+                "answer": 1
+              },
+              {
+                "choices": [
+                  "reimbursed",
+                  "reimburse",
+                  "reimbursement",
+                  "reimbursing"
                 ],
                 "answer": 2
-              },
-              {
-                "choices": [
-                  "purchase",
-                  "purchased",
-                  "purchases",
-                  "purchasing"
-                ],
-                "answer": 0
-              },
-              {
-                "choices": [
-                  "reimbursement",
-                  "reimbursing",
-                  "reimburse",
-                  "reimbursed"
-                ],
-                "answer": 0
               }
             ]
           }
@@ -5848,11 +5866,11 @@ window.MOCK = {
                 {
                   "q": "What is the purpose of this email?",
                   "choices": [
-                    "To remind the customer about a due invoice",
                     "To confirm a delivery",
-                    "To offer a discount"
+                    "To offer a discount",
+                    "To remind the customer about a due invoice"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "What is the invoice number?",
@@ -5866,8 +5884,8 @@ window.MOCK = {
                 {
                   "q": "How much is owed?",
                   "choices": [
-                    "Four hundred dollars",
                     "Two thousand dollars",
+                    "Four hundred dollars",
                     "Two thousand four hundred dollars"
                   ],
                   "answer": 2
@@ -5885,19 +5903,19 @@ window.MOCK = {
                   "q": "What should the reader do if they have questions?",
                   "choices": [
                     "Visit the office",
-                    "Contact the billing department",
-                    "Wait for another email"
+                    "Wait for another email",
+                    "Contact the billing department"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "What should the reader do if they already paid?",
                   "choices": [
+                    "Call immediately",
                     "Send proof of payment",
-                    "Disregard the notice",
-                    "Call immediately"
+                    "Disregard the notice"
                   ],
-                  "answer": 1
+                  "answer": 2
                 }
               ]
             },
@@ -5907,26 +5925,26 @@ window.MOCK = {
                 {
                   "q": "Why is the Model X printer unavailable?",
                   "choices": [
+                    "It was recalled",
                     "It is out of stock due to high demand",
-                    "It was discontinued",
-                    "It was recalled"
+                    "It was discontinued"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "When are new shipments expected?",
                   "choices": [
+                    "Next month",
                     "Within two weeks",
-                    "Tomorrow",
-                    "Next month"
+                    "Tomorrow"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "What should customers who already ordered do?",
                   "choices": [
-                    "Reorder the product",
                     "Choose a different model",
+                    "Reorder the product",
                     "Nothing; they will receive it when stock arrives"
                   ],
                   "answer": 2
@@ -5934,8 +5952,8 @@ window.MOCK = {
                 {
                   "q": "What model is out of stock?",
                   "choices": [
-                    "Model Z",
                     "Model Y",
+                    "Model Z",
                     "Model X"
                   ],
                   "answer": 2
@@ -5952,11 +5970,11 @@ window.MOCK = {
                 {
                   "q": "Is any action needed from customers who already ordered?",
                   "choices": [
-                    "No further action is needed",
                     "Yes, they must pay again",
+                    "No further action is needed",
                     "Yes, they must re-confirm"
                   ],
-                  "answer": 0
+                  "answer": 1
                 }
               ]
             },
@@ -5966,29 +5984,29 @@ window.MOCK = {
                 {
                   "q": "What is this article about?",
                   "choices": [
-                    "A company merger",
                     "A stock market update",
+                    "A company merger",
                     "A product launch"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "By how much did shares rise today?",
                   "choices": [
-                    "Two percent",
                     "Twenty percent",
-                    "Six percent"
+                    "Six percent",
+                    "Two percent"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "Why did shares rise?",
                   "choices": [
+                    "Stronger-than-expected quarterly earnings",
                     "A new CEO was appointed",
-                    "A competitor went bankrupt",
-                    "Stronger-than-expected quarterly earnings"
+                    "A competitor went bankrupt"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "Which division drove growth?",
@@ -6003,19 +6021,19 @@ window.MOCK = {
                   "q": "How did the hardware division perform?",
                   "choices": [
                     "It declined sharply",
-                    "It saw only modest gains",
-                    "It outperformed cloud computing"
+                    "It outperformed cloud computing",
+                    "It saw only modest gains"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "How much has the stock risen since the start of the year?",
                   "choices": [
+                    "Six percent",
                     "Twenty percent",
-                    "Fifty percent",
-                    "Six percent"
+                    "Fifty percent"
                   ],
-                  "answer": 0
+                  "answer": 1
                 }
               ]
             },
@@ -6025,56 +6043,56 @@ window.MOCK = {
                 {
                   "q": "What is this letter about?",
                   "choices": [
-                    "A loan approval",
+                    "A loan rejection",
                     "An account closure",
-                    "A loan rejection"
+                    "A loan approval"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "How much was the loan approved for?",
                   "choices": [
-                    "Fifty thousand dollars",
                     "Five thousand dollars",
+                    "Fifty thousand dollars",
                     "Fifteen thousand dollars"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "What is the interest rate?",
                   "choices": [
-                    "Four percent",
                     "Four point five percent",
-                    "Five percent"
+                    "Five percent",
+                    "Four percent"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What is the repayment term?",
                   "choices": [
                     "One year",
-                    "Five years",
-                    "Ten years"
+                    "Ten years",
+                    "Five years"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "What must Mr. Kim do next?",
                   "choices": [
                     "Make a first payment",
-                    "Visit the branch to sign the agreement",
-                    "Provide more documents"
+                    "Provide more documents",
+                    "Visit the branch to sign the agreement"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "How much time does he have to do this?",
                   "choices": [
-                    "Ten business days",
                     "Five days",
-                    "Thirty days"
+                    "Thirty days",
+                    "Ten business days"
                   ],
-                  "answer": 0
+                  "answer": 2
                 }
               ]
             },
@@ -6084,47 +6102,47 @@ window.MOCK = {
                 {
                   "q": "How many units were ordered?",
                   "choices": [
-                    "150",
                     "200",
-                    "300"
+                    "300",
+                    "150"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What is the total cost?",
                   "choices": [
+                    "5,850 dollars",
                     "4,500 dollars",
-                    "4,850 dollars",
-                    "5,850 dollars"
+                    "4,850 dollars"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "When is payment due?",
                   "choices": [
-                    "Upon delivery",
                     "Within 30 days",
-                    "Within 15 days of the invoice date"
+                    "Within 15 days of the invoice date",
+                    "Upon delivery"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "How long is estimated delivery?",
                   "choices": [
                     "1 to 2 business days",
-                    "One month",
-                    "7 to 10 business days"
+                    "7 to 10 business days",
+                    "One month"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "What is the product's SKU?",
                   "choices": [
-                    "SKU-3391",
                     "SKU-1339",
-                    "SKU-9331"
+                    "SKU-9331",
+                    "SKU-3391"
                   ],
-                  "answer": 0
+                  "answer": 2
                 }
               ]
             }
@@ -6139,11 +6157,11 @@ window.MOCK = {
                 {
                   "q": "How many desks were ordered?",
                   "choices": [
+                    "40",
                     "20",
-                    "400",
-                    "40"
+                    "400"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What is the total cost of the order?",
@@ -6157,11 +6175,11 @@ window.MOCK = {
                 {
                   "q": "What was the requested delivery date?",
                   "choices": [
-                    "March 22",
                     "March 1",
-                    "March 15"
+                    "March 15",
+                    "March 22"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "What delivery date can Owen guarantee?",
@@ -6175,9 +6193,9 @@ window.MOCK = {
                 {
                   "q": "Why is the delivery delayed?",
                   "choices": [
-                    "A shipping error",
+                    "Bad weather",
                     "Current demand",
-                    "Bad weather"
+                    "A shipping error"
                   ],
                   "answer": 1
                 }
@@ -6193,46 +6211,46 @@ window.MOCK = {
                   "q": "What was the beginning balance?",
                   "choices": [
                     "3,200 dollars",
-                    "3,785 dollars",
-                    "1,500 dollars"
+                    "1,500 dollars",
+                    "3,785 dollars"
                   ],
                   "answer": 0
                 },
                 {
                   "q": "How much was withdrawn?",
                   "choices": [
+                    "1,500 dollars",
                     "900 dollars",
-                    "15 dollars",
-                    "1,500 dollars"
+                    "15 dollars"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "What is the ending balance?",
                   "choices": [
-                    "3,785 dollars",
                     "3,200 dollars",
+                    "3,785 dollars",
                     "4,700 dollars"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "What does Grace want to know about?",
                   "choices": [
-                    "A missing deposit",
+                    "Her interest rate",
                     "The 15-dollar fee",
-                    "Her interest rate"
+                    "A missing deposit"
                   ],
                   "answer": 1
                 },
                 {
                   "q": "Does Grace remember any activity causing the fee?",
                   "choices": [
-                    "Yes, she remembers clearly",
                     "She caused it intentionally",
-                    "No, she does not recall any"
+                    "No, she does not recall any",
+                    "Yes, she remembers clearly"
                   ],
-                  "answer": 2
+                  "answer": 1
                 }
               ]
             }
@@ -6248,26 +6266,26 @@ window.MOCK = {
                 {
                   "q": "What is the deadline for budget requests?",
                   "choices": [
-                    "October 15",
                     "September 30",
+                    "October 15",
                     "November 1"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "What increase is allowed without justification?",
                   "choices": [
+                    "10 percent",
                     "20 percent",
-                    "15 percent",
-                    "10 percent"
+                    "15 percent"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "Why does the department need a 15 percent increase?",
                   "choices": [
-                    "Rising rent costs",
                     "Staff bonuses",
+                    "Rising rent costs",
                     "A new project launch"
                   ],
                   "answer": 2
@@ -6275,18 +6293,18 @@ window.MOCK = {
                 {
                   "q": "What must be submitted for increases above 10 percent?",
                   "choices": [
-                    "A one-page justification and the standard form",
                     "Only a verbal explanation",
-                    "Approval from the CEO"
+                    "Approval from the CEO",
+                    "A one-page justification and the standard form"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "When is the justification due?",
                   "choices": [
-                    "Within 30 days of the request",
+                    "End of the fiscal year",
                     "October 15",
-                    "End of the fiscal year"
+                    "Within 30 days of the request"
                   ],
                   "answer": 1
                 }
@@ -6302,20 +6320,20 @@ window.MOCK = {
                 {
                   "q": "What is the minimum order for Item A?",
                   "choices": [
-                    "50 units",
                     "10 units",
-                    "100 units"
+                    "100 units",
+                    "50 units"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "How many units of Item A does Farah want?",
                   "choices": [
-                    "150",
                     "60",
+                    "150",
                     "50"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What is the combined order total before discount?",
@@ -6329,17 +6347,17 @@ window.MOCK = {
                 {
                   "q": "Does Farah's order qualify for the bulk discount?",
                   "choices": [
-                    "Only Item B qualifies",
                     "Yes, because it exceeds 1,000 dollars",
+                    "Only Item B qualifies",
                     "No, it is too small"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What is the bulk discount amount?",
                   "choices": [
-                    "15 percent",
                     "10 percent",
+                    "15 percent",
                     "5 percent"
                   ],
                   "answer": 2
@@ -6357,28 +6375,28 @@ window.MOCK = {
                   "q": "How much is the overdue balance?",
                   "choices": [
                     "1,450 dollars",
-                    "1,045 dollars",
-                    "450 dollars"
+                    "450 dollars",
+                    "1,045 dollars"
                   ],
                   "answer": 0
                 },
                 {
                   "q": "How many days past due is the account?",
                   "choices": [
-                    "45 days",
+                    "90 days",
                     "15 days",
-                    "90 days"
+                    "45 days"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "What does the customer request?",
                   "choices": [
+                    "A full refund",
                     "A payment plan",
-                    "A discount",
-                    "A full refund"
+                    "A discount"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "How many installments are offered?",
@@ -6392,11 +6410,11 @@ window.MOCK = {
                 {
                   "q": "When does the first installment start?",
                   "choices": [
+                    "Next month",
                     "Next week",
-                    "Immediately",
-                    "Next month"
+                    "Immediately"
                   ],
-                  "answer": 0
+                  "answer": 1
                 }
               ]
             }
@@ -6410,90 +6428,96 @@ window.MOCK = {
       "listening": {
         "part1": [
           {
-            "scene": "An HR manager is interviewing a candidate across a desk.",
+            "scene": "ในห้องเล็ก ชายและหญิงนั่งคนละฝั่งโต๊ะ ฝ่ายหนึ่งถือแฟ้มเปิดอ่าน อีกฝ่ายนั่งฟังโดยวางมือบนตัก",
             "choices": [
-              "The manager is interviewing a candidate.",
-              "The manager is serving coffee.",
-              "The manager is fixing a copier.",
-              "The manager is watering plants."
+              "One person is leaving the room.",
+              "Two people are looking at a computer.",
+              "Two people are facing each other.",
+              "Résumés are being printed."
             ],
-            "answer": 0
+            "answer": 2,
+            "why": "นั่งหันหน้าเข้าหากันคือสิ่งที่เห็นชัดที่สุด ไม่มีคอมพิวเตอร์หรือเครื่องพิมพ์ในภาพ และไม่มีใครลุกออกไป"
           },
           {
-            "scene": "A technician is installing a server in a rack.",
+            "scene": "ห้องเซิร์ฟเวอร์ ชายคนหนึ่งยืนหันหน้าเข้าตู้แร็ค มือทั้งสองจับอุปกรณ์ที่กำลังเลื่อนเข้าช่อง มีสายไฟห้อยอยู่ด้านข้าง",
             "choices": [
-              "The technician is writing a letter.",
-              "The technician is installing a server.",
-              "The technician is cleaning windows.",
-              "The technician is driving a van."
+              "A man is watching a monitor.",
+              "A man is unplugging a cable.",
+              "Equipment is being installed.",
+              "The room is being cleaned."
             ],
-            "answer": 1
+            "answer": 2,
+            "why": "ข้อนี้ being installed ถูก เพราะมีคนกำลังติดตั้งอยู่จริงในภาพ ซึ่งเป็นข้อยกเว้นที่ต้องแยกให้ออกจากกรณีที่ไม่มีคนทำ"
           },
           {
-            "scene": "New employees are sitting in rows during an orientation session.",
+            "scene": "ห้องอบรม คนหลายคนนั่งเรียงเป็นแถวหันหน้าไปทางหน้าห้อง แต่ละคนมีสมุดวางบนตัก ด้านหน้ามีจอฉายภาพ",
             "choices": [
-              "New employees are cooking a meal.",
-              "New employees are sitting in rows.",
-              "New employees are painting a wall.",
-              "New employees are loading a truck."
+              "People are seated in rows.",
+              "People are standing in a circle.",
+              "People are erasing a whiteboard.",
+              "Notebooks are being distributed."
             ],
-            "answer": 1
+            "answer": 0,
+            "why": "สมุดอยู่กับแต่ละคนแล้ว ไม่มีใครกำลังแจก จึงเป็นกับดัก being + ช่อง 3 และไม่มีใครยืนหรือลบกระดาน"
           },
           {
-            "scene": "A woman is typing on a keyboard while looking at two monitors.",
+            "scene": "โต๊ะทำงาน ผู้หญิงคนหนึ่งนั่งหน้าจอสองจอที่ตั้งเรียงกัน มือวางบนคีย์บอร์ด สายตามองไปที่จอด้านซ้าย",
             "choices": [
-              "The woman is typing at her computer.",
-              "The woman is sleeping at her desk.",
-              "The woman is reading a book.",
-              "The woman is watering a plant."
+              "A woman is working at a computer.",
+              "A woman is answering a phone.",
+              "The desk is being moved.",
+              "A woman is adjusting a monitor."
             ],
-            "answer": 0
+            "answer": 0,
+            "why": "adjusting แปลว่ากำลังปรับจอ ซึ่งต่างจากการมองจอ เป็นกับดักที่ใช้ของชิ้นเดียวกันแต่กริยาคนละอย่าง"
           },
           {
-            "scene": "A group is applauding during a company award ceremony.",
+            "scene": "ในห้องโถง คนจำนวนมากยืนและปรบมือ ด้านหน้ามีชายคนหนึ่งยืนถือโล่รางวัลอยู่บนเวทีเล็ก",
             "choices": [
-              "The group is washing dishes.",
-              "The group is packing boxes.",
-              "The group is applauding.",
-              "The group is leaving the building."
+              "An award is being presented.",
+              "An audience is applauding.",
+              "People are taking their seats.",
+              "A man is giving a speech."
             ],
-            "answer": 2
+            "answer": 1,
+            "why": "โล่อยู่ในมือผู้รับแล้ว การมอบจบไปแล้ว being presented จึงไม่ตรงกับจังหวะในภาพ และคนกำลังยืน ไม่ได้นั่งลง"
           },
           {
-            "scene": "An IT worker is untangling cables under a desk.",
+            "scene": "ใต้โต๊ะทำงาน ชายคนหนึ่งนั่งยองๆ ถือสายไฟพันกันเป็นก้อนอยู่ในมือ มีปลั๊กพ่วงวางอยู่บนพื้นข้างๆ",
             "choices": [
-              "The worker is filing documents.",
-              "The worker is untangling cables.",
-              "The worker is presenting a chart.",
-              "The worker is answering the phone."
+              "The cables are being cut.",
+              "A man is climbing a ladder.",
+              "A man is working under a desk.",
+              "A man is moving a chair."
             ],
-            "answer": 1
+            "answer": 2,
+            "why": "cables กับ tables เสียงใกล้กัน ระวังฟังสลับ และไม่มีใครตัดสาย เขาแค่แกะสายที่พันกัน"
           }
         ],
         "part2": [
           {
             "q": "Have you submitted your application yet?",
             "choices": [
-              "Yes, last week.",
+              "In the HR office.",
               "She's the manager.",
-              "In the HR office."
+              "Yes, last week."
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "q": "Who should I contact about the job opening?",
             "choices": [
-              "Next Monday.",
               "The HR manager.",
+              "Next Monday.",
               "It's a good salary."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "Why is the system running so slowly?",
             "choices": [
-              "Yes, I restarted it.",
               "In the server room.",
+              "Yes, I restarted it.",
               "It needs an update."
             ],
             "answer": 2
@@ -6501,29 +6525,29 @@ window.MOCK = {
           {
             "q": "When does the training program begin?",
             "choices": [
+              "On the first of March.",
               "About twenty people.",
-              "In room 210.",
-              "On the first of March."
+              "In room 210."
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "q": "Could you help me reset my password?",
             "choices": [
               "Of course, one moment.",
-              "At the help desk.",
-              "It's a new laptop."
+              "It's a new laptop.",
+              "At the help desk."
             ],
             "answer": 0
           },
           {
             "q": "How many candidates did we interview?",
             "choices": [
+              "Yesterday afternoon.",
               "In the meeting room.",
-              "Around fifteen.",
-              "Yesterday afternoon."
+              "Around fifteen."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "Is the new hire starting this week?",
@@ -6538,16 +6562,16 @@ window.MOCK = {
             "q": "Why did the server crash?",
             "choices": [
               "This morning.",
-              "In the data center.",
-              "An overload during peak hours."
+              "An overload during peak hours.",
+              "In the data center."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "Who's responsible for onboarding new staff?",
             "choices": [
-              "It takes two days.",
               "Next week.",
+              "It takes two days.",
               "The HR coordinator."
             ],
             "answer": 2
@@ -6555,17 +6579,17 @@ window.MOCK = {
           {
             "q": "Could you back up these files before the update?",
             "choices": [
+              "They're important.",
               "Sure, I'll do it now.",
-              "In the cloud.",
-              "They're important."
+              "In the cloud."
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "q": "How long is the probation period?",
             "choices": [
-              "For new hires.",
               "Very strict.",
+              "For new hires.",
               "Three months."
             ],
             "answer": 2
@@ -6573,119 +6597,119 @@ window.MOCK = {
           {
             "q": "Did IT fix the network issue?",
             "choices": [
-              "Yes, it's working now.",
               "In the server room.",
-              "About an hour ago."
+              "About an hour ago.",
+              "Yes, it's working now."
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "q": "When is the performance review scheduled?",
             "choices": [
-              "About thirty minutes.",
+              "In HR's office.",
               "Next Friday.",
-              "In HR's office."
+              "About thirty minutes."
             ],
             "answer": 1
           },
           {
             "q": "Why was the candidate rejected?",
             "choices": [
-              "By the manager.",
+              "Last week.",
               "She lacked the required experience.",
-              "Last week."
+              "By the manager."
             ],
             "answer": 1
           },
           {
             "q": "Could you install this software on my laptop?",
             "choices": [
+              "It's compatible.",
               "Sure, give me a few minutes.",
-              "Yes, I bought it.",
-              "It's compatible."
+              "Yes, I bought it."
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "q": "How many employees work remotely?",
             "choices": [
-              "Since last year.",
+              "About a third of the staff.",
               "Very flexible.",
-              "About a third of the staff."
+              "Since last year."
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "q": "Is the job posting still open?",
             "choices": [
-              "In the marketing department.",
+              "It pays well.",
               "Yes, until Friday.",
-              "It pays well."
+              "In the marketing department."
             ],
             "answer": 1
           },
           {
             "q": "Why does my computer keep freezing?",
             "choices": [
+              "It might need more memory.",
               "Every morning.",
-              "Since yesterday.",
-              "It might need more memory."
+              "Since yesterday."
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "q": "Who approved the new hire's salary?",
             "choices": [
-              "Two weeks ago.",
               "The HR director.",
-              "By email."
+              "By email.",
+              "Two weeks ago."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "Could you send me the login credentials?",
             "choices": [
+              "Sure, I'll email them now.",
               "At the help desk.",
-              "They're confidential.",
-              "Sure, I'll email them now."
+              "They're confidential."
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "q": "How was the interview process?",
             "choices": [
+              "Three rounds.",
               "About an hour long.",
-              "It went smoothly.",
-              "Three rounds."
+              "It went smoothly."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "When will the new software be deployed?",
             "choices": [
-              "Next Monday.",
               "It's user-friendly.",
+              "Next Monday.",
               "In the IT department."
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "q": "Why is the recruiter calling again?",
             "choices": [
               "This afternoon.",
-              "About the salary.",
-              "To schedule a second interview."
+              "To schedule a second interview.",
+              "About the salary."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "Could I get access to the shared drive?",
             "choices": [
+              "It's very large.",
               "Yes, I'll set that up.",
-              "Only for managers.",
-              "It's very large."
+              "Only for managers."
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "q": "How do I update my emergency contact?",
@@ -6709,11 +6733,11 @@ window.MOCK = {
               {
                 "q": "What are the speakers arranging?",
                 "choices": [
-                  "A product demo",
                   "A team lunch",
-                  "A job interview"
+                  "A job interview",
+                  "A product demo"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "When will the interview take place?",
@@ -6728,10 +6752,10 @@ window.MOCK = {
                 "q": "What position is the interview for?",
                 "choices": [
                   "Receptionist",
-                  "Manager",
-                  "Analyst"
+                  "Analyst",
+                  "Manager"
                 ],
-                "answer": 2
+                "answer": 1
               }
             ]
           },
@@ -6746,20 +6770,20 @@ window.MOCK = {
               {
                 "q": "What is the man's problem?",
                 "choices": [
-                  "His computer won't connect to the network",
+                  "He forgot his password",
                   "His printer is broken",
-                  "He forgot his password"
+                  "His computer won't connect to the network"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What will the woman do?",
                 "choices": [
                   "Replace the computer",
-                  "Restart the server",
-                  "Send someone from IT"
+                  "Send someone from IT",
+                  "Restart the server"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What has the man already tried?",
@@ -6783,8 +6807,8 @@ window.MOCK = {
               {
                 "q": "What are the speakers discussing?",
                 "choices": [
-                  "A relocation package",
                   "A performance bonus",
+                  "A relocation package",
                   "A salary offer"
                 ],
                 "answer": 2
@@ -6792,20 +6816,20 @@ window.MOCK = {
               {
                 "q": "What was the man's response to the initial offer?",
                 "choices": [
-                  "He asked about flexibility",
+                  "He rejected it",
                   "He accepted immediately",
-                  "He rejected it"
+                  "He asked about flexibility"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What is the final agreed salary?",
                 "choices": [
+                  "Sixty-three thousand",
                   "Sixty-five thousand",
-                  "Sixty thousand",
-                  "Sixty-three thousand"
+                  "Sixty thousand"
                 ],
-                "answer": 2
+                "answer": 0
               }
             ]
           },
@@ -6820,26 +6844,26 @@ window.MOCK = {
               {
                 "q": "What are they discussing?",
                 "choices": [
+                  "A new software launch",
                   "An office move",
-                  "A hiring freeze",
-                  "A new software launch"
+                  "A hiring freeze"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "When will the software go live?",
                 "choices": [
-                  "This Friday",
                   "Next month",
-                  "Next Monday"
+                  "Next Monday",
+                  "This Friday"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What is happening this week?",
                 "choices": [
-                  "A system shutdown",
                   "Interviews",
+                  "A system shutdown",
                   "Training sessions"
                 ],
                 "answer": 2
@@ -6858,28 +6882,28 @@ window.MOCK = {
                 "q": "What is the employee's complaint about?",
                 "choices": [
                   "Low pay",
-                  "Poor communication",
-                  "Feeling overworked"
-                ],
-                "answer": 2
-              },
-              {
-                "q": "What is the main cause mentioned?",
-                "choices": [
-                  "A difficult coworker",
-                  "Increased overtime hours",
-                  "Lack of training"
+                  "Feeling overworked",
+                  "Poor communication"
                 ],
                 "answer": 1
               },
               {
+                "q": "What is the main cause mentioned?",
+                "choices": [
+                  "Increased overtime hours",
+                  "A difficult coworker",
+                  "Lack of training"
+                ],
+                "answer": 0
+              },
+              {
                 "q": "What will they do next?",
                 "choices": [
-                  "Transfer her to another team",
                   "Give her a raise",
-                  "Schedule a meeting with the supervisor"
+                  "Schedule a meeting with the supervisor",
+                  "Transfer her to another team"
                 ],
-                "answer": 2
+                "answer": 1
               }
             ]
           },
@@ -6903,18 +6927,18 @@ window.MOCK = {
               {
                 "q": "How long ago did he submit the ticket?",
                 "choices": [
+                  "One week ago",
                   "This morning",
-                  "Two days ago",
-                  "One week ago"
+                  "Two days ago"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "What will the woman do?",
                 "choices": [
                   "Escalate the ticket",
-                  "Order a new monitor",
-                  "Close the ticket"
+                  "Close the ticket",
+                  "Order a new monitor"
                 ],
                 "answer": 0
               }
@@ -6931,29 +6955,29 @@ window.MOCK = {
               {
                 "q": "What kind of meeting is this?",
                 "choices": [
-                  "A performance review",
+                  "An exit interview",
                   "A hiring interview",
-                  "An exit interview"
+                  "A performance review"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What is the man asked about?",
                 "choices": [
+                  "His reason for leaving",
                   "His job title",
-                  "His salary expectations",
-                  "His reason for leaving"
+                  "His salary expectations"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "Why is the man leaving?",
                 "choices": [
-                  "A better opportunity closer to home",
                   "A conflict with his manager",
-                  "A pay cut"
+                  "A pay cut",
+                  "A better opportunity closer to home"
                 ],
-                "answer": 0
+                "answer": 2
               }
             ]
           },
@@ -6968,11 +6992,11 @@ window.MOCK = {
               {
                 "q": "What needs to happen before the migration?",
                 "choices": [
-                  "A staff meeting",
                   "A database backup",
-                  "A software update"
+                  "A software update",
+                  "A staff meeting"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "How long will the backup take?",
@@ -7005,29 +7029,29 @@ window.MOCK = {
               {
                 "q": "What is the woman's problem?",
                 "choices": [
-                  "She hasn't received her badge",
                   "Her badge doesn't work",
+                  "She hasn't received her badge",
                   "She lost her badge"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "How long has she been waiting?",
                 "choices": [
-                  "A week",
+                  "A month",
                   "A day",
-                  "A month"
+                  "A week"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What does the man promise?",
                 "choices": [
-                  "She'll get it by tomorrow",
                   "He can't help her",
+                  "She'll get it by tomorrow",
                   "She'll get it today"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -7042,9 +7066,9 @@ window.MOCK = {
               {
                 "q": "What is happening to the marketing team?",
                 "choices": [
-                  "It is being eliminated",
+                  "It is being expanded",
                   "It is being restructured",
-                  "It is being expanded"
+                  "It is being eliminated"
                 ],
                 "answer": 1
               },
@@ -7061,8 +7085,8 @@ window.MOCK = {
                 "q": "What happens to the employees?",
                 "choices": [
                   "They are reassigned to new roles",
-                  "They are laid off",
-                  "They are demoted"
+                  "They are demoted",
+                  "They are laid off"
                 ],
                 "answer": 0
               }
@@ -7079,29 +7103,29 @@ window.MOCK = {
               {
                 "q": "What training is being discussed?",
                 "choices": [
-                  "Safety training",
+                  "Cybersecurity training",
                   "Sales training",
-                  "Cybersecurity training"
+                  "Safety training"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "When is the training due?",
                 "choices": [
-                  "Next month",
+                  "By the end of this week",
                   "Today",
-                  "By the end of this week"
+                  "Next month"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What will the man do?",
                 "choices": [
-                  "Skip the training",
                   "Ask for an extension",
-                  "Finish it today"
+                  "Finish it today",
+                  "Skip the training"
                 ],
-                "answer": 2
+                "answer": 1
               }
             ]
           },
@@ -7125,20 +7149,20 @@ window.MOCK = {
               {
                 "q": "What will the woman do first?",
                 "choices": [
+                  "Deny the request",
                   "Approve it immediately",
-                  "Check with his manager",
-                  "Deny the request"
+                  "Check with his manager"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "When will she respond?",
                 "choices": [
-                  "By Friday",
                   "Next month",
+                  "By Friday",
                   "Today"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -7154,26 +7178,26 @@ window.MOCK = {
                 "q": "What is the woman's problem?",
                 "choices": [
                   "Her laptop won't turn on",
-                  "Her laptop is old and slow",
-                  "Her laptop was stolen"
+                  "Her laptop was stolen",
+                  "Her laptop is old and slow"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "What will the man do?",
                 "choices": [
-                  "Repair the laptop",
                   "Request a replacement",
-                  "Order new software"
+                  "Order new software",
+                  "Repair the laptop"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "How long will it take?",
                 "choices": [
-                  "One month",
+                  "A few days",
                   "About two weeks",
-                  "A few days"
+                  "One month"
                 ],
                 "answer": 1
               }
@@ -7187,9 +7211,9 @@ window.MOCK = {
               {
                 "q": "What is the purpose of the talk?",
                 "choices": [
-                  "To announce a promotion",
+                  "To report a problem",
                   "To welcome new employees at orientation",
-                  "To report a problem"
+                  "To announce a promotion"
                 ],
                 "answer": 1
               },
@@ -7197,19 +7221,19 @@ window.MOCK = {
                 "q": "Which activity is NOT mentioned?",
                 "choices": [
                   "Taking a building tour",
-                  "Receiving an employee badge",
-                  "Signing a new contract"
+                  "Signing a new contract",
+                  "Receiving an employee badge"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "Who can answer questions?",
                 "choices": [
-                  "The team leader",
                   "Security staff",
+                  "The team leader",
                   "The CEO"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -7219,9 +7243,9 @@ window.MOCK = {
               {
                 "q": "When will the email system be unavailable?",
                 "choices": [
-                  "Friday afternoon",
+                  "All weekend",
                   "Saturday from midnight to six a.m.",
-                  "All weekend"
+                  "Friday afternoon"
                 ],
                 "answer": 1
               },
@@ -7237,11 +7261,11 @@ window.MOCK = {
               {
                 "q": "What causes the downtime?",
                 "choices": [
+                  "A security breach",
                   "A power outage",
-                  "Scheduled maintenance",
-                  "A security breach"
+                  "Scheduled maintenance"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -7251,18 +7275,18 @@ window.MOCK = {
               {
                 "q": "What is ending this Friday?",
                 "choices": [
-                  "The fiscal year",
+                  "Open enrollment for benefits",
                   "A training program",
-                  "Open enrollment for benefits"
+                  "The fiscal year"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "Where should employees go to make changes?",
                 "choices": [
-                  "The HR office in person",
+                  "Their manager",
                   "The benefits portal",
-                  "Their manager"
+                  "The HR office in person"
                 ],
                 "answer": 1
               },
@@ -7284,28 +7308,28 @@ window.MOCK = {
                 "q": "What is the main topic of this talk?",
                 "choices": [
                   "The technology roadmap for next year",
-                  "A hiring freeze",
-                  "A merger announcement"
+                  "A merger announcement",
+                  "A hiring freeze"
                 ],
                 "answer": 0
               },
               {
                 "q": "What will the company invest in?",
                 "choices": [
-                  "A new logo",
                   "New office furniture",
-                  "Artificial intelligence tools"
+                  "Artificial intelligence tools",
+                  "A new logo"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "Where will more details be shared?",
                 "choices": [
-                  "A follow-up meeting",
                   "Next month's newsletter",
+                  "A follow-up meeting",
                   "The company website"
                 ],
-                "answer": 1
+                "answer": 0
               }
             ]
           },
@@ -7315,29 +7339,29 @@ window.MOCK = {
               {
                 "q": "What is happening this weekend?",
                 "choices": [
-                  "A staff meeting",
                   "A security audit",
-                  "A database system upgrade"
+                  "A database system upgrade",
+                  "A staff meeting"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "When will the system be unavailable?",
                 "choices": [
-                  "Friday only",
                   "Saturday evening until Sunday morning",
+                  "Friday only",
                   "All weekend"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What should staff do beforehand?",
                 "choices": [
                   "Back up their laptops",
-                  "Complete urgent data entry",
-                  "Change their passwords"
+                  "Change their passwords",
+                  "Complete urgent data entry"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -7348,28 +7372,28 @@ window.MOCK = {
                 "q": "Who is Sandra?",
                 "choices": [
                   "An IT technician",
-                  "The new employee's manager",
-                  "Someone from Human Resources"
+                  "Someone from Human Resources",
+                  "The new employee's manager"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What is confirmed?",
                 "choices": [
-                  "The job title",
                   "The salary",
-                  "The start date"
+                  "The start date",
+                  "The job title"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What should the listener bring?",
                 "choices": [
-                  "A photo ID",
                   "A laptop",
-                  "A resume"
+                  "A resume",
+                  "A photo ID"
                 ],
-                "answer": 0
+                "answer": 2
               }
             ]
           },
@@ -7379,29 +7403,29 @@ window.MOCK = {
               {
                 "q": "What new requirement is being introduced?",
                 "choices": [
-                  "A longer password",
+                  "Two-factor authentication",
                   "Biometric login",
-                  "Two-factor authentication"
+                  "A longer password"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "How will employees receive instructions?",
                 "choices": [
                   "During a meeting",
-                  "In a printed memo",
-                  "By email"
+                  "By email",
+                  "In a printed memo"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What happens if setup isn't completed?",
                 "choices": [
-                  "Nothing happens",
                   "Employees may be locked out",
+                  "Nothing happens",
                   "A fine is charged"
                 ],
-                "answer": 1
+                "answer": 0
               }
             ]
           },
@@ -7412,17 +7436,17 @@ window.MOCK = {
                 "q": "What event is being announced?",
                 "choices": [
                   "A retirement celebration",
-                  "A company picnic",
-                  "A holiday party"
+                  "A holiday party",
+                  "A company picnic"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "Where will the event take place?",
                 "choices": [
                   "Riverside Park",
-                  "A downtown hotel",
-                  "The office rooftop"
+                  "The office rooftop",
+                  "A downtown hotel"
                 ],
                 "answer": 0
               },
@@ -7430,8 +7454,8 @@ window.MOCK = {
                 "q": "How should employees RSVP?",
                 "choices": [
                   "Through the HR portal",
-                  "By calling HR",
-                  "By replying to the email"
+                  "By replying to the email",
+                  "By calling HR"
                 ],
                 "answer": 0
               }
@@ -7443,29 +7467,29 @@ window.MOCK = {
               {
                 "q": "What is now required for server room access?",
                 "choices": [
-                  "A written form only",
+                  "A keycard and manager approval",
                   "Nothing has changed",
-                  "A keycard and manager approval"
+                  "A written form only"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "Why was this change made?",
                 "choices": [
                   "Cost savings",
-                  "A recent theft",
-                  "A new security protocol"
+                  "A new security protocol",
+                  "A recent theft"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "How far in advance should requests be submitted?",
                 "choices": [
+                  "Same day",
                   "One week",
-                  "At least two business days",
-                  "Same day"
+                  "At least two business days"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -7475,29 +7499,29 @@ window.MOCK = {
               {
                 "q": "What is being announced?",
                 "choices": [
-                  "A new hire",
                   "An employee recognition award",
-                  "A department closure"
+                  "A department closure",
+                  "A new hire"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "Who won the award?",
                 "choices": [
-                  "The customer support team",
                   "The IT team",
-                  "The sales team"
+                  "The sales team",
+                  "The customer support team"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What time is the celebration?",
                 "choices": [
-                  "Three o'clock",
                   "Five o'clock",
+                  "Three o'clock",
                   "Noon"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           }
@@ -7508,10 +7532,10 @@ window.MOCK = {
           {
             "sentence": "The company offers excellent ______ to its employees, including health insurance.",
             "choices": [
-              "benefited",
               "beneficial",
+              "benefit",
               "benefits",
-              "benefit"
+              "benefited"
             ],
             "answer": 2
           },
@@ -7520,17 +7544,17 @@ window.MOCK = {
             "choices": [
               "training",
               "trained",
-              "train",
-              "trainer"
+              "trainer",
+              "train"
             ],
             "answer": 0
           },
           {
             "sentence": "The technician will ______ the software this afternoon.",
             "choices": [
+              "updates",
               "updated",
               "updating",
-              "updates",
               "update"
             ],
             "answer": 3
@@ -7538,9 +7562,9 @@ window.MOCK = {
           {
             "sentence": "Candidates ______ experience in marketing are preferred.",
             "choices": [
-              "onto",
               "among",
               "of",
+              "onto",
               "with"
             ],
             "answer": 3
@@ -7549,251 +7573,251 @@ window.MOCK = {
             "sentence": "The manager was impressed ______ her presentation skills.",
             "choices": [
               "by",
-              "at",
+              "to",
               "for",
-              "to"
+              "at"
             ],
             "answer": 0
           },
           {
             "sentence": "Employees are encouraged to ______ their passwords regularly.",
             "choices": [
-              "changes",
-              "change",
+              "changed",
               "changing",
-              "changed"
+              "change",
+              "changes"
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "sentence": "The interview went well, ______ she felt confident about the job.",
             "choices": [
-              "so",
               "but",
-              "although",
-              "despite"
+              "so",
+              "despite",
+              "although"
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "sentence": "Our new system is far more ______ than the old one.",
             "choices": [
-              "reliably",
-              "reliable",
+              "reliability",
               "rely",
-              "reliability"
+              "reliable",
+              "reliably"
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "sentence": "The HR department ______ all new hire paperwork.",
             "choices": [
               "process",
               "processed",
-              "processing",
-              "processes"
+              "processes",
+              "processing"
             ],
-            "answer": 3
+            "answer": 2
           },
           {
             "sentence": "Employees must complete the online course ______ their first week.",
             "choices": [
               "between",
-              "through",
+              "among",
               "within",
-              "among"
+              "through"
             ],
             "answer": 2
           },
           {
             "sentence": "The recruiter ______ over fifty resumes last week.",
             "choices": [
-              "reviewed",
               "to review",
+              "reviewed",
               "reviewing",
               "review"
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "sentence": "The new system allows employees to ______ their own schedules.",
             "choices": [
-              "managed",
+              "management",
               "manager",
-              "manage",
-              "management"
+              "managed",
+              "manage"
             ],
-            "answer": 2
+            "answer": 3
           },
           {
             "sentence": "Staff ______ complete the survey will be entered into a prize draw.",
             "choices": [
-              "who",
-              "which",
+              "whose",
               "whom",
-              "whose"
+              "which",
+              "who"
             ],
-            "answer": 0
+            "answer": 3
           },
           {
             "sentence": "The IT department is ______ for maintaining all company devices.",
             "choices": [
+              "responsibly",
               "responsibility",
-              "respond",
               "responsible",
-              "responsibly"
+              "respond"
             ],
             "answer": 2
           },
           {
             "sentence": "Please back up your files ______ the system update.",
             "choices": [
-              "although",
+              "unless",
               "before",
-              "despite",
-              "unless"
+              "although",
+              "despite"
             ],
             "answer": 1
           },
           {
             "sentence": "The new hire orientation ______ next Monday.",
             "choices": [
-              "beginning",
-              "begins",
+              "began",
               "begin",
-              "began"
+              "begins",
+              "beginning"
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "sentence": "Our servers experienced a brief ______ last night.",
             "choices": [
-              "outage",
               "outing",
-              "out",
-              "outed"
+              "outage",
+              "outed",
+              "out"
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "sentence": "The company values ______ and teamwork above all else.",
             "choices": [
-              "honester",
-              "honest",
               "honestly",
-              "honesty"
+              "honesty",
+              "honester",
+              "honest"
             ],
-            "answer": 3
+            "answer": 1
           },
           {
             "sentence": "Employees should report any technical issues ______ the help desk.",
             "choices": [
-              "to",
+              "at",
               "on",
               "in",
-              "at"
+              "to"
             ],
-            "answer": 0
+            "answer": 3
           },
           {
             "sentence": "The training session will be ______ recorded for future reference.",
             "choices": [
-              "digital",
               "digitally",
+              "digital",
               "digitization",
               "digitize"
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "sentence": "The candidate's resume ______ strong leadership experience.",
             "choices": [
-              "highlights",
               "highlighted",
+              "highlighting",
               "highlight",
-              "highlighting"
+              "highlights"
             ],
-            "answer": 0
+            "answer": 3
           },
           {
             "sentence": "We ______ the interview process to make it more efficient.",
             "choices": [
-              "streamlines",
-              "streamline",
               "streamlined",
-              "streamlining"
+              "streamlining",
+              "streamlines",
+              "streamline"
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "sentence": "The security update ______ automatically on all company laptops.",
             "choices": [
-              "installed",
-              "installing",
               "installs",
-              "install"
+              "install",
+              "installing",
+              "installed"
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "sentence": "New employees ______ a mentor during their first three months.",
             "choices": [
-              "assign",
               "assigns",
-              "assigning",
-              "are assigned"
-            ],
-            "answer": 3
-          },
-          {
-            "sentence": "The IT policy requires ______ passwords every ninety days.",
-            "choices": [
-              "updated",
-              "update",
-              "updating",
-              "updates"
+              "assign",
+              "are assigned",
+              "assigning"
             ],
             "answer": 2
           },
           {
-            "sentence": "Our recruitment team is ______ for a new software developer.",
+            "sentence": "The IT policy requires ______ passwords every ninety days.",
             "choices": [
-              "searches",
-              "searched",
-              "search",
-              "searching"
-            ],
-            "answer": 3
-          },
-          {
-            "sentence": "The company's turnover rate has ______ significantly this year.",
-            "choices": [
-              "decreasing",
-              "decreased",
-              "decrease",
-              "decreases"
+              "update",
+              "updating",
+              "updates",
+              "updated"
             ],
             "answer": 1
           },
           {
-            "sentence": "Employees are ______ to use strong, unique passwords.",
+            "sentence": "Our recruitment team is ______ for a new software developer.",
             "choices": [
-              "required",
-              "requiring",
-              "requires",
-              "require"
+              "search",
+              "searched",
+              "searching",
+              "searches"
+            ],
+            "answer": 2
+          },
+          {
+            "sentence": "The company's turnover rate has ______ significantly this year.",
+            "choices": [
+              "decreased",
+              "decreases",
+              "decreasing",
+              "decrease"
             ],
             "answer": 0
           },
           {
+            "sentence": "Employees are ______ to use strong, unique passwords.",
+            "choices": [
+              "require",
+              "requiring",
+              "required",
+              "requires"
+            ],
+            "answer": 2
+          },
+          {
             "sentence": "The onboarding checklist ______ several important steps.",
             "choices": [
-              "includes",
-              "including",
               "include",
-              "included"
+              "includes",
+              "included",
+              "including"
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "sentence": "All laptops must be ______ before being issued to new staff.",
@@ -7812,39 +7836,39 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
-                  "takes",
-                  "take",
+                  "taking",
                   "taken",
-                  "taking"
+                  "takes",
+                  "take"
+                ],
+                "answer": 3
+              },
+              {
+                "choices": [
+                  "qualified",
+                  "qualify",
+                  "qualifying",
+                  "qualification"
                 ],
                 "answer": 1
               },
               {
                 "choices": [
-                  "qualified",
-                  "qualification",
-                  "qualify",
-                  "qualifying"
-                ],
-                "answer": 2
-              },
-              {
-                "choices": [
                   "strengthen",
-                  "strength",
                   "strongly",
-                  "strong"
+                  "strong",
+                  "strength"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "choices": [
-                  "help",
                   "helping",
+                  "help",
                   "helps",
                   "helped"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -7862,8 +7886,8 @@ window.MOCK = {
               },
               {
                 "choices": [
-                  "registered",
                   "registration",
+                  "registered",
                   "register",
                   "registering"
                 ],
@@ -7871,21 +7895,21 @@ window.MOCK = {
               },
               {
                 "choices": [
-                  "taking",
                   "takes",
-                  "take",
-                  "taken"
+                  "taken",
+                  "taking",
+                  "take"
                 ],
-                "answer": 2
+                "answer": 3
               },
               {
                 "choices": [
-                  "available",
+                  "availed",
                   "avail",
-                  "availability",
-                  "availed"
+                  "available",
+                  "availability"
                 ],
-                "answer": 0
+                "answer": 2
               }
             ]
           },
@@ -7894,21 +7918,21 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
-                  "opens",
-                  "opened",
                   "opening",
+                  "opened",
+                  "opens",
                   "open"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "choices": [
-                  "changed",
-                  "changing",
                   "changes",
-                  "change"
+                  "changing",
+                  "change",
+                  "changed"
                 ],
-                "answer": 3
+                "answer": 2
               },
               {
                 "choices": [
@@ -7922,11 +7946,11 @@ window.MOCK = {
               {
                 "choices": [
                   "visiting",
-                  "visit",
                   "visits",
-                  "visited"
+                  "visited",
+                  "visit"
                 ],
-                "answer": 1
+                "answer": 3
               }
             ]
           },
@@ -7936,38 +7960,38 @@ window.MOCK = {
               {
                 "choices": [
                   "careful",
-                  "care",
                   "carefully",
-                  "cares"
+                  "cares",
+                  "care"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "choices": [
-                  "approving",
                   "approves",
                   "approved",
+                  "approving",
                   "approve"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "choices": [
+                  "reachable",
                   "reaching",
-                  "reached",
                   "reach",
-                  "reachable"
+                  "reached"
                 ],
-                "answer": 3
+                "answer": 0
               },
               {
                 "choices": [
-                  "directing",
-                  "directs",
                   "direct",
-                  "directed"
+                  "directing",
+                  "directed",
+                  "directs"
                 ],
-                "answer": 3
+                "answer": 2
               }
             ]
           }
@@ -7980,56 +8004,56 @@ window.MOCK = {
                 {
                   "q": "What position is being advertised?",
                   "choices": [
-                    "Sales manager",
                     "Marketing assistant",
+                    "Sales manager",
                     "IT technician"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What must applicants do?",
                   "choices": [
-                    "Attend an open house",
                     "Send a resume and cover letter by June 20",
-                    "Call the office"
+                    "Call the office",
+                    "Attend an open house"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What skill is required?",
                   "choices": [
                     "Coding experience",
-                    "A driver's license",
-                    "Strong communication skills"
+                    "Strong communication skills",
+                    "A driver's license"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "How much experience is required?",
                   "choices": [
                     "Five years",
-                    "At least one year",
-                    "No experience needed"
+                    "No experience needed",
+                    "At least one year"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "Where should applications be sent?",
                   "choices": [
-                    "An online portal",
+                    "The marketing director",
                     "The HR office",
-                    "The marketing director"
+                    "An online portal"
                   ],
                   "answer": 1
                 },
                 {
                   "q": "What is the application deadline?",
                   "choices": [
-                    "July 1",
                     "June 1",
-                    "June 20"
+                    "June 20",
+                    "July 1"
                   ],
-                  "answer": 2
+                  "answer": 1
                 }
               ]
             },
@@ -8039,53 +8063,53 @@ window.MOCK = {
                 {
                   "q": "How often must passwords be changed?",
                   "choices": [
-                    "Every 90 days",
                     "Every month",
+                    "Every 90 days",
                     "Once a year"
-                  ],
-                  "answer": 0
-                },
-                {
-                  "q": "What may happen if the password is not updated?",
-                  "choices": [
-                    "The employee may be locked out of the account",
-                    "A fee will be charged",
-                    "The computer will shut down"
-                  ],
-                  "answer": 0
-                },
-                {
-                  "q": "When does the current password expire?",
-                  "choices": [
-                    "Next month",
-                    "Friday",
-                    "Monday"
                   ],
                   "answer": 1
                 },
                 {
-                  "q": "Who should employees contact for help?",
+                  "q": "What may happen if the password is not updated?",
                   "choices": [
-                    "The help desk",
-                    "Security",
-                    "Their manager"
+                    "The computer will shut down",
+                    "The employee may be locked out of the account",
+                    "A fee will be charged"
+                  ],
+                  "answer": 1
+                },
+                {
+                  "q": "When does the current password expire?",
+                  "choices": [
+                    "Friday",
+                    "Monday",
+                    "Next month"
                   ],
                   "answer": 0
+                },
+                {
+                  "q": "Who should employees contact for help?",
+                  "choices": [
+                    "Their manager",
+                    "The help desk",
+                    "Security"
+                  ],
+                  "answer": 1
                 },
                 {
                   "q": "Why is this policy in place?",
                   "choices": [
-                    "To keep systems secure",
+                    "To reduce costs",
                     "To save server space",
-                    "To reduce costs"
+                    "To keep systems secure"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "What is the reminder mainly about?",
                   "choices": [
-                    "A new hire",
                     "A meeting schedule",
+                    "A new hire",
                     "Password expiration"
                   ],
                   "answer": 2
@@ -8099,28 +8123,28 @@ window.MOCK = {
                   "q": "What is this press release about?",
                   "choices": [
                     "A product recall",
-                    "A merger",
-                    "A headquarters relocation"
+                    "A headquarters relocation",
+                    "A merger"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "When will the move take effect?",
                   "choices": [
-                    "Next quarter",
                     "Immediately",
+                    "Next quarter",
                     "Next year"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "Why is the company moving?",
                   "choices": [
-                    "To reduce costs",
                     "Due to a lease expiration",
-                    "To accommodate its growing workforce"
+                    "To accommodate its growing workforce",
+                    "To reduce costs"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "How much has the workforce grown?",
@@ -8135,10 +8159,10 @@ window.MOCK = {
                   "q": "What will the new building include?",
                   "choices": [
                     "A rooftop garden only",
-                    "Expanded office space and a larger cafeteria",
-                    "A gym only"
+                    "A gym only",
+                    "Expanded office space and a larger cafeteria"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "What company is mentioned?",
@@ -8157,8 +8181,8 @@ window.MOCK = {
                 {
                   "q": "What is this document about?",
                   "choices": [
-                    "Vacation policy",
                     "Dress code",
+                    "Vacation policy",
                     "Remote work guidelines"
                   ],
                   "answer": 2
@@ -8166,29 +8190,29 @@ window.MOCK = {
                 {
                   "q": "What are core hours?",
                   "choices": [
-                    "Eight to five",
                     "Nine to three",
+                    "Eight to five",
                     "Ten to two"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "How quickly must employees respond to messages?",
                   "choices": [
+                    "Within one hour",
                     "Immediately",
-                    "Within a day",
-                    "Within one hour"
+                    "Within a day"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What is expected during video meetings?",
                   "choices": [
-                    "Camera on unless otherwise agreed",
+                    "Attendance is optional",
                     "Camera always off",
-                    "Attendance is optional"
+                    "Camera on unless otherwise agreed"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "What should be reported to IT?",
@@ -8216,17 +8240,17 @@ window.MOCK = {
                 {
                   "q": "What course was completed?",
                   "choices": [
+                    "Customer Service",
                     "Workplace Safety",
-                    "Cybersecurity",
-                    "Customer Service"
+                    "Cybersecurity"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "Where can the certificate be found?",
                   "choices": [
-                    "Sent by mail",
                     "The HR office",
+                    "Sent by mail",
                     "The training portal"
                   ],
                   "answer": 2
@@ -8235,28 +8259,28 @@ window.MOCK = {
                   "q": "How long is the certification valid?",
                   "choices": [
                     "Five years",
-                    "Two years",
-                    "One year"
+                    "One year",
+                    "Two years"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "What must be done after it expires?",
                   "choices": [
                     "Retake the course",
-                    "Pay a renewal fee",
-                    "Nothing further is needed"
+                    "Nothing further is needed",
+                    "Pay a renewal fee"
                   ],
                   "answer": 0
                 },
                 {
                   "q": "What is required to remain compliant?",
                   "choices": [
-                    "Submitting a form",
                     "Attending a meeting",
-                    "Retaking the course after expiration"
+                    "Retaking the course after expiration",
+                    "Submitting a form"
                   ],
-                  "answer": 2
+                  "answer": 1
                 }
               ]
             }
@@ -8271,38 +8295,38 @@ window.MOCK = {
                 {
                   "q": "What position is advertised?",
                   "choices": [
-                    "Software developer",
+                    "Marketing assistant",
                     "HR coordinator",
-                    "Marketing assistant"
+                    "Software developer"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "What programming languages are required?",
                   "choices": [
-                    "JavaScript and Python",
                     "Only Python",
+                    "JavaScript and Python",
                     "Java and C++"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "What is the salary range?",
                   "choices": [
+                    "90,000 to 100,000 dollars",
                     "50,000 to 60,000 dollars",
-                    "70,000 to 90,000 dollars",
-                    "90,000 to 100,000 dollars"
+                    "70,000 to 90,000 dollars"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "How much JavaScript experience does Diego have?",
                   "choices": [
                     "One year",
-                    "Two years",
-                    "Four years"
+                    "Four years",
+                    "Two years"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "What did Diego submit as his code sample?",
@@ -8324,11 +8348,11 @@ window.MOCK = {
                 {
                   "q": "What was the issue in ticket #4471?",
                   "choices": [
-                    "A broken keyboard",
                     "A forgotten password",
-                    "Unable to access shared drive"
+                    "Unable to access shared drive",
+                    "A broken keyboard"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "What priority was assigned?",
@@ -8342,8 +8366,8 @@ window.MOCK = {
                 {
                   "q": "When was the ticket submitted?",
                   "choices": [
-                    "Friday afternoon",
                     "Tuesday morning",
+                    "Friday afternoon",
                     "Monday at 9:15 AM"
                   ],
                   "answer": 2
@@ -8360,11 +8384,11 @@ window.MOCK = {
                 {
                   "q": "What should the user do next?",
                   "choices": [
-                    "Submit a new ticket",
                     "Try logging in again",
+                    "Submit a new ticket",
                     "Call IT support"
                   ],
-                  "answer": 1
+                  "answer": 0
                 }
               ]
             }
@@ -8380,11 +8404,11 @@ window.MOCK = {
                 {
                   "q": "What degree is required?",
                   "choices": [
-                    "A Master's degree",
+                    "A Bachelor's degree in a related field",
                     "No degree is required",
-                    "A Bachelor's degree in a related field"
+                    "A Master's degree"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "How much SQL experience is required?",
@@ -8398,29 +8422,29 @@ window.MOCK = {
                 {
                   "q": "How many days per week is the position in the office?",
                   "choices": [
+                    "Three days",
                     "Five days",
-                    "One day",
-                    "Three days"
+                    "One day"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What is the applicant unsure about?",
                   "choices": [
-                    "Whether the salary is negotiable",
+                    "Whether the job is remote",
                     "Whether self-taught experience counts",
-                    "Whether the job is remote"
+                    "Whether the salary is negotiable"
                   ],
                   "answer": 1
                 },
                 {
                   "q": "What does HR suggest the applicant do?",
                   "choices": [
-                    "Apply and highlight projects in the cover letter",
                     "Retake a certification course",
-                    "Wait for a different posting"
+                    "Wait for a different posting",
+                    "Apply and highlight projects in the cover letter"
                   ],
-                  "answer": 0
+                  "answer": 2
                 }
               ]
             },
@@ -8434,8 +8458,8 @@ window.MOCK = {
                 {
                   "q": "What happens on Day 1 of training?",
                   "choices": [
-                    "Department-specific training",
                     "Shadowing a team member",
+                    "Department-specific training",
                     "Company orientation and IT setup"
                   ],
                   "answer": 2
@@ -8452,11 +8476,11 @@ window.MOCK = {
                 {
                   "q": "What does the employee ask about?",
                   "choices": [
-                    "When to complete safety certification",
+                    "When training starts",
                     "How to get a badge",
-                    "When training starts"
+                    "When to complete safety certification"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "When should the certification be completed?",
@@ -8470,11 +8494,11 @@ window.MOCK = {
                 {
                   "q": "Who should be informed about the certification?",
                   "choices": [
+                    "IT support",
                     "Security",
-                    "The department trainer",
-                    "IT support"
+                    "The department trainer"
                   ],
-                  "answer": 1
+                  "answer": 2
                 }
               ]
             },
@@ -8506,29 +8530,29 @@ window.MOCK = {
                 {
                   "q": "What is the user unable to do?",
                   "choices": [
+                    "Access the database",
                     "Print documents",
-                    "Log into email",
-                    "Access the database"
-                  ],
-                  "answer": 2
-                },
-                {
-                  "q": "What caused the outage?",
-                  "choices": [
-                    "A server memory issue",
-                    "A cyberattack",
-                    "A power failure"
+                    "Log into email"
                   ],
                   "answer": 0
                 },
                 {
+                  "q": "What caused the outage?",
+                  "choices": [
+                    "A power failure",
+                    "A cyberattack",
+                    "A server memory issue"
+                  ],
+                  "answer": 2
+                },
+                {
                   "q": "When is the database expected to be restored?",
                   "choices": [
+                    "Tomorrow",
                     "By end of day",
-                    "Within the next hour",
-                    "Tomorrow"
+                    "Within the next hour"
                   ],
-                  "answer": 1
+                  "answer": 2
                 }
               ]
             }
@@ -8542,64 +8566,70 @@ window.MOCK = {
       "listening": {
         "part1": [
           {
-            "scene": "A delivery driver is handing a package to a customer at a doorway.",
+            "scene": "หน้าประตูบ้าน ชายในเครื่องแบบยื่นกล่องพัสดุให้ผู้หญิงที่ยืนอยู่ในกรอบประตู มือทั้งสองฝ่ายแตะกล่องอยู่",
             "choices": [
-              "The driver is repairing a bike.",
-              "The driver is handing over a package.",
-              "The driver is loading a truck.",
-              "The driver is answering a call."
+              "A package is being handed over.",
+              "A package is left on the ground.",
+              "A woman is opening a package.",
+              "A man is ringing a doorbell."
             ],
-            "answer": 1
+            "answer": 0,
+            "why": "ข้อนี้ being handed over ถูก เพราะการส่งมอบกำลังเกิดขึ้นจริง ส่วนกล่องยังไม่ถูกเปิดและไม่ได้วางกับพื้น"
           },
           {
-            "scene": "A customer service representative is wearing a headset at a computer.",
+            "scene": "โต๊ะทำงาน ผู้หญิงคนหนึ่งสวมหูฟังพร้อมไมค์ นั่งหน้าจอคอมพิวเตอร์ มือข้างหนึ่งวางบนเมาส์ ปากขยับพูด",
             "choices": [
-              "The representative is wearing a headset.",
-              "The representative is cooking a meal.",
-              "The representative is painting a sign.",
-              "The representative is fixing a car."
+              "The computer is being repaired.",
+              "A woman is writing in a notebook.",
+              "A woman is wearing a headset.",
+              "A woman is hanging up a telephone."
             ],
-            "answer": 0
+            "answer": 2,
+            "why": "สวมหูฟังอยู่แล้ว ไม่ใช่กำลังวางสาย และไม่มีใครซ่อมคอมพิวเตอร์ในภาพ"
           },
           {
-            "scene": "Workers in a warehouse are scanning barcodes on boxes.",
+            "scene": "ในคลังสินค้า คนงานสองคนถือเครื่องสแกนเล็งไปที่ฉลากบนกล่อง มีชั้นวางสูงเต็มไปด้วยกล่องอยู่ด้านหลัง",
             "choices": [
-              "Workers are scanning barcodes.",
-              "Workers are serving food.",
-              "Workers are watering plants.",
-              "Workers are washing windows."
+              "The workers are pushing a cart.",
+              "The shelves are being installed.",
+              "Some workers are sealing cartons.",
+              "Some workers are holding devices."
             ],
-            "answer": 0
+            "answer": 3,
+            "why": "ถือเครื่องสแกนคือสิ่งที่เห็นชัด ส่วนชั้นวางเต็มแล้วและไม่มีใครติดตั้ง และไม่มีรถเข็นในภาพ"
           },
           {
-            "scene": "A customer is pointing at a damaged item at a return counter.",
+            "scene": "เคาน์เตอร์รับคืนสินค้า ลูกค้าวางกล่องที่มีรอยยุบไว้บนเคาน์เตอร์และชี้นิ้วไปที่กล่อง พนักงานยืนฟังอยู่อีกฝั่ง",
             "choices": [
-              "The customer is trying on clothes.",
-              "The customer is reading a newspaper.",
-              "The customer is pointing at an item.",
-              "The customer is paying with cash."
+              "A customer is trying on a jacket.",
+              "A customer is pointing at an item.",
+              "A customer is paying for a purchase.",
+              "The item is being wrapped."
             ],
-            "answer": 2
+            "answer": 1,
+            "why": "ชี้คือกริยาที่เห็น ไม่มีการจ่ายเงินหรือห่อของในภาพ ซึ่งเป็นกิจกรรมที่ฟังดูเข้ากับฉากร้านค้าแต่ไม่ได้เกิดขึ้น"
           },
           {
-            "scene": "A forklift operator is moving a pallet in a warehouse.",
+            "scene": "ในคลังสินค้า รถยกกำลังเคลื่อนที่โดยมีพาเลทกล่องอยู่บนงา มีคนขับนั่งอยู่บนรถ",
             "choices": [
-              "The operator is serving customers.",
-              "The operator is answering emails.",
-              "The operator is cleaning a window.",
-              "The operator is moving a pallet."
+              "A man is climbing onto a pallet.",
+              "A forklift is parked near a wall.",
+              "Boxes are being unloaded by hand.",
+              "A forklift is being operated."
             ],
-            "answer": 3
+            "answer": 3,
+            "why": "ข้อนี้ being operated ถูก เพราะมีคนขับอยู่บนรถจริง ต่างจากภาพที่รถยกจอดเปล่าซึ่งจะทำให้ข้อนี้ผิดทันที"
           },
           {
-            "scene": "A shopper is browsing shelves in a supermarket aisle.",
+            "scene": "ทางเดินในซูเปอร์มาร์เก็ต ผู้หญิงคนหนึ่งยืนหันหน้าเข้าชั้นวางสินค้า มือเอื้อมไปหยิบของบนชั้น มีรถเข็นจอดอยู่ข้างตัว",
             "choices": [
-              "The shopper is repairing a shelf.",
-              "The shopper is driving a car.",
-              "The shopper is cooking dinner.",
-              "The shopper is browsing shelves."
+              "A woman is paying at a register.",
+              "The shelves are being restocked.",
+              "A woman is pushing a shopping cart.",
+              "A woman is reaching for a product."
             ],
-            "answer": 3
+            "answer": 3,
+            "why": "รถเข็นจอดอยู่ ไม่ได้ถูกเข็น และ being restocked ต้องมีพนักงานกำลังเติมของ ซึ่งไม่มีในภาพ"
           }
         ],
         "part2": [
@@ -8624,54 +8654,54 @@ window.MOCK = {
           {
             "q": "When will my refund be processed?",
             "choices": [
-              "Within five business days.",
+              "It was damaged.",
               "At the store.",
-              "It was damaged."
+              "Within five business days."
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "q": "Is this product still under warranty?",
             "choices": [
               "Yes, for another year.",
-              "In the box.",
-              "About fifty dollars."
+              "About fifty dollars.",
+              "In the box."
             ],
             "answer": 0
           },
           {
             "q": "Where should I return the item?",
             "choices": [
-              "It's too small.",
+              "Last week.",
               "To our nearest branch.",
-              "Last week."
+              "It's too small."
             ],
             "answer": 1
           },
           {
             "q": "Would you like a replacement or a refund?",
             "choices": [
-              "A replacement, please.",
+              "At checkout.",
               "It's out of stock.",
-              "At checkout."
+              "A replacement, please."
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "q": "How long does standard shipping take?",
             "choices": [
+              "At the warehouse.",
               "About ten dollars.",
-              "Three to five business days.",
-              "At the warehouse."
+              "Three to five business days."
             ],
-            "answer": 1
+            "answer": 2
           },
           {
             "q": "Why is my order delayed?",
             "choices": [
               "A backlog at the warehouse.",
-              "Two boxes.",
-              "Last Friday."
+              "Last Friday.",
+              "Two boxes."
             ],
             "answer": 0
           },
@@ -8687,18 +8717,18 @@ window.MOCK = {
           {
             "q": "Who do I contact about a damaged item?",
             "choices": [
-              "In the box.",
+              "Next week.",
               "Our customer service team.",
-              "Next week."
+              "In the box."
             ],
             "answer": 1
           },
           {
             "q": "How much is the shipping fee?",
             "choices": [
-              "Within a week.",
+              "At the counter.",
               "It's five dollars.",
-              "At the counter."
+              "Within a week."
             ],
             "answer": 1
           },
@@ -8723,38 +8753,38 @@ window.MOCK = {
           {
             "q": "Could you check the status of order 5521?",
             "choices": [
+              "Sure, one moment.",
               "Yesterday afternoon.",
-              "It's a large order.",
-              "Sure, one moment."
+              "It's a large order."
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "q": "How do I return a defective item?",
             "choices": [
               "Within thirty days.",
-              "At the register.",
-              "Fill out the return form online."
+              "Fill out the return form online.",
+              "At the register."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "Is same-day delivery available in this area?",
             "choices": [
               "At an extra cost.",
-              "About two hours.",
-              "Yes, for select items."
+              "Yes, for select items.",
+              "About two hours."
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "q": "Why haven't I received a confirmation email?",
             "choices": [
-              "It may be in your spam folder.",
               "About ten minutes ago.",
-              "Yesterday."
+              "Yesterday.",
+              "It may be in your spam folder."
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "q": "Could I speak with a supervisor?",
@@ -8768,65 +8798,65 @@ window.MOCK = {
           {
             "q": "How can I cancel my order?",
             "choices": [
-              "It's non-refundable.",
               "Contact us within one hour of purchase.",
+              "It's non-refundable.",
               "At checkout."
             ],
-            "answer": 1
+            "answer": 0
           },
           {
             "q": "Is the item eligible for a warranty claim?",
             "choices": [
-              "It's fifty dollars.",
+              "In the box.",
               "Yes, it's still covered.",
-              "In the box."
+              "It's fifty dollars."
             ],
             "answer": 1
           },
           {
             "q": "Why did the courier miss my delivery window?",
             "choices": [
+              "Heavy traffic delayed the route.",
               "Last week.",
-              "Two hours ago.",
-              "Heavy traffic delayed the route."
+              "Two hours ago."
             ],
-            "answer": 2
+            "answer": 0
           },
           {
             "q": "How do I update my shipping preferences?",
             "choices": [
-              "Through your account settings.",
               "By calling support.",
+              "Through your account settings.",
               "At checkout."
-            ],
-            "answer": 0
-          },
-          {
-            "q": "Could you resend the tracking number?",
-            "choices": [
-              "It's already sent.",
-              "Sure, I'll email it now.",
-              "At the warehouse."
             ],
             "answer": 1
           },
           {
+            "q": "Could you resend the tracking number?",
+            "choices": [
+              "At the warehouse.",
+              "It's already sent.",
+              "Sure, I'll email it now."
+            ],
+            "answer": 2
+          },
+          {
             "q": "Is curbside pickup available?",
             "choices": [
-              "Yes, at all locations.",
+              "It's free.",
               "Within an hour.",
-              "It's free."
+              "Yes, at all locations."
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "q": "Why is the warehouse running behind schedule?",
             "choices": [
-              "A shortage of staff.",
               "By two days.",
-              "Since Monday."
+              "Since Monday.",
+              "A shortage of staff."
             ],
-            "answer": 0
+            "answer": 2
           }
         ],
         "part3": [
@@ -8850,20 +8880,20 @@ window.MOCK = {
               {
                 "q": "What will the man do?",
                 "choices": [
-                  "Send the correct size",
                   "Give a discount",
+                  "Send the correct size",
                   "Cancel the order"
                 ],
-                "answer": 0
+                "answer": 1
               },
               {
                 "q": "What does the man ask for?",
                 "choices": [
                   "Her payment details",
-                  "Her order number",
-                  "Her address"
+                  "Her address",
+                  "Her order number"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -8888,8 +8918,8 @@ window.MOCK = {
                 "q": "What does the woman say is needed?",
                 "choices": [
                   "Someone must be home to receive it",
-                  "A signature at the store",
-                  "Payment in advance"
+                  "Payment in advance",
+                  "A signature at the store"
                 ],
                 "answer": 0
               },
@@ -8897,10 +8927,10 @@ window.MOCK = {
                 "q": "What does the man agree to?",
                 "choices": [
                   "Picking it up himself",
-                  "Being home all afternoon",
-                  "Paying extra for delivery"
+                  "Paying extra for delivery",
+                  "Being home all afternoon"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -8916,16 +8946,16 @@ window.MOCK = {
                 "q": "What is the woman's problem?",
                 "choices": [
                   "Her package was never shipped",
-                  "Her package was damaged",
-                  "Her package is missing despite showing as delivered"
+                  "Her package is missing despite showing as delivered",
+                  "Her package was damaged"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What does the tracking information show?",
                 "choices": [
-                  "It's still in transit",
                   "It was returned to sender",
+                  "It's still in transit",
                   "It was left at the door"
                 ],
                 "answer": 2
@@ -8933,11 +8963,11 @@ window.MOCK = {
               {
                 "q": "What will the man do?",
                 "choices": [
-                  "File a claim and send a replacement",
+                  "Refund her immediately",
                   "Ask her to wait longer",
-                  "Refund her immediately"
+                  "File a claim and send a replacement"
                 ],
-                "answer": 0
+                "answer": 2
               }
             ]
           },
@@ -8953,28 +8983,28 @@ window.MOCK = {
                 "q": "What are they discussing?",
                 "choices": [
                   "A shipping delay",
-                  "A low stock item",
-                  "A pricing error"
+                  "A pricing error",
+                  "A low stock item"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "How many units are left?",
                 "choices": [
                   "None",
-                  "About fifty",
-                  "About five"
+                  "About five",
+                  "About fifty"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "What will the woman do?",
                 "choices": [
-                  "Offer a discount",
                   "Place a reorder",
+                  "Offer a discount",
                   "Discontinue the item"
                 ],
-                "answer": 1
+                "answer": 0
               }
             ]
           },
@@ -8989,8 +9019,8 @@ window.MOCK = {
               {
                 "q": "What is the woman's problem?",
                 "choices": [
-                  "She lost her receipt",
                   "She wants a refund only",
+                  "She lost her receipt",
                   "Her blender stopped working"
                 ],
                 "answer": 2
@@ -8999,17 +9029,17 @@ window.MOCK = {
                 "q": "What does the man ask about?",
                 "choices": [
                   "The store location",
-                  "Whether it's under warranty",
-                  "The purchase date"
+                  "The purchase date",
+                  "Whether it's under warranty"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "What options does the man offer?",
                 "choices": [
-                  "A repair only",
+                  "A discount on a new item",
                   "A replacement or store credit",
-                  "A discount on a new item"
+                  "A repair only"
                 ],
                 "answer": 1
               }
@@ -9044,11 +9074,11 @@ window.MOCK = {
               {
                 "q": "What will they do?",
                 "choices": [
-                  "Notify customers on the route",
                   "Cancel today's deliveries",
+                  "Notify customers on the route",
                   "Add another driver"
                 ],
-                "answer": 0
+                "answer": 1
               }
             ]
           },
@@ -9063,17 +9093,17 @@ window.MOCK = {
               {
                 "q": "What is the customer upset about?",
                 "choices": [
-                  "A repeated billing error",
                   "A late delivery",
-                  "A damaged product"
+                  "A damaged product",
+                  "A repeated billing error"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "How many times has this occurred?",
                 "choices": [
-                  "Once",
                   "Twice this month",
+                  "Once",
                   "Three times this year"
                 ],
                 "answer": 2
@@ -9082,10 +9112,10 @@ window.MOCK = {
                 "q": "What will they do?",
                 "choices": [
                   "Ignore the complaint",
-                  "Offer a small discount",
-                  "Escalate to the billing manager"
+                  "Escalate to the billing manager",
+                  "Offer a small discount"
                 ],
-                "answer": 2
+                "answer": 1
               }
             ]
           },
@@ -9100,27 +9130,27 @@ window.MOCK = {
               {
                 "q": "What is the man doing?",
                 "choices": [
+                  "Picking up a curbside order",
                   "Returning an item",
-                  "Making a new purchase",
-                  "Picking up a curbside order"
+                  "Making a new purchase"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What is his order number?",
                 "choices": [
-                  "7734",
                   "4737",
-                  "7743"
+                  "7743",
+                  "7734"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "How long will he wait?",
                 "choices": [
                   "Just a few minutes",
-                  "About an hour",
-                  "Until tomorrow"
+                  "Until tomorrow",
+                  "About an hour"
                 ],
                 "answer": 0
               }
@@ -9137,20 +9167,20 @@ window.MOCK = {
               {
                 "q": "What are they discussing?",
                 "choices": [
-                  "A price increase",
                   "A product recall",
+                  "A price increase",
                   "A new product launch"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "How many units were affected?",
                 "choices": [
-                  "About twenty thousand",
                   "About two thousand",
+                  "About twenty thousand",
                   "About two hundred"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What will the man do?",
@@ -9192,11 +9222,11 @@ window.MOCK = {
               {
                 "q": "What can the store offer instead?",
                 "choices": [
-                  "A full refund",
                   "Store credit",
+                  "A full refund",
                   "A replacement item"
                 ],
-                "answer": 1
+                "answer": 0
               }
             ]
           },
@@ -9220,20 +9250,20 @@ window.MOCK = {
               {
                 "q": "Where is the package going?",
                 "choices": [
-                  "Canada",
                   "The United Kingdom",
-                  "Mexico"
+                  "Mexico",
+                  "Canada"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "How much will shipping cost?",
                 "choices": [
+                  "About thirty-five dollars",
                   "About fifteen dollars",
-                  "About seventy dollars",
-                  "About thirty-five dollars"
+                  "About seventy dollars"
                 ],
-                "answer": 2
+                "answer": 0
               }
             ]
           },
@@ -9248,11 +9278,11 @@ window.MOCK = {
               {
                 "q": "What is the problem?",
                 "choices": [
-                  "The wrong items were sent",
+                  "Several boxes arrived damaged",
                   "The shipment is missing",
-                  "Several boxes arrived damaged"
+                  "The wrong items were sent"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What will the woman do first?",
@@ -9267,10 +9297,10 @@ window.MOCK = {
                 "q": "Who else will they contact?",
                 "choices": [
                   "The customer",
-                  "The manufacturer",
-                  "The shipping carrier"
+                  "The shipping carrier",
+                  "The manufacturer"
                 ],
-                "answer": 2
+                "answer": 1
               }
             ]
           },
@@ -9285,29 +9315,29 @@ window.MOCK = {
               {
                 "q": "What is the customer asking about?",
                 "choices": [
+                  "The loyalty rewards program",
                   "A discount code",
-                  "A return policy",
-                  "The loyalty rewards program"
+                  "A return policy"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What does the customer want to know?",
                 "choices": [
-                  "How to sign up",
+                  "How to redeem points",
                   "Whether points expire",
-                  "How to redeem points"
+                  "How to sign up"
                 ],
                 "answer": 1
               },
               {
                 "q": "How long are points valid?",
                 "choices": [
-                  "They never expire",
                   "Two years",
+                  "They never expire",
                   "One year"
                 ],
-                "answer": 1
+                "answer": 0
               }
             ]
           }
@@ -9329,19 +9359,19 @@ window.MOCK = {
                 "q": "Until what time is the desk open?",
                 "choices": [
                   "Nine in the evening",
-                  "Noon",
-                  "Six in the evening"
+                  "Six in the evening",
+                  "Noon"
                 ],
                 "answer": 0
               },
               {
                 "q": "What services are offered there?",
                 "choices": [
-                  "Returns, exchanges, and gift wrapping",
+                  "Only exchanges",
                   "Only returns",
-                  "Only exchanges"
+                  "Returns, exchanges, and gift wrapping"
                 ],
-                "answer": 0
+                "answer": 2
               }
             ]
           },
@@ -9351,29 +9381,29 @@ window.MOCK = {
               {
                 "q": "Why was the package not delivered?",
                 "choices": [
+                  "No one was available to sign for it",
                   "It was damaged",
-                  "The address was wrong",
-                  "No one was available to sign for it"
+                  "The address was wrong"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "When will delivery be attempted again?",
                 "choices": [
-                  "This evening",
                   "Tomorrow between nine and noon",
+                  "This evening",
                   "Next week"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What should the listener do for a different time?",
                 "choices": [
+                  "Call the number back",
                   "Do nothing",
-                  "Visit the depot",
-                  "Call the number back"
+                  "Visit the depot"
                 ],
-                "answer": 2
+                "answer": 0
               }
             ]
           },
@@ -9384,28 +9414,28 @@ window.MOCK = {
                 "q": "What must workers wear at all times?",
                 "choices": [
                   "Safety vest and steel-toe boots",
-                  "Gloves only",
-                  "Hard hats only"
+                  "Hard hats only",
+                  "Gloves only"
                 ],
                 "answer": 0
               },
               {
                 "q": "What must forklifts do in marked walkways?",
                 "choices": [
+                  "Sound their horn",
                   "Stop completely",
-                  "Yield to pedestrians",
-                  "Sound their horn"
+                  "Yield to pedestrians"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "What should be reported immediately?",
                 "choices": [
+                  "Nothing, just continue working",
                   "Broken equipment only",
-                  "Spills or hazards",
-                  "Nothing, just continue working"
+                  "Spills or hazards"
                 ],
-                "answer": 1
+                "answer": 2
               }
             ]
           },
@@ -9415,29 +9445,29 @@ window.MOCK = {
               {
                 "q": "What is the current wait time?",
                 "choices": [
-                  "About five minutes",
                   "About fifteen minutes",
-                  "No wait"
+                  "No wait",
+                  "About five minutes"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "q": "What can callers press to receive a callback?",
                 "choices": [
+                  "One",
                   "Two",
-                  "Zero",
-                  "One"
+                  "Zero"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "What kind of message is this?",
                 "choices": [
                   "A voicemail",
-                  "A live agent's message",
-                  "An automated phone greeting"
+                  "An automated phone greeting",
+                  "A live agent's message"
                 ],
-                "answer": 2
+                "answer": 1
               }
             ]
           },
@@ -9447,20 +9477,20 @@ window.MOCK = {
               {
                 "q": "Why were routes updated?",
                 "choices": [
-                  "New delivery software",
                   "Road construction on Fifth Avenue",
+                  "New delivery software",
                   "A traffic accident"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What should drivers check before heading out?",
                 "choices": [
-                  "Weather reports",
                   "Their GPS for revised routes",
-                  "Fuel levels"
+                  "Fuel levels",
+                  "Weather reports"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "When is a signature required?",
@@ -9479,18 +9509,18 @@ window.MOCK = {
               {
                 "q": "What is being announced?",
                 "choices": [
+                  "The store is closing soon",
                   "A store closure permanently",
-                  "A sale is starting",
-                  "The store is closing soon"
+                  "A sale is starting"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "How much time do shoppers have?",
                 "choices": [
-                  "One hour",
+                  "Five minutes",
                   "Fifteen minutes",
-                  "Five minutes"
+                  "One hour"
                 ],
                 "answer": 1
               },
@@ -9498,8 +9528,8 @@ window.MOCK = {
                 "q": "What are shoppers asked to do?",
                 "choices": [
                   "Bring selections to checkout",
-                  "Return unwanted items",
-                  "Leave the store immediately"
+                  "Leave the store immediately",
+                  "Return unwanted items"
                 ],
                 "answer": 0
               }
@@ -9511,11 +9541,11 @@ window.MOCK = {
               {
                 "q": "What is the return window?",
                 "choices": [
-                  "Sixty days",
                   "Thirty days",
+                  "Sixty days",
                   "Fourteen days"
                 ],
-                "answer": 1
+                "answer": 0
               },
               {
                 "q": "What is required for a full refund?",
@@ -9529,9 +9559,9 @@ window.MOCK = {
               {
                 "q": "What happens without a receipt?",
                 "choices": [
-                  "No return is possible",
+                  "A full refund is still given",
                   "Items may be exchanged for store credit",
-                  "A full refund is still given"
+                  "No return is possible"
                 ],
                 "answer": 1
               }
@@ -9552,18 +9582,18 @@ window.MOCK = {
               {
                 "q": "What has the container just cleared?",
                 "choices": [
-                  "Inspection",
+                  "Customs",
                   "A weight check",
-                  "Customs"
+                  "Inspection"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "When is it expected to arrive?",
                 "choices": [
-                  "Next month",
+                  "Today",
                   "Within two business days",
-                  "Today"
+                  "Next month"
                 ],
                 "answer": 1
               }
@@ -9575,8 +9605,8 @@ window.MOCK = {
               {
                 "q": "What should customers do first?",
                 "choices": [
-                  "Enter the store",
                   "Wait in a line",
+                  "Enter the store",
                   "Park in a numbered spot"
                 ],
                 "answer": 2
@@ -9584,18 +9614,18 @@ window.MOCK = {
               {
                 "q": "What should customers have ready?",
                 "choices": [
+                  "Their order confirmation",
                   "A membership card",
-                  "Cash payment",
-                  "Their order confirmation"
+                  "Cash payment"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "q": "How long does pickup usually take?",
                 "choices": [
                   "Within ten minutes",
-                  "Immediately",
-                  "Within one hour"
+                  "Within one hour",
+                  "Immediately"
                 ],
                 "answer": 0
               }
@@ -9607,20 +9637,20 @@ window.MOCK = {
               {
                 "q": "What is causing the delays?",
                 "choices": [
-                  "A labor strike",
                   "Equipment failure",
-                  "A shortage of raw materials"
+                  "A shortage of raw materials",
+                  "A labor strike"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "q": "How long are the expected delays?",
                 "choices": [
+                  "About two days",
                   "About two months",
-                  "About two weeks",
-                  "About two days"
+                  "About two weeks"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "q": "What is the team doing to help?",
@@ -9640,12 +9670,12 @@ window.MOCK = {
           {
             "sentence": "If you are not ______ with your purchase, you may return it within 30 days.",
             "choices": [
-              "satisfaction",
               "satisfy",
-              "satisfying",
-              "satisfied"
+              "satisfaction",
+              "satisfied",
+              "satisfying"
             ],
-            "answer": 3
+            "answer": 2
           },
           {
             "sentence": "Our staff will ______ you with any questions you may have.",
@@ -9660,122 +9690,122 @@ window.MOCK = {
           {
             "sentence": "The damaged item will be replaced ______ no extra cost.",
             "choices": [
-              "by",
-              "in",
+              "for",
               "at",
-              "for"
+              "in",
+              "by"
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "sentence": "Please keep your receipt, ______ you may need it for returns.",
             "choices": [
-              "as",
               "unless",
+              "as",
               "despite",
               "although"
             ],
-            "answer": 0
+            "answer": 1
           },
           {
             "sentence": "We aim to ______ all complaints within 24 hours.",
             "choices": [
+              "resolved",
               "resolving",
-              "resolution",
               "resolve",
-              "resolved"
+              "resolution"
             ],
             "answer": 2
           },
           {
             "sentence": "The delivery driver called to confirm the ______ address.",
             "choices": [
-              "delivered",
-              "delivery",
               "deliver",
-              "delivering"
-            ],
-            "answer": 1
-          },
-          {
-            "sentence": "Customers can choose ______ a refund or a replacement.",
-            "choices": [
-              "both",
-              "whether",
-              "neither",
-              "either"
+              "delivering",
+              "delivered",
+              "delivery"
             ],
             "answer": 3
           },
           {
+            "sentence": "Customers can choose ______ a refund or a replacement.",
+            "choices": [
+              "whether",
+              "neither",
+              "either",
+              "both"
+            ],
+            "answer": 2
+          },
+          {
             "sentence": "Thank you for your ______; your order will be shipped soon.",
             "choices": [
-              "patiently",
-              "patience",
               "patients",
-              "patient"
+              "patience",
+              "patient",
+              "patiently"
             ],
             "answer": 1
           },
           {
             "sentence": "The warehouse team ______ all incoming shipments daily.",
             "choices": [
+              "inspects",
               "inspected",
-              "inspect",
               "inspecting",
-              "inspects"
+              "inspect"
             ],
-            "answer": 3
+            "answer": 0
           },
           {
             "sentence": "Please allow ______ five business days for delivery.",
             "choices": [
-              "up until",
-              "up to",
+              "up at",
               "up on",
-              "up at"
+              "up until",
+              "up to"
             ],
-            "answer": 1
+            "answer": 3
           },
           {
             "sentence": "The customer service team ______ trained to handle complaints professionally.",
             "choices": [
-              "be",
               "was",
               "are",
-              "is"
-            ],
-            "answer": 3
-          },
-          {
-            "sentence": "Our return policy is ______ than most competitors'.",
-            "choices": [
-              "flexibler",
-              "most flexible",
-              "more flexible",
-              "flexible than"
+              "is",
+              "be"
             ],
             "answer": 2
           },
           {
-            "sentence": "The package was ______ delivered to the wrong address.",
+            "sentence": "Our return policy is ______ than most competitors'.",
             "choices": [
-              "mistake",
-              "mistaken",
-              "mistaking",
-              "mistakenly"
+              "flexible than",
+              "flexibler",
+              "most flexible",
+              "more flexible"
             ],
             "answer": 3
           },
           {
-            "sentence": "All orders ______ before noon ship the same day.",
+            "sentence": "The package was ______ delivered to the wrong address.",
             "choices": [
-              "places",
-              "placed",
-              "placing",
-              "place"
+              "mistaking",
+              "mistakenly",
+              "mistaken",
+              "mistake"
             ],
             "answer": 1
+          },
+          {
+            "sentence": "All orders ______ before noon ship the same day.",
+            "choices": [
+              "place",
+              "placing",
+              "places",
+              "placed"
+            ],
+            "answer": 3
           },
           {
             "sentence": "We ______ our customers for their continued loyalty.",
@@ -9790,29 +9820,29 @@ window.MOCK = {
           {
             "sentence": "The tracking number ______ once the item has shipped.",
             "choices": [
-              "is provided",
-              "provide",
+              "provides",
               "providing",
-              "provides"
+              "is provided",
+              "provide"
             ],
-            "answer": 0
+            "answer": 2
           },
           {
             "sentence": "Customers ______ a discount code will see it applied at checkout.",
             "choices": [
-              "among",
-              "with",
               "of",
-              "for"
+              "for",
+              "among",
+              "with"
             ],
-            "answer": 1
+            "answer": 3
           },
           {
             "sentence": "The warranty ______ accidental damage.",
             "choices": [
               "does not cover",
-              "do not cover",
               "not covered",
+              "do not cover",
               "not covering"
             ],
             "answer": 0
@@ -9820,18 +9850,18 @@ window.MOCK = {
           {
             "sentence": "This item is ______ available in three colors.",
             "choices": [
-              "currency",
               "currents",
               "current",
-              "currently"
+              "currently",
+              "currency"
             ],
-            "answer": 3
+            "answer": 2
           },
           {
             "sentence": "Please contact us ______ you have not received your order within a week.",
             "choices": [
-              "despite",
               "unless",
+              "despite",
               "if",
               "although"
             ],
@@ -9841,31 +9871,31 @@ window.MOCK = {
             "sentence": "The courier ______ the package before nine this morning.",
             "choices": [
               "to deliver",
-              "delivered",
+              "delivering",
               "deliver",
-              "delivering"
+              "delivered"
             ],
-            "answer": 1
+            "answer": 3
           },
           {
             "sentence": "Our support team responds ______ to all inquiries.",
             "choices": [
-              "quickness",
-              "quicken",
+              "quick",
               "quickly",
-              "quick"
+              "quicken",
+              "quickness"
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "sentence": "The item you ordered is ______ out of stock.",
             "choices": [
-              "temporize",
               "temporariness",
               "temporarily",
+              "temporize",
               "temporary"
             ],
-            "answer": 2
+            "answer": 1
           },
           {
             "sentence": "We appreciate your ______ while we resolve this issue.",
@@ -9882,60 +9912,60 @@ window.MOCK = {
             "choices": [
               "credit",
               "crediting",
-              "credits",
-              "credited"
+              "credited",
+              "credits"
             ],
-            "answer": 3
+            "answer": 2
           },
           {
             "sentence": "Please double-check your shipping address ______ placing your order.",
             "choices": [
               "while",
+              "during",
               "before",
-              "since",
-              "during"
-            ],
-            "answer": 1
-          },
-          {
-            "sentence": "Our fulfillment center ______ orders around the clock.",
-            "choices": [
-              "processing",
-              "processed",
-              "process",
-              "processes"
-            ],
-            "answer": 3
-          },
-          {
-            "sentence": "The return label is ______ included in your package.",
-            "choices": [
-              "automatically",
-              "automatic",
-              "automation",
-              "automate"
-            ],
-            "answer": 0
-          },
-          {
-            "sentence": "We are ______ committed to fast and reliable delivery.",
-            "choices": [
-              "fullness",
-              "full",
-              "fully",
-              "fill"
+              "since"
             ],
             "answer": 2
           },
           {
+            "sentence": "Our fulfillment center ______ orders around the clock.",
+            "choices": [
+              "processed",
+              "processes",
+              "processing",
+              "process"
+            ],
+            "answer": 1
+          },
+          {
+            "sentence": "The return label is ______ included in your package.",
+            "choices": [
+              "automation",
+              "automatic",
+              "automate",
+              "automatically"
+            ],
+            "answer": 3
+          },
+          {
+            "sentence": "We are ______ committed to fast and reliable delivery.",
+            "choices": [
+              "full",
+              "fully",
+              "fullness",
+              "fill"
+            ],
+            "answer": 1
+          },
+          {
             "sentence": "Please note that sale items cannot be ______.",
             "choices": [
-              "return",
               "returned",
+              "return",
               "returning",
               "returns"
             ],
-            "answer": 1
+            "answer": 0
           }
         ],
         "part6": [
@@ -9944,39 +9974,39 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
-                  "completes",
-                  "completion",
                   "complete",
-                  "completely"
-                ],
-                "answer": 2
-              },
-              {
-                "choices": [
-                  "process",
-                  "processing",
-                  "processor",
-                  "processed"
-                ],
-                "answer": 3
-              },
-              {
-                "choices": [
-                  "free",
-                  "freedom",
-                  "freeing",
-                  "freely"
+                  "completes",
+                  "completely",
+                  "completion"
                 ],
                 "answer": 0
               },
               {
                 "choices": [
-                  "availability",
-                  "available",
-                  "avail",
-                  "availed"
+                  "processor",
+                  "processed",
+                  "process",
+                  "processing"
                 ],
                 "answer": 1
+              },
+              {
+                "choices": [
+                  "freedom",
+                  "freely",
+                  "freeing",
+                  "free"
+                ],
+                "answer": 3
+              },
+              {
+                "choices": [
+                  "availed",
+                  "avail",
+                  "available",
+                  "availability"
+                ],
+                "answer": 2
               }
             ]
           },
@@ -9986,35 +10016,35 @@ window.MOCK = {
               {
                 "choices": [
                   "informing",
+                  "informs",
                   "inform",
-                  "informed",
-                  "informs"
+                  "informed"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "choices": [
-                  "lasting",
-                  "lasts",
                   "lasted",
+                  "lasts",
+                  "lasting",
                   "last"
                 ],
                 "answer": 3
               },
               {
                 "choices": [
-                  "frustration",
-                  "frustrating",
                   "frustrated",
-                  "frustrate"
+                  "frustrate",
+                  "frustrating",
+                  "frustration"
                 ],
-                "answer": 1
+                "answer": 2
               },
               {
                 "choices": [
-                  "patiently",
-                  "patients",
                   "patient",
+                  "patients",
+                  "patiently",
                   "patience"
                 ],
                 "answer": 3
@@ -10026,21 +10056,21 @@ window.MOCK = {
             "blanks": [
               {
                 "choices": [
-                  "looks",
-                  "looked",
                   "looking",
+                  "looked",
+                  "looks",
                   "look"
                 ],
-                "answer": 2
+                "answer": 0
               },
               {
                 "choices": [
-                  "included",
-                  "including",
+                  "includes",
                   "include",
-                  "includes"
+                  "including",
+                  "included"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "choices": [
@@ -10068,20 +10098,20 @@ window.MOCK = {
               {
                 "choices": [
                   "greaten",
-                  "greatness",
                   "greatly",
-                  "great"
+                  "great",
+                  "greatness"
                 ],
-                "answer": 2
+                "answer": 1
               },
               {
                 "choices": [
-                  "complete",
                   "completing",
                   "completed",
+                  "complete",
                   "completion"
                 ],
-                "answer": 0
+                "answer": 2
               },
               {
                 "choices": [
@@ -10094,12 +10124,12 @@ window.MOCK = {
               },
               {
                 "choices": [
-                  "in",
-                  "at",
                   "of",
-                  "for"
+                  "in",
+                  "for",
+                  "at"
                 ],
-                "answer": 3
+                "answer": 2
               }
             ]
           }
@@ -10130,38 +10160,38 @@ window.MOCK = {
                 {
                   "q": "How long is the return window?",
                   "choices": [
-                    "60 days",
                     "30 days",
-                    "14 days"
+                    "14 days",
+                    "60 days"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "How will refunds be issued?",
                   "choices": [
-                    "As store credit only",
                     "To the original payment method",
-                    "By check"
+                    "By check",
+                    "As store credit only"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What is non-refundable?",
                   "choices": [
-                    "Shipping fees",
                     "The item price",
-                    "Taxes"
+                    "Taxes",
+                    "Shipping fees"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "What is this document mainly about?",
                   "choices": [
-                    "The return policy",
+                    "A product catalog",
                     "A shipping schedule",
-                    "A product catalog"
+                    "The return policy"
                   ],
-                  "answer": 0
+                  "answer": 2
                 }
               ]
             },
@@ -10171,11 +10201,11 @@ window.MOCK = {
                 {
                   "q": "What is the purpose of this message?",
                   "choices": [
+                    "To confirm a return",
                     "To offer a discount",
-                    "To inform the customer that the order has shipped",
-                    "To confirm a return"
+                    "To inform the customer that the order has shipped"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "How can the customer follow the package?",
@@ -10189,38 +10219,38 @@ window.MOCK = {
                 {
                   "q": "How long will delivery take?",
                   "choices": [
+                    "Three to five business days",
                     "One day",
-                    "Two weeks",
-                    "Three to five business days"
+                    "Two weeks"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What happens if no one is home?",
                   "choices": [
                     "The package is returned immediately",
-                    "The driver leaves a note with instructions",
-                    "The order is cancelled"
+                    "The order is cancelled",
+                    "The driver leaves a note with instructions"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "Where was the tracking number sent?",
                   "choices": [
-                    "To the customer's email",
+                    "In the package",
                     "By text message",
-                    "In the package"
+                    "To the customer's email"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "What has happened to the order?",
                   "choices": [
-                    "It has shipped",
                     "It was cancelled",
+                    "It has shipped",
                     "It is delayed"
                   ],
-                  "answer": 0
+                  "answer": 1
                 }
               ]
             },
@@ -10230,56 +10260,56 @@ window.MOCK = {
                 {
                   "q": "What position is being advertised?",
                   "choices": [
-                    "Delivery driver",
                     "Warehouse associate",
-                    "Customer service agent"
+                    "Customer service agent",
+                    "Delivery driver"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What company is hiring?",
                   "choices": [
                     "FastShip Logistics",
-                    "Quick Delivery",
-                    "Pacific Freight"
+                    "Pacific Freight",
+                    "Quick Delivery"
                   ],
                   "answer": 0
                 },
                 {
                   "q": "What duties are listed?",
                   "choices": [
-                    "Answering phones",
+                    "Picking, packing, and loading orders",
                     "Managing inventory reports",
-                    "Picking, packing, and loading orders"
+                    "Answering phones"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What shifts are available?",
                   "choices": [
                     "Day and night schedules",
-                    "Weekend shifts only",
-                    "Day shifts only"
+                    "Day shifts only",
+                    "Weekend shifts only"
                   ],
                   "answer": 0
                 },
                 {
                   "q": "What is the starting pay?",
                   "choices": [
+                    "Eighteen dollars per hour",
                     "Fifteen dollars per hour",
-                    "Twenty-five dollars per hour",
-                    "Eighteen dollars per hour"
+                    "Twenty-five dollars per hour"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What additional opportunity is mentioned?",
                   "choices": [
-                    "Overtime",
                     "Free housing",
-                    "Remote work"
+                    "Remote work",
+                    "Overtime"
                   ],
-                  "answer": 0
+                  "answer": 2
                 }
               ]
             },
@@ -10290,8 +10320,8 @@ window.MOCK = {
                   "q": "What is this report about?",
                   "choices": [
                     "Customer satisfaction results",
-                    "Employee performance",
-                    "Sales figures"
+                    "Sales figures",
+                    "Employee performance"
                   ],
                   "answer": 0
                 },
@@ -10307,11 +10337,11 @@ window.MOCK = {
                 {
                   "q": "What contributed to the improvement?",
                   "choices": [
+                    "Faster response times and live chat",
                     "A new logo",
-                    "Lower prices",
-                    "Faster response times and live chat"
+                    "Lower prices"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What area needs improvement?",
@@ -10326,19 +10356,19 @@ window.MOCK = {
                   "q": "What was last quarter's score?",
                   "choices": [
                     "Seventy-five percent",
-                    "Eighty-five percent",
-                    "Ninety-two percent"
+                    "Ninety-two percent",
+                    "Eighty-five percent"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "What new feature was introduced?",
                   "choices": [
-                    "A mobile app",
                     "A loyalty program",
-                    "Live chat"
+                    "Live chat",
+                    "A mobile app"
                   ],
-                  "answer": 2
+                  "answer": 1
                 }
               ]
             },
@@ -10348,20 +10378,20 @@ window.MOCK = {
                 {
                   "q": "What product is being recalled?",
                   "choices": [
+                    "Model 110 heaters",
                     "Model 220 blenders",
-                    "Model 220 space heaters",
-                    "Model 110 heaters"
+                    "Model 220 space heaters"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "Why is the product being recalled?",
                   "choices": [
-                    "A potential overheating issue",
+                    "A battery defect",
                     "A labeling error",
-                    "A battery defect"
+                    "A potential overheating issue"
                   ],
-                  "answer": 0
+                  "answer": 2
                 },
                 {
                   "q": "What should customers do?",
@@ -10375,9 +10405,9 @@ window.MOCK = {
                 {
                   "q": "What options are offered?",
                   "choices": [
-                    "A discount on the next purchase",
+                    "Store credit only",
                     "A full refund or free replacement",
-                    "Store credit only"
+                    "A discount on the next purchase"
                   ],
                   "answer": 1
                 },
@@ -10385,8 +10415,8 @@ window.MOCK = {
                   "q": "Which units are affected?",
                   "choices": [
                     "Those sold between January and March",
-                    "Only units sold in March",
-                    "All units ever sold"
+                    "All units ever sold",
+                    "Only units sold in March"
                   ],
                   "answer": 0
                 }
@@ -10403,47 +10433,47 @@ window.MOCK = {
                 {
                   "q": "How much is standard shipping?",
                   "choices": [
-                    "25 dollars",
+                    "12 dollars",
                     "5 dollars",
-                    "12 dollars"
+                    "25 dollars"
                   ],
                   "answer": 1
                 },
                 {
                   "q": "How long does overnight shipping take?",
                   "choices": [
-                    "5-7 days",
+                    "2-3 days",
                     "1 day",
-                    "2-3 days"
+                    "5-7 days"
                   ],
                   "answer": 1
                 },
                 {
                   "q": "What qualifies for free standard shipping?",
                   "choices": [
+                    "All orders",
                     "Orders over 50 dollars",
-                    "Orders over 100 dollars",
-                    "All orders"
+                    "Orders over 100 dollars"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "What is Layla's current order total?",
                   "choices": [
-                    "52 dollars",
+                    "50 dollars",
                     "48 dollars",
-                    "50 dollars"
+                    "52 dollars"
                   ],
                   "answer": 1
                 },
                 {
                   "q": "Why does Layla want to add an item?",
                   "choices": [
+                    "To use a coupon",
                     "To qualify for free shipping",
-                    "To get a discount",
-                    "To use a coupon"
+                    "To get a discount"
                   ],
-                  "answer": 0
+                  "answer": 1
                 }
               ]
             },
@@ -10465,8 +10495,8 @@ window.MOCK = {
                 {
                   "q": "What does the warranty cover?",
                   "choices": [
-                    "Water damage",
                     "Accidental damage",
+                    "Water damage",
                     "Defects in materials and workmanship"
                   ],
                   "answer": 2
@@ -10474,20 +10504,20 @@ window.MOCK = {
                 {
                   "q": "How long has Tom owned the blender?",
                   "choices": [
+                    "Eight months",
                     "Two months",
-                    "One year",
-                    "Eight months"
+                    "One year"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What does Tom believe caused the issue?",
                   "choices": [
+                    "Accidental damage",
                     "Normal wear and tear",
-                    "A manufacturing defect",
-                    "Accidental damage"
+                    "A manufacturing defect"
                   ],
-                  "answer": 1
+                  "answer": 2
                 },
                 {
                   "q": "Is Tom's blender still under warranty?",
@@ -10512,38 +10542,38 @@ window.MOCK = {
                 {
                   "q": "What is order #6612's status?",
                   "choices": [
-                    "It was returned to sender",
+                    "It is still in transit",
                     "It was delivered today at 2:15 PM",
-                    "It is still in transit"
+                    "It was returned to sender"
                   ],
                   "answer": 1
                 },
                 {
                   "q": "What is the customer's complaint?",
                   "choices": [
-                    "The package was damaged",
                     "The wrong item arrived",
-                    "They never received the package"
-                  ],
-                  "answer": 2
-                },
-                {
-                  "q": "What evidence does the company have?",
-                  "choices": [
-                    "A video recording",
-                    "A delivery photo",
-                    "A signature"
+                    "They never received the package",
+                    "The package was damaged"
                   ],
                   "answer": 1
                 },
                 {
+                  "q": "What evidence does the company have?",
+                  "choices": [
+                    "A delivery photo",
+                    "A signature",
+                    "A video recording"
+                  ],
+                  "answer": 0
+                },
+                {
                   "q": "What does the company recommend?",
                   "choices": [
+                    "Checking with neighbors or filing a police report",
                     "Contacting the courier directly",
-                    "Waiting another week",
-                    "Checking with neighbors or filing a police report"
+                    "Waiting another week"
                   ],
-                  "answer": 2
+                  "answer": 0
                 },
                 {
                   "q": "What will the company do?",
@@ -10566,11 +10596,11 @@ window.MOCK = {
                 {
                   "q": "What is the minimum order for wholesale pricing?",
                   "choices": [
-                    "50 units",
                     "100 units",
-                    "500 units"
+                    "500 units",
+                    "50 units"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "What is the standard wholesale price per unit?",
@@ -10584,11 +10614,11 @@ window.MOCK = {
                 {
                   "q": "How many units does the client want to order?",
                   "choices": [
-                    "600",
                     "100",
+                    "600",
                     "500"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "What is the final price per unit after discount?",
@@ -10602,11 +10632,11 @@ window.MOCK = {
                 {
                   "q": "What is the estimated delivery time for bulk orders?",
                   "choices": [
-                    "10 to 14 business days",
+                    "3 to 5 business days",
                     "One month",
-                    "3 to 5 business days"
+                    "10 to 14 business days"
                   ],
-                  "answer": 0
+                  "answer": 2
                 }
               ]
             },
@@ -10620,45 +10650,45 @@ window.MOCK = {
                 {
                   "q": "When does the subscription renew?",
                   "choices": [
+                    "The 25th of this month",
                     "The 1st of next month",
-                    "The 15th of this month",
-                    "The 25th of this month"
+                    "The 15th of this month"
                   ],
-                  "answer": 0
+                  "answer": 1
                 },
                 {
                   "q": "How much will be charged upon renewal?",
                   "choices": [
-                    "25 dollars",
                     "35 dollars",
-                    "50 dollars"
+                    "50 dollars",
+                    "25 dollars"
                   ],
-                  "answer": 1
+                  "answer": 0
                 },
                 {
                   "q": "By when must changes be made?",
                   "choices": [
                     "The 30th of this month",
-                    "The 1st of next month",
-                    "The 25th of this month"
+                    "The 25th of this month",
+                    "The 1st of next month"
                   ],
-                  "answer": 2
+                  "answer": 1
                 },
                 {
                   "q": "What does Amir request?",
                   "choices": [
                     "To cancel his subscription",
-                    "To upgrade his plan",
-                    "To change his address"
+                    "To change his address",
+                    "To upgrade his plan"
                   ],
                   "answer": 0
                 },
                 {
                   "q": "Will Amir be charged next month?",
                   "choices": [
-                    "Only a partial charge",
+                    "Yes, as scheduled",
                     "No, the subscription was cancelled",
-                    "Yes, as scheduled"
+                    "Only a partial charge"
                   ],
                   "answer": 1
                 }
