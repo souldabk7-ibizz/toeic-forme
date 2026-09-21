@@ -1126,7 +1126,8 @@
      progress so finishing a grammar lesson does not tick a vocab one. */
   var LESSON_TRACKS = {
     grammar: { label: "ไวยากรณ์", data: function () { return GRAMMAR.lessons; }, key: "toeic_grammar_v1" },
-    vocab: { label: "คำศัพท์", data: function () { return VOCABLESSONS.lessons; }, key: "toeic_vocablesson_v1" }
+    vocab: { label: "คำศัพท์", data: function () { return VOCABLESSONS.lessons; }, key: "toeic_vocablesson_v1" },
+    parts: { label: "กลยุทธ์รายพาร์ท", data: function () { return PARTSTRATEGY.lessons; }, key: "toeic_partstrategy_v1" }
   };
   var grammarState = { track: "grammar", lesson: 1 };
 
@@ -1146,7 +1147,7 @@
     var html = "";
     html += '<div class="card">';
     html += "<h2>บทเรียนเตรียมสอบ TOEIC</h2>";
-    html += '<div class="muted">เนื้อหาแบ่งตามจุดที่ข้อสอบ Part 5/6/7 วัดจริง เรียนทีละบท แต่ละบทมีคำอธิบาย ตัวอย่าง (ฟังเสียงได้) และแบบฝึกหัดท้ายบท</div>';
+    html += '<div class="muted">สามหมวด: <b>ไวยากรณ์</b> และ <b>คำศัพท์</b> สอนตัวภาษาที่ Part 5/6/7 วัดจริง ส่วน <b>กลยุทธ์รายพาร์ท</b> สอนว่าข้อสอบแต่ละพาร์ทหน้าตาเป็นอย่างไรและต้องทำอย่างไรในห้องสอบ เรียนทีละบท แต่ละบทมีคำอธิบายและแบบฝึกหัดท้ายบท</div>';
     html += '<div class="btn-row">';
     Object.keys(LESSON_TRACKS).forEach(function (t) {
       var tl = LESSON_TRACKS[t].data();
@@ -1657,8 +1658,8 @@
     {
       id: "lessons", safe: true,
       label: "แบบฝึกหัดท้ายบทเรียน",
-      note: "บทไวยากรณ์และบทศัพท์จะกลับไปเป็น “ยังไม่เรียน” พร้อมทำแบบฝึกหัดใหม่",
-      keys: [LESSON_TRACKS.grammar.key, LESSON_TRACKS.vocab.key]
+      note: "บทไวยากรณ์ บทศัพท์ และบทกลยุทธ์รายพาร์ท จะกลับไปเป็น “ยังไม่เรียน” พร้อมทำแบบฝึกหัดใหม่",
+      keys: [LESSON_TRACKS.grammar.key, LESSON_TRACKS.vocab.key, LESSON_TRACKS.parts.key]
     },
     {
       id: "daily", safe: true,
