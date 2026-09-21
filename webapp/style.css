@@ -468,3 +468,11 @@ svg.chart text { fill: var(--text-secondary); font-size: 10px; font-family: syst
   color: var(--text-muted); border: 1px solid var(--border);
   border-radius: 999px; padding: 1px 6px; margin-right: 4px;
 }
+
+/* ---- part-based drills ---- */
+.scene-box {
+  display: inline-block; font-style: italic;
+  color: var(--text-primary); background: color-mix(in srgb, var(--series-3) 12%, transparent);
+  border-radius: var(--radius); padding: 4px 8px;
+}
+.drill-result { margin-top: 8px; font-weight: 700; }

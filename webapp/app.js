@@ -76,11 +76,6 @@
   var profile = loadProfile();
   function saveProfile() { setJSON(PROFILE_KEY, profile); }
 
-  function currentWeek() {
-    var diff = daysBetween(profile.startDate, todayKey());
-    return clampIndex(Math.floor(Math.max(diff, 0) / 7) + 1, PLAN.weeks.length);
-  }
-
   function currentVocabDay() {
     var diff = daysBetween(profile.startDate, todayKey());
     return clampIndex(diff + 1, VOCAB.days.length);
@@ -1192,94 +1187,58 @@
     });
   }
 
-  /* ================= LISTENING ================= */
-  var listeningState = { week: Math.min(currentWeek(), LISTENING.weeks.length) };
+  function escapeAttr(s) { return String(s).replace(/"/g, "&quot;"); }
 
-  function renderListening() {
-    var root = $("#tab-listening");
-    var wk = LISTENING.weeks[listeningState.week - 1];
-    var speechNote = canSpeak() ? "" : '<div class="tiny-muted">เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง ลองใช้ Chrome หรือ Edge</div>';
-
-    var html = "";
-    html += '<div class="card"><h2>Listening Practice</h2>';
-    html += '<div class="btn-row">';
-    html += '<select id="listening-week">' + LISTENING.weeks.map(function (w) {
-      return '<option value="' + w.week + '"' + (w.week === listeningState.week ? " selected" : "") + '>สัปดาห์ ' + w.week + '</option>';
-    }).join("") + '</select>';
-    html += '<button class="btn small" id="rate-normal">ความเร็วปกติ</button>';
-    html += '<button class="btn small" id="rate-slow">ความเร็วช้า</button>';
-    html += '</div>' + speechNote + '</div>';
-
-    html += '<div class="card"><h3>Part 2 &middot; คำถาม-คำตอบสั้น</h3>';
-    wk.part2.forEach(function (item, qi) {
-      html += '<div class="q-block" data-section="p2" data-qi="' + qi + '">';
-      html += '<div class="q-text">Q' + (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(item.q) + '">▶ ฟัง</button></div>';
-      item.choices.forEach(function (c, ci) {
-        html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="p2-' + qi + '" value="' + ci + '"> ' + c + '</label>';
-      });
-      html += '</div>';
+  /* ---------- shared drill rendering ----------
+     Reading and Listening are practice sets, and they are now filed the way
+     the test is: pick a part, then work through it. Filing them by study week
+     meant a single sitting jumped between three different parts, which is not
+     how anyone revises and not how the test is sat. */
+  function partPickerHTML(parts, active, attr) {
+    var html = '<div class="btn-row part-picker">';
+    parts.forEach(function (pt) {
+      html += '<button class="btn small' + (pt.n === active ? " primary" : "") + '" ' + attr + '="' + pt.n + '">' +
+        "Part " + pt.n + ' <span class="part-count">' + pt.count + "</span></button>";
     });
-    html += '<div class="btn-row"><button class="btn primary check-btn" data-section="p2">ตรวจคำตอบ Part 2</button></div></div>';
-
-    html += '<div class="card"><h3>Part 3 &middot; บทสนทนา</h3>';
-    html += '<div class="script-box">' + wk.part3.lines.join("<br>") + '</div>';
-    html += '<button class="btn small play-all-btn" data-lines="' + escapeAttr(JSON.stringify(wk.part3.lines)) + '">▶ ฟังทั้งบทสนทนา</button>';
-    wk.part3.questions.forEach(function (item, qi) {
-      html += '<div class="q-block" data-section="p3" data-qi="' + qi + '"><div class="q-text">' + (qi + 1) + '. ' + item.q + '</div>';
-      item.choices.forEach(function (c, ci) {
-        html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="p3-' + qi + '" value="' + ci + '"> ' + c + '</label>';
-      });
-      html += '</div>';
-    });
-    html += '<div class="btn-row"><button class="btn primary check-btn" data-section="p3">ตรวจคำตอบ Part 3</button></div></div>';
-
-    html += '<div class="card"><h3>Part 4 &middot; การพูดคนเดียว/ประกาศ</h3>';
-    html += '<div class="script-box">' + wk.part4.script + '</div>';
-    html += '<button class="btn small play-btn" data-text="' + escapeAttr(wk.part4.script) + '">▶ ฟัง</button>';
-    wk.part4.questions.forEach(function (item, qi) {
-      html += '<div class="q-block" data-section="p4" data-qi="' + qi + '"><div class="q-text">' + (qi + 1) + '. ' + item.q + '</div>';
-      item.choices.forEach(function (c, ci) {
-        html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="p4-' + qi + '" value="' + ci + '"> ' + c + '</label>';
-      });
-      html += '</div>';
-    });
-    html += '<div class="btn-row"><button class="btn primary check-btn" data-section="p4">ตรวจคำตอบ Part 4</button></div></div>';
-
-    root.innerHTML = html;
-
-    $("#listening-week").addEventListener("change", function (e) {
-      listeningState.week = Number(e.target.value); renderListening();
-    });
-    $("#rate-normal").addEventListener("click", function () { speechRate = 1; });
-    $("#rate-slow").addEventListener("click", function () { speechRate = 0.75; });
-    $$(".play-btn", root).forEach(function (b) {
-      b.addEventListener("click", function () { speak(b.dataset.text); });
-    });
-    $$(".play-all-btn", root).forEach(function (b) {
-      b.addEventListener("click", function () {
-        var lines = JSON.parse(b.dataset.lines);
-        var text = lines.map(function (l) { return l.replace(/^[MW]:\s*/, ""); }).join(". ");
-        speak(text);
-      });
-    });
-    $$(".check-btn", root).forEach(function (b) {
-      b.addEventListener("click", function () {
-        var section = b.dataset.section;
-        var data = section === "p2" ? wk.part2 : section === "p3" ? wk.part3.questions : wk.part4.questions;
-        checkSection(root, section, data);
-      });
-    });
+    return html + "</div>";
   }
 
-  function escapeAttr(s) { return s.replace(/"/g, "&quot;"); }
+  /* one step of a multi-set part, with arrows — "ชุดที่ 3 / 12" */
+  function setNavHTML(idx, total, prevId, nextId, label) {
+    var html = '<div class="day-nav">';
+    html += '<button class="btn day-arrow" id="' + prevId + '"' + (idx <= 1 ? " disabled" : "") + ' aria-label="ชุดก่อนหน้า">&#9664;</button>';
+    html += '<div class="day-nav-center"><div class="day-nav-title">ชุดที่ ' + idx +
+      ' <span class="day-nav-total">/ ' + total + "</span></div>";
+    if (label) html += '<div class="day-nav-theme">' + label + "</div>";
+    html += "</div>";
+    html += '<button class="btn day-arrow" id="' + nextId + '"' + (idx >= total ? " disabled" : "") + ' aria-label="ชุดถัดไป">&#9654;</button>';
+    return html + "</div>";
+  }
 
-  function checkSection(root, section, data) {
+  function drillQuestionsHTML(section, items, numberFrom) {
+    var html = "";
+    items.forEach(function (item, qi) {
+      html += '<div class="q-block" data-section="' + section + '" data-qi="' + qi + '">';
+      html += '<div class="q-text">' + ((numberFrom || 1) + qi) + ". " + (item.q || item.sentence || "") +
+        (item.audio ? ' <button class="btn small play-btn" data-text="' + escapeAttr(item.audio) + '">▶ ฟัง</button>' : "") + "</div>";
+      item.choices.forEach(function (c, ci) {
+        html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="' + section + "-" + qi +
+          '" value="' + ci + '"> <span class="choice-letter">(' + CHOICE_LETTERS[ci] + ')</span> ' + c + "</label>";
+      });
+      html += "</div>";
+    });
+    return html;
+  }
+
+  /* colours each row and reports how many were right */
+  function gradeSection(root, section, data) {
+    var correct = 0;
     data.forEach(function (item, qi) {
       var block = $('.q-block[data-section="' + section + '"][data-qi="' + qi + '"]', root);
+      if (!block) return;
       var picked = null;
       $$(".choice-row", block).forEach(function (row) {
-        var input = row.querySelector("input");
-        if (input.checked) picked = Number(row.dataset.c);
+        if (row.querySelector("input").checked) picked = Number(row.dataset.c);
       });
       $$(".choice-row", block).forEach(function (row) {
         var ci = Number(row.dataset.c);
@@ -1287,11 +1246,141 @@
         if (ci === item.answer) row.classList.add("correct");
         else if (ci === picked) row.classList.add("incorrect");
       });
+      if (picked === item.answer) correct++;
+    });
+    return correct;
+  }
+
+  /* Part 1 has no photographs here — the app ships no images — so the scene is
+     given in words. It still drills the thing Part 1 tests, which is matching a
+     spoken sentence against a scene, but it is not the real thing and says so. */
+  function part1Pool() {
+    var out = [];
+    MOCK.sets.forEach(function (set) {
+      ((set.listening || {}).part1 || []).forEach(function (item) { out.push(item); });
+    });
+    return out;
+  }
+
+  /* ================= LISTENING ================= */
+  var listeningState = { part: 2, idx: 1 };
+
+  function renderListening() {
+    var root = $("#tab-listening");
+    var speechNote = canSpeak() ? "" : '<div class="tiny-muted">เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง ลองใช้ Chrome หรือ Edge</div>';
+    var p1 = part1Pool();
+    var p2 = LISTENING.weeks.reduce(function (acc, w) { return acc.concat(w.part2 || []); }, []);
+    var p3 = LISTENING.weeks.filter(function (w) { return w.part3; });
+    var p4 = LISTENING.weeks.filter(function (w) { return w.part4; });
+    var P1_PER_SET = 6;
+    var p1Sets = Math.ceil(p1.length / P1_PER_SET);
+
+    var html = "";
+    html += '<div class="card"><h2>แบบทดสอบ Listening แยกตามพาร์ท</h2>';
+    html += partPickerHTML([
+      { n: 1, count: p1.length + " ข้อ" },
+      { n: 2, count: p2.length + " ข้อ" },
+      { n: 3, count: p3.length + " ชุด" },
+      { n: 4, count: p4.length + " ชุด" }
+    ], listeningState.part, "data-lpart");
+    html += '<div class="btn-row">';
+    html += '<button class="btn small" id="rate-normal">ความเร็วปกติ</button>';
+    html += '<button class="btn small" id="rate-slow">ความเร็วช้า</button>';
+    html += "</div>" + speechNote + "</div>";
+
+    var graded = null;
+
+    if (listeningState.part === 1) {
+      listeningState.idx = clampIndex(listeningState.idx, p1Sets);
+      var start = (listeningState.idx - 1) * P1_PER_SET;
+      graded = p1.slice(start, start + P1_PER_SET);
+      html += '<div class="card"><h3>Part 1 &middot; ดูภาพ</h3>';
+      html += setNavHTML(listeningState.idx, p1Sets, "lset-prev", "lset-next", "6 ข้อต่อชุด เท่าข้อสอบจริง");
+      html += '<div class="muted">แอปนี้ไม่มีรูปภาพ ฉากจึงเขียนเป็นข้อความแทน อ่านฉากให้เห็นภาพในหัวก่อน แล้วเลือกประโยคที่ตรงกับฉากนั้นที่สุด — ฝึกทักษะเดียวกับของจริงคือจับคู่ประโยคกับสิ่งที่เห็น แต่ไม่ใช่ของจริงทั้งหมด</div>';
+      graded.forEach(function (item, qi) {
+        html += '<div class="q-block" data-section="lp1" data-qi="' + qi + '">';
+        html += '<div class="q-text">' + (qi + 1) + '. <span class="scene-box">' + item.scene + "</span></div>";
+        item.choices.forEach(function (c, ci) {
+          html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="lp1-' + qi + '" value="' + ci +
+            '"> <span class="choice-letter">(' + CHOICE_LETTERS[ci] + ')</span> ' + c +
+            ' <button class="btn small no-flip play-btn" data-text="' + escapeAttr(c) + '">▶</button></label>';
+        });
+        html += "</div>";
+      });
+      html += '<div class="btn-row"><button class="btn primary drill-check" data-section="lp1">ตรวจคำตอบ</button></div>';
+      html += '<div class="drill-result muted" id="l-result"></div></div>';
+    } else if (listeningState.part === 2) {
+      graded = p2;
+      html += '<div class="card"><h3>Part 2 &middot; ถาม-ตอบสั้น</h3>';
+      html += '<div class="muted">กดฟังแล้วตอบทันที ห้ามอ่านตัวเลือกก่อนฟัง เพราะของจริงไม่มีตัวเลือกให้อ่าน</div>';
+      p2.forEach(function (item, qi) {
+        html += '<div class="q-block" data-section="lp2" data-qi="' + qi + '">';
+        html += '<div class="q-text">' + (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(item.q) + '">▶ ฟังคำถาม</button></div>';
+        item.choices.forEach(function (c, ci) {
+          html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="lp2-' + qi + '" value="' + ci +
+            '"> <span class="choice-letter">(' + CHOICE_LETTERS[ci] + ')</span> ' + c + "</label>";
+        });
+        html += "</div>";
+      });
+      html += '<div class="btn-row"><button class="btn primary drill-check" data-section="lp2">ตรวจคำตอบ</button></div>';
+      html += '<div class="drill-result muted" id="l-result"></div></div>';
+    } else if (listeningState.part === 3) {
+      listeningState.idx = clampIndex(listeningState.idx, p3.length);
+      var conv = p3[listeningState.idx - 1].part3;
+      graded = conv.questions;
+      html += '<div class="card"><h3>Part 3 &middot; บทสนทนา</h3>';
+      html += setNavHTML(listeningState.idx, p3.length, "lset-prev", "lset-next", "");
+      html += '<button class="btn small play-all-btn" data-lines="' + escapeAttr(JSON.stringify(conv.lines)) + '">▶ ฟังทั้งบทสนทนา</button>';
+      html += '<details class="day-more"><summary>ดูสคริปต์ (เปิดหลังตอบแล้วเท่านั้น)</summary><div class="script-box">' + conv.lines.join("<br>") + "</div></details>";
+      html += drillQuestionsHTML("lp3", conv.questions);
+      html += '<div class="btn-row"><button class="btn primary drill-check" data-section="lp3">ตรวจคำตอบ</button></div>';
+      html += '<div class="drill-result muted" id="l-result"></div></div>';
+    } else {
+      listeningState.idx = clampIndex(listeningState.idx, p4.length);
+      var talk = p4[listeningState.idx - 1].part4;
+      graded = talk.questions;
+      html += '<div class="card"><h3>Part 4 &middot; พูดคนเดียว</h3>';
+      html += setNavHTML(listeningState.idx, p4.length, "lset-prev", "lset-next", "");
+      html += '<button class="btn small play-btn" data-text="' + escapeAttr(talk.script) + '">▶ ฟัง</button>';
+      html += '<details class="day-more"><summary>ดูสคริปต์ (เปิดหลังตอบแล้วเท่านั้น)</summary><div class="script-box">' + talk.script + "</div></details>";
+      html += drillQuestionsHTML("lp4", talk.questions);
+      html += '<div class="btn-row"><button class="btn primary drill-check" data-section="lp4">ตรวจคำตอบ</button></div>';
+      html += '<div class="drill-result muted" id="l-result"></div></div>';
+    }
+
+    root.innerHTML = html;
+
+    $$("button[data-lpart]", root).forEach(function (b) {
+      b.addEventListener("click", function () {
+        listeningState.part = Number(b.dataset.lpart);
+        listeningState.idx = 1;
+        renderListening();
+      });
+    });
+    var lp = $("#lset-prev"), ln = $("#lset-next");
+    if (lp) lp.addEventListener("click", function () { listeningState.idx -= 1; renderListening(); });
+    if (ln) ln.addEventListener("click", function () { listeningState.idx += 1; renderListening(); });
+    $("#rate-normal").addEventListener("click", function () { speechRate = 1; });
+    $("#rate-slow").addEventListener("click", function () { speechRate = 0.75; });
+    $$(".play-btn", root).forEach(function (b) {
+      b.addEventListener("click", function (e) { e.preventDefault(); speak(b.dataset.text); });
+    });
+    $$(".play-all-btn", root).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var lines = JSON.parse(b.dataset.lines);
+        speak(lines.map(function (l) { return l.replace(/^[MW]:\s*/, ""); }).join(". "));
+      });
+    });
+    $$(".drill-check", root).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var right = gradeSection(root, b.dataset.section, graded);
+        $("#l-result").textContent = "ได้ " + right + " / " + graded.length + " ข้อ";
+      });
     });
   }
 
   /* ================= READING ================= */
-  var readingState = { week: Math.min(currentWeek(), READING.weeks.length) };
+  var readingState = { part: 5, idx: 1 };
 
   /* ================= Part 5 timed sprint =================
      Part 5 is where the reading section is won or lost on the clock: 30
@@ -1455,65 +1544,81 @@
 
   function renderReading() {
     var root = $("#tab-reading");
-    var wk = READING.weeks[readingState.week - 1];
+    var p5 = READING.weeks.reduce(function (acc, w) { return acc.concat(w.part5 || []); }, []);
+    var p6 = READING.weeks.filter(function (w) { return w.part6; });
+    var p7 = READING.weeks.filter(function (w) { return w.part7; });
 
     var html = "";
-    html += sprintHTML();
-    html += '<div class="card"><h2>Reading Practice</h2>';
-    html += '<select id="reading-week">' + READING.weeks.map(function (w) {
-      return '<option value="' + w.week + '"' + (w.week === readingState.week ? " selected" : "") + '>สัปดาห์ ' + w.week + '</option>';
-    }).join("") + '</select></div>';
+    html += '<div class="card"><h2>แบบทดสอบ Reading แยกตามพาร์ท</h2>';
+    html += partPickerHTML([
+      { n: 5, count: p5.length + " ข้อ" },
+      { n: 6, count: p6.length + " ชุด" },
+      { n: 7, count: p7.length + " ชุด" }
+    ], readingState.part, "data-rpart");
+    html += "</div>";
 
-    html += '<div class="card"><h3>Part 5 &middot; เติมคำในประโยค</h3>';
-    wk.part5.forEach(function (item, qi) {
-      html += '<div class="q-block" data-section="p5" data-qi="' + qi + '"><div class="q-text">' + (qi + 1) + '. ' + item.sentence + '</div>';
-      item.choices.forEach(function (c, ci) {
-        html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="p5-' + qi + '" value="' + ci + '"> ' + c + '</label>';
-      });
-      html += '</div>';
-    });
-    html += '<div class="btn-row"><button class="btn primary check-btn" data-section="p5">ตรวจคำตอบ Part 5</button></div></div>';
+    var graded = null, sections = null;
 
-    html += '<div class="card"><h3>Part 6 &middot; เติมคำในบทความ</h3>';
-    html += '<div class="script-box">' + wk.part6.passage + '</div>';
-    wk.part6.blanks.forEach(function (item, qi) {
-      html += '<div class="q-block" data-section="p6b" data-qi="' + qi + '"><div class="q-text">ช่องที่ ' + (qi + 1) + '</div>';
-      item.choices.forEach(function (c, ci) {
-        html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="p6b-' + qi + '" value="' + ci + '"> ' + c + '</label>';
+    if (readingState.part === 5) {
+      /* the timed drill belongs with the part it drills */
+      html += sprintHTML();
+      graded = p5;
+      html += '<div class="card"><h3>Part 5 &middot; เติมคำในประโยค</h3>';
+      html += '<div class="muted">คลังข้อแบบไม่จับเวลา ไว้ฝึกความแม่น ถ้าจะฝึกคุมเวลาให้ใช้ชุดจับเวลาด้านบน</div>';
+      html += '<div class="exam-direction">เลือกคำตอบที่ถูกต้องที่สุดเติมลงในช่องว่าง</div>';
+      html += drillQuestionsHTML("rp5", p5);
+      html += '<div class="btn-row"><button class="btn primary drill-check" data-section="rp5">ตรวจคำตอบ</button></div>';
+      html += '<div class="drill-result muted" id="r-result"></div></div>';
+    } else if (readingState.part === 6) {
+      readingState.idx = clampIndex(readingState.idx, p6.length);
+      var six = p6[readingState.idx - 1].part6;
+      graded = six.blanks.concat(six.questions);
+      sections = [["rp6b", six.blanks], ["rp6q", six.questions]];
+      html += '<div class="card"><h3>Part 6 &middot; เติมคำในบทความ</h3>';
+      html += setNavHTML(readingState.idx, p6.length, "rset-prev", "rset-next", "");
+      html += '<div class="script-box">' + six.passage + "</div>";
+      html += '<div class="exam-direction">เลือกคำตอบที่ถูกต้องที่สุดเติมลงในแต่ละช่อง</div>';
+      six.blanks.forEach(function (item, qi) {
+        html += '<div class="q-block" data-section="rp6b" data-qi="' + qi + '"><div class="q-text">ช่องที่ ' + (qi + 1) + "</div>";
+        item.choices.forEach(function (c, ci) {
+          html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="rp6b-' + qi + '" value="' + ci +
+            '"> <span class="choice-letter">(' + CHOICE_LETTERS[ci] + ')</span> ' + c + "</label>";
+        });
+        html += "</div>";
       });
-      html += '</div>';
-    });
-    wk.part6.questions.forEach(function (item, qi) {
-      html += '<div class="q-block" data-section="p6q" data-qi="' + qi + '"><div class="q-text">' + item.q + '</div>';
-      item.choices.forEach(function (c, ci) {
-        html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="p6q-' + qi + '" value="' + ci + '"> ' + c + '</label>';
-      });
-      html += '</div>';
-    });
-    html += '<div class="btn-row"><button class="btn primary check-btn" data-section="p6">ตรวจคำตอบ Part 6</button></div></div>';
-
-    html += '<div class="card"><h3>Part 7 &middot; อ่านจับใจความ</h3>';
-    html += '<div class="script-box">' + wk.part7.passage + '</div>';
-    wk.part7.questions.forEach(function (item, qi) {
-      html += '<div class="q-block" data-section="p7" data-qi="' + qi + '"><div class="q-text">' + (qi + 1) + '. ' + item.q + '</div>';
-      item.choices.forEach(function (c, ci) {
-        html += '<label class="choice-row" data-c="' + ci + '"><input type="radio" name="p7-' + qi + '" value="' + ci + '"> ' + c + '</label>';
-      });
-      html += '</div>';
-    });
-    html += '<div class="btn-row"><button class="btn primary check-btn" data-section="p7">ตรวจคำตอบ Part 7</button></div></div>';
+      html += drillQuestionsHTML("rp6q", six.questions, six.blanks.length + 1);
+      html += '<div class="btn-row"><button class="btn primary drill-check" data-section="rp6">ตรวจคำตอบ</button></div>';
+      html += '<div class="drill-result muted" id="r-result"></div></div>';
+    } else {
+      readingState.idx = clampIndex(readingState.idx, p7.length);
+      var seven = p7[readingState.idx - 1].part7;
+      graded = seven.questions;
+      html += '<div class="card"><h3>Part 7 &middot; การอ่าน</h3>';
+      html += setNavHTML(readingState.idx, p7.length, "rset-prev", "rset-next", "");
+      html += '<div class="script-box">' + seven.passage + "</div>";
+      html += drillQuestionsHTML("rp7", seven.questions);
+      html += '<div class="btn-row"><button class="btn primary drill-check" data-section="rp7">ตรวจคำตอบ</button></div>';
+      html += '<div class="drill-result muted" id="r-result"></div></div>';
+    }
 
     root.innerHTML = html;
 
-    $("#reading-week").addEventListener("change", function (e) {
-      readingState.week = Number(e.target.value); renderReading();
-    });
-    $$(".check-btn", root).forEach(function (b) {
+    $$("button[data-rpart]", root).forEach(function (b) {
       b.addEventListener("click", function () {
-        var section = b.dataset.section;
-        if (section === "p5") checkSection(root, "p5", wk.part5);
-        else if (section === "p6") { checkSection(root, "p6b", wk.part6.blanks); checkSection(root, "p6q", wk.part6.questions); }
-        else if (section === "p7") checkSection(root, "p7", wk.part7.questions);
+        readingState.part = Number(b.dataset.rpart);
+        readingState.idx = 1;
+        renderReading();
+      });
+    });
+    var rp = $("#rset-prev"), rn = $("#rset-next");
+    if (rp) rp.addEventListener("click", function () { readingState.idx -= 1; renderReading(); });
+    if (rn) rn.addEventListener("click", function () { readingState.idx += 1; renderReading(); });
+    $$(".drill-check", root).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var right = 0;
+        if (sections) sections.forEach(function (pair) { right += gradeSection(root, pair[0], pair[1]); });
+        else right = gradeSection(root, b.dataset.section, graded);
+        $("#r-result").textContent = "ได้ " + right + " / " + graded.length + " ข้อ";
       });
     });
 
