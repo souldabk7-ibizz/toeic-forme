@@ -89,6 +89,9 @@ window.VOCABLESSONS = {
           "answer": 3,
           "why": "ช่องว่างอยู่ระหว่าง a กับคำนาม decision จึงต้องเป็นคุณศัพท์ decisive แปลว่าเด็ดขาด"
         }
+      ],
+      "parts": [
+        5
       ]
     },
     {
@@ -174,6 +177,9 @@ window.VOCABLESSONS = {
           "answer": 0,
           "why": "คู่คำที่ตายตัวคือ prior approval แปลว่าการอนุมัติล่วงหน้า prior เป็นคุณศัพท์ที่แปลว่าก่อนหน้า"
         }
+      ],
+      "parts": [
+        5
       ]
     },
     {
@@ -245,6 +251,9 @@ window.VOCABLESSONS = {
           "answer": 1,
           "why": "considerable แปลว่ามากพอสมควร ใช้ขยายจำนวนเงิน ส่วน considerate แปลว่าเกรงใจผู้อื่น ซึ่งใช้กับคนไม่ใช่จำนวนเงิน"
         }
+      ],
+      "parts": [
+        5
       ]
     },
     {
@@ -316,6 +325,10 @@ window.VOCABLESSONS = {
           "answer": 0,
           "why": "take over แปลว่ารับช่วงหน้าที่ต่อ ซึ่งเข้ากับการที่ผู้อำนวยการลา ส่วน take off แปลว่าเครื่องขึ้นหรือลางาน"
         }
+      ],
+      "parts": [
+        5,
+        7
       ]
     },
     {
@@ -391,6 +404,9 @@ window.VOCABLESSONS = {
           "answer": 3,
           "why": "result in แปลว่าส่งผลให้เกิด ส่วน result from แปลว่าเกิดจาก ในที่นี้ความล่าช้าเป็นเหตุ ค่าใช้จ่ายเป็นผล จึงใช้ result in"
         }
+      ],
+      "parts": [
+        5
       ]
     },
     {
@@ -466,6 +482,11 @@ window.VOCABLESSONS = {
           "answer": 0,
           "why": "inventory แปลว่าบัญชีสินค้าคงคลัง ซึ่งผู้จัดการคลังสินค้าต้องอัปเดต"
         }
+      ],
+      "parts": [
+        3,
+        4,
+        7
       ]
     },
     {
@@ -551,6 +572,9 @@ window.VOCABLESSONS = {
           "answer": 1,
           "why": "terms of the agreement แปลว่าเงื่อนไขของข้อตกลง จึงใกล้เคียงกับ conditions ไม่ใช่ความหมายว่าช่วงเวลาหรือคำศัพท์"
         }
+      ],
+      "parts": [
+        7
       ]
     },
     {
@@ -626,6 +650,10 @@ window.VOCABLESSONS = {
           "answer": 1,
           "why": "sub- แปลว่ารองหรือช่วงต่อ subcontractor จึงแปลว่าผู้รับเหมาช่วง ซึ่งเป็นคนไม่ใช่คุณศัพท์อย่าง contractual"
         }
+      ],
+      "parts": [
+        5,
+        7
       ]
     }
   ]
