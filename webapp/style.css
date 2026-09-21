@@ -486,3 +486,4 @@ svg.chart text { fill: var(--text-secondary); font-size: 10px; font-family: syst
 .part1-photo svg { display: block; width: 100%; height: auto; color: var(--text-primary); }
 .scene-alt { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px; }
 .scene-alt summary { cursor: pointer; }
+.part1-img { display: block; width: 100%; height: auto; border-radius: calc(var(--radius) - 2px); }

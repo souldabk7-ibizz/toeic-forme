@@ -1189,6 +1189,16 @@
 
   function escapeAttr(s) { return String(s).replace(/"/g, "&quot;"); }
 
+  /* A Part 1 item shows a photograph when one has been added for it, and falls
+     back to the drawing otherwise. Photos live in webapp/img/part1/ and are
+     named by the item's art id, so dropping a file in is the whole job. */
+  function part1Picture(item) {
+    if (item.photo) {
+      return '<img class="part1-img" src="img/part1/' + item.photo + '" alt="" loading="lazy">';
+    }
+    return PART1ART[item.art] || "";
+  }
+
   /* ---------- shared drill rendering ----------
      Reading and Listening are practice sets, and they are now filed the way
      the test is: pick a part, then work through it. Filing them by study week
@@ -1300,7 +1310,7 @@
       graded.forEach(function (item, qi) {
         html += '<div class="q-block" data-section="lp1" data-qi="' + qi + '">';
         html += '<div class="q-text">' + (qi + 1) + ". ";
-        html += '<div class="part1-photo">' + (PART1ART[item.art] || "") + "</div>";
+        html += '<div class="part1-photo">' + part1Picture(item) + "</div>";
         html += '<details class="scene-alt"><summary>คำบรรยายภาพ</summary>' + item.scene + "</details>";
         html += ' <button class="btn small play-btn" data-text="' + escapeAttr(
           item.choices.map(function (c, ci) { return CHOICE_LETTERS[ci] + ". " + c; }).join(" ")
@@ -1649,7 +1659,7 @@
         var spoken = "Option A. " + item.choices[0] + " Option B. " + item.choices[1] +
           " Option C. " + item.choices[2] + " Option D. " + item.choices[3];
         h += (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(spoken) + '">▶ ฟังทั้ง 4 ตัวเลือก</button>';
-        h += '<div class="part1-photo">' + (PART1ART[item.art] || "") + "</div>";
+        h += '<div class="part1-photo">' + part1Picture(item) + "</div>";
         h += '<details class="scene-alt"><summary>คำบรรยายภาพ</summary>' + item.scene + "</details>";
       } else if (mode === "play") h += "Q" + (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(item.q) + '">▶ ฟัง</button>';
       else if (mode === "blank") h += "ช่องที่ " + (qi + 1);
