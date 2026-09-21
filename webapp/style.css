@@ -476,3 +476,13 @@ svg.chart text { fill: var(--text-secondary); font-size: 10px; font-family: syst
   border-radius: var(--radius); padding: 4px 8px;
 }
 .drill-result { margin-top: 8px; font-weight: 700; }
+
+/* ---- Part 1 pictures ---- */
+.part1-photo {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface-1); padding: 6px; margin: 8px 0;
+  max-width: 420px;
+}
+.part1-photo svg { display: block; width: 100%; height: auto; color: var(--text-primary); }
+.scene-alt { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px; }
+.scene-alt summary { cursor: pointer; }

@@ -1296,10 +1296,12 @@
       graded = p1.slice(start, start + P1_PER_SET);
       html += '<div class="card"><h3>Part 1 &middot; ดูภาพ</h3>';
       html += setNavHTML(listeningState.idx, p1Sets, "lset-prev", "lset-next", "6 ข้อต่อชุด เท่าข้อสอบจริง");
-      html += '<div class="muted">แอปนี้ไม่มีรูปภาพ กรอบสีเหลืองคือ<b>คำบรรยายภาพ</b> ทำหน้าที่แทนรูป อ่านให้เห็นภาพในหัวก่อน แล้วค่อยกดฟังทั้ง 4 ตัวเลือกและเลือกข้อที่ตรงกับภาพที่สุด ตัวลวงในแต่ละข้อคือกับดักจริงของ Part 1 คือกริยาผิดทั้งที่ของอยู่ในภาพ, being + ช่อง 3 ทั้งที่ไม่มีคนทำ และคำพ้องเสียง</div>';
+      html += '<div class="muted">ดูภาพก่อน แล้วค่อยกดฟังทั้ง 4 ตัวเลือกและเลือกข้อที่ตรงกับภาพที่สุด เสียงจะไม่บอกว่าในภาพมีอะไร เหมือนข้อสอบจริง ตัวลวงแต่ละข้อคือกับดักจริงของ Part 1 คือกริยาผิดทั้งที่ของอยู่ในภาพ, being + ช่อง 3 ทั้งที่ไม่มีคนทำ และคำพ้องเสียง (ภาพเป็นภาพวาดลายเส้น ไม่ใช่ภาพถ่ายอย่างข้อสอบจริง)</div>';
       graded.forEach(function (item, qi) {
         html += '<div class="q-block" data-section="lp1" data-qi="' + qi + '">';
-        html += '<div class="q-text">' + (qi + 1) + '. <span class="scene-box">' + item.scene + "</span>";
+        html += '<div class="q-text">' + (qi + 1) + ". ";
+        html += '<div class="part1-photo">' + (PART1ART[item.art] || "") + "</div>";
+        html += '<details class="scene-alt"><summary>คำบรรยายภาพ</summary>' + item.scene + "</details>";
         html += ' <button class="btn small play-btn" data-text="' + escapeAttr(
           item.choices.map(function (c, ci) { return CHOICE_LETTERS[ci] + ". " + c; }).join(" ")
         ) + '">▶ ฟังทั้ง 4 ตัวเลือก</button></div>';
@@ -1647,7 +1649,8 @@
         var spoken = "Option A. " + item.choices[0] + " Option B. " + item.choices[1] +
           " Option C. " + item.choices[2] + " Option D. " + item.choices[3];
         h += (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(spoken) + '">▶ ฟังทั้ง 4 ตัวเลือก</button>';
-        h += '<div class="tiny-muted">คำบรรยายภาพ (แทนรูป): <span class="scene-box">' + item.scene + "</span></div>";
+        h += '<div class="part1-photo">' + (PART1ART[item.art] || "") + "</div>";
+        h += '<details class="scene-alt"><summary>คำบรรยายภาพ</summary>' + item.scene + "</details>";
       } else if (mode === "play") h += "Q" + (qi + 1) + '. <button class="btn small play-btn" data-text="' + escapeAttr(item.q) + '">▶ ฟัง</button>';
       else if (mode === "blank") h += "ช่องที่ " + (qi + 1);
       else if (mode === "sentence") h += (qi + 1) + ". " + item.sentence;
