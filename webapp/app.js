@@ -2107,9 +2107,43 @@
   };
 
   renderHeaderBadge();
+  /* ---------- new-version check ----------
+     Asks the server which build is current and, if it is not the one running,
+     offers a reload. Runs on load and again whenever the app comes back to the
+     foreground, since a page restored from memory never loads anything on its
+     own. The running build is read from the footer the stamp script writes. */
+  function runningBuild() {
+    var tag = document.querySelector(".build-tag");
+    var m = tag && /build\s+(\S+)/.exec(tag.textContent);
+    return m ? m[1] : null;
+  }
+  var updateShown = false;
+  function checkForUpdate() {
+    if (updateShown || !window.fetch || location.protocol === "file:") return;
+    var mine = runningBuild();
+    if (!mine || mine === "dev") return;
+    fetch("version.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (v) {
+        if (!v || !v.build || v.build === mine || updateShown) return;
+        updateShown = true;
+        var bar = document.createElement("div");
+        bar.className = "update-bar";
+        bar.innerHTML = 'มีเวอร์ชันใหม่ของแอป <button class="btn small primary" id="update-now">อัปเดตเลย</button>';
+        document.body.appendChild(bar);
+        $("#update-now").addEventListener("click", function () { location.reload(); });
+      })
+      .catch(function () { /* offline — try again next time the app is opened */ });
+  }
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") checkForUpdate();
+  });
+  window.addEventListener("pageshow", function (e) { if (e.persisted) checkForUpdate(); });
+
   /* a tab remembered from a version that had more of them must not leave the
      app sitting on a panel nothing renders into */
   var lastTab = localStorage.getItem("toeic_last_tab");
   showTab(render[lastTab] ? lastTab : "vocab");
   handleResetLink();
+  checkForUpdate();
 })();

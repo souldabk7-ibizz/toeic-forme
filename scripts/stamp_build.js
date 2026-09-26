@@ -28,4 +28,13 @@ html = html.replace(/(<(?:script src|link rel="stylesheet" href)=")([^"]+)"/g, (
 html = html.replace(/<span class="build-tag">[^<]*<\/span>/, `<span class="build-tag">build ${build}</span>`);
 
 fs.writeFileSync(file, html);
+
+/* The running page compares its own build against this file, fetched past
+   every cache, and offers a reload when they differ. Without it a page
+   restored from memory — which is what a home-screen app on iOS does when
+   reopened — keeps running the old code indefinitely, because the ?v=
+   stamps above only help once index.html itself has been fetched again. */
+fs.writeFileSync(path.join(__dirname, '..', 'webapp', 'version.json'),
+  JSON.stringify({ build: build }) + '\n');
+
 console.log('stamped build ' + build);

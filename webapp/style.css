@@ -487,3 +487,14 @@ svg.chart text { fill: var(--text-secondary); font-size: 10px; font-family: syst
 .scene-alt { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px; }
 .scene-alt summary { cursor: pointer; }
 .part1-img { display: block; width: 100%; height: auto; border-radius: calc(var(--radius) - 2px); }
+
+/* ---- new-version banner ---- */
+.update-bar {
+  position: fixed; left: 12px; right: 12px; z-index: 50;
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 14px; border-radius: var(--radius);
+  background: var(--surface-1); color: var(--text-primary);
+  border: 1px solid var(--series-1); box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  font-size: 0.9rem;
+}
