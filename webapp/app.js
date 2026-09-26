@@ -981,6 +981,10 @@
           key: source.src + l.id,
           rank: source.rank,
           id: l.id,
+          /* a lesson added later can still sit where it belongs in the
+             sequence — the Part 5 map straight after the Part 5 overview,
+             not at the end of the strategy list */
+          order: typeof l.order === "number" ? l.order : l.id,
           kind: source.kind,
           direction: source.direction,
           tag: source.tag,
@@ -997,7 +1001,7 @@
   /* strategy first — how the part works — then the language it tests */
   function lessonsForPart(part) {
     return allLessons().filter(function (l) { return l.parts.indexOf(part) !== -1; })
-      .sort(function (a, b) { return a.rank - b.rank || a.id - b.id; });
+      .sort(function (a, b) { return a.rank - b.rank || a.order - b.order; });
   }
 
   var LESSON_DONE_KEY = "toeic_lessondone_v1";

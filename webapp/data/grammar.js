@@ -71,30 +71,30 @@ window.GRAMMAR = {
         {
           "sentence": "The manager praised the team's ______ on the project.",
           "choices": [
-            "performing",
             "performance",
             "perform",
-            "performed"
+            "performed",
+            "performing"
           ],
-          "answer": 1,
+          "answer": 0,
           "why": "หลังคำแสดงความเป็นเจ้าของ the team's ต้องเป็นคำนาม performance คือคำนาม ส่วน performing กับ performed เป็นรูปกริยา และ perform เป็นกริยาแท้ วางตรงนี้ไม่ได้"
         },
         {
           "sentence": "Please complete the form ______.",
           "choices": [
-            "accuracy",
-            "accurately",
             "accurate",
-            "accurateness"
+            "accuracy",
+            "accurateness",
+            "accurately"
           ],
-          "answer": 1,
+          "answer": 3,
           "why": "ช่องว่างอยู่ท้ายประโยคขยายกริยา complete จึงต้องเป็นกริยาวิเศษณ์ accurately ส่วน accuracy เป็นคำนาม accurate เป็นคุณศัพท์ ขยายกริยาไม่ได้"
         },
         {
           "sentence": "The new policy will ______ productivity across all departments.",
           "choices": [
-            "increased",
             "increasing",
+            "increased",
             "increases",
             "increase"
           ],
@@ -104,23 +104,23 @@ window.GRAMMAR = {
         {
           "sentence": "His explanation was very ______ and easy to understand.",
           "choices": [
-            "clearly",
             "clarify",
+            "clear",
             "clarity",
-            "clear"
+            "clearly"
           ],
-          "answer": 3,
+          "answer": 1,
           "why": "หลัง verb to be (was) และมี very ขยาย ต้องเป็นคุณศัพท์ clear ส่วน clearly เป็นกริยาวิเศษณ์ clarity เป็นคำนาม"
         },
         {
           "sentence": "The committee reached its decision ______.",
           "choices": [
-            "quickly",
             "quickness",
             "quicken",
+            "quickly",
             "quick"
           ],
-          "answer": 0,
+          "answer": 2,
           "why": "ประโยคมีกริยา reached ครบแล้ว ช่องท้ายประโยคจึงเป็นกริยาวิเศษณ์ขยายว่าตัดสินใจอย่างไร คือ quickly"
         }
       ],
@@ -185,8 +185,8 @@ window.GRAMMAR = {
           "sentence": "Every member of the team ______ responsible for the outcome.",
           "choices": [
             "is",
-            "be",
             "are",
+            "be",
             "being"
           ],
           "answer": 0,
@@ -195,45 +195,45 @@ window.GRAMMAR = {
         {
           "sentence": "The number of complaints ______ decreased significantly this year.",
           "choices": [
-            "has",
             "have",
             "is",
-            "are"
+            "are",
+            "has"
           ],
-          "answer": 0,
+          "answer": 3,
           "why": "The number of + พหูพจน์ ถือเป็นเอกพจน์ แปลว่า จำนวนของ จึงใช้ has ระวังสับสนกับ A number of ซึ่งเป็นพหูพจน์"
         },
         {
           "sentence": "Neither the manager nor the employees ______ aware of the change.",
           "choices": [
-            "be",
-            "is",
             "were",
-            "was"
+            "be",
+            "was",
+            "is"
           ],
-          "answer": 2,
+          "answer": 0,
           "why": "Neither A nor B ให้กริยาผันตามคำที่อยู่ใกล้ที่สุด คือ the employees ซึ่งเป็นพหูพจน์ จึงใช้ were"
         },
         {
           "sentence": "A number of clients ______ requested a refund.",
           "choices": [
-            "has",
+            "have",
             "had",
             "having",
-            "have"
+            "has"
           ],
-          "answer": 3,
+          "answer": 0,
           "why": "A number of + พหูพจน์ แปลว่า หลาย จึงเป็นพหูพจน์ ใช้ have ตรงข้ามกับ The number of ที่เป็นเอกพจน์"
         },
         {
           "sentence": "Each of the reports ______ reviewed carefully before submission.",
           "choices": [
             "be",
-            "are",
             "was",
+            "are",
             "were"
           ],
-          "answer": 2,
+          "answer": 1,
           "why": "Each of + พหูพจน์ ยังถือเป็นเอกพจน์ และประโยคเป็น passive ในอดีต จึงใช้ was reviewed"
         }
       ],
@@ -297,32 +297,32 @@ window.GRAMMAR = {
         {
           "sentence": "The train usually ______ on time.",
           "choices": [
-            "arrive",
-            "is arriving",
             "arrived",
-            "arrives"
+            "arrive",
+            "arrives",
+            "is arriving"
           ],
-          "answer": 3,
+          "answer": 2,
           "why": "คำว่า usually บอกความเคยชินที่ทำเป็นประจำ จึงใช้ Present Simple และประธาน The train เป็นเอกพจน์ จึงเติม s เป็น arrives"
         },
         {
           "sentence": "Right now, the technicians ______ the printer.",
           "choices": [
+            "are repairing",
             "repaired",
             "repair",
-            "repairs",
-            "are repairing"
+            "repairs"
           ],
-          "answer": 3,
+          "answer": 0,
           "why": "Right now บอกว่ากำลังเกิดขึ้นตอนนี้ จึงใช้ Present Continuous คือ are repairing ตามประธานพหูพจน์ the technicians"
         },
         {
           "sentence": "We ______ the contract last Friday.",
           "choices": [
             "signed",
-            "are signing",
+            "have sign",
             "sign",
-            "have sign"
+            "are signing"
           ],
           "answer": 0,
           "why": "last Friday คืออดีตที่ระบุเวลาชัดเจน ต้องใช้ Past Simple คือ signed ใช้ Present Perfect ไม่ได้เพราะมีเวลากำกับ"
@@ -330,23 +330,23 @@ window.GRAMMAR = {
         {
           "sentence": "She ______ to the Tokyo office every quarter.",
           "choices": [
-            "travel",
             "is traveling",
-            "traveled",
-            "travels"
+            "travel",
+            "travels",
+            "traveled"
           ],
-          "answer": 3,
+          "answer": 2,
           "why": "every quarter บอกความถี่ที่ทำเป็นประจำ จึงเป็น Present Simple และ She เป็นเอกพจน์ จึงเป็น travels"
         },
         {
           "sentence": "At the moment, the manager ______ with a client.",
           "choices": [
-            "meets",
-            "met",
+            "meet",
             "is meeting",
-            "meet"
+            "met",
+            "meets"
           ],
-          "answer": 2,
+          "answer": 1,
           "why": "At the moment บอกว่ากำลังเกิดขึ้นขณะนี้ จึงใช้ Present Continuous คือ is meeting"
         }
       ],
@@ -410,31 +410,31 @@ window.GRAMMAR = {
         {
           "sentence": "The company ______ its headquarters twice since 2010.",
           "choices": [
-            "was moving",
-            "moved",
             "has moved",
-            "move"
+            "moved",
+            "move",
+            "was moving"
           ],
-          "answer": 2,
+          "answer": 0,
           "why": "since 2010 บอกช่วงเวลาที่ต่อเนื่องจากอดีตถึงปัจจุบัน ต้องใช้ Present Perfect คือ has moved"
         },
         {
           "sentence": "We ______ the new system last month.",
           "choices": [
             "install",
-            "installed",
             "installing",
-            "have installed"
+            "have installed",
+            "installed"
           ],
-          "answer": 1,
+          "answer": 3,
           "why": "last month คืออดีตที่จบแล้วและระบุเวลาชัด จึงใช้ Past Simple คือ installed ห้ามใช้ Present Perfect กับเวลาที่ระบุชัด"
         },
         {
           "sentence": "I ______ finished the report yet.",
           "choices": [
-            "didn't",
             "wasn't",
             "don't",
+            "didn't",
             "haven't"
           ],
           "answer": 3,
@@ -443,23 +443,23 @@ window.GRAMMAR = {
         {
           "sentence": "She ______ for this company for five years.",
           "choices": [
-            "works",
-            "has worked",
             "is working",
-            "worked"
+            "worked",
+            "works",
+            "has worked"
           ],
-          "answer": 1,
+          "answer": 3,
           "why": "for five years บอกระยะเวลาที่ยังดำเนินอยู่ถึงปัจจุบัน จึงใช้ Present Perfect คือ has worked"
         },
         {
           "sentence": "They ______ the meeting yesterday afternoon.",
           "choices": [
-            "attend",
-            "attended",
             "are attending",
-            "have attended"
+            "attend",
+            "have attended",
+            "attended"
           ],
-          "answer": 1,
+          "answer": 3,
           "why": "yesterday afternoon คืออดีตที่จบแล้วและระบุเวลาชัด จึงใช้ Past Simple คือ attended"
         }
       ],
@@ -523,21 +523,21 @@ window.GRAMMAR = {
         {
           "sentence": "The meeting will begin ______ 9 a.m. sharp.",
           "choices": [
-            "at",
             "on",
-            "in",
-            "by"
+            "at",
+            "by",
+            "in"
           ],
-          "answer": 0,
+          "answer": 1,
           "why": "ใช้ at กับเวลาที่เป็นจุดเวลานาฬิกา เช่น at 9 a.m. ส่วน on ใช้กับวัน in ใช้กับเดือนหรือปี"
         },
         {
           "sentence": "The report is due ______ Friday.",
           "choices": [
             "on",
+            "at",
             "during",
-            "in",
-            "at"
+            "in"
           ],
           "answer": 0,
           "why": "ใช้ on กับวันในสัปดาห์ เช่น on Friday"
@@ -546,9 +546,9 @@ window.GRAMMAR = {
           "sentence": "Sales increased significantly ______ the holiday season.",
           "choices": [
             "during",
+            "since",
             "for",
-            "by",
-            "since"
+            "by"
           ],
           "answer": 0,
           "why": "during + คำนามที่เป็นช่วงเวลา เช่น during the holiday season ส่วน for ต้องตามด้วยความยาวของเวลา เช่น for three weeks"
@@ -556,8 +556,8 @@ window.GRAMMAR = {
         {
           "sentence": "Please submit your application ______ the end of the month.",
           "choices": [
-            "until",
             "since",
+            "until",
             "by",
             "at"
           ],
@@ -567,12 +567,12 @@ window.GRAMMAR = {
         {
           "sentence": "The negotiations continued ______ three hours.",
           "choices": [
-            "for",
-            "since",
             "at",
-            "during"
+            "during",
+            "since",
+            "for"
           ],
-          "answer": 0,
+          "answer": 3,
           "why": "for + ความยาวของเวลา เช่น for three hours ส่วน during ต้องตามด้วยชื่อช่วงเวลา ไม่ใช่ตัวเลขชั่วโมง"
         }
       ],
@@ -646,42 +646,42 @@ window.GRAMMAR = {
           "sentence": "The manager suggested ______ the meeting until next week.",
           "choices": [
             "postponed",
-            "postpone",
             "postponing",
+            "postpone",
             "to postpone"
           ],
-          "answer": 2,
+          "answer": 1,
           "why": "กริยา suggest ตามด้วย V-ing เสมอ จึงเป็น postponing กลุ่มที่ตามด้วย V-ing ได้แก่ suggest, avoid, consider, recommend, enjoy, finish"
         },
         {
           "sentence": "We have decided ______ a new supplier.",
           "choices": [
-            "hiring",
             "to hire",
-            "hire",
-            "hired"
+            "hiring",
+            "hired",
+            "hire"
           ],
-          "answer": 1,
+          "answer": 0,
           "why": "กริยา decide ตามด้วย to + V เสมอ จึงเป็น to hire กลุ่มนี้ได้แก่ decide, agree, plan, hope, promise, offer"
         },
         {
           "sentence": "She is responsible for ______ the weekly reports.",
           "choices": [
             "to prepare",
-            "preparing",
             "prepare",
+            "preparing",
             "prepared"
           ],
-          "answer": 1,
+          "answer": 2,
           "why": "หลังบุพบท for ต้องเป็น V-ing เสมอ จึงเป็น preparing จำง่ายๆ ว่าหลังบุพบทห้ามใช้ to + V"
         },
         {
           "sentence": "The team agreed ______ the deadline.",
           "choices": [
+            "extending",
             "extend",
-            "extended",
             "to extend",
-            "extending"
+            "extended"
           ],
           "answer": 2,
           "why": "กริยา agree ตามด้วย to + V จึงเป็น to extend"
@@ -689,12 +689,12 @@ window.GRAMMAR = {
         {
           "sentence": "Please avoid ______ personal calls during work hours.",
           "choices": [
-            "making",
             "made",
             "make",
-            "to make"
+            "to make",
+            "making"
           ],
-          "answer": 0,
+          "answer": 3,
           "why": "กริยา avoid ตามด้วย V-ing จึงเป็น making"
         }
       ],
@@ -757,9 +757,9 @@ window.GRAMMAR = {
         {
           "sentence": "The employee ______ submitted the report on time received a bonus.",
           "choices": [
-            "which",
-            "whom",
             "whose",
+            "whom",
+            "which",
             "who"
           ],
           "answer": 3,
@@ -768,10 +768,10 @@ window.GRAMMAR = {
         {
           "sentence": "The laptop ______ was damaged has been replaced.",
           "choices": [
-            "who",
+            "whom",
             "whose",
             "which",
-            "whom"
+            "who"
           ],
           "answer": 2,
           "why": "คำที่ถูกขยายคือ The laptop ซึ่งเป็นสิ่งของ จึงใช้ which"
@@ -779,8 +779,8 @@ window.GRAMMAR = {
         {
           "sentence": "This is the client ______ contract we renewed last month.",
           "choices": [
-            "whom",
             "which",
+            "whom",
             "who",
             "whose"
           ],
@@ -801,12 +801,12 @@ window.GRAMMAR = {
         {
           "sentence": "The proposal, ______ was reviewed by the board, was approved.",
           "choices": [
-            "who",
             "which",
-            "whom",
-            "whose"
+            "who",
+            "whose",
+            "whom"
           ],
-          "answer": 1,
+          "answer": 0,
           "why": "คำที่ถูกขยายคือ The proposal ซึ่งเป็นสิ่งของ และคั่นด้วยคอมมา จึงใช้ which ข้อควรจำคือหลังคอมมาห้ามใช้ that"
         }
       ],
@@ -860,21 +860,21 @@ window.GRAMMAR = {
         {
           "sentence": "The flight was delayed ______ the heavy storm.",
           "choices": [
-            "because",
             "although",
             "because of",
-            "however"
+            "however",
+            "because"
           ],
-          "answer": 2,
+          "answer": 1,
           "why": "หลังช่องว่างคือคำนาม the heavy storm ไม่ใช่ประโยค จึงต้องใช้ because of ส่วน because ต้องตามด้วยประโยคที่มีประธานและกริยา"
         },
         {
           "sentence": "The store closed early ______ the manager was ill.",
           "choices": [
             "because",
+            "however",
             "moreover",
-            "because of",
-            "however"
+            "because of"
           ],
           "answer": 0,
           "why": "หลังช่องว่างคือประโยคเต็ม the manager was ill จึงใช้ because ถ้าจะใช้ because of ต้องตามด้วยคำนามเท่านั้น"
@@ -883,11 +883,11 @@ window.GRAMMAR = {
           "sentence": "The product is expensive; ______, it is very reliable.",
           "choices": [
             "because",
-            "since",
             "however",
+            "since",
             "although"
           ],
-          "answer": 2,
+          "answer": 1,
           "why": "สองประโยคขัดแย้งกัน คือแพงแต่ทนทาน และคั่นด้วยเซมิโคลอน จึงใช้ however ซึ่งเป็นคำเชื่อมแบบวางหน้าประโยคใหม่"
         },
         {
@@ -895,8 +895,8 @@ window.GRAMMAR = {
           "choices": [
             "Since",
             "Despite",
-            "Because",
-            "Although"
+            "Although",
+            "Because"
           ],
           "answer": 1,
           "why": "หลังช่องว่างคือคำนาม the rain จึงใช้ Despite ส่วน Although ต้องตามด้วยประโยคเต็ม"
@@ -904,10 +904,10 @@ window.GRAMMAR = {
         {
           "sentence": "He missed the deadline; ______, he was not penalized.",
           "choices": [
-            "although",
-            "nevertheless",
             "since",
-            "because"
+            "nevertheless",
+            "because",
+            "although"
           ],
           "answer": 1,
           "why": "สองประโยคขัดแย้งกัน คือพลาดกำหนดแต่ไม่ถูกลงโทษ และคั่นด้วยเซมิโคลอน จึงใช้ nevertheless ส่วน although ใช้เชื่อมภายในประโยคเดียวไม่ใช่หลังเซมิโคลอน"
@@ -981,8 +981,8 @@ window.GRAMMAR = {
           "choices": [
             "more efficient",
             "efficienter",
-            "efficient",
-            "most efficient"
+            "most efficient",
+            "efficient"
           ],
           "answer": 0,
           "why": "มีคำว่า than แปลว่าเป็นการเปรียบเทียบสองสิ่ง และ efficient เป็นคำยาวสามพยางค์ จึงใช้ more efficient ไม่เติม -er"
@@ -990,12 +990,12 @@ window.GRAMMAR = {
         {
           "sentence": "Of all the branches, the downtown store is the ______.",
           "choices": [
-            "more busy",
-            "most busy",
+            "busiest",
             "busier",
-            "busiest"
+            "more busy",
+            "most busy"
           ],
-          "answer": 3,
+          "answer": 0,
           "why": "Of all the branches บอกว่าเปรียบเทียบทั้งกลุ่ม จึงใช้ขั้นสูงสุด และ busy ลงท้ายด้วย y จึงเปลี่ยนเป็น busiest"
         },
         {
@@ -1024,11 +1024,11 @@ window.GRAMMAR = {
           "sentence": "Prices this year are ______ than last year.",
           "choices": [
             "more high",
+            "highest",
             "higher",
-            "high",
-            "highest"
+            "high"
           ],
-          "answer": 1,
+          "answer": 2,
           "why": "มีคำว่า than จึงเป็นขั้นกว่า และ high เป็นคำพยางค์เดียว จึงเติม -er เป็น higher"
         }
       ],
@@ -1091,20 +1091,20 @@ window.GRAMMAR = {
         {
           "sentence": "The new policy ______ next Monday.",
           "choices": [
-            "announces",
             "will be announced",
             "will announce",
+            "announces",
             "is announcing"
           ],
-          "answer": 1,
+          "answer": 0,
           "why": "นโยบายถูกประกาศ ไม่ได้ประกาศเอง จึงเป็น passive และเป็นอนาคต จึงใช้ will be announced"
         },
         {
           "sentence": "All applications ______ carefully before an interview is scheduled.",
           "choices": [
             "are reviewed",
-            "reviewing",
             "review",
+            "reviewing",
             "have review"
           ],
           "answer": 0,
@@ -1113,12 +1113,12 @@ window.GRAMMAR = {
         {
           "sentence": "The report ______ by the finance team every quarter.",
           "choices": [
-            "preparing",
             "is prepared",
             "has prepare",
+            "preparing",
             "prepares"
           ],
-          "answer": 1,
+          "answer": 0,
           "why": "รายงานถูกจัดทำโดยทีมการเงิน สังเกตคำว่า by ซึ่งเป็นสัญญาณของ passive และ every quarter บอกความประจำ จึงเป็น is prepared"
         },
         {
@@ -1126,21 +1126,21 @@ window.GRAMMAR = {
           "choices": [
             "designs",
             "has design",
-            "was designed",
-            "designed"
+            "designed",
+            "was designed"
           ],
-          "answer": 2,
+          "answer": 3,
           "why": "อาคารถูกออกแบบโดยสถาปนิก และ in 1990 เป็นอดีต จึงใช้ passive ในอดีตคือ was designed"
         },
         {
           "sentence": "New employees ______ during their first week.",
           "choices": [
             "train",
-            "training",
             "are trained",
-            "have train"
+            "have train",
+            "training"
           ],
-          "answer": 2,
+          "answer": 1,
           "why": "พนักงานใหม่ถูกฝึก ไม่ได้ฝึกเอง จึงเป็น passive และประธานเป็นพหูพจน์ จึงใช้ are trained"
         }
       ],
@@ -1197,8 +1197,8 @@ window.GRAMMAR = {
           "sentence": "The company announced ______ plans to open three new branches.",
           "choices": [
             "its",
-            "it's",
             "them",
+            "it's",
             "their"
           ],
           "answer": 0,
@@ -1207,45 +1207,45 @@ window.GRAMMAR = {
         {
           "sentence": "Please forward the documents to ______ as soon as possible.",
           "choices": [
-            "my",
             "me",
-            "mine",
-            "I"
+            "my",
+            "I",
+            "mine"
           ],
-          "answer": 1,
+          "answer": 0,
           "why": "หลังบุพบท to ต้องเป็นสรรพนามรูปกรรม จึงใช้ me ไม่ใช่ my หรือ I"
         },
         {
           "sentence": "The technicians repaired the equipment ______ without outside help.",
           "choices": [
-            "themselves",
             "their",
             "them",
-            "theirs"
+            "theirs",
+            "themselves"
           ],
-          "answer": 0,
+          "answer": 3,
           "why": "ประโยคมีกรรมครบแล้วคือ the equipment ช่องว่างจึงเป็นสรรพนามสะท้อนกลับที่เน้นว่าทำเอง คือ themselves"
         },
         {
           "sentence": "Employees who finish early may leave, but ______ must sign out first.",
           "choices": [
-            "they",
-            "them",
             "their",
-            "theirs"
+            "theirs",
+            "them",
+            "they"
           ],
-          "answer": 0,
+          "answer": 3,
           "why": "ช่องว่างทำหน้าที่ประธานของกริยา must sign จึงต้องเป็นสรรพนามรูปประธาน คือ they"
         },
         {
           "sentence": "The two departments agreed to share information with ______.",
           "choices": [
-            "another one",
             "themself",
-            "one",
-            "each other"
+            "another one",
+            "each other",
+            "one"
           ],
-          "answer": 3,
+          "answer": 2,
           "why": "share information with + กันและกัน เมื่อมีสองฝ่าย ใช้ each other"
         }
       ],
@@ -1301,12 +1301,12 @@ window.GRAMMAR = {
         {
           "sentence": "The office manager ordered new ______ for the conference room.",
           "choices": [
+            "a furniture",
             "furniture",
-            "many furniture",
             "furnitures",
-            "a furniture"
+            "many furniture"
           ],
-          "answer": 0,
+          "answer": 1,
           "why": "furniture เป็นคำนามนับไม่ได้ จึงเติม s ไม่ได้และใช้ a หรือ many นำหน้าไม่ได้ ตอบ furniture เปล่าๆ"
         },
         {
@@ -1314,29 +1314,29 @@ window.GRAMMAR = {
           "choices": [
             "Few additional",
             "An additional",
-            "Additional",
-            "Many additional"
+            "Many additional",
+            "Additional"
           ],
-          "answer": 2,
+          "answer": 3,
           "why": "information เป็นคำนามนับไม่ได้ จึงใช้ An หรือ Many นำหน้าไม่ได้ และ Few ใช้กับนามนับได้เท่านั้น เหลือเพียง Additional"
         },
         {
           "sentence": "Only ______ applicants met all the requirements for the position.",
           "choices": [
+            "a great deal of",
             "a little",
             "a few",
-            "much",
-            "a great deal of"
+            "much"
           ],
-          "answer": 1,
+          "answer": 2,
           "why": "applicants เป็นคำนามนับได้พหูพจน์ จึงใช้ a few ส่วน a little และ much ใช้กับนามนับไม่ได้"
         },
         {
           "sentence": "There is very ______ time left before the deadline.",
           "choices": [
+            "few",
             "several",
             "many",
-            "few",
             "little"
           ],
           "answer": 3,
@@ -1345,12 +1345,12 @@ window.GRAMMAR = {
         {
           "sentence": "We hired ______ experienced engineer to lead the project.",
           "choices": [
-            "an",
+            "any",
             "the some",
             "a",
-            "any"
+            "an"
           ],
-          "answer": 0,
+          "answer": 3,
           "why": "experienced ขึ้นต้นด้วยเสียงสระ จึงใช้ an และเป็นการกล่าวถึงครั้งแรกแบบไม่เจาะจง จึงไม่ใช้ the"
         }
       ],
@@ -1405,56 +1405,56 @@ window.GRAMMAR = {
         {
           "sentence": "The employees ______ in the training session received certificates.",
           "choices": [
-            "participated",
-            "participating",
+            "participation",
             "participate",
-            "participation"
+            "participating",
+            "participated"
           ],
-          "answer": 1,
+          "answer": 2,
           "why": "พนักงานเป็นผู้เข้าร่วมเอง เป็นผู้กระทำ จึงใช้ V-ing คือ participating ย่อมาจาก who were participating"
         },
         {
           "sentence": "All documents ______ after the deadline will not be considered.",
           "choices": [
+            "submitted",
             "submitting",
             "submit",
-            "submission",
-            "submitted"
+            "submission"
           ],
-          "answer": 3,
+          "answer": 0,
           "why": "เอกสารถูกส่ง เป็นผู้ถูกกระทำ จึงใช้กริยาช่อง 3 คือ submitted ย่อมาจาก which are submitted"
         },
         {
           "sentence": "The audience found the keynote speech extremely ______.",
           "choices": [
-            "inspired",
             "inspire",
-            "inspiring",
-            "inspiration"
+            "inspired",
+            "inspiration",
+            "inspiring"
           ],
-          "answer": 2,
+          "answer": 3,
           "why": "คำขยายนี้บอกลักษณะของตัวสุนทรพจน์ซึ่งเป็นผู้ทำให้เกิดความรู้สึก จึงใช้ V-ing คือ inspiring"
         },
         {
           "sentence": "Customers were ______ with the quality of the service.",
           "choices": [
             "satisfying",
-            "satisfaction",
             "satisfy",
-            "satisfied"
+            "satisfied",
+            "satisfaction"
           ],
-          "answer": 3,
+          "answer": 2,
           "why": "ลูกค้าเป็นผู้รู้สึก คือถูกทำให้พอใจ จึงใช้กริยาช่อง 3 คือ satisfied จำง่ายๆ ว่าคนใช้ -ed ของหรือเรื่องใช้ -ing"
         },
         {
           "sentence": "______ the contract carefully, the lawyer suggested several changes.",
           "choices": [
-            "Reviewed",
             "Being reviewed",
             "Having reviewed",
-            "To review"
+            "To review",
+            "Reviewed"
           ],
-          "answer": 2,
+          "answer": 1,
           "why": "การตรวจสัญญาเกิดขึ้นก่อนการเสนอแก้ไข จึงใช้ Having + ช่อง 3 เพื่อบอกลำดับก่อนหลัง"
         }
       ],
@@ -1514,43 +1514,43 @@ window.GRAMMAR = {
         {
           "sentence": "All employees ______ complete the safety training before entering the factory.",
           "choices": [
-            "must",
             "are must",
+            "must",
             "must to",
             "musting"
           ],
-          "answer": 0,
+          "answer": 1,
           "why": "must เป็นกริยาช่วย ตามด้วยกริยารูปไม่ผันทันที ไม่มี to และไม่ผันรูป"
         },
         {
           "sentence": "If the shipment ______ on time, we will meet the production schedule.",
           "choices": [
-            "arrives",
+            "arriving",
             "arrive",
-            "will arrive",
-            "arriving"
+            "arrives",
+            "will arrive"
           ],
-          "answer": 0,
+          "answer": 2,
           "why": "ประโยคเงื่อนไขแบบที่ 1 คือ If + Present Simple, will + V จึงใช้ arrives ห้ามใช้ will ในประโยค if"
         },
         {
           "sentence": "You ______ attend the optional workshop if you are already certified.",
           "choices": [
-            "should not have",
-            "must not",
             "don't have to",
+            "must not",
+            "should not have",
             "cannot"
           ],
-          "answer": 2,
+          "answer": 0,
           "why": "don't have to แปลว่าไม่จำเป็นต้องทำ ซึ่งตรงกับบริบทที่ได้ใบรับรองแล้ว ส่วน must not แปลว่าห้ามทำ ความหมายคนละเรื่อง"
         },
         {
           "sentence": "If the company had invested earlier, it ______ a larger market share.",
           "choices": [
             "would have gained",
+            "will gain",
             "gains",
-            "would gain",
-            "will gain"
+            "would gain"
           ],
           "answer": 0,
           "why": "If + had + ช่อง 3 คือเงื่อนไขแบบที่ 3 พูดถึงอดีตที่ไม่ได้เกิดขึ้นจริง ประโยคผลจึงเป็น would have + ช่อง 3"
@@ -1558,8 +1558,8 @@ window.GRAMMAR = {
         {
           "sentence": "______ you confirm by Friday, the reservation will be cancelled.",
           "choices": [
-            "As long as",
             "If",
+            "As long as",
             "Unless",
             "Provided"
           ],
@@ -1606,56 +1606,56 @@ window.GRAMMAR = {
         {
           "sentence": "The total cost ______ the approved budget by ten percent.",
           "choices": [
-            "excelled",
-            "expired",
+            "exceeded",
             "expanded",
-            "exceeded"
+            "expired",
+            "excelled"
           ],
-          "answer": 3,
+          "answer": 0,
           "why": "exceed แปลว่าเกินกว่าที่กำหนด ใช้คู่กับ budget ได้ตรงที่สุด ส่วน excel แปลว่าทำได้ดีเยี่ยม expire แปลว่าหมดอายุ"
         },
         {
           "sentence": "Please ______ the human resources department of any change of address.",
           "choices": [
-            "declare",
-            "notify",
+            "announce",
             "mention",
-            "announce"
+            "notify",
+            "declare"
           ],
-          "answer": 1,
+          "answer": 2,
           "why": "notify + คน แปลว่าแจ้งให้ใครทราบ ส่วน announce และ declare ตามด้วยเรื่องที่ประกาศ ไม่ใช่ตามด้วยคน"
         },
         {
           "sentence": "The manager ______ the request because the deadline had already passed.",
           "choices": [
-            "denied",
             "refused to",
+            "declined from",
             "rejected of",
-            "declined from"
+            "denied"
           ],
-          "answer": 0,
+          "answer": 3,
           "why": "deny แปลว่าปฏิเสธคำขอ และตามด้วยกรรมได้ทันที ส่วน refuse to ต้องตามด้วยกริยา และ reject ไม่ต้องมี of"
         },
         {
           "sentence": "All purchases over $500 must be ______ by a supervisor.",
           "choices": [
-            "agreed",
-            "permitted of",
             "allowed to",
-            "authorized"
+            "agreed",
+            "authorized",
+            "permitted of"
           ],
-          "answer": 3,
+          "answer": 2,
           "why": "authorize แปลว่าอนุมัติอย่างเป็นทางการ ใช้กับการอนุมัติการสั่งซื้อ และเป็นรูป passive ที่ตามด้วย by ได้"
         },
         {
           "sentence": "Sales are expected to ______ steadily throughout the holiday season.",
           "choices": [
-            "arise",
             "raise",
-            "increase",
-            "lift"
+            "arise",
+            "lift",
+            "increase"
           ],
-          "answer": 2,
+          "answer": 3,
           "why": "increase เป็นกริยาที่ใช้เองได้โดยไม่ต้องมีกรรม แปลว่าเพิ่มขึ้น ส่วน raise ต้องมีกรรมตามเสมอ และ arise แปลว่าเกิดขึ้นของปัญหา"
         }
       ],
@@ -1694,21 +1694,21 @@ window.GRAMMAR = {
         {
           "sentence": "Our office will be closed on Monday for maintenance. ______, all appointments have been moved to Tuesday.",
           "choices": [
-            "Nevertheless",
             "However",
-            "For example",
-            "Therefore"
+            "Nevertheless",
+            "Therefore",
+            "For example"
           ],
-          "answer": 3,
+          "answer": 2,
           "why": "ประโยคแรกเป็นเหตุคือปิดทำการ ประโยคหลังเป็นผลคือเลื่อนนัด จึงใช้คำเชื่อมแสดงผลลัพธ์ Therefore"
         },
         {
           "sentence": "The new software is faster than the old system. ______, it requires less memory.",
           "choices": [
-            "Otherwise",
+            "In contrast",
             "However",
             "In addition",
-            "In contrast"
+            "Otherwise"
           ],
           "answer": 2,
           "why": "ประโยคหลังเสริมข้อดีเพิ่มจากประโยคแรก ไม่ได้ขัดแย้งกัน จึงใช้ In addition"
@@ -1727,28 +1727,406 @@ window.GRAMMAR = {
         {
           "sentence": "The workshop was fully booked. ______, we have added a second session next month.",
           "choices": [
+            "As a result",
             "Meanwhile",
-            "For instance",
             "On the other hand",
-            "As a result"
+            "For instance"
           ],
-          "answer": 3,
+          "answer": 0,
           "why": "ที่นั่งเต็มเป็นเหตุ การเพิ่มรอบเป็นผล จึงใช้ As a result"
         },
         {
           "sentence": "Prices will increase on July 1. Orders placed before that date, ______, will be charged at the current rate.",
           "choices": [
             "in addition",
-            "for example",
+            "however",
             "therefore",
-            "however"
+            "for example"
           ],
-          "answer": 3,
+          "answer": 1,
           "why": "ราคาขึ้นแต่ออเดอร์ก่อนหน้านั้นยังได้ราคาเดิม เป็นความขัดแย้ง จึงใช้ however ซึ่งวางแทรกกลางประโยคคั่นด้วยคอมมาได้"
         }
       ],
       "parts": [
         6
+      ]
+    },
+    {
+      "id": 17,
+      "order": 1.5,
+      "parts": [
+        5,
+        6
+      ],
+      "title": "กริยาแท้: ทุกประโยคต้องมี 1 ตัว (Finite Verbs)",
+      "explain": [
+        {
+          "heading": "หลักการ: หนึ่งประโยค หนึ่งกริยาแท้",
+          "body": "กฎที่ตัดตัวเลือกได้เร็วที่สุดใน Part 5 คือ ทุกประโยคต้องมีกริยาแท้ 1 ตัว ไม่ขาดและไม่เกิน\n\nกริยาแท้ คือกริยาที่บอก tense ได้ ผันตามประธานได้\n• works, worked, is working, has worked, will work\n• can work, must work, should work\n• was worked, has been worked, will be worked\n\nกริยาไม่แท้ คือกริยาที่บอก tense ไม่ได้ ใช้เป็นกริยาหลักของประโยคไม่ได้\n• to + V (to work)\n• V-ing ที่ไม่มี be นำหน้า (working)\n• having + V3 (having worked)\n• V3 ที่ใช้ขยายคำนาม (the report submitted yesterday)\n\nความสำคัญของกฎนี้คือ มันตัดตัวเลือกได้ทีละ 3 ตัวโดยไม่ต้องแปลอะไรเลย"
+        },
+        {
+          "heading": "วิธีใช้ในห้องสอบ 4 ขั้น",
+          "body": "1 หาประธานของประโยค\n2 หาว่าประโยคมีกริยาแท้แล้วหรือยัง อย่าหลงกับกริยาไม่แท้ที่อยู่ในประโยค\n3 ถ้ายังไม่มีกริยาแท้ → ช่องว่างต้องเป็นกริยาแท้\n   ตัด to V, V-ing และ having V3 ทิ้งทันที แล้วค่อยเลือก tense จากคำบอกเวลา\n4 ถ้ามีกริยาแท้แล้ว → ช่องว่างห้ามเป็นกริยาแท้อีก\n   คำตอบต้องเป็น to V, V-ing, V3 หรือคำชนิดอื่น\n\nตัวอย่างขั้นที่ 4\nThe committee decided ______ the proposal next month.\ndecided เป็นกริยาแท้แล้ว ช่องว่างจึงห้ามเป็นกริยาแท้ และ decide ตามด้วย to + V → to review"
+        },
+        {
+          "heading": "ถ้าประโยคมีกริยาแท้สองตัว ต้องมีตัวเชื่อม",
+          "body": "ประโยคมีกริยาแท้ได้มากกว่าหนึ่งตัว ก็ต่อเมื่อมีคำเชื่อมแบ่งเป็นหลายประโยคย่อย\n\nคำเชื่อมที่แบ่งประโยค\n• and / but / or / so\n• who / which / that / whose (relative pronoun)\n• because / although / when / if / while / after / before / until (เมื่อตามด้วยประโยค)\n\nสูตรนับ: จำนวนกริยาแท้ = จำนวนคำเชื่อม + 1\n\nตัวอย่าง\nThe manager who hired her left the company last year.\nกริยาแท้คือ hired และ left มีคำเชื่อม who หนึ่งตัว → 1 + 1 = 2 ถูกต้อง\n\nใช้กฎนี้ย้อนกลับได้ด้วย\nEmployees who ______ overtime will receive extra pay.\nwill receive เป็นกริยาแท้ของประโยคหลัก แต่ who เปิดประโยคย่อยใหม่ ประโยคย่อยนี้ต้องมีกริยาแท้ของตัวเอง → work"
+        },
+        {
+          "heading": "กับดักที่ทำให้หากริยาแท้ผิด",
+          "body": "กับดักที่ 1 ประธานยาว มีส่วนขยายคั่น\nThe results of the survey conducted last month ______ surprising.\nconducted ดูเหมือนกริยา แต่เป็น V3 ที่ขยาย the survey (แบบสำรวจที่ทำเมื่อเดือนก่อน) ไม่ใช่กริยาแท้\nประโยคจึงยังไม่มีกริยาแท้ → ช่องว่างต้องเป็นกริยาแท้ → were\n\nกับดักที่ 2 V3 ตัวเดียวกันเป็นได้ทั้งแท้และไม่แท้\n• The report was submitted on time. → was submitted เป็นกริยาแท้\n• The report submitted on time was approved. → submitted ขยาย report ส่วนกริยาแท้คือ was approved\nวิธีแยก: V3 ที่ไม่มี be หรือ have นำหน้า และมีกริยาแท้ตัวอื่นอยู่แล้ว คือตัวขยาย\n\nกับดักที่ 3 V-ing ขึ้นต้นประโยค\nHaving checked the figures, the accountant signed the report.\nHaving checked เป็นกริยาไม่แท้ กริยาแท้คือ signed ประโยคนี้ถูกต้อง"
+        },
+        {
+          "heading": "ตัวอย่างทำให้ดูทีละขั้น",
+          "body": "ข้อที่ 1\nThe new branch manager ______ the staff meeting last Tuesday.\nตัวเลือก: to lead / led / leading / having led\nขั้นที่ 1 ประธานคือ The new branch manager\nขั้นที่ 2 หากริยาแท้ในประโยค → ไม่มีเลย\nขั้นที่ 3 ช่องว่างต้องเป็นกริยาแท้ → ตัด to lead, leading, having led เหลือ led\nขั้นที่ 4 ยืนยันด้วย last Tuesday ซึ่งเป็นอดีต\n\nข้อที่ 2\nAll invoices ______ after the 25th will be processed next month.\nตัวเลือก: receive / are received / received / receives\nขั้นที่ 1 ประธานคือ All invoices\nขั้นที่ 2 หากริยาแท้ → will be processed มีแล้ว\nขั้นที่ 3 ไม่มีคำเชื่อมอยู่เลย ช่องว่างจึงห้ามเป็นกริยาแท้ → ตัด receive, are received, receives\nขั้นที่ 4 เหลือ received ซึ่งขยาย invoices (ใบแจ้งหนี้ที่ได้รับหลังวันที่ 25)\nกับดักของข้อนี้คือ are received ซึ่งแปลแล้วฟังดูถูก แต่จะทำให้มีกริยาแท้สองตัวโดยไม่มีคำเชื่อม"
+        }
+      ],
+      "practice": [
+        {
+          "sentence": "The marketing team ______ a new campaign for the spring season.",
+          "choices": [
+            "to launch",
+            "having launched",
+            "launching",
+            "launched"
+          ],
+          "answer": 3,
+          "why": "ประโยคยังไม่มีกริยาแท้เลย ช่องว่างจึงต้องเป็นกริยาแท้ to launch, launching และ having launched เป็นกริยาไม่แท้ทั้งหมด ตัดทิ้งได้ทันที เหลือ launched"
+        },
+        {
+          "sentence": "Ms. Park hopes ______ the project before the end of the quarter.",
+          "choices": [
+            "to complete",
+            "completed",
+            "complete",
+            "completes"
+          ],
+          "answer": 0,
+          "why": "hopes เป็นกริยาแท้แล้ว ช่องว่างจึงห้ามเป็นกริยาแท้อีก และ hope ตามด้วย to + V เสมอ ส่วน complete, completed และ completes จะทำให้มีกริยาแท้สองตัวโดยไม่มีคำเชื่อม"
+        },
+        {
+          "sentence": "The documents ______ on the desk need to be signed by noon.",
+          "choices": [
+            "leave",
+            "left",
+            "are left",
+            "leaves"
+          ],
+          "answer": 1,
+          "why": "กริยาแท้ของประโยคคือ need มีอยู่แล้วและไม่มีคำเชื่อม ช่องว่างจึงเป็นตัวขยาย documents คือเอกสารที่ถูกวางไว้บนโต๊ะ ใช้ V3 left ส่วน are left จะเป็นกริยาแท้ตัวที่สอง"
+        },
+        {
+          "sentence": "Visitors ______ the museum after 5 P.M. must use the side entrance.",
+          "choices": [
+            "entered",
+            "enters",
+            "enter",
+            "entering"
+          ],
+          "answer": 3,
+          "why": "กริยาแท้คือ must use ช่องว่างจึงเป็นตัวขยาย visitors และผู้มาเยือนเป็นคนเข้าเอง (กระทำเอง) จึงใช้ V-ing คือ entering ย่อมาจาก visitors who enter"
+        },
+        {
+          "sentence": "The survey results ______ that most customers prefer online ordering.",
+          "choices": [
+            "having shown",
+            "showing",
+            "to show",
+            "show"
+          ],
+          "answer": 3,
+          "why": "prefer เป็นกริยาแท้ของประโยคย่อยหลัง that แต่ประโยคหลักยังไม่มีกริยาแท้ ช่องว่างจึงต้องเป็นกริยาแท้ และ results เป็นพหูพจน์ จึงใช้ show"
+        },
+        {
+          "sentence": "______ the report twice, Mr. Lee submitted it to his supervisor.",
+          "choices": [
+            "Checks",
+            "Is checking",
+            "Has checked",
+            "Having checked"
+          ],
+          "answer": 3,
+          "why": "submitted คือกริยาแท้ของประโยคแล้ว และไม่มีคำเชื่อม ส่วนหน้าคอมมาจึงต้องเป็นกริยาไม่แท้ Having checked บอกว่าตรวจเสร็จก่อนแล้วจึงส่ง ตัวเลือกอื่นเป็นกริยาแท้ทั้งหมด"
+        },
+        {
+          "sentence": "The factory ______ its output by 20 percent since last year.",
+          "choices": [
+            "to increase",
+            "increasing",
+            "has increased",
+            "having increased"
+          ],
+          "answer": 2,
+          "why": "ประโยคยังไม่มีกริยาแท้ ตัด increasing, to increase และ having increased ทิ้ง เหลือ has increased ซึ่งตรงกับ since last year ที่ต้องใช้ Present Perfect"
+        },
+        {
+          "sentence": "Employees who ______ overtime will receive additional pay.",
+          "choices": [
+            "to work",
+            "working",
+            "works",
+            "work"
+          ],
+          "answer": 3,
+          "why": "who เปิดประโยคย่อยใหม่ ประโยคย่อยนี้ต้องมีกริยาแท้ของตัวเอง จึงตัด working และ to work ทิ้ง และ who แทน employees ซึ่งเป็นพหูพจน์ จึงใช้ work ไม่ใช่ works"
+        },
+        {
+          "sentence": "The printer on the third floor ______ repaired yesterday afternoon.",
+          "choices": [
+            "being",
+            "to be",
+            "having been",
+            "was"
+          ],
+          "answer": 3,
+          "why": "ประโยคยังไม่มีกริยาแท้ repaired อย่างเดียวบอก tense ไม่ได้ จึงต้องมี be ที่เป็นกริยาแท้ และ yesterday เป็นอดีต จึงเป็น was repaired"
+        },
+        {
+          "sentence": "The company plans to hire staff ______ fluent in both English and Spanish.",
+          "choices": [
+            "is",
+            "are",
+            "who are",
+            "they are"
+          ],
+          "answer": 2,
+          "why": "plans เป็นกริยาแท้แล้ว ถ้าจะเพิ่มกริยาแท้ are ต้องมีคำเชื่อม who จึงเป็นตัวเลือกเดียวที่มีทั้งคำเชื่อมและกริยาแท้ ส่วน are, is และ they are จะทำให้มีกริยาแท้สองตัวโดยไม่มีตัวเชื่อม"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "parts": [
+        5
+      ],
+      "title": "ฝึกรวม Part 5: 20 ข้อ แยกแบบก่อนตอบ",
+      "explain": [
+        {
+          "heading": "วิธีใช้บทนี้",
+          "body": "บทนี้ไม่มีเนื้อหาใหม่ เป็นสนามฝึกรวมหลังจากเรียนบท \"แผนที่ Part 5\" และ \"กริยาแท้\" แล้ว\n\n20 ข้อนี้คละกันทั้ง 8 แบบ เหมือนข้อสอบจริงที่ไม่บอกว่าข้อไหนถามอะไร\n\nทุกข้อให้ทำแบบนี้\n1 ดูตัวเลือกก่อน แล้วพูดในใจว่าเป็นแบบไหน\n2 ใช้กฎของแบบนั้นตอบ\n3 ตรวจแล้วอ่านคำอธิบาย ซึ่งจะบอกไว้ด้วยว่าข้อนั้นเป็นแบบไหน\n\nข้อที่ผิด ให้ดูว่าผิดเพราะอะไร\n• แยกแบบผิด → กลับไปอ่านบท \"แผนที่ Part 5\" อีกรอบ\n• แยกแบบถูกแต่ไม่รู้กฎ → กลับไปเรียนบทของแบบนั้น\n\nจับเวลาด้วย 20 ข้อควรใช้ไม่เกิน 8 นาที คือข้อละ 24 วินาที เท่าจังหวะข้อสอบจริง ถ้าช้ากว่านั้นมาก มักแปลว่ายังแปลทั้งประโยคอยู่ในข้อที่ไม่จำเป็นต้องแปล"
+        }
+      ],
+      "practice": [
+        {
+          "sentence": "The new software allows staff to process orders more ______.",
+          "choices": [
+            "efficiently",
+            "efficiency",
+            "efficient",
+            "efficiencies"
+          ],
+          "answer": 0,
+          "why": "แบบที่ 1 รูปแบบคำ — ช่องว่างขยายกริยา process จึงต้องเป็นกริยาวิเศษณ์ efficient เป็นคุณศัพท์ ขยายกริยาไม่ได้"
+        },
+        {
+          "sentence": "We appreciate your ______ in completing the customer survey.",
+          "choices": [
+            "participate",
+            "participated",
+            "participant",
+            "participation"
+          ],
+          "answer": 3,
+          "why": "แบบที่ 1 รูปแบบคำ — หลัง your ต้องเป็นคำนาม participation แปลว่าการมีส่วนร่วม ส่วน participant ก็เป็นคำนามแต่แปลว่าผู้เข้าร่วม ซึ่งไม่เข้ากับ in completing"
+        },
+        {
+          "sentence": "The hotel's guest rooms are ______ decorated and fully equipped.",
+          "choices": [
+            "attractive",
+            "attraction",
+            "attract",
+            "attractively"
+          ],
+          "answer": 3,
+          "why": "แบบที่ 1 รูปแบบคำ — ช่องว่างอยู่หน้า decorated ซึ่งเป็นคุณศัพท์ (V3) คำที่ขยายคุณศัพท์ต้องเป็นกริยาวิเศษณ์ จึงเป็น attractively"
+        },
+        {
+          "sentence": "The conference organizers ______ all speakers by e-mail last week.",
+          "choices": [
+            "notified",
+            "having notified",
+            "notifying",
+            "to notify"
+          ],
+          "answer": 0,
+          "why": "แบบที่ 2 กริยาแท้ — ประโยคยังไม่มีกริยาแท้ ตัด to notify, notifying และ having notified ทิ้งทันที เหลือ notified ซึ่งตรงกับ last week"
+        },
+        {
+          "sentence": "The board agreed ______ the budget proposal at its next meeting.",
+          "choices": [
+            "approve",
+            "approving",
+            "approved",
+            "to approve"
+          ],
+          "answer": 3,
+          "why": "แบบที่ 2 กริยาแท้ — agreed เป็นกริยาแท้แล้ว ช่องว่างห้ามเป็นกริยาแท้ และ agree ตามด้วย to + V"
+        },
+        {
+          "sentence": "Each of the new employees ______ a laptop on the first day.",
+          "choices": [
+            "have received",
+            "receive",
+            "receives",
+            "receiving"
+          ],
+          "answer": 2,
+          "why": "แบบที่ 3 Tense / ประธาน-กริยา — Each of + พหูพจน์ ยังนับเป็นเอกพจน์ จึงใช้ receives ส่วน receiving เป็นกริยาไม่แท้ และ have received เป็นรูปพหูพจน์"
+        },
+        {
+          "sentence": "Mr. Carter ______ in the sales department since 2019.",
+          "choices": [
+            "works",
+            "worked",
+            "is working",
+            "has worked"
+          ],
+          "answer": 3,
+          "why": "แบบที่ 3 Tense / ประธาน-กริยา — since 2019 บอกช่วงเวลาต่อเนื่องจากอดีตถึงปัจจุบัน ต้องใช้ Present Perfect"
+        },
+        {
+          "sentence": "Neither the director nor the managers ______ able to attend the meeting yesterday.",
+          "choices": [
+            "was",
+            "is",
+            "were",
+            "are"
+          ],
+          "answer": 2,
+          "why": "แบบที่ 3 Tense / ประธาน-กริยา — Neither A nor B ผันตามคำที่อยู่ใกล้กริยาที่สุด คือ the managers ซึ่งเป็นพหูพจน์ และ yesterday เป็นอดีต จึงเป็น were"
+        },
+        {
+          "sentence": "The annual report ______ to all shareholders next Monday.",
+          "choices": [
+            "will send",
+            "will be sent",
+            "sending",
+            "has sent"
+          ],
+          "answer": 1,
+          "why": "แบบที่ 4 Passive — รายงานถูกส่ง ไม่ได้ส่งเอง และหลังช่องว่างไม่มีกรรมตามมา จึงเป็น passive และ next Monday เป็นอนาคต"
+        },
+        {
+          "sentence": "The seminar was ______ by more than two hundred participants.",
+          "choices": [
+            "attended",
+            "attends",
+            "attend",
+            "attending"
+          ],
+          "answer": 0,
+          "why": "แบบที่ 4 Passive — was + ช่องว่าง + by คือโครงสร้าง passive ซึ่งต้องใช้ V3 จึงเป็น attended"
+        },
+        {
+          "sentence": "Please return the signed contract ______ Friday, June 12.",
+          "choices": [
+            "until",
+            "since",
+            "by",
+            "at"
+          ],
+          "answer": 2,
+          "why": "แบบที่ 5 บุพบท — return คือส่งคืนครั้งเดียวที่ต้องทำให้เสร็จ จึงใช้ by ซึ่งแปลว่าภายในหรือไม่เกิน ส่วน until ใช้กับสิ่งที่ทำต่อเนื่อง"
+        },
+        {
+          "sentence": "The museum is open ______ 9 A.M. to 5 P.M. every day.",
+          "choices": [
+            "from",
+            "since",
+            "by",
+            "at"
+          ],
+          "answer": 0,
+          "why": "แบบที่ 5 บุพบท — หลังช่องว่างมีคู่ ... to ... บอกจุดเริ่มถึงจุดสิ้นสุด จึงเป็น from ... to"
+        },
+        {
+          "sentence": "The shipment is expected to arrive ______ three business days.",
+          "choices": [
+            "within",
+            "until",
+            "during",
+            "since"
+          ],
+          "answer": 0,
+          "why": "แบบที่ 5 บุพบท — within + ระยะเวลา แปลว่าภายในระยะเวลานั้น during ต้องตามด้วยชื่อช่วงเวลา ไม่ใช่จำนวนวัน"
+        },
+        {
+          "sentence": "______ the heavy rain, the outdoor concert went on as scheduled.",
+          "choices": [
+            "However",
+            "Although",
+            "Because",
+            "Despite"
+          ],
+          "answer": 3,
+          "why": "แบบที่ 6 คำเชื่อมหรือบุพบท — หลังช่องว่างคือ the heavy rain ซึ่งเป็นคำนาม ไม่มีกริยาแท้ จึงต้องใช้บุพบท Despite ส่วน Although และ Because ต้องตามด้วยประโยคเต็ม"
+        },
+        {
+          "sentence": "The store will close early today ______ the staff can attend a training session.",
+          "choices": [
+            "due to",
+            "so that",
+            "because of",
+            "in order to"
+          ],
+          "answer": 1,
+          "why": "แบบที่ 6 คำเชื่อมหรือบุพบท — หลังช่องว่างคือประโยคเต็ม the staff can attend จึงต้องใช้คำเชื่อม so that ส่วน because of และ due to ต้องตามด้วยคำนาม และ in order to ต้องตามด้วยกริยาทันที"
+        },
+        {
+          "sentence": "Ms. Rivera prepared all of the presentation slides ______.",
+          "choices": [
+            "herself",
+            "her",
+            "she",
+            "hers"
+          ],
+          "answer": 0,
+          "why": "แบบที่ 7 สรรพนาม — ประโยคมีประธานและกรรมครบแล้ว ช่องว่างท้ายประโยคจึงเป็นสรรพนามสะท้อนกลับที่เน้นว่าทำเอง"
+        },
+        {
+          "sentence": "Please send your comments to Mr. Diaz or ______ assistant.",
+          "choices": [
+            "himself",
+            "him",
+            "his",
+            "he"
+          ],
+          "answer": 2,
+          "why": "แบบที่ 7 สรรพนาม — ช่องว่างอยู่หน้าคำนาม assistant จึงต้องเป็นรูปแสดงความเป็นเจ้าของ his"
+        },
+        {
+          "sentence": "All employees must ______ with the updated security policy.",
+          "choices": [
+            "respect",
+            "comply",
+            "follow",
+            "obey"
+          ],
+          "answer": 1,
+          "why": "แบบที่ 8 คำศัพท์ — ทั้งสี่คำความหมายใกล้กัน แต่คำที่ตามด้วย with ได้มีแค่ comply ตัวตัดสินคือบุพบทที่ตามมา ไม่ใช่คำแปล"
+        },
+        {
+          "sentence": "The company ______ a significant increase in online sales last quarter.",
+          "choices": [
+            "reported",
+            "told",
+            "spoke",
+            "said"
+          ],
+          "answer": 0,
+          "why": "แบบที่ 8 คำศัพท์ — report ตามด้วยสิ่งที่รายงานได้ทันที ส่วน tell ต้องตามด้วยคน say ไม่ใช้กับตัวเลข และ speak ไม่ตามด้วยกรรมแบบนี้"
+        },
+        {
+          "sentence": "Please ______ the attached form and return it by Friday.",
+          "choices": [
+            "conclude",
+            "expire",
+            "complete",
+            "terminate"
+          ],
+          "answer": 2,
+          "why": "แบบที่ 8 คำศัพท์ — คู่คำที่ตายตัวคือ complete a form แปลว่ากรอกแบบฟอร์มให้ครบ conclude ใช้กับการประชุมหรือข้อตกลง terminate ใช้กับสัญญา และ expire ไม่มีกรรม"
+        }
       ]
     }
   ]
